@@ -1,0 +1,20 @@
+- text: Home
+  url: /
+- text: 課題1
+  subitems:
+    - text: 問題1-1
+      url: /kadai1/p11.html
+    - text: 問題1-2
+      url: /kadai1/p12.html
+    - text: 問題1-3
+      url: /kadai1/p13.html
+    - text: 問題1-4
+      url: /kadai1/p14.html
+    - text: 問題1-5
+      url: /kadai1/p15.html
+    - text: 問題1-6
+      url: /kadai1/p16.html
+    - text: 問題1-7
+      url: /kadai1/p17.html
+- text: About
+  url: /about/
