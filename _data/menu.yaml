@@ -1,5 +1,3 @@
-- text: Home
-  url: /
 - text: 課題1
   subitems:
     - text: 問題1-1
@@ -16,5 +14,7 @@
       url: /kadai1/p16.html
     - text: 問題1-7
       url: /kadai1/p17.html
-- text: About
-  url: /about/
+- text: シラバス
+  url: /about.html
+- text: 日程
+  url: /schedule.html
