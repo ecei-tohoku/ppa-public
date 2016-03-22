@@ -2,7 +2,6 @@ import logging as lg
 import os
 import subprocess
 import tempfile
-import timeout
 from config import *
 
 def strip_easysandbox(s):
@@ -10,7 +9,7 @@ def strip_easysandbox(s):
     if s.startswith(magic):
         return s[len(magic):]
 
-class JudgeC:
+class ExecuteC:
     def __init__(self, src, prefix='tmp'):
         """ Construct an instance for compiling and running a code.
 
@@ -47,14 +46,15 @@ class JudgeC:
         """ Compile the source code.
 
         Returns:
-            str: Empty string if succeeded, error message otherwise.
+            int: Return value from the compiler.
+            str: Error message.
 
         """
         cmd = COMPILE.format(src=self.src, bin=self.bin)
         p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdoutadta, stderrdata = p.communicate()
         lg.debug('Compile ({}): {}'.format(p.returncode, cmd))
-        return stderrdata if p.returncode != 0 else ''
+        return p.returncode, stderrdata
 
     def run(self, argv='', fi=None, timeout=5.0):
         """ Run the program.
@@ -74,15 +74,16 @@ class JudgeC:
             p = subprocess.Popen(cmd, shell=True, stdin=fi, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             stdoutdata, stderrdata = p.communicate(timeout=timeout)
             lg.debug('Run ({}): {}'.format(p.returncode, cmd))
-            return type('Output', (), dict(
-                returncode=p.returncode,
-                stdout=strip_easysandbox(stdoutdata.decode(ENCODING, 'ignore')),
-                stderr=strip_easysandbox(stderrdata.decode(ENCODING, 'ignore'))
-                ))
+            return (
+                '',
+                p.returncode,
+                strip_easysandbox(stdoutdata.decode(ENCODING, 'ignore')),
+                strip_easysandbox(stderrdata.decode(ENCODING, 'ignore')),
+                )
 
         except subprocess.TimeoutExpired:
             lg.debug('Terminated with timeout: {}'.format(cmd))
-            return None
+            return ('timeout', -1, '', '')
             
 if __name__ == '__main__':
     logger = lg.getLogger()
