@@ -4,7 +4,21 @@
 
 https://github.com/daveho/EasySandbox
 
-```
-$ git clone https://github.com/daveho/EasySandbox.git
+EasySandbox is a library for sandboxing untrusted executables on Linux, introducing the following limitations when running executables:
+
++ They cannot make any system calls except exit(), sigreturn(), read() and write() to already-open file descriptors ([seccomp](https://en.wikipedia.org/wiki/Seccomp)). In other words, they cannot use fopen() nor open() but only STDIN, STDOUT, STDERR for data exchange.
++ They can allocate memory up to a fixed amount (default: 8MB).
+
+We do not have to change the source code, but can force the limitations to executables.
+
+Fetch, compile, and test the source code.
 
 ```
+$ cd ~/install/
+$ git clone https://github.com/daveho/EasySandbox.git
+$ cd EasySandbox/
+$ make
+$ make runtests
+```
+
+The judge server requires the shared library `EasySandbox.so` for sandboxing. 
