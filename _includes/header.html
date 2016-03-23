@@ -21,7 +21,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.text }} <span class="caret"></span></a>
               <ul class="dropdown-menu">
               {% for subitem in item.subitems %}
-              <li><a href="{{ subitem.url | prepends: site.baseurl }}">{{ subitem.text }}</a></li>
+              <li><a href="{{ subitem.url | prepend: site.baseurl }}">{{ subitem.text }}</a></li>
               {% endfor %}
               </ul>
             </li>
