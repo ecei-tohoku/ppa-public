@@ -138,6 +138,7 @@ int main(void) {
 計算機室のマシン(UNIX)にはEmacs,Vim,geditなどがインストールされていますが，当然Windowsにはこれらのソフトウェアは付属していません．
 
 幸い，EmacsとVimに関してはWindows版がありますので，これらをインストールすれば良いでしょう．
+
 * [NTEmacs / Emacs for Windows](http://cha.la.coocan.jp/doc/NTEmacs.html)
 * [Vim - KaoriYa](http://www.kaoriya.net/software/vim/)
 
