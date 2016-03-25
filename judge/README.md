@@ -1,5 +1,20 @@
 ## Installation
 
+### Python
+
++ Python 3.3 or later
++ MongoDB 3.0 or later
++ Redis
+
+pip install
+
+```
+$ pip install Flask
+$ pip install flask-login
+$ pip install pymongo
+$ pip install pyyaml
+```
+
 ### EasySandbox
 
 https://github.com/daveho/EasySandbox
