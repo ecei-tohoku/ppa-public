@@ -7,6 +7,7 @@ import subprocess
 from flask import Flask, abort, jsonify, render_template, redirect, url_for, request, flash
 from flask.ext.login import LoginManager, login_user, logout_user, current_user, login_required
 from database import Database
+import cmdtasks
 
 #context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 #context.load_cert_chain('server.crt', 'server.key')
@@ -101,6 +102,7 @@ def home():
     db = getdb()
     userid = current_user.get_id()
     tasks = db.get_tasks_for_user(userid)
+    print(tasks)
     app.logger.info('Home: @%s', userid)
     return render_template('home.html', tasks=tasks)
 
@@ -118,7 +120,8 @@ def submit(task_id):
             objectid = db.register_submission(userid, task_id, source)
             task = db.get_task(task_id)
             cmd = 'python judge.py -d ppa2016 -c result -i {} {}'.format(str(objectid), task['judge'])
-            retcode = subprocess.call(cmd, shell=True)
+            cmdtasks.system.delay(cmd)
+            #retcode = subprocess.call(cmd, shell=True)
             return redirect(url_for('result', taskid=task_id, _external=True))
 
     return redirect(url_for('logout', _external=True))
@@ -127,6 +130,7 @@ def render_view(userid, taskid, mode=''):
     db = getdb()
     task = db.get_task(taskid)
     result = db.get_result(userid, taskid)
+    print(result)
     app.logger.info('Result %s: @%s #%s', mode, userid, taskid)
     return render_template(
         'result.html',

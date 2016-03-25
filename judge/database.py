@@ -48,6 +48,7 @@ class Database:
     def get_tasks_for_user(self, user):
         tasks = []
         for row in self.db.task.find():
+            row['submission'] = self.get_result(user, row['id'])
             tasks.append(row)
         return tasks
 
@@ -57,7 +58,7 @@ class Database:
             'task': taskid,
             'source': source,
             'timestamp': now(),
-            'completed': False
+            'status': 'queue'
             })
         return d.inserted_id if d.acknowledged else None
 
@@ -69,5 +70,5 @@ class Database:
 
     def get_result(self, userid, taskid):
         rows = self.db.submission.find(
-            {'user': userid, 'task': taskid, 'completed': True}).sort('timestamp', -1).limit(1)
-        return rows[0] if rows else None
+            {'user': userid, 'task': taskid}).sort('timestamp', -1).limit(1)
+        return rows[0] if rows.count() >= 1 else None

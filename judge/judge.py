@@ -73,6 +73,7 @@ def test(S, C):
             R['timestamp'] = now()
             if status == 'timeout':
                 R['status'] = 'timeout'
+                return
             else:
                 R['returncode'] = returncode
                 R['stdout'] = stdout
@@ -143,7 +144,6 @@ if __name__ == '__main__':
         db = database.Database()
         S = db.get_submission(args.objectid)
         test(S, args.argvs)
-        S['completed'] = True
         db.replace_submission(args.objectid, S)
     else:
         S = {'source': sys.stdin.read()}
