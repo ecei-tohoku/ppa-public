@@ -54,7 +54,7 @@ class ExecuteC:
         p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdoutadta, stderrdata = p.communicate()
         lg.debug('Compile ({}): {}'.format(p.returncode, cmd))
-        return p.returncode, stderrdata
+        return cmd, p.returncode, stderrdata.decode('utf-8')
 
     def run(self, argv='', fi=None, timeout=5.0):
         """ Run the program.

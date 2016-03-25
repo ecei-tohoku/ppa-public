@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>問題</th>
+      <th>状態</th>
+      <th>提出</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for task in tasks %}
+  <tr>
+    <td><a href="{{ task.url }}">{{ task.title }}</a></td>
+    {% if task.status == 'ok' %}
+    <td class="text-success">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      成功
+    </td>
+    {% elif task.status == 'fail' %}
+    <td class="text-danger">
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      失敗
+    </td>
+    {% elif task.status == 'queue' %}
+    <td class="text-info">
+      <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+      評価中
+    </td>
+    {% else %}
+    <td class="text-warning">
+      <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+      未提出
+    </td>
+    {% endif %}
+    <td>
+      <form action="/submit/{{ task.id }}" method="POST" enctype="multipart/form-data">
+	<input type="file" name="source"></input>
+	<input type="submit"></input>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

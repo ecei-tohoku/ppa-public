@@ -38,8 +38,9 @@ def test(S, C):
     
     # Compile the code.
     E = execute_c.ExecuteC(S['source'])
-    returncode, message = E.compile()
+    cmd, returncode, message = E.compile()
     S['compile'] = dict(
+        cmd=cmd,
         returncode=returncode,
         message=message,
         timestamp=now()
@@ -59,7 +60,7 @@ def test(S, C):
         # Read the command argument.
         try:
             with open(fargv) as fi:
-                R['argv'] = fi.readline()
+                R['argv'] = fi.readline().strip('\n')
         except EnvironmentError:
             S['status'] = 'internal error'
             S['note'] = 'Failed to read the command-line argument: {}'.format(fargv)
@@ -120,19 +121,31 @@ if __name__ == '__main__':
         description='Test a source code with test cases.'
         )
     parser.add_argument(
-        '--user', '-u',
-        help='specify a user identifier'
+        '-d', '--database', type=str,
+        help='specify the database name'
         )
     parser.add_argument(
-        '--task', '-t',
-        help='specify a task identifier',
+        '-c', '--collection', type=str,
+        help='specify the collection name'
         )
     parser.add_argument(
-        'commands', metavar='N', type=str, nargs='+',
-        help='a command-line for running the code'
+        '-i', '--objectid', type=str,
+        help='specify the ObjectId for the submission'
+        )
+    parser.add_argument(
+        'argvs', metavar='N', type=str, nargs='+',
+        help='a command-line argument for running the code'
         )
     args = parser.parse_args()
 
-    S = dict(source=sys.stdin.read())
-    test(S, args.commands)
-    print(S)
+    if args.database and args.collection:
+        import database
+        db = database.Database()
+        S = db.get_submission(args.objectid)
+        test(S, args.argvs)
+        S['completed'] = True
+        db.replace_submission(args.objectid, S)
+    else:
+        S = {'source': sys.stdin.read()}
+        test(S, args.argvs)
+        print(S)

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %} - {{ current_user.get_id() }} - {{ task.id }}{% endblock %}
+
+{% block content %}
+
+<h1>
+  {% if result.status == 'ok' %}<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>{% else %}<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>{% endif %}
+  {{ current_user.get_id() }} - {{ task.id }}
+</h1>
+
+<h2>ソース</h2>
+<pre class="prettyprint lang-c linenums">{{ result.source }}</pre>
+
+{% if result.compile.returncode != 0 %}
+<h2>コンパイル</h2>
+<div class="panel panel-danger">
+  <div class="panel-heading">ERROR (return code: {{ result.compile.returncode }})</div>
+  <div class="panel-body"><pre>$ {{ result.compile.cmd }}
+{{ result.compile.message }}</pre></div>
+</div>
+{% endif %}
+
+<h2>テスト</h2>
+
+{% for test in result.tests %}
+
+{% if test.status == 'ok' %}
+<div class="panel panel-success">
+{% else %}
+<div class="panel panel-danger">
+{% endif %}
+
+<div class="panel-heading">
+  Case {{ test.cid }}: {% if test.status == 'ok' %}OK{% else %}Failed{% endif %} (return code: {{ test.returncode }})
+</div>
+<div class="panel-body">
+  {% if test.argv %}ARGV<pre>{{ test.argv }}</pre>{% endif %}
+  {% if test.stdin %}STDIN<pre class="io">{{ test.stdin }}</pre>{% endif %}
+  {% if test.stdout %}STDOUT<pre class="io">{{ test.stdout }}</pre>{% endif %}
+  {% if test.stderr %}STDERR<pre class="io">{{ test.stderr }}</pre>{% endif %}
+</div>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
