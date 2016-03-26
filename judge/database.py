@@ -30,7 +30,7 @@ submission:
 + compile.message: the error message (STDERR) from the compiler
 + compile.timestamp: the timestamp when compiling the code
 + tests[].cid: test case ID
-+ tests[].status: status in {ok, fail, error}
++ tests[].status: status in {ok, fail, timeout, error}
 + tests[].message: message for the status
 + tests[].timestamp: the timestamp when running the test case
 + tests[].argv: the command-line argument for the test case
@@ -45,6 +45,7 @@ import hashlib
 import json
 import pymongo
 from bson.objectid import ObjectId
+from config import *
 
 def pwhash(x):
     return hashlib.sha256(x).hexdigest()
@@ -53,23 +54,23 @@ def now():
     return str(datetime.datetime.now())
 
 class Database:
-    def __init__(self, uri='mongodb://localhost:27017/', dbname='ppa2016'):
+    def __init__(self, uri=DBURI, dbname=DBNAME):
         self.client = pymongo.MongoClient(uri)
         self.db = self.client[dbname]
 
     def add_user(self, user, password, group, name):
         self.db.user.insert_one(
-            {'id': user, 'password': pwhash(password.encode('utf-8')), 'group': group, 'name': name, 'timestamp': now()}
+            {'id': user, 'password': pwhash(password.encode(ENCODING)), 'group': group, 'name': name, 'timestamp': now()}
             )
 
     def update_password(self, user, oldpw, newpw):
         return self.db.user.update_one(
-            {'id': user, 'password': pwhash(oldpw.encode('utf-8'))},
-            {'$set': {'password': pwhash(newpw.encode('utf-8'))}}
+            {'id': user, 'password': pwhash(oldpw.encode(ENCODING))},
+            {'$set': {'password': pwhash(newpw.encode(ENCODING))}}
             ).modified_count == 1
 
     def authenticate_user(self, user, password):
-        return self.db.user.find_one({'id': user, 'password': pwhash(password.encode('utf-8'))})
+             return self.db.user.find_one({'id': user, 'password': pwhash(password.encode(ENCODING))})
 
     def get_user(self, user):
         return self.db.user.find_one({'id': user})

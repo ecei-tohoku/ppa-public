@@ -1,0 +1,34 @@
+- id: p11
+  title: 和差算
+  url: http://ecei-tohoku.github.io/ppa/kadai1/p11.html
+  judge: task/p11/*.argv
+
+- id: p12
+  title: コラッツの問題
+  url: http://ecei-tohoku.github.io/ppa/kadai1/p12.html
+  judge: task/p12/*.argv
+
+- id: p13
+  title: トリム平均
+  url: http://ecei-tohoku.github.io/ppa/kadai1/p13.html
+  judge: task/p13/*.argv
+
+- id: p14
+  title: 単純移動平均
+  url: http://ecei-tohoku.github.io/ppa/kadai1/p14.html
+  judge: task/p14/*.argv
+
+- id: p15
+  title: Luhnアルゴリズム
+  url: http://ecei-tohoku.github.io/ppa/kadai1/p15.html
+  judge: task/p15/*.argv
+
+- id: p16
+  title: カプレカー変換
+  url: http://ecei-tohoku.github.io/ppa/kadai1/p16.html
+  judge: task/p16/*.argv
+
+- id: p17
+  title: 三目並べ
+  url: http://ecei-tohoku.github.io/ppa/kadai1/p17.html
+  judge: task/p17/*.argv
