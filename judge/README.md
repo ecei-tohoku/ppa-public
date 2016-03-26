@@ -37,3 +37,16 @@ $ make runtests
 ```
 
 The judge server requires the shared library `EasySandbox.so` for sandboxing. 
+
+## Starting the server
+
+Starting a job queue for making judges.
+
+```
+$ celery -A cmdtasks worker --loglevel=info
+```
+
+Starting the Web server.
+```
+$ python server.py
+```
