@@ -81,6 +81,9 @@ class Database:
     def get_user(self, user):
         return self.db.user.find_one({'id': user})
 
+    def get_user_list(self, group):
+        return self.db.user.find({'group': group})
+
     def get_users(self):
         return self.db.find()
 
@@ -93,6 +96,9 @@ class Database:
 
     def get_task(self, tid):
         return self.db.task.find_one({'id': tid})
+
+    def get_task_list(self):
+        return self.db.task.find()
 
     def get_tasks_for_user(self, user):
         tasks = []

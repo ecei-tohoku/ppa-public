@@ -5,6 +5,7 @@ Copyright (c) 2016  Naoaki Okazaki.
 """
 
 import argparse
+import collections
 import logging
 from logging.handlers import RotatingFileHandler
 import ssl
@@ -109,7 +110,6 @@ def home():
     db = getdb()
     userid = current_user.get_id()
     tasks = db.get_tasks_for_user(userid)
-    print(tasks)
     app.logger.info('Home: @%s', userid)
     return render_template('home.html', tasks=tasks)
 
@@ -152,6 +152,52 @@ def result(taskid):
 @login_required
 def report(taskid):
     return render_view(current_user.get_id(), taskid, 'report')
+
+@app.route('/admin/user/<userid>')
+@login_required
+def admin_userhome(userid):
+    if current_user.get_group() != 'admin':
+        app.logger.warn('Possible attack to admin view: %s for %s', userid, taskid)
+        abort(404)
+    db = getdb()
+    adminuserid = current_user.get_id()
+    tasks = db.get_tasks_for_user(userid)
+    app.logger.info('Home (admin: @%s): @%s', adminuserid, userid)
+    return render_template('home.html', tasks=tasks)
+
+@app.route('/admin/group/<groupid>')
+@login_required
+def admin_group(groupid):
+    if current_user.get_group() != 'admin':
+        app.logger.warn('Possible attack to admin group: %s', current_user.get_id())
+        abort(404)
+    db = getdb()
+    tasks = list(db.get_task_list())
+    for task in tasks:
+        task['num_completed'] = 0
+    print(list(tasks))
+    users = db.get_user_list(groupid)
+    U = collections.OrderedDict((u['id'], u) for u in users)
+    T = collections.OrderedDict((t['id'], t) for t in tasks)
+    for userid, user in U.items():
+        user['progress'] = collections.OrderedDict()
+        for task in tasks:
+            taskid = task['id']
+            result = db.get_result(userid, taskid)
+            user['progress'][taskid] = result
+            T[taskid]['num_completed'] += int(0)
+        user['notice'] = '' # Empty for the time being.    
+    app.logger.info('%s viewed the group list %s', current_user.get_id(), groupid)
+    return render_template('progress.html', users=U, tasks=tasks)
+
+@app.route('/admin/view/<userid>/<taskid>')
+@login_required
+def admin_view(userid, taskid):
+    if current_user.get_group() != 'admin':
+        app.logger.warn('Possible attack to admin view: %s for %s', userid, taskid)
+        abort(404)
+    app.logger.info('%s viewed the result of %s for %s', current_user.get_id(), userid, taskid)
+    return render_view(userid, taskid)
 
 @app.route('/admin/add-user', methods=['GET','POST'])
 @login_required
