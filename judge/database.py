@@ -67,7 +67,7 @@ class Database:
         return self.db.user.update_one(
             {'id': user, 'password': pwhash(oldpw.encode(ENCODING))},
             {'$set': {'password': pwhash(newpw.encode(ENCODING))}}
-            ).modified_count == 1
+            ).matched_count == 1
 
     def authenticate_user(self, user, password):
              return self.db.user.find_one({'id': user, 'password': pwhash(password.encode(ENCODING))})

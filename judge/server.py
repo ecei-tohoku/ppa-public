@@ -87,12 +87,13 @@ def logout():
 @app.route('/account', methods=['GET','POST'])
 @login_required
 def account():
+    userid = current_user.get_id()
+
     if request.method == 'GET':
         app.logger.info('Account: @%s', userid)
         return render_template('account.html')
 
     db = getdb()
-    userid = current_user.get_id()
     curpass = request.form['curpass']
     newpass = request.form['newpass']
     if not db.update_password(userid, curpass, newpass):
@@ -125,7 +126,7 @@ def submit(task_id):
             db = getdb()
             objectid = db.register_submission(userid, task_id, source)
             task = db.get_task(task_id)
-            cmd = 'python judge.py -d ppa2016 -c result -i {} {}'.format(str(objectid), task['judge'])
+            cmd = 'python judge.py -i {} {}'.format(str(objectid), task['judge'])
             cmdtasks.system.delay(cmd)
             #retcode = subprocess.call(cmd, shell=True)
             return redirect(url_for('result', taskid=task_id, _external=True))

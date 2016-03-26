@@ -85,7 +85,7 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ current_user.get_id() }}<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="/account">設定</a></li>
+                <li><a href="/account">パスワードの変更</a></li>
                 <li><a href="/logout">ログアウト</a></li>
               </ul>
             </li>
@@ -103,6 +103,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/static/bootstrap/js/validator.min.js"></script>
     {% block js %}
     {% endblock %}
   </body>

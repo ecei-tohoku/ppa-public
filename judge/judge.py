@@ -127,14 +127,6 @@ if __name__ == '__main__':
         description='Test a source code with test cases.'
         )
     parser.add_argument(
-        '-d', '--database', type=str,
-        help='specify the database name'
-        )
-    parser.add_argument(
-        '-c', '--collection', type=str,
-        help='specify the collection name'
-        )
-    parser.add_argument(
         '-i', '--objectid', type=str,
         help='specify the ObjectId for the submission'
         )
