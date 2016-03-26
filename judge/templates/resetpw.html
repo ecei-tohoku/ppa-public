@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="form-signin-heading">パスワードのリセット</h2>
+<form data-toggle="validator" method="post" action="/admin/reset-user">
+  {% if message == 'success' %}
+  <div class="alert alert-success" role="alert">
+    ユーザのパスワードを変更しました．
+  </div>
+  {% endif %}
+  {% if message == 'unknown' %}
+  <div class="alert alert-warning" role="alert">
+    存在しないユーザのパスワードを変更しようとしました．
+  </div>
+  {% endif %}
+  <div class="form-group">
+    <label for="inputUserID" class="sr-only">ユーザID</label>
+    <input name="userid" type="text" id="inputUserID" class="form-control" placeholder="パスワードを変更するユーザのID" required>
+  </div>
+  <div class="form-group">
+    <label for="inputNewPassword" class="sr-only">パスワード</label>
+    <input name="newpass" type="password" id="inputNewPassword" data-minlength="6" class="form-control" placeholder="パスワード" required>
+    <span class="help-block">6文字以上</span>
+  </div>
+  <div class="form-group">
+    <label for="inputNewPasswordConfirm" class="sr-only">パスワード（確認用）</label>
+    <input name="newpass2" type="password" id="inputNewPasswordConfirm" class="form-control" data-match="#inputNewPassword" data-match-error="パスワードが違います" placeholder="パスワード（確認）" required>
+    <div class="help-block with-errors"></div>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">変更</button>
+</form>
+{% endblock %}

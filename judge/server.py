@@ -184,18 +184,18 @@ def admin_reset_user():
         abort(404)
 
     if request.method == 'GET':
-        return render_template('resetpass.html')
+        return render_template('resetpw.html')
 
     db = getdb()
     userid = request.form['userid']
     newpass = request.form['newpass']
     if not db.get_user(userid):
         app.logger.warn('reset-user: the user does not exist: %s', userid)
-        return render_template('resetpass.html', message='unknown')
+        return render_template('resetpw.html', message='unknown')
 
     db.reset_password(userid, newpass)
     app.logger.info('reset-user: success: %s', userid)
-    return render_template('resetpass.html', message='success')
+    return render_template('resetpw.html', message='success')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
