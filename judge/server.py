@@ -60,7 +60,7 @@ def login():
 
     db = getdb()
     username = request.form['username']
-    password = request.form['password'].encode('utf-8')
+    password = request.form['password']
     user = db.authenticate_user(username, password)
     if not user:
         app.logger.info('Failed to login: @%s', username)
@@ -87,8 +87,8 @@ def account():
 
     db = getdb()
     userid = current_user.get_id()
-    curpass = request.form['curpass'].encode('utf-8')
-    newpass = request.form['newpass'].encode('utf-8')
+    curpass = request.form['curpass']
+    newpass = request.form['newpass']
     if not db.update_password(userid, curpass, newpass):
         app.logger.info('Failed to change the password: @%s', userid)
         return render_template('account.html', message='incorrect')

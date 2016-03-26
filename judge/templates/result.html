@@ -11,6 +11,8 @@
   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
   {% elif result.status == 'fail' %}
   <span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span>
+  {% elif result.status == 'error' %}
+  <span class="glyphicon glyphicon glyphicon-alert" aria-hidden="true"></span>
   {% elif result.status == 'queue' %}
   <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
   {% endif %}
@@ -19,8 +21,12 @@
 
 {% if not result %}
 <div class="alert alert-warning" role="alert">ソースコードが未提出です．</div>
+{% elif result.status == 'fail' %}
+<div class="alert alert-danger" role="alert">テストで不合格となりました ({{ result.passed }} / {{ result.tests | count }})．</div>
+{% elif result.status == 'error' %}
+<div class="alert alert-warning" role="alert">内部エラーが発生しました．</div>
 {% elif result.status == 'queue' %}
-<div class="alert alert-info" role="alert">テスト中です．</div>
+<div class="alert alert-info" role="alert">テスト中です (submitted at {{ result.timestamp }})．</div>
 {% endif %}
 
 {% if result %}
@@ -47,7 +53,14 @@
 {% endif %}
 
   <div class="panel-heading">
-    Case {{ test.cid }}: {% if test.status == 'ok' %}OK{% else %}Failed{% endif %} (return code: {{ test.returncode }})
+    Case {{ test.cid }}:
+    {% if test.status == 'ok' %}
+    成功 (return code: {{ test.returncode }})
+    {% elif test.status == 'fail' %}
+    失敗 (return code: {{ test.returncode }})
+    {% elif test.status == 'timeout' %}
+    タイムアウト
+    {% endif %}
   </div>
   <div class="panel-body">
     {% if test.argv %}ARGV<pre>{{ test.argv }}</pre>{% endif %}

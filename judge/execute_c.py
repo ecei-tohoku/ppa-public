@@ -2,12 +2,36 @@ import logging as lg
 import os
 import subprocess
 import tempfile
+import threading
 from config import *
 
 def strip_easysandbox(s):
     magic = '<<entering SECCOMP mode>>\n'
     if s.startswith(magic):
         return s[len(magic):]
+
+class Command(object):
+    def __init__(self, cmd, fi):
+        self.cmd = cmd
+        self.fi = fi
+        self.process = None
+        self.stdoutdata = b''
+        self.stderrdata = b''
+
+    def run(self, timeout):
+        def target():
+            self.process = subprocess.Popen(self.cmd, shell=True, stdin=self.fi, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            (self.stdoutdata, self.stderrdata) = self.process.communicate()
+
+        thread = threading.Thread(target=target)
+        thread.start()
+
+        thread.join(timeout)
+        if thread.is_alive():
+            self.process.terminate()
+            thread.join()
+            return False
+        return True
 
 class ExecuteC:
     def __init__(self, src, prefix='tmp'):
@@ -70,18 +94,19 @@ class ExecuteC:
         """
         cmd = RUN.format(bin=self.bin, argv=argv)
         lg.debug('Run {}'.format(cmd))
-        try:
-            p = subprocess.Popen(cmd, shell=True, stdin=fi, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            stdoutdata, stderrdata = p.communicate(timeout=timeout)
-            lg.debug('Run ({}): {}'.format(p.returncode, cmd))
+        #p = subprocess.Popen(cmd, shell=True, stdin=fi, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        #stdoutdata, stderrdata = p.communicate(timeout=timeout)
+        c = Command(cmd, fi)
+        finished = c.run(timeout)
+        lg.debug('Run ({}): {}'.format(c.process.returncode, cmd))
+        if finished:
             return (
                 '',
-                p.returncode,
-                strip_easysandbox(stdoutdata.decode(ENCODING, 'ignore')),
-                strip_easysandbox(stderrdata.decode(ENCODING, 'ignore')),
+                c.process.returncode,
+                strip_easysandbox(c.stdoutdata.decode(ENCODING, 'ignore')),
+                strip_easysandbox(c.stderrdata.decode(ENCODING, 'ignore')),
                 )
-
-        except subprocess.TimeoutExpired:
+        else:
             lg.debug('Terminated with timeout: {}'.format(cmd))
             return ('timeout', -1, '', '')
             

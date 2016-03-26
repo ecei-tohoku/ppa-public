@@ -62,24 +62,25 @@ def test(S, C):
             with open(fargv) as fi:
                 R['argv'] = fi.readline().strip('\n')
         except EnvironmentError:
-            S['status'] = 'internal error'
+            S['status'] = 'error'
             S['note'] = 'Failed to read the command-line argument: {}'.format(fargv)
             return
 
         # Run the code.
         try:
+            with open(fin) as fi:
+                R['stdin'] = fi.read()
             fi = open(fin) if os.path.exists(fin) else None
             status, returncode, stdout, stderr = E.run(R['argv'], fi)
             R['timestamp'] = now()
             if status == 'timeout':
                 R['status'] = 'timeout'
-                return
+                S['tests'].append(R)
+                continue
             else:
                 R['returncode'] = returncode
                 R['stdout'] = stdout
                 R['stderr'] = stderr
-            with open(fin) as fi:
-                R['stdin'] = fi.read()
         except EnvironmentError:
             S['status'] = 'error'
             S['note'] = 'Failed to read the stdin: {}'.format(fin)
@@ -110,7 +111,6 @@ def test(S, C):
         # Successful if nothing was set to the status.
         if not R['status']:
             R['status'] = 'ok'
-
         S['tests'].append(R)
 
     # Summarize the test results.

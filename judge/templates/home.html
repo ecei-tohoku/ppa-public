@@ -28,6 +28,11 @@
       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
       失敗 ({{ task.submission.passed }} / {{ task.submission.tests | count }}) at {{ task.submission.timestamp }}
     </td>
+    {% elif task.submission.status == 'error' %}
+    <td class="text-warning">
+      <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+      内部エラー: {{ task.submission.message }} at {{ task.submission.timestamp }}
+    </td>
     {% elif task.submission.status == 'queue' %}
     <td class="text-info">
       <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
@@ -38,7 +43,7 @@
       <form class="form-inline" action="/submit/{{ task.id }}" method="POST" enctype="multipart/form-data">
 	<div class="form-group">
 	  <input type="file" name="source" class="form-control"></input>
-	  <button type="submit" class="btn btn-primary">提出</button>
+	  <button type="submit" class="btn btn-primary" {% if task.submission and task.submission.status == 'queue' %}disabled="disabled"{% endif %}>提出</button>
 	</div>
       </form>
     </td>

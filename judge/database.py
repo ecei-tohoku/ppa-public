@@ -1,3 +1,45 @@
+"""Database interface for the judge server.
+
+Copyright (c) 2016  Naoaki Okazaki
+
+Schema for the collections.
+
+user:
++ id: ID for the user
++ password: password (hashed string)
++ group: group (in {staff, ta, a, b, c, d})
++ name: name of the user (student ID)
++ timestamp: the timestamp when the entry is created
+
+task:
++ id: ID for the task
++ title: title for the task
++ url: URL for the task
++ judge: test cases (*.argv) for the task
+
+submission:
++ user: user ID
++ task: task ID
++ source: the submitted source code
++ timestamp: the timestamp when the source code is submitted
++ status: status in {queue, ok, fail, error}
++ note: message for the status
++ passed: the number of passed tests
++ compile.cmd: the command-line for compiling the source code
++ compile.returncode: the return code from the compiler
++ compile.message: the error message (STDERR) from the compiler
++ compile.timestamp: the timestamp when compiling the code
++ tests[].cid: test case ID
++ tests[].status: status in {ok, fail, error}
++ tests[].message: message for the status
++ tests[].timestamp: the timestamp when running the test case
++ tests[].argv: the command-line argument for the test case
++ tests[].stdin: the content of STDIN
++ tests[].stdout: the content of STDOUT
++ tests[].stderr: the content of STDERR
+
+"""
+
 import datetime
 import hashlib
 import json
@@ -17,20 +59,20 @@ class Database:
 
     def add_user(self, user, password, group, name):
         self.db.user.insert_one(
-            {'user': user, 'password': pwhash(password), 'group': group, 'name': name, 'timestamp': now()}
+            {'id': user, 'password': pwhash(password.encode('utf-8')), 'group': group, 'name': name, 'timestamp': now()}
             )
 
     def update_password(self, user, oldpw, newpw):
         return self.db.user.update_one(
-            {'user': user, 'password': pwhash(oldpw)},
-            {'$set': {'password': pwhash(newpw)}}
+            {'id': user, 'password': pwhash(oldpw.encode('utf-8'))},
+            {'$set': {'password': pwhash(newpw.encode('utf-8'))}}
             ).modified_count == 1
 
     def authenticate_user(self, user, password):
-        return self.db.user.find_one({'user': user, 'password': pwhash(password)})
+        return self.db.user.find_one({'id': user, 'password': pwhash(password.encode('utf-8'))})
 
     def get_user(self, user):
-        return self.db.user.find_one({'user': user})
+        return self.db.user.find_one({'id': user})
 
     def get_users(self):
         return self.db.find()
