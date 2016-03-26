@@ -1,3 +1,9 @@
+"""Codexam: the judge server for Programming Practice A.
+
+Copyright (c) 2016  Naoaki Okazaki.
+
+"""
+
 import argparse
 import logging
 from logging.handlers import RotatingFileHandler

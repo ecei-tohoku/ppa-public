@@ -35,9 +35,14 @@ def test(S, C):
     S['note'] = ''
     S['passed'] = 0
     S['tests'] = []
+
+    # Determine the prefix.
+    prefix = 'exec'
+    if 'user' in S and 'task' in S:
+        prefix += '_{}_{}_'.format(S['user'], S['task'])
     
     # Compile the code.
-    E = execute_c.ExecuteC(S['source'])
+    E = execute_c.ExecuteC(S['source'], prefix=prefix)
     cmd, returncode, message = E.compile()
     S['compile'] = dict(
         cmd=cmd,

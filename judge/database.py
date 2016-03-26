@@ -1,4 +1,4 @@
-"""Database interface for the judge server.
+"""Database interface for Codexam.
 
 Copyright (c) 2016  Naoaki Okazaki
 

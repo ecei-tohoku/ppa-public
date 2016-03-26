@@ -1,3 +1,9 @@
+"""Configuration for Codexam.
+
+Copyright (c) 2016  Naoaki Okazaki.
+
+"""
+
 # Temporary directory.
 TEMP = ''
 
@@ -15,3 +21,6 @@ DBURI = 'mongodb://localhost:27017/'
 
 # Database name.
 DBNAME = 'ppa2016'
+
+# Broker for the job queue (Celery).
+BROKER = 'redis://localhost'

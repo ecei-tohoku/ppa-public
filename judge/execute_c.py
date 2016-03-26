@@ -1,3 +1,9 @@
+"""Compile and execute a C source code.
+
+Copyright (c) 2016  Naoaki Okazaki
+
+"""
+
 import logging as lg
 import os
 import subprocess
@@ -11,6 +17,8 @@ def strip_easysandbox(s):
         return s[len(magic):]
 
 class Command(object):
+    """Execute a shell command with timeout."""
+
     def __init__(self, cmd, fi):
         self.cmd = cmd
         self.fi = fi
@@ -34,16 +42,19 @@ class Command(object):
         return True
 
 class ExecuteC:
-    def __init__(self, src, prefix='tmp'):
+    """Execute a C source code."""
+
+    def __init__(self, src, prefix='exec', suffix='.c'):
         """ Construct an instance for compiling and running a code.
 
         Params:
             src: The source code
             prefix: The pefix for the names of the temporary files.
+            suffix: The suffix for the source code.
 
         """
         # Create a temporary file for the source code.
-        fd, name = tempfile.mkstemp(prefix=prefix, suffix='.c')
+        fd, name = tempfile.mkstemp(prefix=prefix, suffix=suffix)
         fo = os.fdopen(fd, "w")
         fo.write(src)
         fo.close()        
@@ -70,6 +81,7 @@ class ExecuteC:
         """ Compile the source code.
 
         Returns:
+            str: The commane-line for compling the source code.
             int: Return value from the compiler.
             str: Error message.
 
@@ -89,13 +101,14 @@ class ExecuteC:
             timeout: Timeout in seconds.
 
         Returns:
-            object: Object containing the execusion result.
+            str: status ('timeout' if the execution timeouted)
+            int: the return value from the binary.
+            str: the content from STDOUT.
+            str: the content from STDERR.
 
         """
         cmd = RUN.format(bin=self.bin, argv=argv)
         lg.debug('Run {}'.format(cmd))
-        #p = subprocess.Popen(cmd, shell=True, stdin=fi, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        #stdoutdata, stderrdata = p.communicate(timeout=timeout)
         c = Command(cmd, fi)
         finished = c.run(timeout)
         lg.debug('Run ({}): {}'.format(c.process.returncode, cmd))
@@ -114,8 +127,13 @@ if __name__ == '__main__':
     logger = lg.getLogger()
     logger.setLevel(lg.DEBUG)
 
-    J = JudgeC('#include <stdio.h>\nint main() {\n printf("OK");\nreturn 0;\n}\n')
-    J.compile()
-    r = J.run()
-    print(r.stdout)
-    print(r.stderr)
+    E = ExecuteC('#include <stdio.h>\nint main() {\n printf("OK");\nreturn 0;\n}\n')
+    cmd, retval, message = E.compile()
+    lg.info('cmd ({}): {}'.format(retval, cmd))
+    lg.info('compile-message: {}'.format(message))
+
+    status, retval, stdout, stderr = E.run()
+    lg.info('status: {}'.format(status))
+    lg.info('retval: {}'.format(retval))
+    lg.info('stdout: {}'.format(stdout))
+    lg.info('stderr: {}'.format(stderr))
