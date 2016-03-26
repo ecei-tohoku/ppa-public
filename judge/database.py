@@ -69,6 +69,12 @@ class Database:
             {'$set': {'password': pwhash(newpw.encode(ENCODING))}}
             ).matched_count == 1
 
+    def reset_password(self, user, newpw):
+        return self.db.user.update_one(
+            {'id': user},
+            {'$set': {'password': pwhash(newpw.encode(ENCODING))}}
+            ).matched_count == 1
+
     def authenticate_user(self, user, password):
              return self.db.user.find_one({'id': user, 'password': pwhash(password.encode(ENCODING))})
 

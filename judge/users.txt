@@ -1,2 +1,2 @@
-enshu01	enshu01	staff	Naoaki Okazaki
-enshu02	enshu02	staff	Kazumichi Matsumiya
+enshu01	enshu01	admin	Naoaki Okazaki
+enshu02	enshu02	admin	Kazumichi Matsumiya

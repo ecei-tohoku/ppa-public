@@ -153,6 +153,50 @@ def result(taskid):
 def report(taskid):
     return render_view(current_user.get_id(), taskid, 'report')
 
+@app.route('/admin/add-user', methods=['GET','POST'])
+@login_required
+def admin_add_user():
+    if current_user.get_group() != 'admin':
+        app.logger.warn('Possible attack to add-user')
+        abort(404)
+
+    if request.method == 'GET':
+        return render_template('adduser.html')
+
+    db = getdb()
+    userid = request.form['userid']
+    newpass = request.form['newpass']
+    group = request.form['group']
+    name = request.form['name']
+    if db.get_user(userid):
+        app.logger.warn('add-user: existing user specified: %s', userid)
+        return render_template('adduser.html', message='exist')
+
+    db.add_user(userid, newpass, group, name)
+    app.logger.info('add-user: success: %s', userid)
+    return render_template('adduser.html', message='success')
+
+@app.route('/admin/reset-user', methods=['GET','POST'])
+@login_required
+def admin_reset_user():
+    if current_user.get_group() != 'admin':
+        app.logger.warn('Possible attack to add-user')
+        abort(404)
+
+    if request.method == 'GET':
+        return render_template('resetpass.html')
+
+    db = getdb()
+    userid = request.form['userid']
+    newpass = request.form['newpass']
+    if not db.get_user(userid):
+        app.logger.warn('reset-user: the user does not exist: %s', userid)
+        return render_template('resetpass.html', message='unknown')
+
+    db.reset_password(userid, newpass)
+    app.logger.info('reset-user: success: %s', userid)
+    return render_template('resetpass.html', message='success')
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Start a process of judge server.'
