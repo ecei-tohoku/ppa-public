@@ -85,7 +85,13 @@ class Database:
         return self.db.user.find({'group': group})
 
     def get_users(self):
-        return self.db.find()
+        return self.db.user.find()
+
+    def remove_users(self):
+        return self.db.user.drop()
+
+    def create_user_index(self):
+        self.db.user.create_index([('id', pymongo.DESCENDING)])
 
     def set_task(self, tid, title, url, judge):
         self.db.task.replace_one(
