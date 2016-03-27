@@ -16,12 +16,13 @@ from flask.ext.login import LoginManager, login_user, logout_user, current_user,
 from database import Database
 import cmdtasks
 
-#context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-#context.load_cert_chain('server.crt', 'server.key')
+context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+context.load_cert_chain('server.crt', 'server.key')
 
 app = Flask(__name__)
 app.secret_key = '\xd4\xa1\x17\xf9\xa9\xa0\xd2j\t\xb3\xd8\x87N\xfb\x14\xa3\xcc\x7f\x88\xde\x19C0N'
-app.config.update(dict(PREFERRED_URL_SCHEME='https'))
+app.config['PREFERRED_URL_SCHEME'] = 'https'
+app.config['MAX_CONTENT_LENGTH'] = 64 * 1024
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -248,8 +249,12 @@ if __name__ == '__main__':
         description='Start a process of judge server.'
         )
     parser.add_argument(
+        '--port', '-p', type=int, default=443,
+        help='specify the port number of the server'
+        )
+    parser.add_argument(
         '--debug', '-d', dest='debug', action='store_true',
-        help='Enable the debugging mode'
+        help='activate the debug mode'
         )
     parser.add_argument(
         '--log', '-l', type=str,
@@ -264,4 +269,11 @@ if __name__ == '__main__':
         handler.setLevel(logging.INFO)
         handler.setFormatter(formatter)
         app.logger.addHandler(handler)
-    app.run(host='0.0.0.0', debug=args.debug)#, ssl_context=context)
+
+    # Start the server.
+    app.run(
+        host='0.0.0.0',
+        debug=args.debug,
+        port=args.port,
+        ssl_context=context
+        )

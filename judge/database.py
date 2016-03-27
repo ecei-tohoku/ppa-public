@@ -51,7 +51,7 @@ def pwhash(x):
     return hashlib.sha256(x).hexdigest()
 
 def now():
-    return str(datetime.datetime.now())
+    return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 class Database:
     def __init__(self, uri=DBURI, dbname=DBNAME):

@@ -5,7 +5,7 @@ import sys
 import execute_c
 
 def now():
-    return str(datetime.datetime.now())
+    return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 def test(S, C):
     """

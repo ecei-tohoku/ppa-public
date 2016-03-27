@@ -6,7 +6,7 @@
     <tr>
       <th class="text-center">問題</th>
       <th class="text-center">状態</th>
-      <th class="text-center">提出</th>
+      <th class="text-center">ソースコードの提出</th>
     </tr>
   </thead>
   <tbody>
@@ -21,12 +21,13 @@
     {% elif task.submission.status == 'ok' %}
     <td class="text-success">
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-      成功 ({{ task.submission.passed }} / {{ task.submission.tests | count }}) at {{ task.submission.timestamp }}
+      <a href="/result/{{ task.id }}">成功 ({{ task.submission.passed }} / {{ task.submission.tests | count }}) at {{ task.submission.timestamp }}</a>
+      [<a href="/report/{{ task.id }}">レポート</a>]
     </td>
     {% elif task.submission.status == 'fail' %}
     <td class="text-danger">
       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-      失敗 ({{ task.submission.passed }} / {{ task.submission.tests | count }}) at {{ task.submission.timestamp }}
+      <a href="/result/{{ task.id }}">失敗 ({{ task.submission.passed }} / {{ task.submission.tests | count }}) at {{ task.submission.timestamp }}</a>
     </td>
     {% elif task.submission.status == 'error' %}
     <td class="text-warning">
@@ -42,7 +43,7 @@
     <td>
       <form class="form-inline" action="/submit/{{ task.id }}" method="POST" enctype="multipart/form-data">
 	<div class="form-group">
-	  <input type="file" name="source" class="form-control"></input>
+	  <input type="file" name="source" class="form-control" accept="*.c,*.cpp,*.cxx"></input>
 	  <button type="submit" class="btn btn-primary">提出</button>
 	</div>
       </form>
