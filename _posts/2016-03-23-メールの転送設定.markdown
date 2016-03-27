@@ -1,0 +1,35 @@
+---
+layout: post
+title:  "メールの転送設定について"
+date:   2016-03-14 22:21:29 +0900
+categories: jekyll update
+---
+
+以下は，Active Mail (username@ec.ecei.tohoku.ac.jp)に送信されたメールを自分のメールアドレスに転送するための設定です．
+
+## 転送設定の方法
+ホームディレクトリ（ログイン直後のフォルダ）に```.forward```という名前のファイルを以下のように作ってください。
+
+作成する```.forward```というファイルは転送したいメールアドレスとsd13xxxのアドレスを並べた2行で構成されます。
+
+1. PC上で端末を開いて，ホームディレクトリに移動する
+    * ```% cd ~```
+2. ```.forward```ファイルを作成する
+    * ```% touch .forward```
+3. 任意のエディタで，```.forward```ファイルを編集する (例: emacs)
+    * ```% emacs .forward```
+4. ```.forward```に，以下の2行を追加
+    * 転送先のアドレス(例: Gmail, Yahoo! Mail，携帯など)
+    * username@ec.ecei.tohoku.ac.jp (自分に割り振られたアドレス)
+
+例:
+
+![.forwardファイルの作り方]({{site.baseurl}}/images/create_forward_file.png)
+
+## 正しく作れたかの確認方法
+```% cat .forward```
+で```.forward```の内容が表示されます．
+
+![.forwardファイルの確認]({{site.baseurl}}/images/check_forward.png)
+
+間違っていた場合は，emacsなどで再度編集すれば良いでしょう．

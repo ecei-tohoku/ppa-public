@@ -8,20 +8,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{ site.baseurl | prepend: site.github.url }}">{{ site.title }}</a>
+      <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         {% for item in site.data.menu %}
           {% if item.url %}
-            <li><a href="{{ item.url | prepend: site.github.url }}">{{ item.text }}</a></li>
+            <li><a href="{{ item.url | prepend: site.baseurl }}">{{ item.text }}</a></li>
           {% endif %}
           {% if item.subitems %}
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.text }} <span class="caret"></span></a>
               <ul class="dropdown-menu">
               {% for subitem in item.subitems %}
-                <li><a href="{{ subitem.url | prepend: site.github.url }}">{{ subitem.text }}</a></li>
+              <li><a href="{{ subitem.url | prepend: site.baseurl }}">{{ subitem.text }}</a></li>
               {% endfor %}
               </ul>
             </li>
