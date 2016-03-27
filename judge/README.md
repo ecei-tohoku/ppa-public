@@ -38,6 +38,16 @@ $ make runtests
 
 The judge server requires the shared library `EasySandbox.so` for sandboxing. 
 
+### Generating server keys for SSL.
+
+```
+$ openssl genrsa 2048 > server.key
+$ openssl req -new -key server.key > server.csr
+$ openssl x509 -days 3650 -req -signkey server.key < server.csr > server.crt
+```
+
+See http://d.hatena.ne.jp/ozuma/20130511/1368284304
+
 ## Starting the server
 
 Starting a job queue for making judges.
