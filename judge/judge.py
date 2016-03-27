@@ -136,7 +136,7 @@ if __name__ == '__main__':
         )
     args = parser.parse_args()
 
-    if args.database and args.collection:
+    if args.objectid:
         import database
         db = database.Database()
         S = db.get_submission(args.objectid)
