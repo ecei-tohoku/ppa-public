@@ -79,9 +79,11 @@ def test(S, C):
             status, returncode, stdout, stderr = E.run(R['argv'], fi)
             R['timestamp'] = now()
             if status == 'timeout':
+                # When a timeout occurs, do not continue the tests because
+                # it is very likely to have timeouts again with the same code.
                 R['status'] = 'timeout'
                 S['tests'].append(R)
-                continue
+                break
             else:
                 R['returncode'] = returncode
                 R['stdout'] = stdout

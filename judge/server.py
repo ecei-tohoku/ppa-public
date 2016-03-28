@@ -9,7 +9,6 @@ import collections
 import logging
 from logging.handlers import RotatingFileHandler
 import ssl
-import subprocess
 
 from flask import Flask, abort, jsonify, render_template, redirect, url_for, request, flash
 from flask.ext.login import LoginManager, login_user, logout_user, current_user, login_required
@@ -112,7 +111,7 @@ def home():
     userid = current_user.get_id()
     tasks = db.get_tasks_for_user(userid)
     app.logger.info('Home: @%s', userid)
-    return render_template('home.html', tasks=tasks)
+    return render_template('home.html',tasks=tasks)
 
 @app.route('/submit/<task_id>', methods=['GET', 'POST'])
 @login_required
@@ -122,17 +121,22 @@ def submit(task_id):
         f = request.files['source']
         filename = f.filename
         app.logger.info('Submitted a source code: %s for #%s from @%s', filename, task_id, userid)
-        if f and f.filename.endswith('.c'):
-            source = f.read().decode('utf-8')
+        if f and f.filename.endswith(('.c', '.cpp', '.cxx')):
+            try:
+                source = f.read().decode('utf-8')
+            except UnicodeError:
+                app.logger.info('Unicode error: %s for #%s from @%s', filename, task_id, userid)
+                flash('encoding-error')
+                return redirect(url_for('home', _external=True))
+    
             db = getdb()
             objectid = db.register_submission(userid, task_id, source)
             task = db.get_task(task_id)
             cmd = 'python judge.py -i {} {}'.format(str(objectid), task['judge'])
             cmdtasks.system.delay(cmd)
-            #retcode = subprocess.call(cmd, shell=True)
             return redirect(url_for('result', taskid=task_id, _external=True))
 
-    return redirect(url_for('logout', _external=True))
+    return redirect(url_for('home', _external=True))
 
 def render_view(userid, taskid, mode=''):
     db = getdb()
@@ -158,7 +162,7 @@ def report(taskid):
 @login_required
 def admin_userhome(userid):
     if current_user.get_group() != 'admin':
-        app.logger.warn('Possible attack to admin view: %s for %s', userid, taskid)
+        app.logger.warn('Possible attack to admin view: @%s for #%s', userid, taskid)
         abort(404)
     db = getdb()
     adminuserid = current_user.get_id()
@@ -170,7 +174,7 @@ def admin_userhome(userid):
 @login_required
 def admin_group(groupid):
     if current_user.get_group() != 'admin':
-        app.logger.warn('Possible attack to admin group: %s', current_user.get_id())
+        app.logger.warn('Possible attack to admin group: @%s', current_user.get_id())
         abort(404)
     db = getdb()
     tasks = list(db.get_task_list())
@@ -188,23 +192,23 @@ def admin_group(groupid):
             user['progress'][taskid] = result
             T[taskid]['num_completed'] += int(0)
         user['notice'] = '' # Empty for the time being.    
-    app.logger.info('%s viewed the group list %s', current_user.get_id(), groupid)
+    app.logger.info('Group list (@%s): %s', current_user.get_id(), groupid)
     return render_template('progress.html', users=U, tasks=tasks)
 
 @app.route('/admin/view/<userid>/<taskid>')
 @login_required
 def admin_view(userid, taskid):
     if current_user.get_group() != 'admin':
-        app.logger.warn('Possible attack to admin view: %s for %s', userid, taskid)
+        app.logger.warn('Possible attack to admin view: @%s for #%s', userid, taskid)
         abort(404)
-    app.logger.info('%s viewed the result of %s for %s', current_user.get_id(), userid, taskid)
+    app.logger.info('Result view (@%s): @%s for #%s', current_user.get_id(), userid, taskid)
     return render_view(userid, taskid)
 
 @app.route('/admin/add-user', methods=['GET','POST'])
 @login_required
 def admin_add_user():
     if current_user.get_group() != 'admin':
-        app.logger.warn('Possible attack to add-user')
+        app.logger.warn('Possible attack to add-user: @%s', current_user.get_id())
         abort(404)
 
     if request.method == 'GET':
@@ -216,18 +220,18 @@ def admin_add_user():
     group = request.form['group']
     name = request.form['name']
     if db.get_user(userid):
-        app.logger.warn('add-user: existing user specified: %s', userid)
+        app.logger.warn('Add-user: existing user specified: @%s', userid)
         return render_template('adduser.html', message='exist')
 
     db.add_user(userid, newpass, group, name)
-    app.logger.info('add-user: success: %s', userid)
+    app.logger.info('Add-user: success: @%s', userid)
     return render_template('adduser.html', message='success')
 
 @app.route('/admin/reset-user', methods=['GET','POST'])
 @login_required
 def admin_reset_user():
     if current_user.get_group() != 'admin':
-        app.logger.warn('Possible attack to add-user')
+        app.logger.warn('Possible attack to reset-user: @%s', current_user.get_id())
         abort(404)
 
     if request.method == 'GET':
@@ -237,11 +241,11 @@ def admin_reset_user():
     userid = request.form['userid']
     newpass = request.form['newpass']
     if not db.get_user(userid):
-        app.logger.warn('reset-user: the user does not exist: %s', userid)
+        app.logger.warn('Reset-user: the user does not exist: @%s', userid)
         return render_template('resetpw.html', message='unknown')
 
     db.reset_password(userid, newpass)
-    app.logger.info('reset-user: success: %s', userid)
+    app.logger.info('Reset-user: success: @%s', userid)
     return render_template('resetpw.html', message='success')
 
 if __name__ == '__main__':

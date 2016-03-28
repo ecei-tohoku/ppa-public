@@ -1,6 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% for message in messages %}
+{% if message == 'encoding-error' %}
+<div class="alert alert-danger" role="alert">
+  投稿されたソースコードの中にUTF-8では認識できない文字がありました．ソースコードの文字コードをUTF-8に変換してから再投稿して下さい．
+</div>
+{% endif %}
+{% endfor %}
+{% endwith %}
+
 <table class="table">
   <thead>
     <tr>
