@@ -32,3 +32,9 @@ if __name__ == '__main__':
         with open(fname, 'w') as fo:
             for t in range(begin-OFFSET+1, end):
                 fo.write('{}\n'.format(D[t][c]))
+
+    with open('dates.txt', 'w') as fo:
+        i = 1
+        for t in range(begin-OFFSET+1, end):
+            fo.write('{} {}\n'.format(i, D[t]['date']))
+            i += 1
