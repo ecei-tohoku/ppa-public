@@ -39,6 +39,8 @@ title: 講義日程
 | 7/29 (金) | | | 試験 | 試験 |
 {: .table .table-bordered .table-hover}
 
+## 場所
+
 + 演習: [電子情報システム・応物系 １号館別館](http://www.eng.tohoku.ac.jp/map/?menu=campus&area=d&build=11) １階大演習室
 + 面接: [電子情報システム・応物系 １号館](http://www.eng.tohoku.ac.jp/map/?menu=campus&area=d&build=10) 2A室，2B室
 + 試験: [電子情報システム・応物系 大講義棟](http://www.eng.tohoku.ac.jp/map/?menu=campus&area=d&build=17)
