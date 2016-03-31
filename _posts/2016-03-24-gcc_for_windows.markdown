@@ -82,7 +82,7 @@ bit数がわからない場合は，[自分のパソコンが 32 ビット版か
 
 黒い画面に`pacman -Sy`と打ち込んで，Enterを押すだけです．
 
-コマンドが終了したら，次は`pacman --needed -Sy bash pacman pacman-mirrors msys2-runtime`を実行してください．
+コマンドが終了したら，次は`pacman --needed -S bash pacman pacman-mirrors msys2-runtime`を実行してください．
 
 ![Msys2 install 08]({{ site.baseurl }}/images/windows_gcc/08.png)
 
