@@ -26,3 +26,5 @@
       url: /docs/firststep.html
     - text: Windows環境でC言語を書くために
       url: /docs/gcc_for_windows.html
+    - text: Mac OS X環境でC言語を書くために
+      url: /docs/gcc_for_osx.html

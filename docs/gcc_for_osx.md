@@ -1,6 +1,6 @@
 ---
-layout: post
-title:  "Mac OS X 環境で C 言語を書くために"
+layout: page
+title: Mac OS X 環境で C 言語を書くために
 ---
 
 ## はじめに
