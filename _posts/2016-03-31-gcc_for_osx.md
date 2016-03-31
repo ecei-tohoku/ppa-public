@@ -68,6 +68,5 @@ OS X には沢山のテキスト編集アプリが存在しますが，C 言語�
 ## 参考資料
 
 - [Xcode Command Line Tools - Yosemite - Install](http://railsapps.github.io/xcode-command-line-tools.html)
-- [Vim 101: A Beginner's Guide to Vim | Linux.com](https://www.linux.com/learn/tutorials/228600-vim-101-a-beginners-guide-to-vim)
 - 『新しいLinuxの教科書』（大角，SBクリエイティブ）
     - 7 章で Vim の基本操作を解説しています
