@@ -24,3 +24,5 @@
   subitems:
     - text: 初回の環境設定
       url: /docs/firststep.html
+    - text: Windows環境でC言語を書くために
+      url: /docs/gcc_for_windows.html
