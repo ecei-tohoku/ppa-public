@@ -29,5 +29,6 @@ submitを実行した後は．[プログラム投稿サイト]にアクセスし
 テンプレートに沿ったメールを書いてください．
 
 ## 家で自分のPCで作業したい人へ
-[Windows環境でC言語を書くために]({{site.baseurl}}{% post_url 2016-03-24-gcc_for_windows %})を読みましょう
 
+自分のPCがWindowsなら[Windows環境でC言語を書くために]({{site.baseurl}}{% post_url 2016-03-24-gcc_for_windows %})，
+Macなら[Mac OS X 環境で C 言語を書くために]({{site.baseurl}}{% post_url 2016-03-31-gcc_for_osx %})を読みましょう．
