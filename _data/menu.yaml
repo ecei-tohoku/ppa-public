@@ -20,3 +20,7 @@
   url: /schedule.html
 - text: C言語Tips
   url: /tips.html
+- text: How To
+  subitems:
+    - text: 初回の環境設定
+      url: /docs/firststep.html
