@@ -138,6 +138,8 @@ def submit(task_id):
             objectid = db.register_submission(userid, task_id, source)
             task = db.get_task(task_id)
             cmd = 'python judge.py -i {} {}'.format(str(objectid), task['judge'])
+            if task['tester']:
+                cmd += " -t '{}'".format(task['tester'])
             cmdtasks.system.delay(cmd)
             return redirect(url_for('result', taskid=task_id, _external=True))
 

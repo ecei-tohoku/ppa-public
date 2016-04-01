@@ -109,7 +109,10 @@
     <script src="/static/bootstrap/js/validator.min.js"></script>
     
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      hljs.configure({tabReplace: '    '});
+    </script>
 
     {% block js %}
     {% endblock %}

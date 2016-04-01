@@ -22,6 +22,7 @@
   title: 単純移動平均
   url: http://ecei-tohoku.github.io/ppa/kadai1/p14.html
   judge: task/p14/*.argv
+  tester: python task/p14/test.py
 
 - id: p15
   title: Luhnアルゴリズム

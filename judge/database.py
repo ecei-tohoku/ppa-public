@@ -93,10 +93,10 @@ class Database:
     def create_user_index(self):
         self.db.user.create_index([('id', pymongo.DESCENDING)])
 
-    def set_task(self, tid, title, url, judge):
+    def set_task(self, tid, title, url, judge, tester):
         self.db.task.replace_one(
             {'id': tid},
-            {'id': tid, 'title': title, 'url': url, 'judge': judge},
+            {'id': tid, 'title': title, 'url': url, 'judge': judge, 'tester': tester},
             upsert=True
             )
 

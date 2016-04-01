@@ -11,7 +11,7 @@ TEMP = ''
 ENCODING = 'utf-8'
 
 # Command-line for compiling source codes.
-COMPILE = 'gcc {src} -Wall -o {bin} -lm'
+COMPILE = 'gcc {src} -std=c99 -Wall -o {bin} -lm'
 
 # Command-line for running the code.
 RUN = "LD_PRELOAD=/home/okazaki/install/EasySandbox/EasySandbox.so exec {bin} {argv}"
