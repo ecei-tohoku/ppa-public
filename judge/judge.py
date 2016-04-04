@@ -1,13 +1,39 @@
 import argparse
 import datetime
+import json
 import os
 import sys
+import subprocess
 import execute_c
 
 def now():
     return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-def test(S, C):
+def do_test(stdout_eval, stdout_gold, stderr_eval, stderr_gold, tester=None):
+    if tester is not None:
+        # Encode the test case.
+        J = json.dumps({
+            'stdout_eval': stdout_eval,
+            'stdout_gold': stdout_gold,
+            'stderr_eval': stderr_eval,
+            'stderr_gold': stderr_gold
+            })
+
+        # Run the test program
+        p = subprocess.Popen(tester, shell=True, stdin=subprocess.PIPE)
+        p.stdin.write(J.encode('utf-8'))
+        p.stdin.close()
+        return p.wait() == 0
+
+    else:
+        # Exact match.
+        if stdout_gold is not None and stdout_eval != stdout_gold:
+            return False
+        if stderr_gold is not None and stderr_eval != stderr_gold:
+            return False
+        return True
+
+def test(S, C, tester):
     """
 
     Input:
@@ -93,31 +119,39 @@ def test(S, C):
             S['note'] = 'Failed to read the stdin: {}'.format(fin)
             return
 
-        # Test the stdout.
+        # Test case.
+        stdout_eval = R['stdout']
+        stdout_gold = None
+        stderr_eval = R['stderr']
+        stderr_gold = None
+
+        # Read the gold-standard for STDOUT
         if os.path.exists(fout):
             try:
                 with open(fout) as fi:
-                    if fi.read() != R['stdout']:
-                        R['status'] = 'fail'
+                    stdout_gold = fi.read()
             except EnvironmentError:
                 S['status'] = 'error'
                 S['note'] = 'Failed to read the stdout: {}'.format(fout)
                 return
 
-        # Test the stderr.
+        
+        # Read the gold-standard for STDERR
         if os.path.exists(ferr):
             try:
                 with open(ferr) as fi:
-                    if fi.read() != R['stderr']:
-                        R['status'] = 'fail'
+                    stderr_gold = fi.read()
             except EnvironmentError:
                 S['status'] = 'error'
                 S['note'] = 'Failed to read the stderr: {}'.format(ferr)
                 return
 
-        # Successful if nothing was set to the status.
-        if not R['status']:
+        # Test the case.
+        if do_test(stdout_eval, stdout_gold, stderr_eval, stderr_gold, tester):
             R['status'] = 'ok'
+        else:
+            R['status'] = 'fail'
+
         S['tests'].append(R)
 
     # Summarize the test results.
@@ -133,6 +167,10 @@ if __name__ == '__main__':
         help='specify the ObjectId for the submission'
         )
     parser.add_argument(
+        '-t', '--tester', type=str,
+        help='specify a command-line to test an output'
+        )
+    parser.add_argument(
         'argvs', metavar='N', type=str, nargs='+',
         help='a command-line argument for running the code'
         )
@@ -142,9 +180,9 @@ if __name__ == '__main__':
         import database
         db = database.Database()
         S = db.get_submission(args.objectid)
-        test(S, args.argvs)
+        test(S, args.argvs, args.tester)
         db.replace_submission(args.objectid, S)
     else:
         S = {'source': sys.stdin.read()}
-        test(S, args.argvs)
-        print(S)
+        test(S, args.argvs, args.tester)
+        print(json.dumps(S, indent=2))

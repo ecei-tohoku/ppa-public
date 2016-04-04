@@ -93,10 +93,10 @@ class Database:
     def create_user_index(self):
         self.db.user.create_index([('id', pymongo.DESCENDING)])
 
-    def set_task(self, tid, title, url, judge):
+    def set_task(self, tid, title, url, judge, tester):
         self.db.task.replace_one(
             {'id': tid},
-            {'id': tid, 'title': title, 'url': url, 'judge': judge},
+            {'id': tid, 'title': title, 'url': url, 'judge': judge, 'tester': tester},
             upsert=True
             )
 
@@ -104,11 +104,11 @@ class Database:
         return self.db.task.find_one({'id': tid})
 
     def get_task_list(self):
-        return self.db.task.find()
+        return self.db.task.find().sort('id', 1)
 
     def get_tasks_for_user(self, user):
         tasks = []
-        for row in self.db.task.find():
+        for row in self.get_task_list():
             row['submission'] = self.get_result(user, row['id'])
             tasks.append(row)
         return tasks
@@ -133,3 +133,8 @@ class Database:
         rows = self.db.submission.find(
             {'user': userid, 'task': taskid}).sort('timestamp', -1).limit(1)
         return rows[0] if rows.count() >= 1 else None
+
+    def index_submission(self):
+        self.db.submission.create_index('user')
+        self.db.submission.create_index('task')
+        self.db.submission.create_index([('timestamp', -1)])

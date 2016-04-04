@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %} - {{ current_user.get_id() }} - {{ task.id }}{% endblock %}
+{% block title %} - {{ userid }} - {{ task.id }}{% endblock %}
 
 {% block content %}
 
-<h1>{{ current_user.get_id() }} - {{ task.id }}: {{ task.title }}</h1>
+<h1>{{ userid }} - {{ task.id }}: {{ task.title }}</h1>
 
 {% if not result %}
 <div class="alert alert-warning" role="alert">ソースコードが未提出です</div>
@@ -15,13 +15,13 @@
 {% elif result.status == 'error' %}
 <div class="alert alert-warning" role="alert">内部エラーが発生しました</div>
 {% elif result.status == 'queue' %}
-<div class="alert alert-info" role="alert">ソースコードを受理し，テスト中です (submitted at {{ result.timestamp }})</div>
+<div class="alert alert-info" role="alert"><button class="btn btn-primary" onclick="location.reload();"><span class="glyphicon glyphicon-refresh"></span> 更新</button>　ソースコードを受理し，テスト中です (submitted at {{ result.timestamp }})</div>
 {% endif %}
 
 {% if result %}
 
 <h2>ソース</h2>
-<pre class="prettyprint lang-c linenums">{{ result.source }}</pre>
+<pre><code class="c">{{ result.source }}</code></pre>
 
 {% if result.compile and result.compile.returncode != 0 %}
 <h2>コンパイル</h2>
@@ -35,12 +35,14 @@
 {% if result.compile and result.compile.returncode == 0 %}
 <h2>テスト</h2>
 {% for test in result.tests %}
+
+{% if mode != 'report' or loop.index == 1 %}
+
 {% if test.status == 'ok' %}
 <div class="panel panel-success">
 {% else %}
 <div class="panel panel-danger">
 {% endif %}
-
   <div class="panel-heading">
     Case {{ test.cid }}:
     {% if test.status == 'ok' %}
@@ -58,6 +60,7 @@
     {% if test.stderr %}STDERR<pre class="io">{{ test.stderr }}</pre>{% endif %}
   </div>
 </div>
+{% endif %}
 {% endfor %}
 {% endif %}
 

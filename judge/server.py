@@ -30,6 +30,11 @@ login_manager.login_view = 'login'
 def getdb():
     return Database()
 
+def is_admin(user):
+    return user.get_group() in ('admin', 'ta')
+    
+
+
 class User:
     def __init__(self, id, group):
         self.id = id
@@ -133,6 +138,8 @@ def submit(task_id):
             objectid = db.register_submission(userid, task_id, source)
             task = db.get_task(task_id)
             cmd = 'python judge.py -i {} {}'.format(str(objectid), task['judge'])
+            if task['tester']:
+                cmd += " -t '{}'".format(task['tester'])
             cmdtasks.system.delay(cmd)
             return redirect(url_for('result', taskid=task_id, _external=True))
 
@@ -146,7 +153,7 @@ def render_view(userid, taskid, mode=''):
     app.logger.info('Result %s: @%s #%s', mode, userid, taskid)
     return render_template(
         'result.html',
-        task=task, result=result, mode=mode)
+        userid=userid, task=task, result=result, mode=mode)
 
 @app.route('/result/<taskid>')
 @login_required
@@ -161,7 +168,7 @@ def report(taskid):
 @app.route('/admin/user/<userid>')
 @login_required
 def admin_userhome(userid):
-    if current_user.get_group() != 'admin':
+    if not is_admin(current_user):
         app.logger.warn('Possible attack to admin view: @%s for #%s', userid, taskid)
         abort(404)
     db = getdb()
@@ -173,7 +180,7 @@ def admin_userhome(userid):
 @app.route('/admin/group/<groupid>')
 @login_required
 def admin_group(groupid):
-    if current_user.get_group() != 'admin':
+    if not is_admin(current_user):
         app.logger.warn('Possible attack to admin group: @%s', current_user.get_id())
         abort(404)
     db = getdb()
@@ -198,7 +205,7 @@ def admin_group(groupid):
 @app.route('/admin/view/<userid>/<taskid>')
 @login_required
 def admin_view(userid, taskid):
-    if current_user.get_group() != 'admin':
+    if not is_admin(current_user):
         app.logger.warn('Possible attack to admin view: @%s for #%s', userid, taskid)
         abort(404)
     app.logger.info('Result view (@%s): @%s for #%s', current_user.get_id(), userid, taskid)
