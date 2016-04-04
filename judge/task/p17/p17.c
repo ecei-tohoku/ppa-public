@@ -43,12 +43,12 @@ int main()
       do {
         printf("%c> ", m);
         scanf("%d", &x);
+        printf("\n");
         if (x < 1 || 9 < x || !isdigit(states[x-1])) {
           printf("ERROR!\n");
           x = 0;
         }
       } while (x == 0);
-      printf("\n");
 
       // Mark the position #x with c.
       states[x-1] = m;
