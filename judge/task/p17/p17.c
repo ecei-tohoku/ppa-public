@@ -37,26 +37,24 @@ int main()
       }
     }
 
-    // Terminate the game if necessary.
-    if (i == 9) {
-      printf("even.\n");
-      break;
+    // Print a prompt and read a the number (at most nine times).
+    if (i < 9) {
+      // Loop until the user enters a valid number.
+      do {
+        printf("%c> ", m);
+        scanf("%d", &x);
+        if (x < 1 || 9 < x || !isdigit(states[x-1])) {
+          printf("ERROR!\n");
+          x = 0;
+        }
+      } while (x == 0);
+      printf("\n");
+
+      // Mark the position #x with c.
+      states[x-1] = m;
     }
-
-    // Print the prompt and read the number.
-    do {
-      printf("%c> ", m);
-      scanf("%d", &x);
-      if (x < 1 || 9 < x || !isdigit(states[x-1])) {
-        printf("ERROR!\n");
-        x = 0;
-      }
-    } while (x == 0);
-    printf("\n");
-
-    // Mark the position #x with c.
-    states[x-1] = m;
   }
 
+  printf("even.\n");
   return 0;
 }
