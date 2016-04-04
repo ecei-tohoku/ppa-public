@@ -4,7 +4,7 @@
 -+-+-
 1|2|3
 o> 
-ERROR!
+ERROR
 o> 
 7|8|o
 -+-+-
@@ -36,11 +36,11 @@ o|8|o
 -+-+-
 x|2|o
 x> 
-ERROR!
+ERROR
 x> 
-ERROR!
+ERROR
 x> 
-ERROR!
+ERROR
 x> 
 o|8|o
 -+-+-
