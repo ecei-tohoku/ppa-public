@@ -12,8 +12,6 @@ title: 質問メールの出し方
 
 は自習を前提としているため，課題を解くために何をしたら良いか，
 
-[メール作成](mailto:enshu@ecei.tohoku.ac.jp?subject=xxxxxに関する質問&body=プログラミング演習スタッフの皆様%0A　　　組　sd)
-
 プログラミング演習に関する質問・意見などは
 
 ```enshu@ecei.tohoku.ac.jp```
