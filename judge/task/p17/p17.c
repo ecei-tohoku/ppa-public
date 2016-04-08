@@ -45,7 +45,7 @@ int main()
         scanf("%d", &x);
         printf("\n");
         if (x < 1 || 9 < x || !isdigit(states[x-1])) {
-          printf("ERROR!\n");
+          printf("ERROR\n");
           x = 0;
         }
       } while (x == 0);

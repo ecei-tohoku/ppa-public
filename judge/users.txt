@@ -13,10 +13,10 @@ enshu12	enshu12	ta	Mei Uemura
 enshu13	enshu13	ta	Junpei Kaizu
 enshu14	enshu14	ta	Ryo Takahashi
 enshu15	enshu15	ta	Diptarama
-enshu15	enshu16	ta	Sunao Mashiko
 enshu16	enshu16	ta	Keisuke Inoue
 enshu17	enshu17	ta	Takaaki Okawa
 enshu18	enshu18	ta	Kota Odaira
 enshu19	enshu19	ta	Ichinari Sato
 enshu20	enshu20	ta	Ryota Shinagawa
 enshu21	enshu21	ta	Shintaro Narisada
+enshu22	enshu22	ta	Sunao Mashiko
