@@ -45,7 +45,9 @@ import hashlib
 import json
 import pymongo
 from bson.objectid import ObjectId
-from config import *
+
+# Encoding.
+ENCODING = 'utf-8'
 
 def pwhash(x):
     return hashlib.sha256(x).hexdigest()
@@ -54,7 +56,7 @@ def now():
     return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 class Database:
-    def __init__(self, uri=DBURI, dbname=DBNAME):
+    def __init__(self, uri='mongodb://localhost:27017/', dbname='ppa2016'):
         self.client = pymongo.MongoClient(uri)
         self.db = self.client[dbname]
 

@@ -6,12 +6,17 @@ parser = argparse.ArgumentParser(
     description='Import user accounts from a TSV file (from STDIN).'
         )
 parser.add_argument(
+    'config', type=str, default='config.yaml',
+    help='specify the configuration file (in YAML) for running the server'
+    )
+parser.add_argument(
     '--clean', '-c', action='store_true',
     help='remove all user accounts beforehand'
     )
 args = parser.parse_args()
 
-db = Database()
+config = yaml.load(open(args.config))
+db = Database(uri=config['judge']['dburi'], dbname=config['judge']['dbname'])
 
 if args.clean:
     db.remove_users()

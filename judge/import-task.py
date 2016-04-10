@@ -2,7 +2,8 @@ import sys
 import yaml
 from database import *
 
-db = Database()
+config = yaml.load(open(sys.argv[1]))
+db = Database(uri=config['judge']['dburi'], dbname=config['judge']['dbname'])
 tasks = yaml.load(sys.stdin)
 
 for task in tasks:

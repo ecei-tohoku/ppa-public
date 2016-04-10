@@ -163,6 +163,10 @@ if __name__ == '__main__':
         description='Test a source code with test cases.'
         )
     parser.add_argument(
+        '-d', '--dbname', type=str,
+        help='specify the ObjectId for the submission'
+        )
+    parser.add_argument(
         '-i', '--objectid', type=str,
         help='specify the ObjectId for the submission'
         )
@@ -178,7 +182,8 @@ if __name__ == '__main__':
 
     if args.objectid:
         import database
-        db = database.Database()
+        #sys.stderr.write('{} {}: {}\n'.format(args.dbname, args.objectid, args.tester))
+        db = database.Database(dbname=args.dbname)
         S = db.get_submission(args.objectid)
         test(S, args.argvs, args.tester)
         db.replace_submission(args.objectid, S)
