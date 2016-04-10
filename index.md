@@ -7,6 +7,7 @@ title: プログラミング演習A
 
 + 課題１はメニューバーからアクセスして下さい．
 + [自動採点システム](https://130.34.192.88/)（学内のみアクセス可）
-+ 初回説明スライド（学内のみアクセス可）
-+ [講義日程](schedule.html)
++ [初回説明スライド](http://localweb.ecei.tohoku.ac.jp/~enshu25/general.pdf)（学内のみアクセス可）
++ [課題の進め方](docs/kadai.html)
 + [質問メールの出し方](docs/inquiry.html)
++ [講義日程](schedule.html)
