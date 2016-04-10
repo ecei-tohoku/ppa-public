@@ -1,5 +1,7 @@
 - text: 課題1
   subitems:
+    - text: 課題1表紙
+      url: /kadai1/kadai1-cover.pdf
     - text: 問題1-1
       url: /kadai1/p11.html
     - text: 問題1-2
