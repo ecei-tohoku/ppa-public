@@ -20,7 +20,7 @@
         <ul class="post-list">
             {% for post in site.posts %}
             <li>
-                <span class="post-meta"><a class="post-link" href="{{ post.url | prepend: site.baseurl | prepend: site.github.url }}">{{ post.date | date: "%Y-%m-%d" }}: {{ post.title }}</a>
+                <span class="post-meta"><a class="post-link" href="{{ post.url | prepend: site.github.url }}">{{ post.date | date: "%Y-%m-%d" }}: {{ post.title }}</a>
             </li>
             {% endfor %}
         </ul>
