@@ -1,5 +1,5 @@
 - id: p10
-  title: Hello (自動採点システム体験用)
+  title: 和 (体験用)
   url: http://ecei-tohoku.github.io/ppa/kadai1/p10.html
   judge: task/p10/*.argv
 
