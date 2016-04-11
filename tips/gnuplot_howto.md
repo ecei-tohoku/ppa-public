@@ -134,7 +134,7 @@ $y=sin(x)$を点で、$y=cos(x)$を線でプロットするには
 
 例えば，`test.txt`に記述された数値をプロットし，そのグラフに`MyGraph`という凡例をつけたいならば，
 
-`gnuplot> plot 'test.txt' with points title "MyGraph"`
+`gnuplot> plot 'test.txt' with lines title "MyGraph"`
 
 と記述すれば良いでしょう．
 
