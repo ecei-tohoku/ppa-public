@@ -2,9 +2,9 @@
   subitems:
     - text: 課題1表紙
       url: /kadai1/kadai1-cover.pdf
-    - text: 問題1-1
+    - text: 問題1-1【２週目のみ採点】
       url: /kadai1/p11.html
-    - text: 問題1-2
+    - text: 問題1-2【２週目のみ採点】
       url: /kadai1/p12.html
     - text: 問題1-3
       url: /kadai1/p13.html
