@@ -1,6 +1,7 @@
 import argparse
 import sys
 from database import *
+import yaml
 
 parser = argparse.ArgumentParser(
     description='Import user accounts from a TSV file (from STDIN).'
