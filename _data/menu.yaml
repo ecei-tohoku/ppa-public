@@ -20,6 +20,10 @@
   url: /about.html
 - text: 日程
   url: /schedule.html
+- text: 面接順
+  subitems:
+    - text: Aクラス
+    - url: http://localweb.ecei.tohoku.ac.jp/~enshu25/classA.htm
 - text: C言語Tips
   url: /tips.html
 - text: How To
