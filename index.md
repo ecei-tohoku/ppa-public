@@ -13,3 +13,4 @@ title: プログラミング演習A
 + [講義日程](schedule.html)
 + 面接順
     + [Aクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/classA.htm)
+    + [Cクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/C_class.pdf)
