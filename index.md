@@ -11,6 +11,6 @@ title: プログラミング演習A
 + [課題の進め方](docs/kadai.html)
 + [質問メールの出し方](docs/inquiry.html)
 + [講義日程](schedule.html)
-+ 面接順
++ 面接順 (学内のみアクセス可)
     + [Aクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/classA.htm)
     + [Cクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/C_class.pdf)
