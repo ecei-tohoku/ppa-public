@@ -10,6 +10,7 @@ title: C言語Tips
 * [動的(大きさ可変)に配列を作る方法]({{site.baseurl}}/tips/array_howto.html)
 * [Gnuplotの使い方]({{site.baseurl}}/tips/gnuplot_howto.html)
 * [ファイルからのデータ読込方法]({{site.baseurl}}/tips/readdata_howto.html)
+* [Google C++ スタイルガイド 日本語訳](http://www.textdrop.net/google-styleguide-ja/cppguide.xml)
 * [スタイルの良いC言語(PDF)](http://localweb.ecei.tohoku.ac.jp/~enshu25/p1-3_c_style.pdf)
     * わかりやすいプログラムを書くために…
 * [ポインタの裏話(PDF)](http://localweb.ecei.tohoku.ac.jp/~enshu25/p2-3_pointer.pdf)
