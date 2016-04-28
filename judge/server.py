@@ -198,7 +198,8 @@ def admin_group(groupid):
             taskid = task['id']
             result = db.get_result(userid, taskid)
             user['progress'][taskid] = result
-            T[taskid]['num_completed'] += int(0)
+            if result and result['status'] == 'ok':
+                T[taskid]['num_completed'] += 1
         user['notice'] = '' # Empty for the time being.    
     app.logger.info('Group list (@%s): %s', current_user.get_id(), groupid)
     return render_template('progress.html', users=U, tasks=tasks)
