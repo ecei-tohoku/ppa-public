@@ -18,6 +18,8 @@ title: C言語Tips
 * デバックの方法 ([ムービー](https://www.youtube.com/watch?v=p7XdkrlFXnU))
 ([解説資料](http://localweb.ecei.tohoku.ac.jp/~enshu25/emacs-gdb.pdf))
     * 効率よくデバック(プログラムからバグを取り除く作業)するために…
+* [メモリ周りのデバッグの方法（Valgrind）](tips/valgrind.html)
+    * 手元と自動採点システム上で実行結果が異なるときに…
 
 
 
