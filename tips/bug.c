@@ -2,8 +2,12 @@
 
 int main()
 {
-  int i, a;
+  int i, a, sum = 0;
+  
   scanf("%d", a);
-  printf("%d\n", a * 2);
+  for (i = 1; i <= a; ++i) {
+    sum += i;
+  }
+  printf("%d\n", sum);
   return 0;
 }
