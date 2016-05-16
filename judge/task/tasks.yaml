@@ -38,3 +38,33 @@
   title: 三目並べ
   url: http://ecei-tohoku.github.io/ppa/kadai1/p17.html
   judge: task/p17/*.argv
+
+- id: p21
+  title: 関数と動的メモリ確保
+  url: http://ecei-tohoku.github.io/ppa/kadai2/p21.html
+  judge: task/p21/*.argv
+
+- id: p22
+  title: 選択ソート
+  url: http://ecei-tohoku.github.io/ppa/kadai2/p22.html
+  judge: task/p22/*.argv
+
+- id: p24
+  title: 再帰呼び出し
+  url: http://ecei-tohoku.github.io/ppa/kadai2/p24.html
+  judge: task/p24/*.argv
+
+- id: p25
+  title: マージソート
+  url: http://ecei-tohoku.github.io/ppa/kadai2/p25.html
+  judge: task/p25/*.argv
+
+- id: p27
+  title: マージソートの比較回数の最大値と最小値
+  url: http://ecei-tohoku.github.io/ppa/kadai2/p27.html
+  judge: task/p27/*.argv
+
+- id: p28
+  title: 行列データのソート
+  url: http://ecei-tohoku.github.io/ppa/kadai2/p28.html
+  judge: task/p28/*.argv
