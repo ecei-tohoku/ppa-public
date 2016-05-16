@@ -9,6 +9,7 @@ import collections
 import logging
 from logging.handlers import RotatingFileHandler
 import ssl
+import yaml
 
 from flask import Flask, abort, jsonify, render_template, redirect, url_for, request, flash
 from flask.ext.login import LoginManager, login_user, logout_user, current_user, login_required
@@ -28,7 +29,7 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 def getdb():
-    return Database()
+    return Database(uri=config['judge']['dburi'], dbname=config['judge']['dbname'])
 
 def is_admin(user):
     return user.get_group() in ('admin', 'ta')
@@ -137,7 +138,7 @@ def submit(task_id):
             db = getdb()
             objectid = db.register_submission(userid, task_id, source)
             task = db.get_task(task_id)
-            cmd = 'python judge.py -i {} {}'.format(str(objectid), task['judge'])
+            cmd = 'python judge.py -d {} -i {} {}'.format(config['judge']['dbname'], str(objectid), task['judge'])
             if task['tester']:
                 cmd += " -t '{}'".format(task['tester'])
             cmdtasks.system.delay(cmd)
@@ -197,7 +198,8 @@ def admin_group(groupid):
             taskid = task['id']
             result = db.get_result(userid, taskid)
             user['progress'][taskid] = result
-            T[taskid]['num_completed'] += int(0)
+            if result and result['status'] == 'ok':
+                T[taskid]['num_completed'] += 1
         user['notice'] = '' # Empty for the time being.    
     app.logger.info('Group list (@%s): %s', current_user.get_id(), groupid)
     return render_template('progress.html', users=U, tasks=tasks)
@@ -260,21 +262,16 @@ if __name__ == '__main__':
         description='Start a process of judge server.'
         )
     parser.add_argument(
-        '--port', '-p', type=int, default=443,
-        help='specify the port number of the server'
-        )
-    parser.add_argument(
-        '--debug', '-d', dest='debug', action='store_true',
-        help='activate the debug mode'
-        )
-    parser.add_argument(
-        '--log', '-l', type=str,
-        help='Log to a file'
+        'config', type=str, default='config.yaml',
+        help='specify the configuration file (in YAML) for running the server'
         )
     args = parser.parse_args()
 
-    if args.log:
-        handler = RotatingFileHandler(args.log, maxBytes=100000000, backupCount=100)
+    # Load the configuration file (we are in the global scope!)
+    config = yaml.load(open(args.config))
+
+    if 'log' in config['server'] and config['server']['log']:
+        handler = RotatingFileHandler(config['server']['log'], maxBytes=100000000, backupCount=100)
         formatter = logging.Formatter(
             "[%(asctime)s] {%(pathname)s:%(lineno)d} %(levelname)s - %(message)s")
         handler.setLevel(logging.INFO)
@@ -284,7 +281,7 @@ if __name__ == '__main__':
     # Start the server.
     app.run(
         host='0.0.0.0',
-        debug=args.debug,
-        port=args.port,
+        debug=config['server']['debug'],
+        port=config['server']['port'],
         ssl_context=context
         )

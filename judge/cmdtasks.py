@@ -15,9 +15,8 @@ The worker will use four CPUs at maximum (`--concurrency 4`).
 
 import os
 from celery import Celery
-from config import BROKER
 
-app = Celery('cmdtasks', broker=BROKER)
+app = Celery('cmdtasks', broker='redis://localhost')
 
 @app.task
 def system(cmd):

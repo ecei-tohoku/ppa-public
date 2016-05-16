@@ -9,7 +9,7 @@
 {% if not result %}
 <div class="alert alert-warning" role="alert">ソースコードが未提出です</div>
 {% elif result.status == 'ok' %}
-<div class="alert alert-success" role="alert">テストに合格しました ({{ result.passed }} / {{ result.tests | count }})</div>
+<div class="alert alert-success" role="alert">テストに合格しました ({{ result.passed }} / {{ result.tests | count }}) {% if mode != 'report' %}<br><strong> ※このページは印刷しないで下さい！</strong>{% endif %}</div>
 {% elif result.status == 'fail' %}
 <div class="alert alert-danger" role="alert">テストで不合格となりました ({{ result.passed }} / {{ result.tests | count }})</div>
 {% elif result.status == 'error' %}
@@ -53,12 +53,22 @@
     タイムアウト
     {% endif %}
   </div>
+
+  {% if mode != 'report' %}
   <div class="panel-body">
     {% if test.argv %}ARGV<pre>{{ test.argv }}</pre>{% endif %}
     {% if test.stdin %}STDIN<pre class="io">{{ test.stdin }}</pre>{% endif %}
     {% if test.stdout %}STDOUT<pre class="io">{{ test.stdout }}</pre>{% endif %}
     {% if test.stderr %}STDERR<pre class="io">{{ test.stderr }}</pre>{% endif %}
   </div>
+  {% else %}
+  <div class="panel-body">
+    {% if test.argv %}ARGV<pre>{{ test.argv }}</pre>{% endif %}
+    {% if test.stdin %}STDIN<pre class="io">{{ test.stdin | truncate(512) }}</pre>{% endif %}
+    {% if test.stdout %}STDOUT<pre class="io">{{ test.stdout | truncate(512) }}</pre>{% endif %}
+    {% if test.stderr %}STDERR<pre class="io">{{ test.stderr | truncate(512) }}</pre>{% endif %}
+  </div>
+  {% endif %}
 </div>
 {% endif %}
 {% endfor %}
