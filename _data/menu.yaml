@@ -16,6 +16,9 @@
       url: /kadai1/p16.html
     - text: 問題1-7【発展問題】
       url: /kadai1/p17.html
+    - text: 解答例と解説
+      url: /kadai1/answer.html
+
 - text: 課題2
   subitems:
     - text: 課題2表紙
