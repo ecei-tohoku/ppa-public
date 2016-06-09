@@ -95,25 +95,33 @@ class Database:
     def create_user_index(self):
         self.db.user.create_index([('id', pymongo.DESCENDING)])
 
-    def set_task(self, tid, title, url, judge, tester):
+    def set_task(self, tid, title, url, judge, tester, excludes):
         self.db.task.replace_one(
             {'id': tid},
-            {'id': tid, 'title': title, 'url': url, 'judge': judge, 'tester': tester},
+            {'id': tid, 'title': title, 'url': url, 'judge': judge, 'tester': tester, 'excludes': excludes},
             upsert=True
             )
 
     def get_task(self, tid):
         return self.db.task.find_one({'id': tid})
 
-    def get_task_list(self):
-        return self.db.task.find().sort('id', 1)
+    def get_task_list(self, userid=None):
+        if userid is None:
+            return self.db.task.find().sort('id', 1)
+        else:
+            user = self.get_user(userid)
+            return self.db.task.find({'excludes': {'$nin': [user['group'],]}}).sort('id', 1)
 
-    def get_tasks_for_user(self, user):
+    def get_tasks_for_user(self, userid):
         tasks = []
-        for row in self.get_task_list():
-            row['submission'] = self.get_result(user, row['id'])
+        for row in self.get_task_list(userid):
+            row['submission'] = self.get_result(userid, row['id'])
             tasks.append(row)
         return tasks
+
+    def check_permission(self, userid, taskid):
+        user = self.get_user(userid)
+        return self.db.task.find({'id': taskid, 'excludes': {'$nin': [user['group'],]}}) is not None
 
     def register_submission(self, userid, taskid, source):
         d = self.db.submission.insert_one({
