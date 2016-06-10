@@ -122,7 +122,13 @@ def home():
 @app.route('/submit/<task_id>', methods=['GET', 'POST'])
 @login_required
 def submit(task_id):
+    db = getdb()
     userid = current_user.get_id()
+    if not db.check_permission(userid, task_id):
+        app.logger.info('Permission error: #%s for @%s', task_id, userid)
+        flash('permission error')
+        return redirect(url_for('home', _external=True))
+        
     if request.method == 'POST':
         f = request.files['source']
         filename = f.filename
@@ -135,7 +141,6 @@ def submit(task_id):
                 flash('encoding-error')
                 return redirect(url_for('home', _external=True))
     
-            db = getdb()
             objectid = db.register_submission(userid, task_id, source)
             task = db.get_task(task_id)
             cmd = 'python judge.py -d {} -i {} {}'.format(config['judge']['dbname'], str(objectid), task['judge'])
