@@ -41,6 +41,30 @@
       url: /kadai2/p27.html
     - text: 問題2-8【発展問題】
       url: /kadai2/p28.html
+
+- text: 課題3
+  subitems:
+    - text: 課題3表紙
+      url: /kadai3/kadai3-cover.pdf
+    - text: 課題3解説資料
+      url: /kadai3/2016_kadai3_intro.pdf
+    - text: 問題3-0【解説資料】
+      url: /kadai3/p30.html
+    - text: 問題3-1【２週目のみ採点】
+      url: /kadai3/p31.html
+    - text: 問題3-2【２週目のみ採点】
+      url: /kadai3/p32.html
+    - text: 問題3-3【２週目のみ採点】
+      url: /kadai3/p33.html
+    - text: 問題3-4
+      url: /kadai3/p34.html
+    - text: 問題3-5
+      url: /kadai3/p35.html
+    - text: 問題3-6
+      url: /kadai3/p36.html
+    - text: 問題3-7【発展問題】
+      url: /kadai3/p37.html
+
 - text: シラバス
   url: /about.html
 - text: 日程
