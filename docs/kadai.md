@@ -47,7 +47,7 @@ int main()
 ```
 
 入力したソースコードを保存するために，ツールバーのアイコンをクリックするか，`[Ctrl]+[x] [Ctrl]+[s]` キーを押します．
-Emacsの操作方法は[Emacs Cheat Sheet](http://www.programming-knowledge.com/images/archive/b/b7/20130114094201!Emacs_Cheat_Sheet.pdf)を参照するとよいと思います．
+Emacsの操作方法は[Emacs クイックリファレンス](http://www.unixuser.org/~euske/doc/emacsref/)などを参照するとよいと思います．
 
 ## コンパイル
 
