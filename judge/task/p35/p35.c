@@ -19,16 +19,17 @@ int ld(char *x, int m, char *y, int n, int *c, int memo[100][100]) {
     return max(m, n);
 
   if(memo != NULL) {
-    if(memo[m-1][n-1] == -1) {
+    if(memo[m][n] == -1) {
       ret = min3(
         ld(x, m-1, y, n-1, c, memo) + (x[m-1] != y[n-1] ? 1 : 0),
         ld(x, m-1, y, n, c, memo) + 1,
         ld(x, m, y, n-1, c, memo) + 1
       );
-      memo[m-1][n-1] = ret;
+
+      memo[m][n] = ret;
 
     } else {
-      ret = memo[m-1][n-1];
+      ret = memo[m][n];
 
     }
 
@@ -46,21 +47,22 @@ int ld(char *x, int m, char *y, int n, int *c, int memo[100][100]) {
 
 int main() {
   char x[100], y[100];
-  int  memo[100][100];
-  int  c_withmemo = 0, c_withoutmemo = 0;
-  int  m, n;
 
   /* Wait for the user input. */
   while(scanf("%s %s", x, y) != EOF) {
+    int c_withmemo = 0, c_withoutmemo = 0;
+    int memo[100][100];
+    int m, n, ret1, ret2;
+
     memset(memo, -1, sizeof(int)*100*100);
 
     m = strlen(x);
     n = strlen(y);
 
-    ld(x, m, y, n, &c_withoutmemo, NULL);
-    ld(x, m, y, n, &c_withmemo, memo);
+    ret1 = ld(x, m, y, n, &c_withoutmemo, NULL);
+    ret2 = ld(x, m, y, n, &c_withmemo, memo);
 
-    printf("%d\n", memo[m-1][n-1]);
+    printf("%d\n", ret1);
     fprintf(stderr, "%d,%d,%d,%d,%d\n",
       m, n, m*n,
       c_withoutmemo,
