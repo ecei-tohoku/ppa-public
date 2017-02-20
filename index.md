@@ -1,4 +1,4 @@
----
+﻿---
 layout: index
 title: プログラミング演習A
 ---
@@ -16,4 +16,3 @@ title: プログラミング演習A
     + [Bクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/B_class.htm)
     + [Cクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/C_class.pdf)
     + [Dクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/D_class.pdf)
-+ [課題1の解答例と解説](http://ecei-tohoku.github.io/ppa/kadai1/answer.html)
