@@ -5,6 +5,9 @@ import os
 import sys
 import subprocess
 import execute_c
+import yaml
+
+from database import Database
 
 def now():
     return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -66,9 +69,9 @@ def test(S, C, tester):
     prefix = 'exec'
     if 'user' in S and 'task' in S:
         prefix += '_{}_{}_'.format(S['user'], S['task'])
-    
+
     # Compile the code.
-    E = execute_c.ExecuteC(S['source'], prefix=prefix)
+    E = execute_c.ExecuteC(S['source'], prefix=prefix, esbso=config['judge']['easysandbox_so'])
     cmd, returncode, message = E.compile()
     S['compile'] = dict(
         cmd=cmd,
@@ -135,7 +138,7 @@ def test(S, C, tester):
                 S['note'] = 'Failed to read the stdout: {}'.format(fout)
                 return
 
-        
+
         # Read the gold-standard for STDERR
         if os.path.exists(ferr):
             try:
@@ -163,8 +166,8 @@ if __name__ == '__main__':
         description='Test a source code with test cases.'
         )
     parser.add_argument(
-        '-d', '--dbname', type=str,
-        help='specify the ObjectId for the submission'
+        '-c', '--config', type=str,
+        help='specify the configuration file'
         )
     parser.add_argument(
         '-i', '--objectid', type=str,
@@ -180,10 +183,13 @@ if __name__ == '__main__':
         )
     args = parser.parse_args()
 
+    # Read the configuration.
+    config = yaml.load(open(args.config))
+
     if args.objectid:
         import database
         #sys.stderr.write('{} {}: {}\n'.format(args.dbname, args.objectid, args.tester))
-        db = database.Database(dbname=args.dbname)
+        db = Database(uri=config['judge']['dburi'], dbname=config['judge']['dbname'], dbuser=config['judge']['dbuser'], dbpass=config['judge']['dbpass'])
         S = db.get_submission(args.objectid)
         test(S, args.argvs, args.tester)
         db.replace_submission(args.objectid, S)

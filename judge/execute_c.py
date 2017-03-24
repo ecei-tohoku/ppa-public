@@ -17,7 +17,7 @@ ENCODING = 'utf-8'
 COMPILE = 'gcc {src} -std=c99 -Wall -o {bin} -lm'
 
 # Command-line for running the code.
-RUN = "LD_PRELOAD=/home/okazaki/install/EasySandbox/EasySandbox.so exec {bin} {argv}"
+RUN = "LD_PRELOAD={easysandbox_so} exec {bin} {argv}"
 
 def strip_easysandbox(s):
     magic = '<<entering SECCOMP mode>>\n'
@@ -52,7 +52,7 @@ class Command(object):
 class ExecuteC:
     """Execute a C source code."""
 
-    def __init__(self, src, prefix='exec', suffix='.c'):
+    def __init__(self, src, prefix='exec', suffix='.c', esbso=''):
         """ Construct an instance for compiling and running a code.
 
         Params:
@@ -65,11 +65,12 @@ class ExecuteC:
         fd, name = tempfile.mkstemp(prefix=prefix, suffix=suffix)
         fo = os.fdopen(fd, "w")
         fo.write(src)
-        fo.close()        
+        fo.close()
 
         # Filenames for the source code and binary.
         self.src = name
         self.bin = name + '.bin'
+        self.esbso = esbso
 
         lg.debug('src: {}'.format(self.src))
         lg.debug('bin: {}'.format(self.bin))
@@ -84,7 +85,7 @@ class ExecuteC:
         if os.path.exists(self.bin):
             os.remove(self.bin)
             self.bin= None
-    
+
     def compile(self):
         """ Compile the source code.
 
@@ -115,7 +116,7 @@ class ExecuteC:
             str: the content from STDERR.
 
         """
-        cmd = RUN.format(bin=self.bin, argv=argv)
+        cmd = RUN.format(easysandbox_so=self.esbso, bin=self.bin, argv=argv)
         lg.debug('Run {}'.format(cmd))
         c = Command(cmd, fi)
         finished = c.run(timeout)
@@ -130,7 +131,7 @@ class ExecuteC:
         else:
             lg.debug('Terminated with timeout: {}'.format(cmd))
             return ('timeout', -1, '', '')
-            
+
 if __name__ == '__main__':
     logger = lg.getLogger()
     logger.setLevel(lg.DEBUG)

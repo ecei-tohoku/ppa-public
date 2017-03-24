@@ -56,9 +56,10 @@ def now():
     return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 class Database:
-    def __init__(self, uri='mongodb://localhost:27017/', dbname='ppa2016'):
+    def __init__(self, uri='mongodb://localhost:27017/', dbname='ppa2016', dbuser='', dbpass=''):
         self.client = pymongo.MongoClient(uri)
         self.db = self.client[dbname]
+        self.db.authenticate(dbuser, dbpass)
 
     def add_user(self, user, password, group, name):
         self.db.user.insert_one(

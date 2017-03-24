@@ -17,17 +17,17 @@ parser.add_argument(
 args = parser.parse_args()
 
 config = yaml.load(open(args.config))
-db = Database(uri=config['judge']['dburi'], dbname=config['judge']['dbname'])
+db = Database(uri=config['judge']['dburi'], dbname=config['judge']['dbname'], dbuser=config['judge']['dbuser'], dbpass=config['judge']['dbpass'])
 
 if args.clean:
     db.remove_users()
 
 for line in sys.stdin:
     fields = line.strip('\n').split('\t')
-    assert len(fields) == 4
+    assert len(fields) == 3
     if not db.get_user(fields[0]):
         print('Add: {}'.format(fields[0]))
-        db.add_user(fields[0], fields[1], fields[2], fields[3])
+        db.add_user(fields[0], fields[1], fields[2], "")
     else:
         print('WARNING: skipping the existing user: {}'.format(fields[0]))
 

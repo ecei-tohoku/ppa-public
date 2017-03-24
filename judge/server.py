@@ -12,12 +12,14 @@ import ssl
 import yaml
 
 from flask import Flask, abort, jsonify, render_template, redirect, url_for, request, flash
-from flask.ext.login import LoginManager, login_user, logout_user, current_user, login_required
+from flask_login import LoginManager, login_user, logout_user, current_user, login_required
 from database import Database
 import cmdtasks
 
+JUDGE = '{pybin} judge.py -c {conf} -i {objid} {ar}'
+
 context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-context.load_cert_chain('server.crt', 'server.key')
+context.load_cert_chain('conf/ssl/server.crt', 'conf/ssl/server.key')
 
 app = Flask(__name__)
 app.secret_key = '\xd4\xa1\x17\xf9\xa9\xa0\xd2j\t\xb3\xd8\x87N\xfb\x14\xa3\xcc\x7f\x88\xde\x19C0N'
@@ -29,11 +31,11 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 def getdb():
-    return Database(uri=config['judge']['dburi'], dbname=config['judge']['dbname'])
+    return Database(uri=config['judge']['dburi'], dbname=config['judge']['dbname'], dbuser=config['judge']['dbuser'], dbpass=config['judge']['dbpass'])
 
 def is_admin(user):
     return user.get_group() in ('admin', 'ta')
-    
+
 
 
 class User:
@@ -46,10 +48,10 @@ class User:
 
     def is_active(self):
         return True
- 
+
     def is_anonymous(self):
         return False
- 
+
     def get_id(self):
         return self.id
 
@@ -60,6 +62,10 @@ class User:
 def load_user(id):
     db = getdb()
     user = db.get_user(id)
+
+    if user == None:
+        return None
+
     return User(id, user['group'])
 
 @app.route('/')
@@ -128,7 +134,7 @@ def submit(task_id):
         app.logger.info('Permission error: #%s for @%s', task_id, userid)
         flash('permission error')
         return redirect(url_for('home', _external=True))
-        
+
     if request.method == 'POST':
         f = request.files['source']
         filename = f.filename
@@ -140,10 +146,10 @@ def submit(task_id):
                 app.logger.info('Unicode error: %s for #%s from @%s', filename, task_id, userid)
                 flash('encoding-error')
                 return redirect(url_for('home', _external=True))
-    
+
             objectid = db.register_submission(userid, task_id, source)
             task = db.get_task(task_id)
-            cmd = 'python judge.py -d {} -i {} {}'.format(config['judge']['dbname'], str(objectid), task['judge'])
+            cmd = JUDGE.format(pybin=config['judge']['python_bin'], conf=args.config, objid=str(objectid), ar=task['judge'])
             if task['tester']:
                 cmd += " -t '{}'".format(task['tester'])
             cmdtasks.system.delay(cmd)
@@ -205,7 +211,7 @@ def admin_group(groupid):
             user['progress'][taskid] = result
             if result and result['status'] == 'ok':
                 T[taskid]['num_completed'] += 1
-        user['notice'] = '' # Empty for the time being.    
+        user['notice'] = '' # Empty for the time being.
     app.logger.info('Group list (@%s): %s', current_user.get_id(), groupid)
     return render_template('progress.html', users=U, tasks=tasks)
 
