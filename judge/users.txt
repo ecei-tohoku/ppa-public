@@ -1,3 +1,6 @@
-ppa01	ppa01	student
+ppa01	ppa01	a
+ppa02	ppa02	b
+ppa03	ppa03	c
+ppa04	ppa04	d
 enshu01	enshu01	admin
 enshu08	enshu08	ta

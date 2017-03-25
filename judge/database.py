@@ -45,41 +45,59 @@ import hashlib
 import json
 import pymongo
 from bson.objectid import ObjectId
+import os
 
 # Encoding.
 ENCODING = 'utf-8'
+PWSALT_BIT = 256
 
 def pwhash(x):
     return hashlib.sha256(x).hexdigest()
+
+def pwsalt():
+    return hashlib.sha256(os.urandom(PWSALT_BIT)).hexdigest()
+
+def pwconcat(x, s):
+    return x + "_" + s
 
 def now():
     return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 class Database:
-    def __init__(self, uri='mongodb://localhost:27017/', dbname='ppa2016', dbuser='', dbpass=''):
+    def __init__(self, uri='', dbname='', dbuser='', dbpass=''):
         self.client = pymongo.MongoClient(uri)
         self.db = self.client[dbname]
         self.db.authenticate(dbuser, dbpass)
 
     def add_user(self, user, password, group, name):
+        salt = pwsalt()
+
         self.db.user.insert_one(
-            {'id': user, 'password': pwhash(password.encode(ENCODING)), 'group': group, 'name': name, 'timestamp': now()}
+            {'id': user, 'password': pwhash(pwconcat(password, salt).encode(ENCODING)), 'password_salt': salt, 'group': group, 'name': name, 'timestamp': now()}
             )
 
     def update_password(self, user, oldpw, newpw):
+        usr = self.get_user(user)
+        newsalt = pwsalt()
+
         return self.db.user.update_one(
-            {'id': user, 'password': pwhash(oldpw.encode(ENCODING))},
-            {'$set': {'password': pwhash(newpw.encode(ENCODING))}}
+            {'id': user, 'password': pwhash(pwconcat(oldpw, usr['password_salt']).encode(ENCODING))},
+            {'$set': {'password': pwhash(pwconcat(newpw, newsalt).encode(ENCODING)), 'password_salt': newsalt}}
             ).matched_count == 1
 
     def reset_password(self, user, newpw):
+        usr = self.get_user(user)
+        newsalt = pwsalt()
+
         return self.db.user.update_one(
             {'id': user},
-            {'$set': {'password': pwhash(newpw.encode(ENCODING))}}
+            {'$set': {'password': pwhash(pwconcat(newpw, newsalt).encode(ENCODING)), 'password_salt': newsalt}}
             ).matched_count == 1
 
     def authenticate_user(self, user, password):
-             return self.db.user.find_one({'id': user, 'password': pwhash(password.encode(ENCODING))})
+        usr = self.get_user(user)
+
+        return self.db.user.find_one({'id': user, 'password': pwhash(pwconcat(password, usr['password_salt']).encode(ENCODING))})
 
     def get_user(self, user):
         return self.db.user.find_one({'id': user})
