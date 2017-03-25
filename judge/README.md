@@ -13,6 +13,8 @@ $ pip install Flask
 $ pip install flask-login
 $ pip install pymongo
 $ pip install pyyaml
+$ pip install celery
+$ pip install redis
 ```
 
 ### EasySandbox
@@ -36,7 +38,7 @@ $ make
 $ make runtests
 ```
 
-The judge server requires the shared library `EasySandbox.so` for sandboxing. 
+The judge server requires the shared library `EasySandbox.so` for sandboxing.
 
 ### Generating server keys for SSL.
 
@@ -53,7 +55,7 @@ See http://d.hatena.ne.jp/ozuma/20130511/1368284304
 Starting a job queue for making judges.
 
 ```
-$ celery -A cmdtasks worker --loglevel=info
+$ celery -A cmdtasks worker --loglevel=info --concurrency 4
 ```
 
 Starting the Web server.
