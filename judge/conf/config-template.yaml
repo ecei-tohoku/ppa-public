@@ -1,0 +1,25 @@
+########################################
+# Server configuration
+########################################
+server:
+  port: PORTNUM
+  debug: true
+  log: 'log/codexam.txt'
+
+########################################
+# Configuration for judge
+########################################
+judge:
+  # URI database
+  dburi: 'PROTOCOL://SERVERNAME:PORTNUM/'
+
+  # Database name.
+  dbname: ''
+
+  # User/Password.
+  dbuser: ''
+  dbpass: ''
+
+  # External resources.
+  python_bin: '/usr/bin/python'
+  easysandbox_so: '/path/to/EasySandbox/EasySandbox.so'
