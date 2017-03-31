@@ -21,6 +21,7 @@ app = Flask(__name__)
 app.secret_key = '\xd4\xa1\x17\xf9\xa9\xa0\xd2j\t\xb3\xd8\x87N\xfb\x14\xa3\xcc\x7f\x88\xde\x19C0N'
 app.config['PREFERRED_URL_SCHEME'] = 'http'
 app.config['MAX_CONTENT_LENGTH'] = 64 * 1024
+app.config["APPLICATION_ROOT"] = "/ppa"
 
 login_manager = LoginManager()
 login_manager.init_app(app)

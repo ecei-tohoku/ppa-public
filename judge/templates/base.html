@@ -56,21 +56,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="home">プログラミング演習Ａ</a>
+          <a class="navbar-brand" href="/home">プログラミング演習Ａ</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="home">ホーム</a></li>
+            <li><a href="/home">ホーム</a></li>
             {% if current_user.get_group() == 'admin' or current_user.get_group() == 'ta' %}
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">進捗状況<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="admin/group/a">Aクラス</a></li>
-                <li><a href="admin/group/b">Bクラス</a></li>
-                <li><a href="admin/group/c">Cクラス</a></li>
-                <li><a href="admin/group/d">Dクラス</a></li>
-                <li><a href="admin/group/ta">TA</a></li>
-                <li><a href="admin/group/admin">教員</a></li>
+                <li><a href="/admin/group/a">Aクラス</a></li>
+                <li><a href="/admin/group/b">Bクラス</a></li>
+                <li><a href="/admin/group/c">Cクラス</a></li>
+                <li><a href="/admin/group/d">Dクラス</a></li>
+                <li><a href="/admin/group/ta">TA</a></li>
+                <li><a href="/admin/group/admin">教員</a></li>
               </ul>
             </li>
             {% endif %}
@@ -78,8 +78,8 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">管理<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="admin/add-user">ユーザの作成</a></li>
-                <li><a href="admin/reset-user">パスワードのリセット</a></li>
+                <li><a href="/admin/add-user">ユーザの作成</a></li>
+                <li><a href="/admin/reset-user">パスワードのリセット</a></li>
               </ul>
             </li>
             {% endif %}
@@ -88,8 +88,8 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ current_user.get_id() }}<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="account">パスワードの変更</a></li>
-                <li><a href="logout">ログアウト</a></li>
+                <li><a href="/account">パスワードの変更</a></li>
+                <li><a href="/logout">ログアウト</a></li>
               </ul>
             </li>
           </ul>

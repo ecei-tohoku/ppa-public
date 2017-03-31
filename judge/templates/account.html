@@ -2,7 +2,7 @@
 
 {% block content %}
 <h2 class="form-signin-heading">{{ current_user.get_id() }}の設定</h2>
-<form data-toggle="validator" method="post" action="account">
+<form data-toggle="validator" method="post" action="/account">
   <h3>パスワードの変更</h3>
   {% if message == 'success' %}
   <div class="alert alert-success" role="alert">
