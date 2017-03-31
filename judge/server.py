@@ -84,12 +84,12 @@ def login():
     user = db.authenticate_user(username, password)
     if not user:
         app.logger.info('Failed to login: @%s', username)
-        return render_template('login.html', error=True)
+        return my_render_template('login.html', error=True)
 
     app.logger.info('Login successfully: @%s', username)
     registered_user = User(username, user['group'])
     login_user(registered_user)
-    return redirect(url_for('home', _external=True))
+    return redirect(url_for(APP_ROOT_DIR+'/home', _external=True))
 
 @app.route("/logout")
 @login_required
