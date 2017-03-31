@@ -89,7 +89,7 @@ def login():
     app.logger.info('Login successfully: @%s', username)
     registered_user = User(username, user['group'])
     login_user(registered_user)
-    return redirect(url_for(APP_ROOT_DIR+'/home', _external=True))
+    return redirect(url_for('home', _external=True))
 
 @app.route("/logout")
 @login_required
