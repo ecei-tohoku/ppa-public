@@ -14,7 +14,7 @@
   {% for userid, user in users.items() %}
   <tr>
     <td>
-      <a href="/admin/user/{{ user.id }}">{{ user.id }}</a>
+      <a href="{{approot}}/admin/user/{{ user.id }}">{{ user.id }}</a>
       {% if user.notice %}
       {{ user.notice.score | round(2) }} (#{{ user.notice.rank }}) for {{ user.notice.tasks }}
       {% endif %}
@@ -27,12 +27,12 @@
     {% elif s.status == 'ok' %}
     <td class="text-center text-success">
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-      (<a href="/admin/view/{{ user.id }}/{{ s.task }}">{{ s.passed }}</a>)
+      (<a href="{{approot}}/admin/view/{{ user.id }}/{{ s.task }}">{{ s.passed }}</a>)
     </td>
     {% elif s.status == 'fail' %}
     <td class="text-center text-danger">
       <span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span>
-      (<a href="/admin/view/{{ user.id }}/{{ s.task }}">{{ s.passed }}</a>)
+      (<a href="{{approot}}/admin/view/{{ user.id }}/{{ s.task }}">{{ s.passed }}</a>)
     </td>
     {% elif s.status == 'error' %}
     <td class="text-center text-warning">

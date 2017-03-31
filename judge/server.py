@@ -21,7 +21,8 @@ app = Flask(__name__)
 app.secret_key = '\xd4\xa1\x17\xf9\xa9\xa0\xd2j\t\xb3\xd8\x87N\xfb\x14\xa3\xcc\x7f\x88\xde\x19C0N'
 app.config['PREFERRED_URL_SCHEME'] = 'http'
 app.config['MAX_CONTENT_LENGTH'] = 64 * 1024
-app.config["APPLICATION_ROOT"] = "/ppa"
+
+APP_ROOT_DIR = "/ppa"
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -33,6 +34,9 @@ def getdb():
 def is_admin(user):
     return user.get_group() in ('admin', 'ta')
 
+def my_render_template(fn, **kwargs):
+    kwargs["approot"] = APP_ROOT_DIR
+    return render_template(fn, **kwargs)
 
 
 class User:
@@ -67,12 +71,12 @@ def load_user(id):
 
 @app.route('/')
 def index():
-    return render_template('login.html')
+    return my_render_template('login.html')
 
 @app.route('/login', methods=['GET','POST'])
 def login():
     if request.method == 'GET':
-        return render_template('login.html')
+        return my_render_template('login.html')
 
     db = getdb()
     username = request.form['username']
@@ -101,17 +105,17 @@ def account():
 
     if request.method == 'GET':
         app.logger.info('Account: @%s', userid)
-        return render_template('account.html')
+        return my_render_template('account.html')
 
     db = getdb()
     curpass = request.form['curpass']
     newpass = request.form['newpass']
     if not db.update_password(userid, curpass, newpass):
         app.logger.info('Failed to change the password: @%s', userid)
-        return render_template('account.html', message='incorrect')
+        return my_render_template('account.html', message='incorrect')
 
     app.logger.info('Changed the password successfully: @%s', userid)
-    return render_template('account.html', message='success')
+    return my_render_template('account.html', message='success')
 
 @app.route('/home')
 @login_required
@@ -120,7 +124,7 @@ def home():
     userid = current_user.get_id()
     tasks = db.get_tasks_for_user(userid)
     app.logger.info('Home: @%s', userid)
-    return render_template('home.html',tasks=tasks)
+    return my_render_template('home.html',tasks=tasks)
 
 @app.route('/submit/<task_id>', methods=['GET', 'POST'])
 @login_required
@@ -160,7 +164,7 @@ def render_view(userid, taskid, mode=''):
     result = db.get_result(userid, taskid)
     print(result)
     app.logger.info('Result %s: @%s #%s', mode, userid, taskid)
-    return render_template(
+    return my_render_template(
         'result.html',
         userid=userid, task=task, result=result, mode=mode)
 
@@ -184,7 +188,7 @@ def admin_userhome(userid):
     adminuserid = current_user.get_id()
     tasks = db.get_tasks_for_user(userid)
     app.logger.info('Home (admin: @%s): @%s', adminuserid, userid)
-    return render_template('home.html', tasks=tasks)
+    return my_render_template('home.html', tasks=tasks)
 
 @app.route('/admin/group/<groupid>')
 @login_required
@@ -210,7 +214,7 @@ def admin_group(groupid):
                 T[taskid]['num_completed'] += 1
         user['notice'] = '' # Empty for the time being.
     app.logger.info('Group list (@%s): %s', current_user.get_id(), groupid)
-    return render_template('progress.html', users=U, tasks=tasks)
+    return my_render_template('progress.html', users=U, tasks=tasks)
 
 @app.route('/admin/view/<userid>/<taskid>')
 @login_required
@@ -229,7 +233,7 @@ def admin_add_user():
         abort(404)
 
     if request.method == 'GET':
-        return render_template('adduser.html')
+        return my_render_template('adduser.html')
 
     db = getdb()
     userid = request.form['userid']
@@ -238,11 +242,11 @@ def admin_add_user():
     name = request.form['name']
     if db.get_user(userid):
         app.logger.warn('Add-user: existing user specified: @%s', userid)
-        return render_template('adduser.html', message='exist')
+        return my_render_template('adduser.html', message='exist')
 
     db.add_user(userid, newpass, group, name)
     app.logger.info('Add-user: success: @%s', userid)
-    return render_template('adduser.html', message='success')
+    return my_render_template('adduser.html', message='success')
 
 @app.route('/admin/reset-user', methods=['GET','POST'])
 @login_required
@@ -252,18 +256,18 @@ def admin_reset_user():
         abort(404)
 
     if request.method == 'GET':
-        return render_template('resetpw.html')
+        return my_render_template('resetpw.html')
 
     db = getdb()
     userid = request.form['userid']
     newpass = request.form['newpass']
     if not db.get_user(userid):
         app.logger.warn('Reset-user: the user does not exist: @%s', userid)
-        return render_template('resetpw.html', message='unknown')
+        return my_render_template('resetpw.html', message='unknown')
 
     db.reset_password(userid, newpass)
     app.logger.info('Reset-user: success: @%s', userid)
-    return render_template('resetpw.html', message='success')
+    return my_render_template('resetpw.html', message='success')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(

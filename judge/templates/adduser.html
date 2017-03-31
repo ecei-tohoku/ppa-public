@@ -2,7 +2,7 @@
 
 {% block content %}
 <h2 class="form-signin-heading">ユーザの追加</h2>
-<form data-toggle="validator" method="post" action="/admin/add-user">
+<form data-toggle="validator" method="post" action="{{approot}}/admin/add-user">
   {% if message == 'success' %}
   <div class="alert alert-success" role="alert">
     ユーザを追加しました．

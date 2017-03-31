@@ -47,7 +47,7 @@ body {
 {% endblock %}
 
 {% block content %}
-<form class="form-signin" method="post" action="/login">
+<form class="form-signin" method="post" action="{{approot}}/login">
   <h2 class="form-signin-heading">プログラミング演習Ａ</h2>
   {% if error %}
   <div class="alert alert-danger" role="alert">

@@ -2,7 +2,7 @@
 
 {% block content %}
 <h2 class="form-signin-heading">パスワードのリセット</h2>
-<form data-toggle="validator" method="post" action="/admin/reset-user">
+<form data-toggle="validator" method="post" action="{{approot}}/admin/reset-user">
   {% if message == 'success' %}
   <div class="alert alert-success" role="alert">
     ユーザのパスワードを変更しました．
