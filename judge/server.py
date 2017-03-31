@@ -8,7 +8,6 @@ import argparse
 import collections
 import logging
 from logging.handlers import RotatingFileHandler
-import ssl
 import yaml
 
 from flask import Flask, abort, jsonify, render_template, redirect, url_for, request, flash
@@ -18,12 +17,9 @@ import cmdtasks
 
 JUDGE = '{pybin} judge.py -c {conf} -i {objid} {ar}'
 
-context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-context.load_cert_chain('conf/ssl/server.crt', 'conf/ssl/server.key')
-
 app = Flask(__name__)
 app.secret_key = '\xd4\xa1\x17\xf9\xa9\xa0\xd2j\t\xb3\xd8\x87N\xfb\x14\xa3\xcc\x7f\x88\xde\x19C0N'
-app.config['PREFERRED_URL_SCHEME'] = 'https'
+app.config['PREFERRED_URL_SCHEME'] = 'http'
 app.config['MAX_CONTENT_LENGTH'] = 64 * 1024
 
 login_manager = LoginManager()
@@ -294,5 +290,4 @@ if __name__ == '__main__':
         host='0.0.0.0',
         debug=config['server']['debug'],
         port=config['server']['port'],
-        ssl_context=context
         )

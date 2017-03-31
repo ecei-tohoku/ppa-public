@@ -80,6 +80,9 @@ class Database:
         usr = self.get_user(user)
         newsalt = pwsalt()
 
+        if None == usr:
+            return False
+
         return self.db.user.update_one(
             {'id': user, 'password': pwhash(pwconcat(oldpw, usr['password_salt']).encode(ENCODING))},
             {'$set': {'password': pwhash(pwconcat(newpw, newsalt).encode(ENCODING)), 'password_salt': newsalt}}
@@ -89,6 +92,9 @@ class Database:
         usr = self.get_user(user)
         newsalt = pwsalt()
 
+        if None == usr:
+            return False
+
         return self.db.user.update_one(
             {'id': user},
             {'$set': {'password': pwhash(pwconcat(newpw, newsalt).encode(ENCODING)), 'password_salt': newsalt}}
@@ -96,6 +102,9 @@ class Database:
 
     def authenticate_user(self, user, password):
         usr = self.get_user(user)
+
+        if None == usr:
+            return False
 
         return self.db.user.find_one({'id': user, 'password': pwhash(pwconcat(password, usr['password_salt']).encode(ENCODING))})
 
