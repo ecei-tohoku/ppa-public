@@ -32,13 +32,13 @@
     {% elif task.submission.status == 'ok' %}
     <td class="text-success">
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-      <a href="/result/{{ task.id }}">成功 ({{ task.submission.passed }} / {{ task.submission.tests | count }}) at {{ task.submission.timestamp }}</a>
-      [<a href="/report/{{ task.id }}">レポート</a>]
+      <a href="result/{{ task.id }}">成功 ({{ task.submission.passed }} / {{ task.submission.tests | count }}) at {{ task.submission.timestamp }}</a>
+      [<a href="report/{{ task.id }}">レポート</a>]
     </td>
     {% elif task.submission.status == 'fail' %}
     <td class="text-danger">
       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-      <a href="/result/{{ task.id }}">失敗 ({{ task.submission.passed }} / {{ task.submission.tests | count }}) at {{ task.submission.timestamp }}</a>
+      <a href="result/{{ task.id }}">失敗 ({{ task.submission.passed }} / {{ task.submission.tests | count }}) at {{ task.submission.timestamp }}</a>
     </td>
     {% elif task.submission.status == 'error' %}
     <td class="text-warning">
@@ -52,7 +52,7 @@
     </td>
     {% endif %}
     <td>
-      <form class="form-inline" action="/submit/{{ task.id }}" method="POST" enctype="multipart/form-data">
+      <form class="form-inline" action="submit/{{ task.id }}" method="POST" enctype="multipart/form-data">
 	<div class="form-group">
 	  <input type="file" name="source" class="form-control" accept="*.c,*.cpp,*.cxx"></input>
 	  <button type="submit" class="btn btn-primary">提出</button>
