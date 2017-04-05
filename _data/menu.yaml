@@ -1,5 +1,24 @@
+- text: 演習の進め方
+  subitems:
+    - text: 初回の環境設定
+      url: /docs/firststep.html
+    - text: 課題の進め方
+      url: /docs/kadai.html
+    - text: 質問メールの出し方
+      url: /docs/inquiry.html
+    - text: 初回説明スライド
+      url: http://localweb.ecei.tohoku.ac.jp/~enshu25/general.pdf
+    - text: Windows環境でC言語を書くために
+      url: /docs/gcc_for_windows.html
+    - text: Mac OS X環境でC言語を書くために
+      url: /docs/gcc_for_osx.html
+    - text: C言語Tips
+      url: /tips.html
+
 ﻿- text: 課題1
   subitems:
+    - text: 課題の進め方
+      url: /docs/kadai.html
     - text: 課題1表紙
       url: /kadai1/kadai1-cover.pdf
     - text: 問題1-1【２週目のみ採点】
@@ -67,17 +86,3 @@
   url: /about.html
 - text: 日程
   url: /schedule.html
-- text: C言語Tips
-  url: /tips.html
-- text: How To
-  subitems:
-    - text: 初回の環境設定
-      url: /docs/firststep.html
-    - text: 課題の進め方
-      url: /docs/kadai.html
-    - text: 質問メールの出し方
-      url: /docs/inquiry.html
-    - text: Windows環境でC言語を書くために
-      url: /docs/gcc_for_windows.html
-    - text: Mac OS X環境でC言語を書くために
-      url: /docs/gcc_for_osx.html
