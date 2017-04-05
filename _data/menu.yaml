@@ -12,8 +12,7 @@
       url: /docs/gcc_for_osx.html
     - text: C言語Tips
       url: /tips.html
-
-﻿- text: 課題1
+- text: 課題1
   subitems:
     - text: 課題の進め方
       url: /docs/kadai.html
@@ -33,7 +32,6 @@
       url: /kadai1/p16.html
     - text: 問題1-7【発展問題】
       url: /kadai1/p17.html
-
 #- text: 課題2
 #  subitems:
 #    - text: 課題2表紙
@@ -79,7 +77,6 @@
 #      url: /kadai3/p36.html
 #    - text: 問題3-7【発展問題】
 #      url: /kadai3/p37.html
-
 - text: シラバス
   url: /about.html
 - text: 日程
