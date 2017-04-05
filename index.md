@@ -12,7 +12,7 @@ title: プログラミング演習A
 + [質問メールの出し方](docs/inquiry.html)
 + [講義日程](schedule.html)
 + 面接順 (学内のみアクセス可)
-    + [Aクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/classA.htm)
-    + [Bクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/B_class.htm)
+    + Aクラス
+    + Bクラス
     + [Cクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/C_class.pdf)
     + [Dクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/D_class.pdf)
