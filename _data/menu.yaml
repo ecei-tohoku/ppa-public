@@ -18,9 +18,9 @@
       url: /docs/kadai.html
     - text: 課題1表紙
       url: /kadai1/kadai1-cover.pdf
-    - text: 問題1-1【２週目のみ採点】
+    - text: 問題1-1【2週目のみ採点】
       url: /kadai1/p11.html
-    - text: 問題1-2【２週目のみ採点】
+    - text: 問題1-2【2週目のみ採点】
       url: /kadai1/p12.html
     - text: 問題1-3
       url: /kadai1/p13.html
@@ -38,11 +38,11 @@
 #      url: /kadai2/kadai2-cover.pdf
 #    - text: 課題2解説資料
 #      url: /kadai2/kadai2-intro.pdf
-#    - text: 問題2-1【２週目のみ採点】
+#    - text: 問題2-1【2週目のみ採点】
 #      url: /kadai2/p21.html
-#    - text: 問題2-2【２週目のみ採点】
+#    - text: 問題2-2【2週目のみ採点】
 #      url: /kadai2/p22.html
-#    - text: 問題2-3【２週目のみ採点】
+#    - text: 問題2-3【2週目のみ採点】
 #      url: /kadai2/p23.html
 #    - text: 問題2-4
 #      url: /kadai2/p24.html
@@ -63,11 +63,11 @@
 #      url: /kadai3/2016_kadai3_intro.pdf
 #    - text: 問題3-0【解説資料】
 #      url: /kadai3/p30.html
-#    - text: 問題3-1【２週目のみ採点】
+#    - text: 問題3-1【2週目のみ採点】
 #      url: /kadai3/p31.html
-#    - text: 問題3-2【２週目のみ採点】
+#    - text: 問題3-2【2週目のみ採点】
 #      url: /kadai3/p32.html
-#    - text: 問題3-3【２週目のみ採点】
+#    - text: 問題3-3【2週目のみ採点】
 #      url: /kadai3/p33.html
 #    - text: 問題3-4
 #      url: /kadai3/p34.html
