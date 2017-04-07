@@ -12,6 +12,7 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+        <li><a href="http://localweb.ecei.tohoku.ac.jp/~enshu25/general.pdf">初回説明スライド</a></li>
         {% for item in site.data.menu %}
           {% if item.url %}
             <li><a href="{{ item.url | prepend: site.baseurl }}">{{ item.text }}</a></li>

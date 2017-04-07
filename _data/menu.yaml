@@ -1,7 +1,5 @@
 - text: 演習の進め方
   subitems:
-    - text: 初回説明スライド
-      url: http://localweb.ecei.tohoku.ac.jp/~enshu25/general.pdf
     - text: 初回の環境設定
       url: /docs/firststep.html
     - text: 課題の進め方
