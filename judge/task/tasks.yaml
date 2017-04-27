@@ -43,31 +43,37 @@
   title: 関数と動的メモリ確保
   url: http://ecei-tohoku.github.io/ppa/kadai2/p21.html
   judge: task/p21/*.argv
+  excludes: [student, a, b, c, d]
 
 - id: p22
   title: 選択ソート
   url: http://ecei-tohoku.github.io/ppa/kadai2/p22.html
   judge: task/p22/*.argv
+  excludes: [student, a, b, c, d]
 
 - id: p24
   title: 再帰呼び出し
   url: http://ecei-tohoku.github.io/ppa/kadai2/p24.html
   judge: task/p24/*.argv
+  excludes: [student, a, b, c, d]
 
 - id: p25
   title: マージソート
   url: http://ecei-tohoku.github.io/ppa/kadai2/p25.html
   judge: task/p25/*.argv
+  excludes: [student, a, b, c, d]
 
 - id: p27
   title: マージソートの比較回数の最大値と最小値
   url: http://ecei-tohoku.github.io/ppa/kadai2/p27.html
   judge: task/p27/*.argv
+  excludes: [student, a, b, c, d]
 
 - id: p28
   title: k近傍法による自動健康診断
   url: http://ecei-tohoku.github.io/ppa/kadai2/p28.html
   judge: task/p28/*.argv
+  excludes: [student, a, b, c, d]
 
 - id: p32
   title: 再帰関数による編集距離
