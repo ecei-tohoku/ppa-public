@@ -65,7 +65,7 @@
   judge: task/p27/*.argv
 
 - id: p28
-  title: 行列データのソート
+  title: k近傍法による自動健康診断
   url: http://ecei-tohoku.github.io/ppa/kadai2/p28.html
   judge: task/p28/*.argv
 
@@ -98,4 +98,3 @@
   url: http://ecei-tohoku.github.io/ppa/kadai3/p37.html
   judge: task/p37/*.argv
   excludes: [student, a, b, c, d]
-
