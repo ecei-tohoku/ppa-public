@@ -1,26 +1,130 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-float resistance(int N, float rx, float ry, float rz);
-
-int main() {
-  
-  int N;
-  float rx, ry, rz;
-  
-  scanf("%d",&N);
-  scanf("%f",&rx);
-  scanf("%f",&ry);
-  scanf("%f",&rz);
-  
-  printf("%.3f\n",resistance(N,rx,ry,rz));
-  
-  return 0;
+void printError ( void )
+{
+  printf ( "ERROR\n" );
+  exit ( EXIT_FAILURE );
 }
 
-float resistance(int N, float rx, float ry, float rz) {
-  
-  if (N>1)
-    return rx+rz+1/(1/ry+1/resistance(N-1,rx,ry,rz));
+void show ( int *array, int num )
+{
+  int i;
+  for ( i = 0; i < num-1; i++ )
+    {
+      printf ( "%d ", array[ i ] );
+    }
+  printf ( "%d\n", array[ num-1 ] );
+}
+
+int merge ( int *array, int p, int q, int r )
+{ 
+  int count = 0;
+  int n_1 = q - p + 1, n_2 = r - q;
+  int *leftArray, *rightArray;
+  int i, tmp1, tmp2, index;
+
+  if ( ( leftArray = ( int * ) malloc ( n_1 * sizeof ( int ) ) ) == NULL )
+    {
+      printError();
+    }
+  for ( i = 0; i < n_1; i++ )
+    {
+      leftArray[ i ] = array[ p + i ];
+    }
+
+  if ( ( rightArray = ( int * ) malloc ( n_2 * sizeof ( int ) ) ) == NULL )
+    {
+      printError();
+    }
+  for ( i = 0; i < n_2; i++ )
+    {
+      rightArray[ i ] = array[ q + i + 1 ];
+    }
+
+  index = p;
+  tmp1 = 0;
+  tmp2 = 0;
+  while ( ( tmp1 < n_1 ) && ( tmp2 < n_2 ) )
+    {
+      if ( leftArray[ tmp1 ] <= rightArray[ tmp2 ] )
+	{
+	  array[ index ] = leftArray[ tmp1 ];
+	  tmp1++;
+	}
+      else
+	{
+	  array[ index ] = rightArray[ tmp2 ];
+	  tmp2++;
+	}
+
+      index++;
+      count++;
+    }
+
+
+  if ( tmp1 < n_1 )
+    {
+      while ( tmp1 < n_1 )
+	{
+	  array[ index ] = leftArray[ tmp1 ];
+	  tmp1++;
+	  index++;
+	}
+    }
   else
-    return rx+ry+rz;
+    {
+      while ( tmp2 < n_2 )
+	{
+	  array[ index ] = rightArray[ tmp2 ];
+	  tmp2++;
+	  index++;
+	}
+    }
+
+  free ( leftArray );
+  free ( rightArray );
+  
+  return count;
+}
+
+int main ( int argc, char *argv[] )
+{
+  int num, tmp, count;
+  int p, q, r;
+  int *data;
+  
+  // データの個数を読み込む
+  if ( scanf ( "%d", &num ) == EOF )
+    {
+      printError();
+    }
+
+  // マージ範囲を読み込む
+  if ( scanf ( "%d %d %d", &p, &q, &r ) == EOF )
+    {
+      printError();
+    }
+
+  // データを読み込む
+  if ( ( data = ( int * ) malloc ( num * sizeof ( int ) ) ) == NULL )
+    {
+      printError();
+    }
+  tmp = 0;
+  while ( ( scanf ( "%d", data + tmp ) != EOF ) || tmp < num )
+    {
+      tmp++;
+    }
+
+  // マージを行なう
+  count = merge ( data, p, q, r );
+
+  // 表示する
+  show ( data, num );
+  printf ( "%d\n", count );
+
+  free ( data );
+
+  return 0;
 }
