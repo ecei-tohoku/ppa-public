@@ -1,108 +1,140 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int mergesort(int *data, int *a, int *b, int *c, int p, int q);
-int merge(int *a, int *b, int *c, int end_a, int end_b);
+void printError ( void )
+{
+  printf ( "ERROR\n" );
+  exit ( EXIT_FAILURE );
+}
 
-int main() {
+void show ( int *array, int num )
+{
+  int i;
+  for ( i = 0; i < num-1; i++ )
+    {
+      printf ( "%d ", array[ i ] );
+    }
+  printf ( "%d\n", array[ num-1 ] );
+}
+
+int merge ( int *array, int p, int q, int r )
+{ 
+  int count = 0;
+  int n_1 = q - p + 1, n_2 = r - q;
+  int *leftArray, *rightArray;
+  int i, tmp1, tmp2, index;
+
+  if ( ( leftArray = ( int * ) malloc ( n_1 * sizeof ( int ) ) ) == NULL )
+    {
+      printError();
+    }
+  for ( i = 0; i < n_1; i++ )
+    {
+      leftArray[ i ] = array[ p + i ];
+    }
+
+  if ( ( rightArray = ( int * ) malloc ( n_2 * sizeof ( int ) ) ) == NULL )
+    {
+      printError();
+    }
+  for ( i = 0; i < n_2; i++ )
+    {
+      rightArray[ i ] = array[ q + i + 1 ];
+    }
+
+  index = p;
+  tmp1 = 0;
+  tmp2 = 0;
+  while ( ( tmp1 < n_1 ) && ( tmp2 < n_2 ) )
+    {
+      if ( leftArray[ tmp1 ] <= rightArray[ tmp2 ] )
+	{
+	  array[ index ] = leftArray[ tmp1 ];
+	  tmp1++;
+	}
+      else
+	{
+	  array[ index ] = rightArray[ tmp2 ];
+	  tmp2++;
+	}
+
+      index++;
+      count++;
+    }
+
+
+  if ( tmp1 < n_1 )
+    {
+      while ( tmp1 < n_1 )
+	{
+	  array[ index ] = leftArray[ tmp1 ];
+	  tmp1++;
+	  index++;
+	}
+    }
+  else
+    {
+      while ( tmp2 < n_2 )
+	{
+	  array[ index ] = rightArray[ tmp2 ];
+	  tmp2++;
+	  index++;
+	}
+    }
+
+  free ( leftArray );
+  free ( rightArray );
   
-  int i, N, cnt;
-  int *data, *a, *b, *c;
+  return count;
+}
+
+
+int mergesort ( int *array, int p, int r )
+{
+  int q, count = 0;
+
+  if ( p < r )
+    { 
+      q = ( p + r ) / 2;
+      count += mergesort ( array, p, q );
+      count += mergesort ( array, q+1, r );
+      count += merge ( array, p, q, r );
+    }
+
+  return count;
+}
+
+
+int main ( int argc, char *argv[] )
+{
+  int num, tmp, count;
+  int *data;
   
-  scanf("%d",&N);
-  
-  data = (int*)malloc(N * sizeof(int));
-  if (data==NULL) {
-    printf("Can not allocate memory. 'data' is NULL.\n");
-    return 1;
-  }
-  a = (int*)malloc(N * sizeof(int));
-  if (a==NULL) {
-    printf("Can not allocate memory. 'a' is NULL.\n");
-    return 1;
-  }
-  b = (int*)malloc(N * sizeof(int));
-  if (data==NULL) {
-    printf("Can not allocate memory. 'b' is NULL.\n");
-    return 1;
-  }
-  c = (int*)malloc(N * sizeof(int));
-  if (data==NULL) {
-    printf("Can not allocate memory. 'c' is NULL.\n");
-    return 1;
-  }
-  
-  for (i=0; i<N; i++) {
-    scanf("%d",&data[i]);
-  }
-  
-  cnt = mergesort(data,a,b,c,0,N-1);
-  
-  for (i=0; i<N-1; i++) {
-    printf("%d ", data[i]);
-  }
-  printf("%d\n",data[N-1]);
-  printf("%d\n",cnt);
-  
-  free(data);
-  free(a);
-  free(b);
-  free(c);
-  
+  // データの個数を読み込む
+  if ( scanf ( "%d", &num ) == EOF )
+    {
+      printError();
+    }
+
+  // データを読み込む
+  if ( ( data = ( int * ) malloc ( num * sizeof ( int ) ) ) == NULL )
+    {
+      printError();
+    }
+  tmp = 0;
+  while ( ( scanf ( "%d", data + tmp ) != EOF ) || tmp < num )
+    {
+      tmp++;
+    }
+
+  // 並べ替える
+  count = mergesort ( data, 0, num-1 );
+
+  // 表示する
+  show ( data, num );
+  printf ( "%d\n", count );
+
+  free ( data );
+
   return 0;
 }
-
-int mergesort(int *data, int *a, int *b, int *c, int p, int q) {
-  int i, med, cnt=0;
-  if (p < q) {
-    med = (p + q)/2;
-    cnt += mergesort(data, a, b ,c, p, med);
-    cnt += mergesort(data, a, b, c, med + 1, q);
-    for (i = p; i <= med; i++) {
-      a[i - p] = data[i];
-    }
-    for (i = med + 1; i <= q; i++) {
-      b[i - med - 1] = data[i];
-    }
-    cnt += merge(a, b, c, med - p + 1, q - med);
-    for (i = p; i <= q; i++) {
-      data[i] = c[i - p];
-    }
-  }
-  return cnt;
-}
-
-int merge(int *a, int *b, int *c, int end_a, int end_b) {
-  int i = 0, j = 0, k = 0, cnt = 0;
-
-  while ((i < end_a) && (j < end_b)) {
-    cnt++;
-    if (a[i] < b[j]){
-      c[k] = a[i];
-      k++;
-      i++;
-    }
-    else {
-      c[k] = b[j];
-      k++;
-      j++;
-    }
-  }
-  if (i >= end_a) {
-    while (j < end_b) {
-      c[k] = b[j];
-      k++;
-      j++;
-    }
-  }
-  else {
-    while (i < end_a) {
-      c[k] = a[i];
-      k++;
-      i++;
-    }
-  }
-  return cnt;
-}
-
-
