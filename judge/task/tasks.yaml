@@ -51,8 +51,14 @@
   judge: task/p22/*.argv
   excludes: [student, a, b, c, d]
 
-- id: p24
+- id: p23
   title: 再帰呼び出し
+  url: http://ecei-tohoku.github.io/ppa/kadai2/p23.html
+  judge: task/p23/*.argv
+  excludes: [student, a, b, c, d]
+
+- id: p24
+  title: マージ関数の作成
   url: http://ecei-tohoku.github.io/ppa/kadai2/p24.html
   judge: task/p24/*.argv
   excludes: [student, a, b, c, d]
