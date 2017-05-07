@@ -12,3 +12,5 @@ title: プログラミング演習A
     + [Bクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/classB.htm)
     + [Cクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/C_class.pdf)
     + [Dクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/D_class.pdf)
++ お知らせ
+    + **2017/05/08 (月): 課題2を公開しました**
