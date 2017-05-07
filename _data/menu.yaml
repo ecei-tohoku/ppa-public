@@ -32,29 +32,29 @@
       url: /kadai1/p16.html
     - text: 問題1-7【発展問題】
       url: /kadai1/p17.html
-#- text: 課題2
-#  subitems:
-#    - text: 課題2表紙
-#      url: /kadai2/kadai2-cover.pdf
-#    - text: 課題2解説資料
-#      url: /kadai2/kadai2-intro.pdf
-#    - text: 問題2-1【2週目のみ採点】
-#      url: /kadai2/p21.html
-#    - text: 問題2-2【2週目のみ採点】
-#      url: /kadai2/p22.html
-#    - text: 問題2-3【2週目のみ採点】
-#      url: /kadai2/p23.html
-#    - text: 問題2-4
-#      url: /kadai2/p24.html
-#    - text: 問題2-5
-#      url: /kadai2/p25.html
-#    - text: 問題2-6
-#      url: /kadai2/p26.html
-#    - text: 問題2-7
-#      url: /kadai2/p27.html
-#    - text: 問題2-8【発展問題】
-#      url: /kadai2/p28.html
-#
+- text: 課題2
+ subitems:
+  #  - text: 課題2表紙
+  #    url: /kadai2/kadai2-cover.pdf
+   - text: 課題2解説資料
+     url: /kadai2/kadai2-intro.pdf
+   - text: 問題2-1【2週目のみ採点】
+     url: /kadai2/p21.html
+   - text: 問題2-2【2週目のみ採点】
+     url: /kadai2/p22.html
+   - text: 問題2-3【2週目のみ採点】
+     url: /kadai2/p23.html
+   - text: 問題2-4
+     url: /kadai2/p24.html
+   - text: 問題2-5
+     url: /kadai2/p25.html
+   - text: 問題2-6
+     url: /kadai2/p26.html
+   - text: 問題2-7
+     url: /kadai2/p27.html
+   - text: 問題2-8【発展問題】
+     url: /kadai2/p28.html
+
 #- text: 課題3
 #  subitems:
 #    - text: 課題3表紙
