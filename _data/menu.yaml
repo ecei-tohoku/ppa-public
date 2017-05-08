@@ -34,8 +34,8 @@
       url: /kadai1/p17.html
 - text: 課題2
   subitems:
-    # - text: 課題2表紙
-    #   url: /kadai2/kadai2-cover.pdf
+    - text: 課題2表紙
+      url: /kadai2/kadai2-cover.pdf
     - text: 課題2解説資料
       url: /kadai2/kadai2-intro.pdf
     - text: 問題2-1【2週目のみ採点】
