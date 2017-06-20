@@ -153,6 +153,7 @@ def submit(task_id):
             cmd = JUDGE.format(pybin=config['judge']['python_bin'], conf=args.config, objid=str(objectid), ar=task['judge'])
             if task['tester']:
                 cmd += " -t '{}'".format(task['tester'])
+            app.logger.info('Queuing a job: {}'.format(cmd))
             cmdtasks.system.delay(cmd)
             return redirect(url_for('result', taskid=task_id, _external=True))
 
