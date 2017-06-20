@@ -94,7 +94,7 @@
   url: http://ecei-tohoku.github.io/ppa/kadai3/p36.html
   judge: task/p36/*.argv
   tester: python3 task/p36/test.py
-  
+
 - id: p37
   title: スペル訂正器の作成
   url: http://ecei-tohoku.github.io/ppa/kadai3/p37.html
