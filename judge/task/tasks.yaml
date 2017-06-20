@@ -78,28 +78,24 @@
   title: 再帰関数による編集距離
   url: http://ecei-tohoku.github.io/ppa/kadai3/p32.html
   judge: task/p32/*.argv
-  excludes: [student, a, b, c, d]
 
 - id: p34
   title: 動的計画法による編集距離計算
   url: http://ecei-tohoku.github.io/ppa/kadai3/p34.html
   judge: task/p34/*.argv
-  excludes: [student, a, b, c, d]
 
 - id: p35
   title: メモ化
   url: http://ecei-tohoku.github.io/ppa/kadai3/p35.html
   judge: task/p35/*.argv
-  excludes: [student, a, b, c, d]
 
 - id: p36
   title: 編集操作の表示
   url: http://ecei-tohoku.github.io/ppa/kadai3/p36.html
   judge: task/p36/*.argv
-  excludes: [student, a, b, c, d]
 
 - id: p37
   title: スペル訂正器の作成
   url: http://ecei-tohoku.github.io/ppa/kadai3/p37.html
   judge: task/p37/*.argv
-  excludes: [student, a, b, c, d]
+  tester: python3 task/p37/test.py task/p37/t01.stdout
