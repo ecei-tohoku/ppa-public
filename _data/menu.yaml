@@ -17,65 +17,65 @@
 #     - text: 課題の進め方
 #       url: /docs/kadai.html
 #     - text: 課題1表紙
-#       url: /kadai1/kadai1-cover.pdf
+#       url: /kadai1_kfm3k4si/kadai1-cover.pdf
 #     - text: 問題1-1【2週目のみ採点】
-#       url: /kadai1/p11.html
+#       url: /kadai1_kfm3k4si/p11.html
 #     - text: 問題1-2【2週目のみ採点】
-#       url: /kadai1/p12.html
+#       url: /kadai1_kfm3k4si/p12.html
 #     - text: 問題1-3
-#       url: /kadai1/p13.html
+#       url: /kadai1_kfm3k4si/p13.html
 #     - text: 問題1-4
-#       url: /kadai1/p14.html
+#       url: /kadai1_kfm3k4si/p14.html
 #     - text: 問題1-5
-#       url: /kadai1/p15.html
+#       url: /kadai1_kfm3k4si/p15.html
 #     - text: 問題1-6【発展問題】
-#       url: /kadai1/p16.html
+#       url: /kadai1_kfm3k4si/p16.html
 #     - text: 問題1-7【発展問題】
-#       url: /kadai1/p17.html
+#       url: /kadai1_kfm3k4si/p17.html
 # - text: 課題2
 #   subitems:
 #     - text: 課題2表紙
-#       url: /kadai2/kadai2-cover.pdf
+#       url: /kadai2_7zy286hm/kadai2-cover.pdf
 #     - text: 課題2解説資料
-#       url: /kadai2/kadai2-intro.pdf
+#       url: /kadai2_7zy286hm/kadai2-intro.pdf
 #     - text: 問題2-1【2週目のみ採点】
-#       url: /kadai2/p21.html
+#       url: /kadai2_7zy286hm/p21.html
 #     - text: 問題2-2【2週目のみ採点】
-#       url: /kadai2/p22.html
+#       url: /kadai2_7zy286hm/p22.html
 #     - text: 問題2-3【2週目のみ採点】
-#       url: /kadai2/p23.html
+#       url: /kadai2_7zy286hm/p23.html
 #     - text: 問題2-4
-#       url: /kadai2/p24.html
+#       url: /kadai2_7zy286hm/p24.html
 #     - text: 問題2-5
-#       url: /kadai2/p25.html
+#       url: /kadai2_7zy286hm/p25.html
 #     - text: 問題2-6
-#       url: /kadai2/p26.html
+#       url: /kadai2_7zy286hm/p26.html
 #     - text: 問題2-7
-#       url: /kadai2/p27.html
+#       url: /kadai2_7zy286hm/p27.html
 #     - text: 問題2-8【発展問題】
-#       url: /kadai2/p28.html
+#       url: /kadai2_7zy286hm/p28.html
 # - text: 課題3
 #   subitems:
 #     - text: 課題3表紙
-#       url: /kadai3/kadai3-cover2017.pdf
+#       url: /kadai3_5rghrwza/kadai3-cover2017.pdf
 #     - text: 課題3解説資料
-#       url: /kadai3/2017_kadai3_intro.pdf
+#       url: /kadai3_5rghrwza/2017_kadai3_intro.pdf
 #     - text: 問題3-0【解説資料】
-#       url: /kadai3/p30.html
+#       url: /kadai3_5rghrwza/p30.html
 #     - text: 問題3-1【2週目のみ採点】
-#       url: /kadai3/p31.html
+#       url: /kadai3_5rghrwza/p31.html
 #     - text: 問題3-2【2週目のみ採点】
-#       url: /kadai3/p32.html
+#       url: /kadai3_5rghrwza/p32.html
 #     - text: 問題3-3【2週目のみ採点】
-#       url: /kadai3/p33.html
+#       url: /kadai3_5rghrwza/p33.html
 #     - text: 問題3-4
-#       url: /kadai3/p34.html
+#       url: /kadai3_5rghrwza/p34.html
 #     - text: 問題3-5
-#       url: /kadai3/p35.html
+#       url: /kadai3_5rghrwza/p35.html
 #     - text: 問題3-6【発展問題】
-#       url: /kadai3/p36.html
+#       url: /kadai3_5rghrwza/p36.html
 #     - text: 問題3-7【発展問題】
-#       url: /kadai3/p37.html
+#       url: /kadai3_5rghrwza/p37.html
 - text: シラバス
   url: /about.html
 - text: 日程
