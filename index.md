@@ -10,4 +10,6 @@ title: プログラミング演習A
 + [面接順]（学内のみアクセス可）
   + [Aクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/A%20class.htm)
   + [Bクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/B%20class.htm)
+  + [Cクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/C%20class.htm)
+  + [Dクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/D%20class.htm)
 + お知らせ
