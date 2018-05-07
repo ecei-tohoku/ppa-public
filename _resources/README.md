@@ -6,4 +6,5 @@
 - kadai3-cover.docx
 
 ## 講義資料
-- TBA
+- general_Satou_2018.pptx
+- kadai2_2018.pptx
