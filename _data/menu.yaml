@@ -6,6 +6,8 @@
       url: /docs/kadai.html
     - text: 質問メールの出し方
       url: /docs/inquiry.html
+    - text: よくある質問：自動採点システムのトラブルについて
+      url: /docs/faq_trouble.html      
     - text: Windows環境でC言語を書くために
       url: /docs/gcc_for_windows.html
     - text: Mac OS X環境でC言語を書くために
