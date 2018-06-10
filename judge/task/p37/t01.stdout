@@ -1,21 +1,69 @@
-program
-cough
-relieve
-until
-separate
-instrument
-clear clever
-welcome
-factory
-account amount count
-knowledge
-agent urgent
-conscious
-existence
-silence
-after attack attend
-rent rest reward
-type
-deaf death drag sight
-cave climb club comb cover
-idea idle into it width
+rank: 1, ed = 1, string = south
+rank: 2, ed = 2, string = touch
+rank: 3, ed = 2, string = truth
+rank: 1, ed = 1, string = program
+rank: 2, ed = 3, string = progress
+rank: 3, ed = 5, string = cream
+rank: 1, ed = 0, string = a
+rank: 2, ed = 1, string = as
+rank: 3, ed = 2, string = aim
+rank: 1, ed = 3, string = could
+rank: 2, ed = 3, string = course
+rank: 3, ed = 3, string = court
+rank: 1, ed = 2, string = believe
+rank: 2, ed = 2, string = receive
+rank: 3, ed = 3, string = deceive
+rank: 1, ed = 1, string = until
+rank: 2, ed = 2, string = still
+rank: 3, ed = 2, string = till
+rank: 1, ed = 1, string = separate
+rank: 2, ed = 4, string = prepare
+rank: 3, ed = 4, string = scarce
+rank: 1, ed = 5, string = instant
+rank: 2, ed = 6, string = department
+rank: 3, ed = 6, string = experiment
+rank: 1, ed = 2, string = cheer
+rank: 2, ed = 3, string = bless
+rank: 3, ed = 3, string = cave
+rank: 1, ed = 4, string = come
+rank: 2, ed = 4, string = delicate
+rank: 3, ed = 4, string = fellow
+rank: 1, ed = 1, string = factory
+rank: 2, ed = 2, string = fact
+rank: 3, ed = 2, string = pastry
+rank: 1, ed = 1, string = amount
+rank: 2, ed = 2, string = court
+rank: 3, ed = 3, string = absent
+rank: 1, ed = 3, string = nowhere
+rank: 2, ed = 4, string = anywhere
+rank: 3, ed = 4, string = knee
+rank: 1, ed = 1, string = agent
+rank: 2, ed = 1, string = urgent
+rank: 3, ed = 2, string = absent
+rank: 1, ed = 3, string = continue
+rank: 2, ed = 3, string = precious
+rank: 3, ed = 4, string = control
+rank: 1, ed = 0, string = existence
+rank: 2, ed = 4, string = absence
+rank: 3, ed = 4, string = extend
+rank: 1, ed = 2, string = sense
+rank: 2, ed = 3, string = defense
+rank: 3, ed = 3, string = disease
+rank: 1, ed = 3, string = attack
+rank: 2, ed = 3, string = attend
+rank: 3, ed = 4, string = absence
+rank: 1, ed = 3, string = rent
+rank: 2, ed = 4, string = best
+rank: 3, ed = 4, string = breath
+rank: 1, ed = 3, string = boy
+rank: 2, ed = 3, string = by
+rank: 3, ed = 3, string = cap
+rank: 1, ed = 3, string = deaf
+rank: 2, ed = 3, string = death
+rank: 3, ed = 4, string = ache
+rank: 1, ed = 3, string = cave
+rank: 2, ed = 3, string = comb
+rank: 3, ed = 3, string = cover
+rank: 1, ed = 2, string = idle
+rank: 2, ed = 2, string = it
+rank: 3, ed = 2, string = width
