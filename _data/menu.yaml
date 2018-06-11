@@ -56,28 +56,28 @@
       url: /kadai2_7zy286hm/p27.html
     - text: 問題2-8【発展問題】
       url: /kadai2_7zy286hm/p28.html
-# - text: 課題3
-#   subitems:
-#     - text: 課題3表紙
-#       url: /kadai3_5rghrwza/kadai3-cover.pdf
-#     - text: 課題3解説資料
-#       url: /kadai3_5rghrwza/2018_kadai3_intro.pdf
-#     - text: 問題3-0【解説資料】
-#       url: /kadai3_5rghrwza/p30.html
-#     - text: 問題3-1【2週目のみ採点】
-#       url: /kadai3_5rghrwza/p31.html
-#     - text: 問題3-2【2週目のみ採点】
-#       url: /kadai3_5rghrwza/p32.html
-#     - text: 問題3-3【2週目のみ採点】
-#       url: /kadai3_5rghrwza/p33.html
-#     - text: 問題3-4
-#       url: /kadai3_5rghrwza/p34.html
-#     - text: 問題3-5
-#       url: /kadai3_5rghrwza/p35.html
-#     - text: 問題3-6【発展問題】
-#       url: /kadai3_5rghrwza/p36.html
-#     - text: 問題3-7【発展問題】
-#       url: /kadai3_5rghrwza/p37.html
+- text: 課題3
+  subitems:
+    - text: 課題3表紙
+      url: /kadai3_5rghrwza/kadai3-cover.pdf
+    - text: 課題3解説資料
+      url: /kadai3_5rghrwza/2018_kadai3_intro.pdf
+    - text: 問題3-0【解説資料】
+      url: /kadai3_5rghrwza/p30.html
+    - text: 問題3-1【2週目のみ採点】
+      url: /kadai3_5rghrwza/p31.html
+    - text: 問題3-2【2週目のみ採点】
+      url: /kadai3_5rghrwza/p32.html
+    - text: 問題3-3【2週目のみ採点】
+      url: /kadai3_5rghrwza/p33.html
+    - text: 問題3-4
+      url: /kadai3_5rghrwza/p34.html
+    - text: 問題3-5
+      url: /kadai3_5rghrwza/p35.html
+    - text: 問題3-6【発展問題】
+      url: /kadai3_5rghrwza/p36.html
+    - text: 問題3-7【発展問題】
+      url: /kadai3_5rghrwza/p37.html
 - text: シラバス
   url: /about.html
 - text: 日程
