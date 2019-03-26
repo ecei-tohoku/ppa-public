@@ -9,10 +9,4 @@ title: プログラミング演習A
 + [自動採点システム](http://localweb.ecei.tohoku.ac.jp/ppa/)（学内のみアクセス可）
 + 面接順（学内のみアクセス可）
   + TBA
-<!-- 
-  + [Aクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/A%20class.htm)
-  + [Bクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/B%20class.htm)
-  + [Cクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/C%20class.htm)
-  + [Dクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/D%20class.htm)
--->
 + お知らせ
