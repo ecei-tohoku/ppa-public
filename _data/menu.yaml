@@ -14,26 +14,26 @@
       url: /docs/gcc_for_osx.html
     - text: C言語Tips
       url: /tips.html
-#- text: 課題1
-#  subitems:
-#    - text: 課題の進め方
-#      url: /docs/kadai.html
-#    - text: 課題1表紙
-#      url: /kadai1_kfm3k4si/kadai1-cover.pdf
-#    - text: 問題1-1【2週目のみ採点】
-#      url: /kadai1_kfm3k4si/p11.html
-#    - text: 問題1-2【2週目のみ採点】
-#      url: /kadai1_kfm3k4si/p12.html
-#    - text: 問題1-3
-#      url: /kadai1_kfm3k4si/p13.html
-#    - text: 問題1-4
-#      url: /kadai1_kfm3k4si/p14.html
-#    - text: 問題1-5
-#      url: /kadai1_kfm3k4si/p15.html
-#    - text: 問題1-6【発展問題】
-#      url: /kadai1_kfm3k4si/p16.html
-#    - text: 問題1-7【発展問題】
-#      url: /kadai1_kfm3k4si/p17.html
+- text: 課題1
+  subitems:
+    - text: 課題の進め方
+      url: /docs/kadai.html
+    - text: 課題1表紙
+      url: /kadai1_kfm3k4si/kadai1-cover.pdf
+    - text: 問題1-1【2週目のみ採点】
+      url: /kadai1_kfm3k4si/p11.html
+    - text: 問題1-2【2週目のみ採点】
+      url: /kadai1_kfm3k4si/p12.html
+    - text: 問題1-3
+      url: /kadai1_kfm3k4si/p13.html
+    - text: 問題1-4
+      url: /kadai1_kfm3k4si/p14.html
+    - text: 問題1-5
+      url: /kadai1_kfm3k4si/p15.html
+    - text: 問題1-6【発展問題】
+      url: /kadai1_kfm3k4si/p16.html
+    - text: 問題1-7【発展問題】
+      url: /kadai1_kfm3k4si/p17.html
 #- text: 課題2
 #  subitems:
 #    - text: 課題2表紙
