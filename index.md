@@ -9,7 +9,7 @@ title: プログラミング演習A
 + [自動採点システム](http://localweb.ecei.tohoku.ac.jp/ppa/)（学内のみアクセス可）
 + 面接順（学内のみアクセス可）
   + [Aクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/面接表_Aclass.htm)
-  + [Bクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/面接表_Aclass.htm)
-  + [Cクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/面接表_Aclass.htm)
-  + [Dクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/面接表_Aclass.htm)
+  + [Bクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/面接表_Bclass.htm)
+  + [Cクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/面接表_Cclass.htm)
+  + [Dクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/面接表_Dclass.htm)
 + お知らせ
