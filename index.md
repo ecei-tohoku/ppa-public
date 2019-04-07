@@ -12,4 +12,9 @@ title: プログラミング演習A
   + [Bクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/面接表_Bclass.htm)
   + [Cクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/面接表_Cclass.htm)
   + [Dクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/面接表_Dclass.htm)
++ 席割　演習（大演習室），小テスト（2A, 2B教室）（学内のみアクセス可）
+  + [Aクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/席割_Aclass.htm)
+  + [Bクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/席割_Bclass.htm)
+  + [Cクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/席割_Cclass.htm)
+  + [Dクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/席割_Dclass.htm)
 + お知らせ
