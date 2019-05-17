@@ -18,3 +18,4 @@ title: プログラミング演習A
   + [Cクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/席割_Cclass.htm)
   + [Dクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/席割_Dclass.htm)
 + お知らせ
+  + [課題2表紙](http://localweb.ecei.tohoku.ac.jp/~enshu25/kadai2-cover-2019.pdf)
