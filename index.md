@@ -19,5 +19,6 @@ title: プログラミング演習A
   + [Dクラス](http://localweb.ecei.tohoku.ac.jp/~enshu25/席割_Dclass.htm)
 + お知らせ
   + [課題2表紙](http://localweb.ecei.tohoku.ac.jp/~enshu25/kadai2-cover-2019.pdf)
-  + [課題2-6]に関して
-    + 課題2-6は自動採点システムに入れるべきプログラムはないので，自動採点システム上は「未提出」のままで問題ありません．
+  + [課題3表紙](http://localweb.ecei.tohoku.ac.jp/~enshu25/kadai3-cover-2019.pdf)
+  + [課題2-6][課題3-0][課題3-1][課題3-3]に関して
+    + [課題2-6][課題3-0][課題3-1][課題3-3]は自動採点システムに入れるべきプログラムはないので，自動採点システム上は「未提出」のままで問題ありません．
