@@ -1,130 +1,104 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void printError ( void )
-{
-  printf ( "ERROR\n" );
-  exit ( EXIT_FAILURE );
+int* func_copy_val_(int* const array, const int pos_a, const int pos_b) {
+  array[pos_b] = array[pos_a];
+  return array;
 }
 
-void show ( int *array, int num )
-{
-  int i;
-  for ( i = 0; i < num-1; i++ )
-    {
-      printf ( "%d ", array[ i ] );
-    }
-  printf ( "%d\n", array[ num-1 ] );
+int comp_(int* const array, const int pos_a, const int pos_b) {
+  if (array[pos_a] < array[pos_b]) return 1;
+  return 0;
 }
 
-int merge ( int *array, int p, int q, int r )
-{ 
-  int count = 0;
-  int n_1 = q - p + 1, n_2 = r - q;
-  int *leftArray, *rightArray;
-  int i, tmp1, tmp2, index;
-
-  if ( ( leftArray = ( int * ) malloc ( n_1 * sizeof ( int ) ) ) == NULL )
-    {
-      printError();
+void print_array_range_(const int* const array, const int N, const int p, const int r) {
+  int ri = 0;
+  for (; ri < N; ++ri) {
+    if (ri < p || r < ri) {
+      printf(" **");
+    } else {
+      printf(" %2d", array[ri]);
     }
-  for ( i = 0; i < n_1; i++ )
-    {
-      leftArray[ i ] = array[ p + i ];
-    }
-
-  if ( ( rightArray = ( int * ) malloc ( n_2 * sizeof ( int ) ) ) == NULL )
-    {
-      printError();
-    }
-  for ( i = 0; i < n_2; i++ )
-    {
-      rightArray[ i ] = array[ q + i + 1 ];
-    }
-
-  index = p;
-  tmp1 = 0;
-  tmp2 = 0;
-  while ( ( tmp1 < n_1 ) && ( tmp2 < n_2 ) )
-    {
-      if ( leftArray[ tmp1 ] <= rightArray[ tmp2 ] )
-	{
-	  array[ index ] = leftArray[ tmp1 ];
-	  tmp1++;
-	}
-      else
-	{
-	  array[ index ] = rightArray[ tmp2 ];
-	  tmp2++;
-	}
-
-      index++;
-      count++;
-    }
-
-
-  if ( tmp1 < n_1 )
-    {
-      while ( tmp1 < n_1 )
-	{
-	  array[ index ] = leftArray[ tmp1 ];
-	  tmp1++;
-	  index++;
-	}
-    }
-  else
-    {
-      while ( tmp2 < n_2 )
-	{
-	  array[ index ] = rightArray[ tmp2 ];
-	  tmp2++;
-	  index++;
-	}
-    }
-
-  free ( leftArray );
-  free ( rightArray );
-  
-  return count;
+  }
+  printf("\n");
 }
 
-int main ( int argc, char *argv[] )
-{
-  int num, tmp, count;
-  int p, q, r;
-  int *data;
-  
-  // データの個数を読み込む
-  if ( scanf ( "%d", &num ) == EOF )
-    {
-      printError();
-    }
+int* func_mallocation_(const int N) {
+  int* data = (int*)malloc(N * sizeof(int));
+  if (data == NULL) {
+    printf("Can not allocate memory. 'data' is NULL.\n");
+    exit(EXIT_FAILURE);
+  }
+  return data;
+}
 
-  // マージ範囲を読み込む
-  if ( scanf ( "%d %d %d", &p, &q, &r ) == EOF )
-    {
-      printError();
-    }
 
-  // データを読み込む
-  if ( ( data = ( int * ) malloc ( num * sizeof ( int ) ) ) == NULL )
-    {
-      printError();
-    }
-  tmp = 0;
-  while ( ( scanf ( "%d", data + tmp ) != EOF ) || tmp < num )
-    {
-      tmp++;
-    }
 
-  // マージを行なう
-  count = merge ( data, p, q, r );
+int mrg_sort(int *, int , int , int );
+int merge(int *, int , int , int , int );
 
-  // 表示する
-  show ( data, num );
-  printf ( "%d\n", count );
+int main() {
 
-  free ( data );
+  int N, *array, i;
+
+  scanf("%d", &N);
+  array = func_mallocation_(2*N);
+  for(i=0; i<N; i++) scanf("%d", &(array[i]));
+  printf("INIT:::::::"); print_array_range_(array, N, 0, N-1);
+  i=mrg_sort(array, N, 0, N-1);
+  printf("DONE:::::::"); print_array_range_(array, N, 0, N-1);
+  printf("%d\n", i);
+
+  free(array);
 
   return 0;
+}
+
+int mrg_sort(int* array, int N, int p, int q) {
+
+  int comp_count, mid_pos, num_elem;
+
+  comp_count = 0;
+
+  if(p == q) return comp_count;
+  else {
+    num_elem = q - p + 1;
+    mid_pos = p + (int)(num_elem/2);
+    if(num_elem%2) mid_pos++;
+    comp_count += mrg_sort(array, N, p, mid_pos-1);
+    comp_count += mrg_sort(array, N, mid_pos, q);
+    comp_count += merge(array, N, p, q, mid_pos);
+
+    return comp_count;
+  }
+
+}
+
+int merge(int* array, int N, int p, int q, int r) {
+
+  int comp_count, i1, i2, iT;
+
+  comp_count = 0; i1 = p; i2 = r; iT = N+p;
+  while(i1<r && i2<=q) {
+    comp_count++;
+    if(comp_(array, i1, i2)) {
+        func_copy_val_(array, i1, iT);
+        i1++; iT++;
+    }
+    else {
+        func_copy_val_(array, i2, iT);
+        i2++; iT++;
+    }
+  }
+
+  while(i1<r) {func_copy_val_(array, i1, iT); i1++; iT++;}
+  while(i2<=q){func_copy_val_(array, i2, iT); i2++; iT++;}
+
+  for(iT=p; iT<=q; iT++) func_copy_val_(array, N+iT, iT);
+
+  printf("MERG(%2d,%2d)", p, q);
+  print_array_range_(array, N, p, q);
+
+  return comp_count;
+
 }
