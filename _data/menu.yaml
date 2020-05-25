@@ -1,86 +1,86 @@
-- text: 演習の進め方
-  subitems:
-    - text: 初回の環境設定
-      url: /docs/firststep.html
-    - text: 課題の進め方
-      url: /docs/kadai.html
-    - text: 質問メールの出し方
-      url: /docs/inquiry.html
-    - text: よくある質問：自動採点システムのトラブルについて
-      url: /docs/faq_trouble.html
+#- text: 演習の進め方
+#  subitems:
+#    - text: 初回の環境設定
+#      url: /docs/firststep.html
+#    - text: 課題の進め方
+#      url: /docs/kadai.html
+#    - text: 質問メールの出し方
+#      url: /docs/inquiry.html
+#    - text: よくある質問：自動採点システムのトラブルについて
+#      url: /docs/faq_trouble.html
 #    - text: Windows環境でC言語を書くために
 #      url: /docs/gcc_for_windows.html
 #    - text: Mac OS X環境でC言語を書くために
 #      url: /docs/gcc_for_osx.html
-    - text: C言語Tips
-      url: /tips.html
-- text: 課題1
-  subitems:
-    - text: 課題の進め方
-      url: /docs/kadai.html
-    - text: 課題1表紙
-      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/kadai1-cover.pdf
-    - text: 問題1-1【2週目のみ採点】
-      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p11.html
-    - text: 問題1-2【2週目のみ採点】
-      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p12.html
-    - text: 問題1-3
-      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p13.html
-    - text: 問題1-4
-      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p14.html
-    - text: 問題1-5
-      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p15.html
-    - text: 問題1-6【発展問題】
-      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p16.html
-    - text: 問題1-7【発展問題】
-      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p17.html
-- text: 課題2
-  subitems:
-    - text: 課題2表紙
-      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/kadai2-cover.pdf
-    - text: 課題2解説資料
-      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/kadai2-intro.pdf
-    - text: 問題2-0【2週目のみ採点】
-      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p20.html
-    - text: 問題2-1【2週目のみ採点】
-      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p21.html
-    - text: 問題2-2【2週目のみ採点】
-      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p22.html
-    - text: 問題2-3【2週目のみ採点】
-      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p23.html
-    - text: 問題2-4
-      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p24.html
-    - text: 問題2-5
-      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p25.html
-    - text: 問題2-6
-      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p26.html
-    - text: 問題2-7
-      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p27.html
-    - text: 問題2-8【発展問題】
-      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p28.html
-- text: 課題3
-  subitems:
-    - text: 課題3表紙
-      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/kadai3-cover.pdf
-    - text: 課題3解説資料
-      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/2018_kadai3_intro.pdf
-    - text: 問題3-0【解説資料】
-      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p30.html
-    - text: 問題3-1【2週目のみ採点】
-      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p31.html
-    - text: 問題3-2【2週目のみ採点】
-      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p32.html
-    - text: 問題3-3【2週目のみ採点】
-      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p33.html
-    - text: 問題3-4
-      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p34.html
-    - text: 問題3-5
-      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p35.html
-    - text: 問題3-6【発展問題】
-      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p36.html
-    - text: 問題3-7【発展問題】
-      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p37.html
-- text: シラバス
-  url: /about.html
-- text: 日程
-  url: /schedule.html
+#    - text: C言語Tips
+#      url: /tips.html
+#- text: 課題1
+#  subitems:
+#    - text: 課題の進め方
+#      url: /docs/kadai.html
+#    - text: 課題1表紙
+#      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/kadai1-cover.pdf
+#    - text: 問題1-1【2週目のみ採点】
+##      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p11.html
+#    - text: 問題1-2【2週目のみ採点】
+#      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p12.html
+#    - text: 問題1-3
+#      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p13.html
+#    - text: 問題1-4
+#      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p14.html
+#    - text: 問題1-5
+#      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p15.html
+#    - text: 問題1-6【発展問題】
+#      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p16.html
+#    - text: 問題1-7【発展問題】
+#      url: /kadai1_liaoebpoubp128hrpaanljabviabpiwekboeangaopuh1uiu471ao1o682oyavte/p17.html
+#- text: 課題2
+#  subitems:
+#    - text: 課題2表紙
+#      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/kadai2-cover.pdf
+#    - text: 課題2解説資料
+#      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/kadai2-intro.pdf
+#    - text: 問題2-0【2週目のみ採点】
+#      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p20.html
+#    - text: 問題2-1【2週目のみ採点】
+#      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p21.html
+#    - text: 問題2-2【2週目のみ採点】
+#      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p22.html
+#    - text: 問題2-3【2週目のみ採点】
+#      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p23.html
+#    - text: 問題2-4
+#      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p24.html
+#    - text: 問題2-5
+#      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p25.html
+#    - text: 問題2-6
+#      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p26.html
+#    - text: 問題2-7
+#      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p27.html
+#    - text: 問題2-8【発展問題】
+#      url: /kadai2_337178b351abf0177482d130d0936df8e78e90b595266aacbe1b34b7965c03we/p28.html
+#- text: 課題3
+#  subitems:
+#    - text: 課題3表紙
+#      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/kadai3-cover.pdf
+#    - text: 課題3解説資料
+#      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/2018_kadai3_intro.pdf
+#    - text: 問題3-0【解説資料】
+#      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p30.html
+#    - text: 問題3-1【2週目のみ採点】
+#      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p31.html
+#    - text: 問題3-2【2週目のみ採点】
+#      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p32.html
+#    - text: 問題3-3【2週目のみ採点】
+#      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p33.html
+#    - text: 問題3-4
+#      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p34.html
+#    - text: 問題3-5
+#      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p35.html
+#    - text: 問題3-6【発展問題】
+#      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p36.html
+#    - text: 問題3-7【発展問題】
+#      url: /kadai3_8ef8e7e3d19af4abf721821b2baef83ae0e0a69cf66263d8263fcf2c3418cegw/p37.html
+#- text: シラバス
+#  url: /about.html
+#- text: 日程
+#  url: /schedule.html
