@@ -106,7 +106,7 @@ title: 3-0. 文字列間の共通文字列挙（課題説明用）
     + 戻り値は，文字列$X$の長さ
 
   + 文字列用の配列を`\0`で初期化
-    + 関数 `zoros_`を用いること
+    + 関数 `zeros_`を用いること
       ```
       void zeros_(char* data,  int N);
       ```
@@ -118,17 +118,17 @@ title: 3-0. 文字列間の共通文字列挙（課題説明用）
 + 上記課題全体の仕様
 
 
-+ 文字列$X$，文字列$X$の先頭から$M$文字目の場所を表すインデックス$M$，文字列$Y$，文字列$Y$の先頭から$N$文字目の場所を表すインデックス$N$, マッチした文字を保存する配列`buf`の5つを引数にとり，マッチした数を返す関数`find_matching`を作成すること
++ 文字列$X$，文字列$X$の長さlen_x，文字列$Y$，文字列$Y$の長さlen_y, マッチした文字を保存する配列`buf`の5つを引数にとり，マッチした数を返す関数`find_matching`を作成すること
   + 例：
   ```
-  int find_matching(char *X, int M, char *Y, int N, char *buf);
+  int find_matching(char *X, int len_x, char *Y, int len_y, char *buf);
   ```
 
 + マッチした文字をソートする関数`sort_buf`を用いること．
   + 引数に，文字の配列`buf`と個数`N`をとること．
   + 例：
   ```
-  int sort_buf(char *buf, int N);
+  void sort_buf(char *buf, int N);
   ```
 
 + 標準出力に以下の出力をする．
@@ -219,9 +219,9 @@ int main() {
 
 int find_matching(  // ???
     char* X,        // ???
-    int M,          // ???
+    int len_x,          // ???
     char* Y,        // ???
-    int N,          // ???
+    int len_y,          // ???
     char* buf       // ???
 ) {
   int cnt = 0;  // ???
