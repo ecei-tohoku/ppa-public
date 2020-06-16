@@ -128,7 +128,7 @@ title: 3-0. 文字列間の共通文字列挙（課題説明用）
   + 引数に，文字の配列`buf`と個数`N`をとること．
   + 例：
   ```
-  void sort_buf(char *buf, int N);
+  int sort_buf(char *buf, int N);
   ```
 
 + 標準出力に以下の出力をする．
