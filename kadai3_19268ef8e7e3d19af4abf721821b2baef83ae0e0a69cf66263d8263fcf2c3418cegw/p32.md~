@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 3-4. 編集距離(再帰+メモ化)
+title: 3-2. 編集距離(再帰+メモ化)
 ---
 
 
@@ -35,10 +35,10 @@ title: 3-4. 編集距離(再帰+メモ化)
 ---
 + 課題3-1に記載の課題全体の仕様．ただし，「以下のプログラムを必ず用いてプログラムを完成させること」の部分は除く．
 
-+ 問題3-1で実装した再帰関数をベースに,メモ化を導入せよ.関数名は"ldmemo"とする．この関数は，文字列$X$，文字列$X$の先頭から$m$文字目の場所を表すインデックス$m$，文字列$Y$，文字列$Y$の先頭から$n$文字目の場所を表すインデックス$n$，メモを格納する2次元配列 **memo の5つを引数にとり，編集距離を返すものとする．
++ 問題3-1で実装した再帰関数をベースに,メモ化を導入せよ.関数名は"ldmemo"とする．この関数は，文字列$X$，文字列$X$の先頭から$m$文字目の場所を表すインデックス$m$，文字列$Y$，文字列$Y$の先頭から$n$文字目の場所を表すインデックス$n$，入力文字数の最大値N，メモを格納する2次元配列 memo[N][N] の6つを引数にとり，編集距離を返すものとする．
   + 例：
   ```	
-  int ldmemo(char *X, int m, char *Y, int n, int **memo);
+  int ldmemo(char *X, int m, char *Y, int n, int N, int memo[N][N]);
   ```
 
 
@@ -50,7 +50,7 @@ title: 3-4. 編集距離(再帰+メモ化)
   + 三行目：メモ化なしの再帰関数で求めた $c_{m,n}$ の値とメモ化なしの再帰関数の呼び出し回数
   + 四行目：メモ化ありの再帰関数で求めた $c_{m,n}$ の値とメモ化ありの再帰関数の呼び出し回数
 
-+ 実行例(1)の場合
++ 下の実行例(1)の場合
   ```
   eat⊔3↩︎
   ate⊔3↩︎
@@ -69,24 +69,14 @@ title: 3-4. 編集距離(再帰+メモ化)
 
 int delta(char *X, int a, char *Y, int b);  // ???
 int ld(char *X, int m, char *Y, int n);     // ???
-int ldmemo(char *X, int m, char *Y, int n, int **memo);     // ???
+int ldmemo(char *X, int m, char *Y, int n, int N, int memo[N][N]);     // ???
 int main() {
   int N = 21;                      // ???
   char *data_x = read_string_(N);  // ???
   char *data_y = read_string_(N);  // ???
   int len_x = count_len_(data_x);  // ???
   int len_y = count_len_(data_y);  // ???
-  int **memo;                      // ???
-    memo = (int **)malloc(sizeof(int *)*(len_x+1));
-    if(memo == NULL){
-     ...(省略)...
-    }
-    for(int i=0; i<len_x+1;++i){
-        memo[i] = (int*)malloc(sizeof(int)*(len_y+1));
-        if(memo[i] == NULL){
-        ...(省略)...
-        }
-    }
+  int memo[N][N];                  // ???
     
   ...(省略)...
 
