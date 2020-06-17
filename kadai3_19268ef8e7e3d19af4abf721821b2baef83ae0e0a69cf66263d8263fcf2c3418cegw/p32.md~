@@ -41,7 +41,7 @@ title: 3-2. 編集距離(再帰+メモ化)
   int ldmemo(char *X, int m, char *Y, int n, int N, int** memo);
   ```
 
-+ 2次元配列の確保と開放には，`func_mallocation_2d_`関数と`func_free_2d_`をそれぞれ用いよ．
++ 2次元配列の確保と開放には，`func_mallocation_2d_`関数と`func_free_2d_`関数をそれぞれ用いよ．
   + `func_mallocation_2d_`関数は，整数$l_1$と整数$l_2$を引数に取り，整数型の2次元配列を返す関数である．例えば，以下のように書くと，$l_1$行$l_2$列の2次元配列arrayが確保出来る．
   ```	
   int** array = func_mallocation_2d_($l_1$, $l_2$);
