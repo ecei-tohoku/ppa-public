@@ -164,7 +164,7 @@ twat 4
 ---
 ## 参考
 ---
-`func_mallocation_2d_`関数と`func_free_2d_`のソースコードは，それぞれ以下の通りである．
+`func_mallocation_2d_`関数と`func_free_2d_`関数の中身は，それぞれ以下の通りである．
 
 ```
 int** func_mallocation_2d_(const int len_x, const int len_y){
