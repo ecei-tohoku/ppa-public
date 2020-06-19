@@ -90,7 +90,7 @@ int main() {
     
   ...(省略)...
 
-  func_free_2d_(memo, len_x+1);
+  func_free_2d_(memo, ???);
   free(data_x);  // ???
   free(data_y);  // ???
   return 0;      // ???
