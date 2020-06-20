@@ -116,7 +116,7 @@ int main() {
 
   ...(省略)...
 
-  func_free_2d_(data, ??);
+  func_free_2d_(data, ???);
   return 0;               //
 }
 
