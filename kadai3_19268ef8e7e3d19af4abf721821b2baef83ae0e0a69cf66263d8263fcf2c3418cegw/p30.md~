@@ -94,7 +94,7 @@ title: 3-0. 文字列間の共通文字列挙（課題説明用）
       ```
       char* read_string_(int N);
       ```
-    + 引数は，読み込む文字列の最大長
+    + 引数は，読み込む文字列の長さ
     + 戻り値は，読み込んだ文字列の先頭を指すポインタ
 
   + 文字列の長さの取得
@@ -111,6 +111,14 @@ title: 3-0. 文字列間の共通文字列挙（課題説明用）
       void zeros_(char* data,  int N);
       ```
     + 引数は，初期化したい文字列$X$と文字列＄X$の長さ
+
+  + 文字列用のメモリ確保
+    + 関数 `func_mallocation_char_`を用いること
+      ```
+      char* func_mallocation_char_(int N);
+      ```
+    + 引数は，配列の要素数N
+    + 戻り値は，配列の先頭を指すポインタ
 
 ---
 ### 仕様
@@ -186,7 +194,19 @@ int count_len_(        // 文字列の長さを計算する関数
   return ri;  // 文字列の長さriを返す
 }
 
+char* func_mallocation_char_(  // 文字列用の配列を確保する関数
+    const int len_x            // 文字列の長さ
+) {
+  char* data  = (char*)malloc( len_x * sizeof(char));  // 配列に動的メモリを割り当てる
+  if (data == NULL) {                                  // メモリ確保に失敗した際のエラー処理
+    printf("Can not allocate memory. 'data' is NULL.\n");
+    exit(EXIT_FAILURE);  // メモリ確保に失敗したら、プログラムを終了
+  }
+  return data; // 配列dataの先頭のポインタを返す
+}
 
+
+//////////
 int find_matching(char* X, int M, char* Y, int N, char* buf);
 void sort_buf(char* buf, int N);
 
@@ -197,7 +217,7 @@ int main() {
   char* data_y = read_string_(N);  // 2つ目の文字列をdata_yに格納
   int len_x = count_len_(data_x);  // data_xに格納した文字列の長さを取得
   int len_y = count_len_(data_y);  // data_yに格納した文字列の長さを取得
-  char buf[len_x * len_y];   // マッチングした文字列を保存する配列bufの宣言
+  char buf =  func_mallocation_char_(len_x * len_y);   // マッチングした文字列を保存する配列bufの宣言
 
   int cnt = find_matching(data_x, len_x, data_y, len_y, buf);  // find_matching関数を実行
   sort_buf(buf, cnt);                                          // sort_buf関数を実行
