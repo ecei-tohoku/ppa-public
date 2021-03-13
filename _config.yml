@@ -16,7 +16,6 @@ url: "http://ecei-tohoku.github.io" # the base hostname & protocol for your site
 
 # Build settings
 markdown: redcarpet #kramdown
-exclude: ['_tools']
+#exclude: ['_tools']
 redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", 
-                 "tables", "with_toc_data"] 
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"] 
