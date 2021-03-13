@@ -5,7 +5,7 @@ title: 講義日程・場所
 
 ## 講義日程
 
-<img src="http://ecei-tohoku.github.io/ppa/schedule.png" width="300">
+<img src="http://ecei-tohoku.github.io/ppa/schedule.png" width="400">
 
 ## 場所
 
