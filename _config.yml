@@ -15,5 +15,5 @@ baseurl: "/ppa" # the subpath of your site, e.g. /blog
 url: "http://ecei-tohoku.github.io" # the base hostname & protocol for your site
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet #kramdown
 exclude: ['_tools']
