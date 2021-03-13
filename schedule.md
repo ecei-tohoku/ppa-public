@@ -5,7 +5,7 @@ title: 講義日程・場所
 
 ## 講義日程
 
-![日程表](http://ecei-tohoku.github.io/ppa/schedule.png | width=100)
+![日程表](http://ecei-tohoku.github.io/ppa/schedule.png width=100)
 
 ## 場所
 
