@@ -16,4 +16,4 @@ title: 期限等について
 <img src="images/deadlines-2.png" width="75%">
 
 # 課題３
-<img src="images/deadlines-3.png" width="90%">
+<img src="images/deadlines-3.png" width="80%">
