@@ -422,6 +422,7 @@ int merge(int* array[], int N, int from, int to, int mid) {
   INIT:::::::  2  1
   MERG( 0, 1)  1  2
   comp = 1
+  ```
 
   - 入力データ
   ```
