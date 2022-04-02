@@ -415,6 +415,16 @@ int merge(int* array[], int N, int from, int to, int mid) {
 
   - 入力データ
   ```
+  2 2 1
+  ```
+  - 出力例
+  ```
+  INIT:::::::  2  1
+  MERG( 0, 1)  1  2
+  comp = 1
+
+  - 入力データ
+  ```
   7 2 1 3 7 4 6 5
   ```
   - 出力例
