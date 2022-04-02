@@ -337,7 +337,7 @@ int merge(int* array[], int N, int from, int to, int mid) {
 
 - ステップ2/3のテストケースでは,一つ目の配列の始まりの位置`from`,二つ目の配列の始まりの位置`mid`,二つ目の配列の終わりの位置`to`も入力として与えられる.上の例では、`from=1`, `mid=3`, `to=4`である.
 
-- 仕様にあるように,`merge`関数は入力データ用に動的に確保した配列，入力データの個数，`merge`の対象となる範囲として`from`, `to`, `mid`の5つを引数とする.
+- `merge`関数は入力データ用に動的に確保した配列，入力データの個数，`merge`の対象となる範囲として`from`, `to`, `mid`の5つを引数とする.
   ```
   void merge(int array[], int N, int from, int to, int mid) ...
   ```
