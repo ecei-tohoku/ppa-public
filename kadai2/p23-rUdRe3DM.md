@@ -292,6 +292,8 @@ int merge(int* array[], int N, int from, int to, int mid) {
 
 - 2-2で説明するが、`from`,`to`,`mid`も読み込む.
 
+- 長さ$ n $の入力配列に対して,`merge`関数を実行する(`merge`関数の中身は2-2で作成する).
+
 - 以下のプログラムを用いよ.
 
   ```
