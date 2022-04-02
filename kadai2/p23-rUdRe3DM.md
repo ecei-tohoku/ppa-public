@@ -121,8 +121,8 @@ title: 2-3. マージソート【基本】
 #include <stdlib.h>
 #include “ppa_extra_h/p2_header.h”
 
-int mrg_sort(int *, int , int , int );
-int merge(int *, int , int , int , int );
+int mrg_sort(int [], int , int , int );
+int merge(int [], int , int , int , int );
 
 int main() {
 
@@ -131,13 +131,13 @@ int main() {
   return 0;
 }
 
-int mrg_sort(int* array, int N, int from, int to) {
+int mrg_sort(int array[], int N, int from, int to) {
 
   ...(省略)...
 
 }
 
-int merge(int* array, int N, int from, int to, int mid) {
+int merge(int* array[], int N, int from, int to, int mid) {
 
   ...(省略)...
 
