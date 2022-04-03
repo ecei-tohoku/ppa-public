@@ -274,6 +274,7 @@ int* array_allocation_by_DMA(int n){
 ---
 
 - **構造体**：`int`型配列の先頭アドレスを保持するためのポインタ変数と，配列の長さを保持するための`int`型変数を持つ構造体として，`struct Vector`を定義すること．
+
 ```
 struct Vector {
   ...
@@ -281,7 +282,8 @@ struct Vector {
 ```
 
 - **動的メモリ確保・解放**：引数として配列の長さを取り，動的メモリ確保して`struct Vector`変数を返す`Vector_init`関数，および`struct Vector`変数を引数として取って確保された配列を解放する`Vector_free`関数を定義すること．前者では，メモリ確保に失敗した場合はエラー文を出力してプログラムを強制終了すること．また，長さ0の配列は正常な配列として取り扱えるようにすること．
-  ```
+
+```
 struct Vector Vector_alloc(int n){
   ...
   
@@ -294,9 +296,10 @@ struct Vector Vector_alloc(int n){
 void Vector_free(struct Vector v){
   ...
 }
-  ```
+```
 
 - **配列要素の取得**：引数として`struct Vector`変数と，配列の位置（インデックス）を示す`int`型変数を取り，そのインデックスの要素を返す`Vector_get_at`関数を定義せよ．インデックスが有効な範囲の外にある場合，エラー文を出力してプログラムを強制終了すること．  
+
 ```
 int Vector_get_at(struct Vector v, int i){
   ...
@@ -309,6 +312,7 @@ int Vector_get_at(struct Vector v, int i){
 ```
 
 - **配列要素の代入**：引数として`struct Vector`変数，配列インデックスを示す`int`型変数，配列に代入したい要素を示す`int`型変数を取り，そのインデックスに要素を代入する`Vector_set_at`関数を定義せよ．インデックスが有効な範囲の外にある場合，エラー文を出力してプログラムを強制終了すること．  
+
 ```
 void Vector_set_at(struct Vector v, int i, int vi){
   ...
@@ -321,6 +325,7 @@ void Vector_set_at(struct Vector v, int i, int vi){
 ```
 
 - **配列要素の挿入**：引数として`struct Vector`変数，配列インデックスを示す`int`型変数，配列に挿入したい要素を示す`int`型変数を取り，その要素を挿入する`Vector_insert`関数を定義せよ．ここでいう挿入とは，与えられた位置に元からある要素，およびそれよりも後ろの全ての要素の位置を一つ後ろにずらして，その位置に新しい要素を代入する操作のことである．引数として渡された`struct Vector`とは別に，それよりも長さが1だけ長い`struct Vector`変数を新しく初期化すること．また，引数として渡された`struct Vector`は関数内で解放すること．インデックスが有効な範囲の外にある場合，エラー文を出力してプログラムを強制終了すること．  
+
 ```
 struct Vector Vector_insert(struct Vector v, int i, int vi){
   ...
@@ -333,6 +338,7 @@ struct Vector Vector_insert(struct Vector v, int i, int vi){
 ```
 
 - **配列要素の削除**：引数として`struct Vector`変数，配列インデックスを示す`int`型変数を取り，その要素を削除する`Vector_delete`関数を定義せよ．削除とは，与えられた位置よりも後ろの全ての要素の位置を一つ前にずらす操作のことである（その位置の要素は上書きされる）．引数として渡された`struct Vector`とは別に，それよりも長さが1だけ短い`struct Vector`変数を新しく初期化すること．また，引数として渡された`struct Vector`は関数内で解放すること．インデックスが有効な範囲の外にある場合，あるいは渡された配列の長さが0である場合，エラー文を出力してプログラムを強制終了すること．  
+
 ```
 struct Vector Vector_delete(struct Vector v, int i){
   ...
@@ -345,6 +351,7 @@ struct Vector Vector_delete(struct Vector v, int i){
 ```
 
 - `main`関数では，上記の関数群の動作テストを行うため，
+
 ```
 #include <stdio.h>
 #include <stdlib.h>
@@ -362,14 +369,14 @@ int main(){
   return 0;
 }
 
-// 
-
-```
 // 関数群の定義
 struct Vector Vector_init(...){
   ...
 }
 ...
+```
+
+
 ---
 ## 実行例
 ---
