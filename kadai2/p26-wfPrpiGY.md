@@ -10,22 +10,8 @@ title: 2-6. ヒープソート【発展】
 - 配列を最大ヒープに変換。
 - ヒープに基づいて配列を並べ替える。
 
-配列の要素に直接アクセスしてはいけない。 代わりに、前の課題で指定した`ppa_extra_h/p2_header.h`の関数を使用。
-- `int* func_mallocation_（int N）`
-  - 長さ`N`の整数の配列にメモリを割り当てる。
-  - 配列のメモリアドレスを返す。
-- `void print_array_（int* array、int N）`
-  - 整数の配列の内容を`STDOUT`に出力。
-  - 配列は`array`であり、配列の長さは`N`。
-- `int comp_（int* array、int pos_a、int pos_b）`
-  - 整数の配列の2つの要素を比較。
-  - 配列は`array`であり、要素のインデックスは`pos_a`と`pos_b`。
-  - `pos_b`の要素が`pos_a`の要素より大きい場合は、`1`を返す。 それ以外の場合は`0`を返す。
-- `void func_swap_（int* array、int pos_a、int pos_b）`
-  -整数の配列の2つの要素を交換。
-  - 配列は`array`であり、要素のインデックスは`pos_a`と`pos_b`。
-  - 交換操作の詳細も`STDOUT`に出力。
-    -　`printf（ "SWAP（％2d、％2d）"、pos_a、pos_b）;`
+`#include` していいのは `<stdio.h>`のみとする。
+ただし、`p22`の関数`swap`と関数`print_array`、および`p23`の関数`comp`を使用していい。
 コメントでコードを説明。
 
 ---
@@ -66,7 +52,7 @@ $ i $ 番目の要素の子ノードが存在する場合はそのインデッ�
   - この関数内では、上記で要求された出力を`STDOUT`に出力する必要。
   
     ```
-    int maxChild（int *X、int N、int i） ...
+    int maxChild（int X[]、int N、int i） ...
     ```
     
 - 関数`main`を実装する必要があります
@@ -174,17 +160,56 @@ $ i $ 番目の要素の子ノードが存在する場合はそのインデッ�
   - この関数内では、インデックス $ i $ から始めて、必要に応じてステップ1とステップ2を実行する必要。
   - 各関数呼び出しの開始時に $ i $ と $ N $ の値を`STDOUT`に出力。
   - 配列で行われたすべての交換を`STDOUT`に出力し、その後に配列の結果の状態を出力
-  - 上記を実行した後、`ppa_extra_h/p2_header.h`の関数`print_heap_`を使用して、配列の木構造表現を出力。
-    - `print_heap_`は、入力配列（`X`）と配列の長さ（`N`）を受け取る
+  - 上記を実行した後、関数`print_heap_`を使用して、配列の木構造表現を出力。
+    - `print_heap_`は、入力配列（`array`）と配列の長さ（`size`）を受け取る
     
-        ```
-	void　print_heap_（int *X、int N）
+    ```
+	void print_heap_(int array[], int size) {
+		int n = size;
+		int height = 1;
+		while(n >>= 1) height++;
+		int indent = 5;
+		int POW[] = {1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192};
+		char bar[] = "================================================"
+		"============================================================="
+		"============================================================="
+		"============================================================";
+
+		int k0=0, k1=0, k2=0;
+		for(int i=0; i<height; i++) {
+			int gap = indent * POW[height-i-1];
+
+			printf("%*s", gap/2, "");
+			for(int j=0; j<POW[i]/2; j++) {
+				if(k0*2 >= size-1) break;
+				printf("%.*s%*s", gap+2, bar, gap-2, "");
+				k0++;
+			}
+			printf("\n");
+
+			printf("%*s", gap/2, "");
+			for(int j=0; j<POW[i]; j++) {
+				if(k1 == size) break;
+				printf("%-*d", gap, array[k1]);
+				k1++;
+			}
+			printf("\n");
+
+			printf("%*s", gap/2, "");
+			for(int j=0; j<POW[i]; j++) {
+				if(k2*2 >= size-1) break;
+				printf("%-*s", gap, "|");
+				k2++;
+			}
+			printf("\n");
+		}
+	}
 	```
 	
   - 2.6.1で作成された関数`maxChild`を使用（`STDOUT`に出力する`maxChild`の部分は不要になったため、削除することを忘れないで）
   
     ```
-    void downheap（int *X、int N、int i） ...
+    void downheap（int X[]、int N、int i） ...
     ```
     
 - 関数`main`を実装する必要があります
@@ -300,7 +325,7 @@ $ i $ 番目の要素の子ノードが存在する場合はそのインデッ�
 ```
 
   - 配列の長さは $ 6 $ 
-  - 配列要素は $ {1 8 2 9 3 6} $
+  - 配列要素は `(1 8 2 9 3 6)`
 
 #### 出力
 配列の初期状態を出力し、`downheap`をその都度呼び出し回の行を出力し、各要素交換の行を出力し、配列の最終状態を出力。
@@ -313,7 +338,7 @@ $ i $ 番目の要素の子ノードが存在する場合はそのインデッ�
   - ただし、`downheap`への都度呼び出しの開始時に、 $ i $ と $ N $ の値を`STDOUT`に出力。
   
     ```
-    void heap_sort（int *X、int N） ...
+    void heap_sort（int X[]、int N） ...
     ```
     
 - 関数`main`を実装する必要
