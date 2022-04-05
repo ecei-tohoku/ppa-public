@@ -339,6 +339,14 @@ int* array_allocation_by_DMA(int n){
   }
   ```
 
+- **配列要素の出力**：引数として`struct Vector`変数を取り，配列要素を全て出力する`Vector_print`関数を実装すること．要素間には空白文字を一つ出力し，最後の要素の後には改行文字を出力すること．
+
+  ```
+  void Vector_print(struct Vector v){
+    ...
+  }
+  ```
+  
 - **配列要素の挿入**：引数として`struct Vector`変数，配列インデックスを示す`int`型変数，配列に挿入したい要素を示す`int`型変数を取り，その要素を挿入する`Vector_insert_at`関数を実装すること．ここでいう挿入とは，与えられた位置に元からある要素，およびそれよりも後ろの全ての要素の位置を一つ後ろにずらして，その位置に新しい要素を代入する操作のことである．引数として渡された`struct Vector`とは別に，それよりも長さが1だけ長い`struct Vector`変数を新しく初期化すること．また，引数として渡された`struct Vector`は関数内で解放すること．インデックスが有効な範囲の外にある場合，エラー文を出力してプログラムを強制終了すること．  
 
   ```
@@ -362,14 +370,6 @@ int* array_allocation_by_DMA(int n){
       exit(1);
     }
    ...
-  }
-  ```
-
-- **配列要素の出力**：引数として`struct Vector`変数を取り，配列要素を全て出力する`Vector_print`関数を実装すること．要素間には空白文字を一つ出力し，最後の要素の後には改行文字を出力すること．
-
-  ```
-  void Vector_print(struct Vector v){
-    ...
   }
   ```
 
@@ -399,10 +399,11 @@ int* array_allocation_by_DMA(int n){
   ...
   ```
 
+---
+## ステップ分割
+---
+ステップ1/2ではVector_alloc，Vector_free，Vector_get_at，Vector_set_at，Vector_printを実装し，ステップ2/2ではVector_insert_at，Vector_delete_atを実装すること．
 
----
-## 実行例
----
 ---
 ### 実行例
 ---
