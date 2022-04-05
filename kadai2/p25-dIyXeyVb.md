@@ -383,7 +383,7 @@ int* array_allocation_by_DMA(int n){
   ...
 
   // 関数群の宣言
-  struct Vector Vector_init(...);
+  struct Vector Vector_alloc(...);
   ...
 
   // main関数
@@ -393,7 +393,7 @@ int* array_allocation_by_DMA(int n){
   }
 
   // 関数群の定義
-  struct Vector Vector_init(...){
+  struct Vector Vector_alloc(...){
     ...
   }
   ...
