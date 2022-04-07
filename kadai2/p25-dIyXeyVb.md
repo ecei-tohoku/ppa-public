@@ -399,11 +399,39 @@ int* array_allocation_by_DMA(int n){
 
   // main関数
   int main(){
+    struct Vector v1, v2;
+  char op[10];
+  int n, i, x;
   
-    /*
-     * strncmpとif文を使って配列操作を判別する
-     */
-  
+  while( scanf("%s", op) != EOF ){
+    if( strncmp(op, "ALLOC", 10) == 0 ){
+      scanf("%d", &n);
+      v1 = Vector_alloc(n);
+    }
+    else if( strncmp(op, "FREE", 10) == 0 ){
+      Vector_free(v1);
+    }
+    else if( strncmp(op, "PRINT", 10) == 0 ){
+      Vector_print(v1);
+    }
+    else if( strncmp(op, "GET_AT", 10) == 0 ){
+      scanf("%d", &i);
+      printf("%d\n", Vector_get_at(v1, i));
+    }
+    else if( strncmp(op, "SET_AT", 10) == 0 ){
+      scanf("%d %d", &i, &x);
+      Vector_set_at(v1, i, x);
+    }
+    else if( strncmp(op, "DELETE_AT", 10) == 0 ){
+      scanf("%d", &i);
+      v1 = Vector_delete_at(v1, i);
+    }
+    else if( strncmp(op, "INSERT_AT", 10) == 0 ){
+      scanf("%d %d", &i, &x);
+      v1 = Vector_insert_at(v1, i, x);
+    }
+    else if( strncmp(op, "SHALLOW_COPY_AND_DEEP_COPY", 10) == 0 ){
+
     return 0;
   }
 
