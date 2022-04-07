@@ -454,22 +454,63 @@ int* array_allocation_by_DMA(int n){
 ### ステップ1/2の実行例
 ---
 - 入力データ
-```
-```
-- 出力例
-```
 
-```
+  ```
+  ALLOC 5
+  SET_AT 0 1
+  SET_AT 1 -1
+  SET_AT 2 3
+  SET_AT 3 5
+  SET_AT 4 10
+  PRINT
+  GET_AT 5
+  FREE
+  ```
+  
+- 出力例
+
+  ```
+  1 -1 3 5 10
+  ```
+    
+- エラー出力例
+
+  ```
+  Vector_get_at(): Index out of range
+  ```
+  
 ---
-### ステップ1/2の実行例
+### ステップ2/2の実行例
 ---
 - 入力データ
-```
-```
-- 出力例
-```
 
-```
+  ```
+  ALLOC 5   
+  SET_AT 0 0
+  SET_AT 1 1
+  SET_AT 2 2
+  SET_AT 3 3
+  SET_AT 4 4
+  PRINT
+  INSERT_AT 0 5
+  PRINT
+  INSERT_AT 7 6
+  PRINT
+  FREE
+  ```
+  
+- 出力例
+
+  ```
+  0 1 2 3 4 
+  5 0 1 2 3 4
+  ```
+    
+- エラー出力例
+
+  ```
+  Vector_insert_at(): Index out of range
+  ```
 
 ---
 ## 参考情報
