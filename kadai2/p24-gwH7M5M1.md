@@ -18,23 +18,27 @@ title: 2-4. 二分探索法【基本】
 - 整数$x$は複数個（$m$個，$m\ge1$）与えられ，配列の中には$x$は入っていないと仮定してよい．
 
 - 入力は，以下の順で与えられるとする：
-```
-n
-A1 A2 ... An
-m
-x1 x2 ... xm
-```
+
+  ```
+  n
+  A1 A2 ... An
+  m
+  x1 x2 ... xm
+  ```
 
 - 以下の二通りのアルゴリズムを実装する関数を作成した上で，それらを順に適用していき，$x$より小さい要素の数と，比較演算を実行した回数を出力すること：
 1. 配列をソートせずに，配列の先頭から順に$x$より小さいか判定していく．関数名および引数は以下のとおりにすること：
-```
-struct Count count_less_unsorted(int array[], int N, int x);
-```
+
+  ```
+  struct Count count_less_unsorted(int array[], int N, int x);
+  ```
+  
 返り値のstruct Countは"構造体"と呼ばれるC言語の機能で，変数を複数まとめて一つの変数として扱える．定義の仕方や使い方については、["構造体"](#structure)を読むこと．  
 2. 配列をソートした後，下記に説明する["二分探索法"](#binary_search)を用いて`array[i] < x < array[i+1]`となる`i`を探すことで，全ての要素と`x`を比較することなく，`x`よりも小さい要素を計算することができる．関数名および引数は以下のとおりにすること：
-```
-struct Count count_less_sorted(int array[], int N, int x);
-```
+
+  ```
+  struct Count count_less_sorted(int array[], int N, int x);
+  ```
 
 - 配列要素と`x`の比較演算としては`<`あるいは`>`のみを用いること．`if`文の条件式として書く場合は，一度に一回の比較のみ行うこと（例えば`if( array[0]<x && x<array[1] )`は，比較演算の回数は場合によって1回にも2回にもなるため，そのことに熟知していないかぎり推奨しない）．
 
@@ -50,11 +54,11 @@ struct Count count_less_sorted(int array[], int N, int x);
 
 - 配列のソートには，2-3で登場したマージソートを用いる．ここでは，以下のとおり`ppa_extra_h/mrg_sort.h`ヘッダーをインクルードし，その中で宣言されている`mrg_sort_`関数を用いること．関数の引数は，2-3と同じ仕様になっており，第一引数の配列の長さは`2N`でなければいけないことに注意すること．
 
-```
-#include "ppa_extra_h/mrg_sort.h"
-...
-i = mrg_sort_(array, N, 0, N-1);
-```
+    ```
+    #include "ppa_extra_h/mrg_sort.h"
+    ...
+    i = mrg_sort_(array, N, 0, N-1);
+    ```
 
 ---
 ### 構造体<a name="structure"></a>
@@ -64,50 +68,51 @@ i = mrg_sort_(array, N, 0, N-1);
 - 構造体の中の変数には，ピリオド"."を付けて書くことでアクセス可能．通常の変数と同様に演算ができる．
 
 - 具体的には以下のように使用する：
-```
-// 構造体を定義
-struct 構造体名 {
-  int 変数1;
-  int 変数2;
-};
-...
-//
-struct 構造体名 a;
-...
-// 構造体中の変数は、通常の変数のように代入・演算ができる
-a.変数1 = 1;
-b.変数2 = 2;
-int tmp = a.変数1+b.変数2;
-printf("%d %d\n", 構造体名.変数1, 構造体名.変数2);
-...
-// 構造体変数自体も代入ができる
-struct 構造体名 a, b;
-...
-a = function(...); // 構造体を返り値とする関数を呼び出し、a中の各変数に代入
-b = a; // a中の各変数の値を、b中の各変数に代入
-```
+
+  ```
+  // 構造体を定義
+  struct 構造体名 {
+    int 変数1;
+    int 変数2;
+  };
+  ...
+  //
+  struct 構造体名 a;
+  ...
+  // 構造体中の変数は、通常の変数のように代入・演算ができる
+  a.変数1 = 1;
+  b.変数2 = 2;
+  int tmp = a.変数1+b.変数2;
+  printf("%d %d\n", 構造体名.変数1, 構造体名.変数2);
+  ...
+  // 構造体変数自体も代入ができる
+  struct 構造体名 a, b;
+  ...
+  a = function(...); // 構造体を返り値とする関数を呼び出し、a中の各変数に代入
+  b = a; // a中の各変数の値を、b中の各変数に代入
+  ```
 
 - 構造体の中には`int`型に限らず，ほかの型の変数も入れることができる（構造体変数も含む）．様々な用途があるが，ここでは詳細には立ち入らない．
 
 - この問題で必要な構造体`struct Count`は以下のように定義すること：
 
-```
-#include <stdio.h>
+  ```
+  #include <stdio.h>
 
-struct Count {
-  int comparison_count; // 比較回数のカウントをする変数
-  int element_count; // 範囲内の要素数を保持する変数
-};
+  struct Count {
+    int comparison_count; // 比較回数のカウントをする変数
+    int element_count; // 範囲内の要素数を保持する変数
+  };
 
-...
-// 使用例
-struct Count c1, c2;
+  ...
+  // 使用例
+  struct Count c1, c2;
 
-c1.comparison_count = 0;
-c1.element_count = 0;
-c2 = c1;
-...
-```
+  c1.comparison_count = 0;
+  c1.element_count = 0;
+  c2 = c1;
+  ...
+  ```
 
 ---
 ### 二分探索法<a name=""></a>
@@ -144,13 +149,16 @@ c2 = c1;
 ## 実行例
 ---
 - 入力データ
+
 ```
 5
 1 3 5 7 9
 2
 2 8
 ```
+
 - 出力例
+
 ```
 count_less_unsorted:
 1 5
