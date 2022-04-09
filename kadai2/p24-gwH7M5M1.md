@@ -54,11 +54,11 @@ title: 2-4. 二分探索法【基本】
 
 - 配列のソートには，2-3で登場したマージソートを用いる．ここでは，以下のとおり`ppa_extra_h/mrg_sort.h`ヘッダーをインクルードし，その中で宣言されている`mrg_sort_`関数を用いること．関数の引数は，2-3と同じ仕様になっており，第一引数の配列の長さは`2N`でなければいけないことに注意すること．
 
-    ```
-    #include "ppa_extra_h/mrg_sort.h"
-    ...
-    i = mrg_sort_(array, N, 0, N-1);
-    ```
+  ```
+  #include "ppa_extra_h/mrg_sort.h"
+  ...
+  i = mrg_sort_(array, N, 0, N-1);
+  ```
 
 ---
 ### 構造体<a name="structure"></a>
