@@ -301,13 +301,17 @@ int* array_allocation_by_DMA(int n){
 ### 仕様
 ---
 
-- **構造体の定義**：`int`型配列の先頭アドレスを保持するためのポインタ変数と，配列の長さを保持するための`int`型変数を持つ構造体として，`struct Vector`を実装すること．
+- **構造体の定義**：`int`型配列の先頭アドレスを保持するためのポインタ変数と，配列の長さを保持するための`int`型変数を持つ構造体として，`struct Vector`が以下のとおり定義されていると仮定する．
 
   ```
   struct Vector {
-    ...
+    int _len;
+    int *_array;
   };
   ```
+  
+  構造体の定義および関数群の宣言は，`ppa_extra_h/Vector.h`でなされていると仮定する．
+  
 
 - **動的メモリ確保・解放**：引数として配列の長さを取り，動的メモリ確保して`struct Vector`変数を返す`Vector_alloc`関数，および`struct Vector`変数を引数として取って確保された配列を解放する`Vector_free`関数を実装すること．前者では，メモリ確保に失敗した場合は，以下のとおりのエラー文を出力してプログラムを強制終了すること．また，長さ0の配列は正常な配列として取り扱えるようにすること．
 
@@ -397,63 +401,25 @@ int* array_allocation_by_DMA(int n){
   深いコピー／浅いコピーは用途に応じて使い分ける．特に浅いコピーは，配列が非常に大きいが要素の変更をしない場合（read only）には重宝する．一方で，どの種類のコピーをされた配列なの  か，どこでメモリ解放をするのかなどを明確に取り決めておかないと，メモリリークの原因になってしまうので，使用には細心の注意が必要である．また，浅いコピーをした場合は，コピー元の配列の先頭アドレスを変更してはいけない（その意味では上記の`Vector_insert_at`や`Vector_delete_at`の実装は危険である！）．言語によってはそのようなメモリリークを防ぐための機構が用意されている（詳しくは[「動的メモリ確保に関する補足」](#dynamic_memory_allocation)を参照）．
 
 
-- **`main`関数**：上記の関数群の動作テストを行うため，配列操作を指示する文を入力から一行ずつ読み込み，それに応じて実際に配列操作を行なうコードを書く．この問題では関数群を正しく実装することを主眼にするため，`main`関数については以下のとおりに書くこと（文字列処理のために`string.h`内に定義された`strncmp`関数を使用している）．また，この問題では標準出力
-だけでなく，標準エラー出力も判定するので，エラー出力も仕様に従うこと．
+- **`main`関数**：上記の関数群の動作テストを行うため，配列操作を指示する文を入力から一行ずつ読み込み，それに応じて実際に配列操作を行なう．この問題では関数群を正しく実装することを主眼にするため，`main`関数については以下のとおりあらかじめ用意されたテスト関数`test_Vector`を呼び出し，`main`関数の後ろで関数群の定義をすること．また，この問題では標準出力だけでなく，標準エラー出力も判定するので，エラー出力も仕様に従うこと．
 
   ```
   #include <stdio.h>
   #include <stdlib.h>
-  #include <string.h>
-
-  // struct Vector構造体の定義
-  ...
-
-  // 関数群の宣言
-  struct Vector Vector_alloc(...);
-  ...
+  #include "ppa_extra_h/Vector.h"
 
   // main関数
   int main(){
-    struct Vector v1, v2;
-  char op[10];
-  int n, i, x;
-  
-  while( scanf("%s", op) != EOF ){
-    if( strncmp(op, "ALLOC", 10) == 0 ){
-      scanf("%d", &n);
-      v1 = Vector_alloc(n);
-    }
-    else if( strncmp(op, "FREE", 10) == 0 ){
-      Vector_free(v1);
-    }
-    else if( strncmp(op, "PRINT", 10) == 0 ){
-      Vector_print(v1);
-    }
-    else if( strncmp(op, "GET_AT", 10) == 0 ){
-      scanf("%d", &i);
-      printf("%d\n", Vector_get_at(v1, i));
-    }
-    else if( strncmp(op, "SET_AT", 10) == 0 ){
-      scanf("%d %d", &i, &x);
-      Vector_set_at(v1, i, x);
-    }
-    else if( strncmp(op, "DELETE_AT", 10) == 0 ){
-      scanf("%d", &i);
-      v1 = Vector_delete_at(v1, i);
-    }
-    else if( strncmp(op, "INSERT_AT", 10) == 0 ){
-      scanf("%d %d", &i, &x);
-      v1 = Vector_insert_at(v1, i, x);
-    }
-    else if( strncmp(op, "SHALLOW_COPY_AND_DEEP_COPY", 10) == 0 ){
-
+    test_Vector();
+ 
     return 0;
   }
 
-  // 関数群の定義
+  // 動的メモリ確保をする関数
   struct Vector Vector_alloc(...){
     ...
   }
+  
   ...
   ```
 
@@ -549,3 +515,67 @@ C言語が登場した時代と比べ，現代はハードウェア性能が桁�
 C言語は"ハードウェアを意識したプログラミング"ができる／しなくてはいけない言語で，メモリ容量制限がシビアな場合，リアルタイム処理が必要な場合などに適している．一方で，プログラムが大規模・多機能になると，"ハードウェアを意識しないプログラミング"の方がバグ／セキュリティホールを生じにくい，開発スピードが速いなどのメリットがある．そのようなプログラミングができる言語としては，C++，Java，Pythonがある．用途・実行環境に応じて適切な言語を選ぶ，あるいは複数言語を使い分けられるようになることが重要である．
 
 `malloc/free`より安全なメモリ管理の方法として，C++ではコンストラクタ／デストラクタという機構が用意されている（p2-5の`struct Vector`の`Vector_init`，`Vector_free`を使用開始時／終了後に強制的に呼び出すようなイメージ）．さらに安全な方法として，JavaやPythonではガベージコレクションという機構が用意されている．
+
+###
+
+```
+void test_Vector(){
+ struct Vector v1, v2;
+  char op[10];
+  int n, i, x;
+  
+  while( scanf("%s", op) != EOF ){
+    if( strncmp(op, "ALLOC", 10) == 0 ){
+      scanf("%d", &n);
+      v1 = Vector_alloc(n);
+    }
+    else if( strncmp(op, "FREE", 10) == 0 ){
+      Vector_free(v1);
+    }
+    else if( strncmp(op, "PRINT", 10) == 0 ){
+      Vector_print(v1);
+    }
+    else if( strncmp(op, "GET_AT", 10) == 0 ){
+      scanf("%d", &i);
+      printf("%d\n", Vector_get_at(v1, i));
+    }
+    else if( strncmp(op, "SET_AT", 10) == 0 ){
+      scanf("%d %d", &i, &x);
+      Vector_set_at(v1, i, x);
+    }
+    else if( strncmp(op, "DELETE_AT", 10) == 0 ){
+      scanf("%d", &i);
+      v1 = Vector_delete_at(v1, i);
+    }
+    else if( strncmp(op, "INSERT_AT", 10) == 0 ){
+      scanf("%d %d", &i, &x);
+      v1 = Vector_insert_at(v1, i, x);
+    }
+    else if( strncmp(op, "SHALLOW_COPY_AND_DEEP_COPY", 10) == 0 ){
+      printf("Shallow copy:\n");
+      v2 = v1;
+      printf("Before set:\n");
+      printf("v1: "); Vector_print(v1);
+      printf("v2: "); Vector_print(v2);
+      Vector_set_at(v2, 4, 10);
+      printf("After set:\n");
+      printf("v1: "); Vector_print(v1);
+      printf("v2: "); Vector_print(v2);
+
+      printf("Deep copy:\n");
+      v2 = Vector_deep_copy(v1);
+      printf("Before set:\n");
+      printf("v1: "); Vector_print(v1);
+      printf("v2: "); Vector_print(v2);
+      Vector_set_at(v2, 4, 20);
+      printf("After set:\n");
+      printf("v1: "); Vector_print(v1);
+      printf("v2: "); Vector_print(v2);
+    }
+    else {
+      fprintf(stderr, "%s: No such operation\n", op);
+      exit(1);
+    }
+  }
+}
+```
