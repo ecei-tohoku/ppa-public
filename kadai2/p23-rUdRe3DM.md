@@ -254,7 +254,7 @@ int merge(int* array[], int N, int from, int to, int mid) {
 
   - 入力データ
     ```
-    8 1  2  3  4  5  6  7  8
+    8 1 2 3 4 5 6 7 8
     ```
   - 出力例    
     ```
