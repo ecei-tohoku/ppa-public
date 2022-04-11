@@ -82,7 +82,7 @@ int *p = (int *)NULL;
 #include <stdlib.h>
 
 int main(){
-  int a * = (int *)NULL;
+  int *a = (int *)NULL;
   
   a[0] = 0;
   
