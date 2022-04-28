@@ -49,22 +49,63 @@ title: 3-4. 編集距離(動的計画法版)【基本】
 + 動的計画用の二次元配列テーブル`dpt`は，課題3-3と同じく`func_mallocation_2d_`関数を用いてメモリを確保せよ.
   + `dpt`の大きさは文字列の長さに合わせて必要十分な大きさとすること．
 
-
-
 + `main`関数の最後では，課題3-3と同じく`func_free_2d_`関数を用いてメモリの開放を行うこと.
   
-  
-
-+ 文字列$X$，文字列$X$の長さ$m$，文字列$Y$，文字列$Y$の長さ$n$，動的計画法用の二次元配列テーブル`dpt`の5つを引数にとり，編集距離を返す関数`ld_dp`を作成すること
-  + 例：
-  ```
-  int ld_dp(char *X, int m, char *Y, int n, int **dpt);
-  ```
++ 問題3-1と問題3-3に提示してある関数を`ppa_extra_h/p3_header.h`というファイルにおいてある．`#include "ppa_extra_h/p3_header.h"`という宣言を通して含め、以下の関数を必要に応じて用いること．
+  + `vmax_`
+  + `vmax3_`
+  + `vmin_`
+  + `vmin3_`
+  + `zeros_`
+  + `func_mallocation_char_`
+  + `read_string_`
+  + `func_mallocation_2d_`
+  + `func_free_2d_`  
+   
+---
+## ステップ 1
+---
 
 + 文字列$X$の位置$a$の文字と文字列$Y$の位置$b$の文字が等しい場合に0，違う場合に1を返す関数`delta`を作成し，それを関数`ld_dp`の中で用いること
   + 例：
   ```
   int delta(char *X, int a, char *Y, int b);
+  ```
+  
++ 文字列$X$，文字列$X$の長さ$m$，文字列$Y$，文字列$Y$の長さ$n$，動的計画法用の二次元配列テーブル`dpt`の5つを引数にとる`dpt_delta`を作成すること
+  + `dpt_delta`は以下のように`dpt`に値を保存する
+  　　+ 最初の行と最初の列に-1を保存する（つまり、インデックスの1つが0の場合）
+  　　+ $X$の$i$番目の文字と$Y$の$j$番目の文字が等しい場合は$dpt[i][j]$に0を保存し、そうでない場合は1を保存する
+  　　  + ヒント：　Xのi番目の文字は、配列Xのインデックスiを持つ要素ではないので、気をつけてください
+  　　+ `delta`を使って
+  + 例：
+  ```
+  void dpt_delta(char *X, int m, char *Y, int n, int **dpt);
+  ```
+
++ 標準出力に以下の出力をする．
+  + 1行目に入力文字列$X$とその長さを表示する．
+  + 2行目に入力文字列$Y$とその長さを表示する．
+  + 3行目に`dpt`の１行目, 4行目に`dpt`の2行目等々, `dpt`の最終行目まで．
+  + 下の実行例(1)の場合
+    ```
+    eat⊔3↩︎
+    ate⊔3↩︎
+    -1⊔-1⊔-1⊔-1↩︎
+    -1⊔⊔1⊔⊔1⊔⊔0↩︎
+    -1⊔⊔0⊔⊔1⊔⊔1↩︎
+    -1⊔⊔1⊔⊔0⊔⊔1↩︎
+    ```
+   
+---
+## ステップ 2
+---
+
++ 文字列$X$，文字列$X$の長さ$m$，文字列$Y$，文字列$Y$の長さ$n$，動的計画法用の二次元配列テーブル`dpt`の5つを引数にとり，編集距離を返す関数`ld_dp`を作成すること
+  + `delta`を使って
+  + 例：
+  ```
+  int ld_dp(char *X, int m, char *Y, int n, int **dpt);
   ```
 
 + 標準出力に以下の出力をする．
@@ -78,67 +119,6 @@ title: 3-4. 編集距離(動的計画法版)【基本】
     ate⊔3↩︎
     2↩︎
     ```
-   
-
-+ 問題3-1と問題3-3に提示してある関数を`ppa_extra_h/p3_header.h`というファイルにおいてある．`#include "ppa_extra_h/p3_header.h"`という宣言を通して含め、以下の関数を必要に応じて用いること．
-  + `vmax_`
-  + `vmax3_`
-  + `vmin_`
-  + `vmin3_`
-  + `zeros_`
-  + `func_mallocation_char_`
-  + `read_string_`
-  + `func_mallocation_2d_`
-  + `func_free_2d_`
-
-＋ 以下のプログラムを必ず用いてプログラムを完成せること．
-  + `???` の部分は適宜補完すること
-
-```
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "ppa_extra_h/p3_header.h"
-
-int delta(char *X, int a, char *Y, int b);                 // ???
-int ld_dp(char *X, int m, char *Y, int n, int **dpt);      // ???
-
-/////////////////////////////////////////
-int main() {
-  int len_x, len_y ;                   // ???
-  scanf(“%d”, &len_x);                 // ???
-  scanf(“%d”, &len_y);                 // ???
-  char* data_x = read_string_(len_x);  // ???
-  char* data_y = read_string_(len_y);  // ???
-  int **dpt = func_mallocation_2d_(??, ??); // ???
-
-  ...(省略)...
-
-  func_free_2d_(dpt, ???);   // ???
-  free(data_x);  // ???
-  free(data_y);  // ???
-  return 0;      // ???
-}
-
-/////////////////////////////////////////
-
-int delta(char *X, int a, char *Y, int b) {
-
-  ...(省略)...
-
-}
-
-/////////////////////////////////////////
-
-int ld_dp(char *X, int m, char *Y, int n, int **dpt) {
-
-  ...(省略)...
-
-}
-```
-
-
-
 
 ---
 ## 実行例
@@ -153,7 +133,17 @@ int ld_dp(char *X, int m, char *Y, int n, int **dpt) {
 3 3 eat ate
 ```
 
-+ 出力
++ 出力 (STEP 1)
+```
+eat 3︎
+ate 3
+-1 -1 -1 -1︎
+-1  1  1  0
+-1  0  1  1
+-1  1  0  1
+```
+
++ 出力 (STEP 2)
 ```
 eat 3
 ate 3
@@ -169,21 +159,19 @@ ate 3
 3 4 see seen
 ```
 
-+ 出力
++ 出力 (STEP 1)
+```
+see 3
+seen 4
+-1 -1 -1 -1︎ -1
+-1  0  1  1  1
+-1  1  0  0  1
+-1  1  0  0  1
+```
+
++ 出力 (STEP 2)
 ```
 see 3
 seen 4
 1
 ```
-
-
-
-
-
----
-## 参考資料
----
-
-- [秋葉 拓哉, プログラミングコンテストでの動的計画法](http://www.slideshare.net/iwiwi/ss-3578511)
-
-
