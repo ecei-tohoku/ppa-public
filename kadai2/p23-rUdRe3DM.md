@@ -139,7 +139,7 @@ int mrg_sort(int array[], int N, int from, int to) {
 
 }
 
-int merge(int* array[], int N, int from, int to, int mid) {
+int merge(int array[], int N, int from, int to, int mid) {
 
   ...(省略)...
 
@@ -174,12 +174,12 @@ int merge(int* array[], int N, int from, int to, int mid) {
   ```
     int main(){
       int n;             // 配列の要素数
-      scanf("%d", &n)    // nを標準入力
+      scanf("%d", &n);    // nを標準入力
       int array[n];       // 可変長配列による配列の確保
       int i;
       for(i=???; i<???; ???) scanf("%d", &(array[???]));
 
-      printf("INIT:::::::"); print_array_range_(array, ???, ???, ???);
+      printf("INIT:::::::"); print_array_range(array, ???, ???, ???);
 
       mrg_sort(array,???, ???,???);
       return 0;
@@ -232,7 +232,7 @@ int merge(int* array[], int N, int from, int to, int mid) {
     ```
     2 1 2
     ```
-  - 出力例例
+  - 出力例
     ```
     INIT:::::::  1  2
     SORT( 0, 1)
@@ -308,18 +308,18 @@ int merge(int* array[], int N, int from, int to, int mid) {
     int main(){
       int n;             // 配列の要素数
       int from,to,mid; 
-      scanf("%d", &n)    // nを標準入力
+      scanf("%d", &n);    // nを標準入力
       int array[???];       // 可変長配列による配列の確保
       
-      scanf("%d", &from)
-      scanf("%d", &mid)
-      scanf("%d", &to)
+      scanf("%d", &from);
+      scanf("%d", &mid);
+      scanf("%d", &to);
       
       int i;
       for(i=???; i<???; ???) scanf("%d", &(array[???]));
 
       printf("INIT:::::::"); 
-      print_array_(array, ???); 
+      print_array_range(array, ???,???,???); 
       
       merge(array,???, ???, ???, ???);
       return 0;
@@ -415,7 +415,7 @@ int merge(int* array[], int N, int from, int to, int mid) {
 
 
 #### 3-2. `mrg_sort`関数の動作を検証
-- 仕様にあるように,`print_array_range_`関数を使って値のマージ処理が終わる度に，マージした範囲と配列全体の要素を表示すること．
+- 仕様にあるように,`print_array_range`関数を使って値のマージ処理が終わる度に，マージした範囲と配列全体の要素を表示すること．
 
 - 要素間の比較`comp`の呼び出し回数の合計も最後に標準出力する．出力の仕方は以下の通り.
   ```
