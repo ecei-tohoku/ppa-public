@@ -120,8 +120,6 @@ title: 2-3. マージソート【基本】
 
 ```
 #include <stdio.h>
-#include <stdlib.h>
-#include “ppa_extra_h/p2_header.h”
 
 int mrg_sort(int [], int , int , int );
 int merge(int [], int , int , int , int );
