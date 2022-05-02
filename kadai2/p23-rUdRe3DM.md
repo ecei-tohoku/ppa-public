@@ -451,7 +451,6 @@ int merge(int array[], int N, int from, int to, int mid) {
   MERG( 4, 5) ** ** ** **  4  6 **
   MERG( 4, 6) ** ** ** **  4  5  6
   MERG( 0, 6)  1  2  3  4  5  6  7
-  DONE:::::::  1  2  3  4  5  6  7
   comp = 13
   ```
 
