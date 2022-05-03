@@ -197,8 +197,8 @@ int merge(int array[], int N, int from, int to, int mid) {
   - 略記的に表現すれば次のようになる.
   ```
   mrg_sort(array,n,0,3){
-      mrg_sort(array,n,0,1);
-      mrg_sort(array,n,2,3);
+  　　mrg_sort(array,n,0,1);
+  　　mrg_sort(array,n,2,3);
   }
   ```
 - 上記を参考にして,`mrg_sort`関数関数を再帰的に呼び出すように実装せよ.ただし,仕様にも記載されているように,配列を分割する際に,奇数で割り切れない場合は,必ず配列の先頭側を一つ多くなるようにすること．また,長さが1になった時には処理が終了しなければならない.
