@@ -94,34 +94,63 @@ title: 3-1. 課題３導入問題【初歩】
 ### 文字配列処理の関数群
 ---
 
-+ 事前に定義された関数として以下の処理には対応する関数を用いること
-  + 文字列用のメモリ確保と標準入力からの文字列読み込み
-    + 関数 `read_string_`を用いること
-      ```
-      char* read_string_(int N);
-      ```
-    + 引数は，読み込む文字列の長さ
-    + 戻り値は，読み込んだ文字列の先頭を指すポインタ
++ 文字配列専用でメモリ確保する関数`func_mallocation_char_`：
 
-  + 文字列用の配列を`\0`で初期化
-    + 関数 `zeros_`を用いること
-      ```
-      void zeros_(char* data,  int N);
-      ```
-    + 引数は，初期化したい文字列$X$と文字列＄X$の長さ
+    ```
+    char* func_mallocation_char_(int N);
+    ```
+  
+    引数は文字列の長さNで，ヌル文字分を足してN+1の長さの文字配列を確保する．
+    戻り値は，配列の先頭を指すポインタ．
+    ※動的に確保したメモリ領域は，処理が完了した後に`free`関数で解放すること．
 
-  + 文字列用のメモリ確保
-    + 関数 `func_mallocation_char_`を用いること
-      ```
-      char* func_mallocation_char_(int N);
-      ```
-    + 引数は文字列の長さNで，ヌル文字分を足してN+1の長さの文字配列を確保する
-    + 戻り値は，配列の先頭を指すポインタ
-  + 動的に確保したメモリ領域は処理が完了した後に解放すること（関数`free`などを使うこと)
+  + 標準入力から決められた長さの文字列を読み込む関数 `read_string_`を用いること
+  
+    ```
+    char* read_string_(int N);
+    ```
+    
+    引数は，読み込む文字列の長さ．
+    戻り値は，読み込んだ文字列の先頭を指すポインタ．
+
+  + 文字列用の配列を`\0`で初期化する関数`zeros_`：
+ 
+     ```
+     void zeros_(char* X,  int N);
+     ```
+     
+     引数は，初期化したい文字列$X$と文字列＄X$の長さ
+
 
 ---
-### 二次元配列の動的メモリ確保／解放関数
+### 二次元配列を動的メモリ確保／解放する関数群
 ---
+`func_mallocation_2d_`関数と`func_free_2d_`関数の中身は，それぞれ以下の通りである．
+
+```
+int** func_mallocation_2d_(const int len_x, const int len_y){
+  int** array_2d = (int **)malloc(sizeof(int *) * len_x);
+    if(array_2d == NULL){
+        printf("Can not allocate memory. 'array_2d' is NULL.\n");
+        exit(EXIT_FAILURE);
+    }
+    for(int i = 0; i < len_x; ++i){
+        array_2d[i] = (int*)malloc(sizeof(int) * len_y);
+        if(array_2d[i] == NULL){
+            printf("Can not allocate memory. 'array_2d[i]' is NULL.\n");
+            exit(EXIT_FAILURE);
+        }
+    }
+    return array_2d;
+}
+```
+
+```
+void func_free_2d_(int **array_2d, int len_x){
+  for(int i = 0; i < len_x; ++i) free(array_2d[i]);
+ free(array_2d);
+}
+```
 
 ---
 ### 仕様
