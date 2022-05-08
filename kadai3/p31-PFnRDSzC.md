@@ -86,78 +86,94 @@ title: 3-1. 課題３導入問題【初歩】
 ---
 ### 文字配列処理の関数群とその仕様
 ---
-+ 文字配列専用でメモリ確保する関数`func_mallocation_char_`を以下のコードを参考にして実装すること：
++ 文字配列専用でメモリ確保する関数`malloc_string_`を以下のコードを参考にして実装すること：
 
   ```
-  char* func_mallocation_char_(int N){
-    char* data  = (???)malloc(???);  // 配列に動的メモリを割り当てる
+  char* malloc_string_(int N){
+    char* str  = (???)malloc(???);  // 配列に動的メモリを割り当てる
   
-    if (data == NULL) {       // メモリ確保に失敗した際のエラー処理
-      fprintf(stderr, “Can not allocate memory. ‘data’ is NULL.\n”);
+    if (str == NULL) {       // メモリ確保に失敗した際のエラー処理
+      fprintf(stderr, “malloc_string_(): Cannot allocate memory.\n”);
       exit(1);  // メモリ確保に失敗したら、プログラムを強制終了
     }
     
-    zeros_(data, len_x+1);   // 配列dataを関数zeros_で初期化
+    zeros_(str, N+2);   // 配列dataを関数zeros_で初期化
     return ???;
   }
   ```
 
-  + 引数は文字列の長さNで，ヌル文字分を足してN+1の長さの文字配列を確保すること．
+  + 引数は文字列の長さNで，エラー処理用の1文字と，末尾のヌル文字分を足してN+2の長さの文字配列を確保すること．
   + 戻り値は，配列の先頭を指すポインタとすること．
   ※動的に確保したメモリ領域は，処理が完了した後に`free`関数で解放すること．
 + 標準入力から決められた長さの文字列を読み込む関数 `read_string_`を，以下のコードを参考にして実装すること：
 
   ```
-  char* read_string_(int N){
-    char* data = ???;
-    fgets(data, N, stdin);          // 文字列を読み込む p1-4とも整合するようにエラー処理したい
-    if (data[??] != ‘\0’) {  // 文字列がN以上の場合のエラー処理
-      fprintf(stderr, “Reading invalid string\n”);
-      exit(1);  // プログラムを終了
+  void read_string_(char *str, int N){
+    // N+1文字を標準入力から読み込む
+    fgets(str, N+2, stdin);
+    
+    // 文字列の長さがNよりも短い場合はエラー出力して強制終了
+    for(int i=0; i<N; i++){
+      if(str[i]=='\n' || str[i]==' ' || str[i]=='\0'){
+        fprintf(stderr, “read_string_(): Invalid string\n”);
+        exit(1);
+      }
     }
-    return data;  // 配列dataの先頭のポインタを返す
+    
+    // 文字列の長さがNよりも長い場合はエラー出力して強制終了
+    if( !(str[N]=='\n' || str[N]==' ' || str[N]=='\0') ){
+      fprintf(stderr, “read_string_(): Invalid string\n”);
+      exit(1);
+    }
+
+    // fgetsで改行かスペースも読み込んでいる場合があるので，ヌル文字で上書き
+    str[N] = ???;
+    
+    return str;
   }
   ```
   
-  + 引数は，読み込む文字列の長さ．
-  + `func_mallocation_char_`関数を用いて文字配列を確保すること．
-  + 戻り値は，読み込んだ文字列の先頭を指すポインタとすること．
-+ 文字配列を`\0`で初期化する関数`zeros_`：
+  + 引数は文字列の長さ`N`と，あらかじめ動的メモリ確保された文字配列のポインタ`str`で，エラー処理用の1文字と，末尾のヌル文字分を足して`N+2`の長さの文字配列を確保されていると仮定してよい．
+  + 戻り値は，読み込んだ文字配列の先頭を指すポインタとすること．
+  + `fgets`関数を用いて文字列の読み込みをすること．
+  + 文字列の長さが引数Nよりも短い／長い場合はエラー出力して強制終了すること．
++ 文字配列をヌル文字で初期化する関数`zeros_`を，以下のコードを参考に実装すること：
 
   ```
-  void zeros_(char* X,  int N){
-    for (int i = 0; i < N; ++i){
-      data[i] = '\0';  // 配列のi番目の要素をヌル文字で初期化
+  void zeros_(char* str,  int N){
+    for (int i = 0; i < ???; ++i){
+      ???;  // 配列のi番目の要素をヌル文字で初期化
     }
   }
   ```
 
-  引数は，初期化したい文字列$X$と文字列＄X$の長さ
+  + 引数は初期化したい文字列$X$と文字列＄X$の長さ．
+  + N+2個の要素を初期化すること．
 
 ---
 ### 二次元配列を動的メモリ確保／解放する関数群とその仕様
 ---
 + 配列。。。
-+ `int`型の二次元配列を動的メモリ確保する関数`func_mallocation_2d_`，それを解放する関数`func_free_2d_`の中身は，それぞれ以下の通りである：
++ `int`型の二次元配列を動的メモリ確保する関数`malloc_2d_`，それを解放する関数`free_2d_`の中身は，それぞれ以下の通りである：
 
   ```
-  int** func_mallocation_2d_(const int len_x, const int len_y){
+  int** malloc_2d_(const int len_x, const int len_y){
     int** array_2d = (int **)malloc(sizeof(int *) * len_x);
     if(array_2d == NULL){
-        fprintf(stderr, "Can not allocate memory. 'array_2d' is NULL.\n");
+        fprintf(stderr, "malloc_2d_(): Cannot allocate memory.\n");
         exit(1);
     }
     for(int i = 0; i < len_x; ++i){
       array_2d[i] = (int*)malloc(sizeof(int) * len_y);
       if(array_2d[i] == NULL){
-        fprintf(stderr, "Can not allocate memory. 'array_2d[i]' is NULL.\n");
+        fprintf(stderr, "malloc_2d_(): Cannot allocate memory.\n");
         exit(1);
       }
     }
     return array_2d;
   }
 
-  void func_free_2d_(int **array_2d, int len_x){
+  void free_2d_(int **array_2d, int len_x){
     for(int i = 0; i < len_x; ++i) free(array_2d[i]);
     free(array_2d);
   }
@@ -167,51 +183,59 @@ title: 3-1. 課題３導入問題【初歩】
 ### プログラム全体の仕様
 ---
 + 上述した課題全体の仕様．
-+ 以下のプログラムを必ず用いてプログラムを完成させること．
-  + コメント文が`???`となっている箇所は，書かれているコードに対するコメントを書くこと．
++ 以下のプログラムを必ず用いて完成させること．
   + コードが`???`となっている箇所は，コメント文で書かれた処理を行なうコードを書くこと．
+  + 関数群の中身は，上記の仕様に書いてあるコードを参考にしてよい．`???`となっている箇所は自分で考えて書くこと．
   + すでに書いてあるコメント文は書き写さなくてよい．
 
 ```
 #include <stdio.h>
 #include <stdlib.h>
-#include "ppa_extra_h/p3_1.h"
+
+
+// 関数群の前方宣言
 
 int vmax_(int x, int y);
 int vmax3_(int a, int b, int c);
 int vmin_(int x, int y);
 int vmin3_(int a, int b, int c);
 
-void zeros_(char* data, int N);
-char* func_mallocation_char_(int len_x);
-char* read_string_(int N);
+void zeros_(char* str, int N);
+char* malloc_string_(int N);
+void read_string_(char *str, int N);
 
-int** func_mallocation_2d_(int len_x, int len_y);
-void func_free_2d_(int **array_2d, int len_x);
+int** malloc_2d_(int len_x, int len_y);
+void free_2d_(int **array_2d, int len_x);
 
 
-//////////
+// 関数群をテストするmain関数
 
 int main(){
-  int len_x, len_y;
+  // 最大／最小を判定する関数群のテスト
+  int x, y, z;
   
-  // 1つ目，2つ目の文字列の要素数を入力
-  scanf(“%d”, &len_x);
-  scanf(“%d”, &len_y);
+  scanf("%d%d%d", x, y, z);
+  printf("%d %d %d\n", vmax_(x, y), vmax_(y, z), vmax_(z, x));
+  printf("%d %d %d\n", vmin_(x, y), vmin_(y, z), vmin_(z, x));
+  printf("%d\n", vmax3_(x, y, z));
+  printf("%d\n", vmin3_(x, y, z));
+    
+  // 文字配列処理の関数群のテスト
+  int len;
+  scanf(“%d”, &len); 
+  char* str = malloc_string_(len);
+  read_string_(str, len);
+  ???;  // 動的に確保された配列strの解放
+
+  // 二次元配列の確保／解放の関数群のテスト
   
-  // 1つ目，2つ目の文字列をdata_x，data_yに格納
-  char* data_x = read_string_(len_x);
-  char* data_y = read_string_(len_y);
-  
-  // 
-  test_???();
-  
-  // 動的に確保された配列data_x，data_yの解放
-  ???;
-  ???;
-  
+
   return 0;
 } 
+
+
+// 関数群の定義
+...
 
 ```
 
