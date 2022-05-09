@@ -448,7 +448,14 @@ int* array_allocation_by_DMA(int n){
 ---
 ## ステップ分割
 ---
-- ステップ1/2では`Vector_alloc`，`Vector_free`，`Vector_get_at`，`Vector_set_at`，`Vector_print`関数を実装すること．`main`関数に書いてあるその他の関数については，コメントアウトしておくこと．
+- ステップ1/2では`Vector_alloc`，`Vector_free`，`Vector_get_at`，`Vector_set_at`，`Vector_print`関数を実装すること．また，`test_Vector`関数を使うにあたり，形だけでも`Vector_insert_at`，`Vector_delete_at`，`Vector_deep_copy`関数の定義が必要なので，中身は実装せずに，以下のように引数の`v`をそのまま返り値として返すこと．
+
+  ```
+  struct Vector Vector_insert_at(struct Vector v, int i, int x){
+    return v;
+  }
+  ```
+
 - ステップ2/2では`Vector_insert_at`，`Vector_delete_at`，`Vector_deep_copy`関数を実装すること．
 
 ---
