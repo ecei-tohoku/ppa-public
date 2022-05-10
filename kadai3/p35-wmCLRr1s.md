@@ -196,6 +196,46 @@ int ssk( ??? ) {
 この問題では，「共通部分文字列のマッチング数」の計算を2ステップにより行う．ステップ1/2では式(2)と式(3)を用いて計算します．ステップ2/2では式(5)と式(6)に基づく，計算量の少アルゴリズムを用いて実装する．ステップごとに”動作確認”に成功しなければ，”TAに提出”が出来ないようになっている．以下では，各ステップをさらに細分化して説明する． 
 
 
+## ステップ1/2 「(2)と式(3)を用いた共通部分文字列のマッチング数の計算」
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "ppa_extra_h/p3_header.h"
+
+void show_table(int M1, int M2, int **K);    // ???
+int common_sebseq(char* X, int m, char* Y, int n, int **dp);    // ???
+
+int main() {
+  int len_x, len_y ;                        // ???
+  scanf(“%d”, &len_x);                      // ???
+  scanf(“%d”, &len_y);                      // ???
+  char* data_x = read_string_(len_x);       // ???
+  char* data_y = read_string_(len_y);       // ???  
+  int **dp = func_mallocation_2d_(??, ??);  // ??? 
+
+  ...(省略)...
+
+  func_free_2d_(dp, ??);      // ???
+  free(data_x);               // ???
+  free(data_y);               // ???
+  return 0;
+}
+
+void show_table( ??? ){
+
+  ...(省略)...
+
+}
+
+
+int common_sebseq(char* X, int m, char* Y, int n, int **dp) {
+
+  ...(省略)...
+
+}
+```
 
 ---
 ## 実行例
