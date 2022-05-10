@@ -218,7 +218,7 @@ int main() {
   scanf(“%d”, &len_y);                      
   char* data_x = read_string_(len_x);       
   char* data_y = read_string_(len_y);         
-  int **dp = func_mallocation_2d_(???, ???);  
+  int** dp = func_mallocation_2d_(???, ???);  
 
   ...(省略)...
 
@@ -235,7 +235,7 @@ void show_table(int M, int N, int** data){
 }
 
 
-int common_sebseq(char* X, int m, char* Y, int n, int **dp){
+int common_sebseq(char* X, int m, char* Y, int n, int** dp){
   //式(7)よりdpの初期化
   ...(省略)...
   
@@ -248,6 +248,65 @@ int common_sebseq(char* X, int m, char* Y, int n, int **dp){
   ...(省略)...
 }
 ```
+
+---
+## 実行例
+---
+---
+### 例(1)
+---
+
++ 入力データ
+```
+3 3 eat ate
+```
+
++ 出力例
+```
+eat 3
+ate 3
+### dp
+#   0   0   0   0
+#   0   0   0   1
+#   0   1   0   0
+#   0   0   2   0
+4
+```
+
+---
+### 例2
+---
+
++ 入力データ
+```
+8 9 abababab abcabcabc
+```
+
++ 出力例
+```
+abababab 8
+abcabcabc 9
+### dp
+#   0   0   0   0   0   0   0   0   0   0
+#   0   1   0   0   1   0   0   1   0   0
+#   0   0   2   0   0   3   0   0   4   0
+#   0   1   0   0   4   0   0   8   0   0
+#   0   0   3   0   0  10   0   0  22   0
+#   0   1   0   0   8   0   0  26   0   0
+#   0   0   4   0   0  22   0   0  70   0
+#   0   1   0   0  13   0   0  61   0   0
+#   0   0   5   0   0  40   0   0 171   0
+482
+```
+
+---
+## ステップ2/2 「sumdpにより計算量を削減した方法を用い共通部分文字列のマッチング数の計算」
+---
+
++ 以下のプログラムを必ず用いてプログラムを完成せること．
+  + `???` の部分は適宜補完すること
+  + 適切なコメントを入れること
+
 
 ---
 ## 実行例
@@ -313,4 +372,3 @@ abcabcabc 9
 #   0   4  18  18  44 119 119 215 482 482
 482
 ```
-
