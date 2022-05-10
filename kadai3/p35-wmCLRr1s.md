@@ -202,6 +202,7 @@ int ssk( ??? ) {
 + 以下のプログラムを必ず用いてプログラムを完成せること．
   + `???` の部分は適宜補完すること
   + 適切なコメントを入れること
+  + `common_sebseq`関数の作成の際に式(2)，式(3)と式(7)を参考にすること
 
 ```
 #include <stdio.h>
@@ -306,7 +307,48 @@ abcabcabc 9
 + 以下のプログラムを必ず用いてプログラムを完成せること．
   + `???` の部分は適宜補完すること
   + 適切なコメントを入れること
+  + `ssk`関数の作成の際に式(5)，式(6)と式(7)を参考にすること
 
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "ppa_extra_h/p3_header.h"
+
+void show_table(int M, int N, int** data);    
+int ssk(char* X, int M, char* Y, int N, int** dp, int** sumdp);    
+
+int main() {
+  int len_x, len_y ;                        
+  scanf(“%d”, &len_x);                      
+  scanf(“%d”, &len_y);                      
+  char* data_x = read_string_(len_x);       
+  char* data_y = read_string_(len_y);         
+  int** dp = func_mallocation_2d_(???, ???); 
+  int** sumdp = func_mallocation_2d_(???, ???);
+
+  ...(省略)...
+
+  func_free_2d_(dp, ???); 
+  func_free_2d_(sumdp, ???); 
+  free(data_x);               
+  free(data_y);               
+  return 0;
+}
+
+void show_table(int M, int N, int** data){
+
+  ...(省略)...
+
+}
+
+
+int ssk(char* X, int M, char* Y, int N, int** dp, int** sumdp){
+  
+  ...(省略)...
+  
+}
+```
 
 ---
 ## 実行例
