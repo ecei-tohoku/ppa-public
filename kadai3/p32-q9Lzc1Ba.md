@@ -220,7 +220,7 @@ int ld( ??? ) {
 
   - **漸化式の「その他」の式における$$d_{x_i \neq y_j}$$と+1は実装してはいけない．**（これらを実装してしまうと，呼び出し回数に1を加えたものを返してしまう可能性があるため．）
 
-- 文字列$X$と$Y$の長さを$len_x$と$len_y$としたとき，`ld(char *X, int len_x-1, char *Y, int len_y-1)`，`ld(char *X, int len_x-1, char *Y, int len_y)`，`ld(char *X, int len_x, char *Y, int len_y-1)`の呼び出し回数を標準出力せよ．出力形式は，それぞれの呼び出し回数を$C_1$，$C_2$，$C_3$とすると，「$C_1$⊔$C_2⊔$C_3↩︎」とする．
+- 文字列$X$と$Y$の長さを$len_x$と$len_y$としたとき，`ld(char *X, int len_x-1, char *Y, int len_y-1)`，`ld(char *X, int len_x-1, char *Y, int len_y)`，`ld(char *X, int len_x, char *Y, int len_y-1)`の呼び出し回数を標準出力せよ．出力形式は，それぞれの呼び出し回数を$C_1$，$C_2$，$C_3$とすると，**「$C_1$⊔$C_2⊔$C_3$↩︎」**とする．
   - 例：$X$=a, $Y$=cの時
   ```
     1⊔1⊔1↩︎
