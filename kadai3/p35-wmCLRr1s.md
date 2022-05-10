@@ -201,6 +201,7 @@ int ssk( ??? ) {
 
 + 以下のプログラムを必ず用いてプログラムを完成せること．
   + `???` の部分は適宜補完すること
+  + 適切なコメントを入れること
 
 ```
 #include <stdio.h>
@@ -208,22 +209,22 @@ int ssk( ??? ) {
 
 #include "ppa_extra_h/p3_header.h"
 
-void show_table(int M, int N, int** data);    // ???
+void show_table(int M, int N, int** data);    
 int common_sebseq(char* X, int m, char* Y, int n, int** dp);    // ???
 
 int main() {
-  int len_x, len_y ;                        // ???
-  scanf(“%d”, &len_x);                      // ???
-  scanf(“%d”, &len_y);                      // ???
-  char* data_x = read_string_(len_x);       // ???
-  char* data_y = read_string_(len_y);       // ???  
-  int **dp = func_mallocation_2d_(??, ??);  // ??? 
+  int len_x, len_y ;                        
+  scanf(“%d”, &len_x);                      
+  scanf(“%d”, &len_y);                      
+  char* data_x = read_string_(len_x);       
+  char* data_y = read_string_(len_y);         
+  int **dp = func_mallocation_2d_(???, ???);  
 
   ...(省略)...
 
-  func_free_2d_(dp, ??);      // ???
-  free(data_x);               // ???
-  free(data_y);               // ???
+  func_free_2d_(dp, ???);      
+  free(data_x);               
+  free(data_y);               
   return 0;
 }
 
