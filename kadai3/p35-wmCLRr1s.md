@@ -210,7 +210,7 @@ int ssk( ??? ) {
 #include "ppa_extra_h/p3_header.h"
 
 void show_table(int M, int N, int** data);    
-int common_sebseq(char* X, int m, char* Y, int n, int** dp);    // ???
+int common_sebseq(char* X, int m, char* Y, int n, int** dp);    
 
 int main() {
   int len_x, len_y ;                        
@@ -236,12 +236,13 @@ void show_table(int M, int N, int** data){
 
 
 int common_sebseq(char* X, int m, char* Y, int n, int **dp){
-  ...(式(7)よりdpの初期化)...
+  //式(7)よりdpの初期化
   ...(省略)...
   
   for (int i=1; i<m+1; i++) {
     for (int j=1; j<n+1; j++) {   
-      ...(dp[i][j]の計算など)...
+      //dp[i][j]とマッチング数の計算
+      ...(省略)...
     }
   }
   ...(省略)...
