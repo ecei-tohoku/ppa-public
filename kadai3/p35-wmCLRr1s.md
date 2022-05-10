@@ -195,8 +195,12 @@ int ssk( ??? ) {
 ---
 この問題では，「共通部分文字列のマッチング数」の計算を2ステップにより行う．ステップ1/2では式(2)と式(3)を用いて計算します．ステップ2/2では式(5)と式(6)に基づく，計算量の少アルゴリズムを用いて実装する．ステップごとに”動作確認”に成功しなければ，”TAに提出”が出来ないようになっている．以下では，各ステップをさらに細分化して説明する． 
 
+---
+## ステップ1/2 「共通部分文字列のマッチング数の計算」
+---
 
-## ステップ1/2 「(2)と式(3)を用いた共通部分文字列のマッチング数の計算」
++ 以下のプログラムを必ず用いてプログラムを完成せること．
+  + `???` の部分は適宜補完すること
 
 ```
 #include <stdio.h>
@@ -204,8 +208,8 @@ int ssk( ??? ) {
 
 #include "ppa_extra_h/p3_header.h"
 
-void show_table(int M1, int M2, int **K);    // ???
-int common_sebseq(char* X, int m, char* Y, int n, int **dp);    // ???
+void show_table(int M, int N, int** data);    // ???
+int common_sebseq(char* X, int m, char* Y, int n, int** dp);    // ???
 
 int main() {
   int len_x, len_y ;                        // ???
@@ -223,17 +227,23 @@ int main() {
   return 0;
 }
 
-void show_table( ??? ){
+void show_table(int M, int N, int** data){
 
   ...(省略)...
 
 }
 
 
-int common_sebseq(char* X, int m, char* Y, int n, int **dp) {
-
+int common_sebseq(char* X, int m, char* Y, int n, int **dp){
+  ...(式(7)よりdpの初期化)...
   ...(省略)...
-
+  
+  for (int i=1; i<m+1; i++) {
+    for (int j=1; j<n+1; j++) {   
+      ...(dp[i][j]の計算など)...
+    }
+  }
+  ...(省略)...
 }
 ```
 
