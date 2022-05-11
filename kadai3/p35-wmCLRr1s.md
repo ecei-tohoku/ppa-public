@@ -135,16 +135,16 @@ $$
     4↩︎
     ```
 
-+ 問題3-1と問題3-3に提示してある関数を`ppa_extra_h/p3_header.h`というファイルにおいてある．`#include "ppa_extra_h/p3_header.h"`という宣言を通して含め、以下の関数を必要に応じて用いること．
++ 問題3-1に提示してある関数を`ppa_extra_h/p3_header.h`というファイルにおいてある．`#include "ppa_extra_h/p3_header.h"`という宣言を通して含め、以下の関数を必要に応じて用いること．
   + `vmax_`
   + `vmax3_`
   + `vmin_`
   + `vmin3_`
   + `zeros_`
-  + `func_mallocation_char_`
+  + `malloc_string_`
   + `read_string_`
-  + `func_mallocation_2d_`
-  + `func_free_2d_`
+  + `malloc_2d_`
+  + `free_2d_`
   
 
 + 以下のプログラムを必ず用いてプログラムを完成せること．
@@ -301,16 +301,16 @@ abcabcabc 9
     4↩︎
     ```
 
-+ 問題3-1と問題3-3に提示してある関数を`ppa_extra_h/p3_header.h`というファイルにおいてある．`#include "ppa_extra_h/p3_header.h"`という宣言を通して含め、以下の関数を必要に応じて用いること．
++ 問題3-1に提示してある関数を`ppa_extra_h/p3_header.h`というファイルにおいてある．`#include "ppa_extra_h/p3_header.h"`という宣言を通して含め、以下の関数を必要に応じて用いること．
   + `vmax_`
   + `vmax3_`
   + `vmin_`
   + `vmin3_`
   + `zeros_`
-  + `func_mallocation_char_`
+  + `malloc_string_`
   + `read_string_`
-  + `func_mallocation_2d_`
-  + `func_free_2d_`
+  + `malloc_2d_`
+  + `free_2d_`
 
 
 
