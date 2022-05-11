@@ -165,13 +165,17 @@ int main() {
   int len_x, len_y ;                        
   scanf(“%d”, &len_x);                      
   scanf(“%d”, &len_y);                      
-  char* data_x = read_string_(len_x);       
-  char* data_y = read_string_(len_y);         
-  int** dp = func_mallocation_2d_(???, ???);  
+  //char* data_x = read_string_(len_x);       
+  //char* data_y = read_string_(len_y); 
+  char* data_x = malloc_string_(len_x);
+  char* data_y = malloc_string_(len_y);
+  read_string_(data_x, len_x);
+  read_string_(data_y, len_y);
+  int** dp = malloc_2d_(???, ???);  
 
   ...(省略)...
 
-  func_free_2d_(dp, ???);      
+  free_2d_(dp, ???);      
   free(data_x);               
   free(data_y);               
   return 0;
@@ -333,15 +337,19 @@ int main() {
   int len_x, len_y ;                        
   scanf(“%d”, &len_x);                      
   scanf(“%d”, &len_y);                      
-  char* data_x = read_string_(len_x);       
-  char* data_y = read_string_(len_y);         
-  int** dp = func_mallocation_2d_(???, ???); 
-  int** sumdp = func_mallocation_2d_(???, ???);
+  //char* data_x = read_string_(len_x);       
+  //char* data_y = read_string_(len_y);    
+  char* data_x = malloc_string_(len_x);
+  char* data_y = malloc_string_(len_y);
+  read_string_(data_x, len_x);
+  read_string_(data_y, len_y);
+  int** dp = malloc_2d_(???, ???); 
+  int** sumdp = malloc_2d_(???, ???);
 
   ...(省略)...
 
-  func_free_2d_(dp, ???); 
-  func_free_2d_(sumdp, ???); 
+  free_2d_(dp, ???); 
+  free_2d_(sumdp, ???); 
   free(data_x);               
   free(data_y);               
   return 0;
