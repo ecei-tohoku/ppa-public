@@ -155,7 +155,7 @@ $c_{i,j}$の漸化式のうち，最小値を求める部分は次の編集操�
   + `vmin_`
   + `vmin3_`
   + `zeros_`
-  + `func_mallocation_char_`
+  + `malloc_char_`
   + `read_string_`
 
 
