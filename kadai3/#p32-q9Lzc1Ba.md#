@@ -169,22 +169,22 @@ $c_{i,j}$の漸化式のうち，最小値を求める部分は次の編集操�
 
 #include "ppa_extra_h/p3_header.h"
 
-int delta(char *X, int a, char *Y, int b);  // ???
-int ld(char *X, int m, char *Y, int n);     // ???
+int delta(char *X, int a, char *Y, int b);  // 
+int ld(char *X, int m, char *Y, int n);     // 
 
 
 int main() {
-  int len_x, len_y ;                   // ???
-  scanf(“%d”, &len_x);                 // ???
-  scanf(“%d”, &len_y);                 // ???
-  char* data_x = read_string_(len_x);  // ???
-  char* data_y = read_string_(len_y);  // ???
+  int len_x, len_y ;                   // 
+  scanf(“%d”, &len_x);                 /
+  scanf(“%d”, &len_y);                 /
+  char* data_x = read_string_(len_x);  // 
+  char* data_y = read_string_(len_y);  // 
 
   ...(省略)...
 
-  free(data_x);  // ???
-  free(data_y);  // ???
-  return 0;      // ???
+  free(data_x);  // 
+  free(data_y);  // 
+  return 0;      // 
 }
 
 
