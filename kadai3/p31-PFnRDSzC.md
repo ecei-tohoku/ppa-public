@@ -109,27 +109,33 @@ title: 3-1. 課題３導入問題【初歩】
 
   ```
   void read_string_(char *str, int N){
+    //最初の空白を除外する処理
+    int tmpchar = getc(stdin);
+    if(tmpchar == EOF || tmpchar != ' '){
+      printf("read_string_(): Invalid string\n");
+      exit(1);
+    }
+    
     // N+1文字を標準入力から読み込む
     fgets(str, N+2, stdin);
+    ungetc(str[N], stdin);
     
     // 文字列の長さがNよりも短い場合はエラー出力して強制終了
     for(int i=0; i<N; i++){
       if(str[i]=='\n' || str[i]==' ' || str[i]=='\0'){
-        fprintf(stderr, “read_string_(): Invalid string\n”);
+        fprintf(stderr, "read_string_(): Invalid string\n");
         exit(1);
       }
     }
     
     // 文字列の長さがNよりも長い場合はエラー出力して強制終了
     if( !(str[N]=='\n' || str[N]==' ' || str[N]=='\0') ){
-      fprintf(stderr, “read_string_(): Invalid string\n”);
+      fprintf(stderr, "read_string_(): Invalid string\n");
       exit(1);
     }
-
+    
     // fgetsで改行かスペースも読み込んでいる場合があるので，ヌル文字で上書き
     str[N] = ???;
-    
-    return str;
   }
   ```
   
