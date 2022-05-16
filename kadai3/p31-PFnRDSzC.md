@@ -72,11 +72,11 @@ title: 3-1. 課題３導入問題【初歩】
 + 3つの値のうち最も大きい／小さい値を取得する関数`vmax3_`／`vmin3_`を，`vmax_`／`vmin_`のみを用いて実装すること：
   
   ``` 
-  int vmax3_(int a, int b，int c){
-    vmax_(vmax_(a, b), c);
+  int vmax3_(int a, int b, int c){
+    return vmax_(vmax_(a, b), c);
   }
   
-  int vmin3_(int a, int b，int c){
+  int vmin3_(int a, int b, int c){
     ...
   }
   ```
