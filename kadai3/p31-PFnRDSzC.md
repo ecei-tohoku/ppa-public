@@ -23,7 +23,7 @@ title: 3-1. 課題３導入問題【初歩】
   }
 
   int vmin_(int a, int b){
-    ...
+    ???;
   }
   ```
 
@@ -36,7 +36,7 @@ title: 3-1. 課題３導入問題【初歩】
   }
   
   int vmin3_(int a, int b, int c){
-    ...
+    ???;
   }
   ```
     
@@ -69,7 +69,39 @@ title: 3-1. 課題３導入問題【初歩】
 
   ```
   void read_string_(char *str, int N){
-    ...
+    int tmpchar; // 文字列前の空白・改行を除外するために使う
+
+    // 文字列の前に空白か改行があれば全て除外する
+    do {
+      tmpchar = getc(stdin);
+      if( tmpchar == EOF ){ // 途中で読み込みが終了したらエラー終了
+        printf("read_string_(): Invalid string\n");
+        exit(1);
+      }
+    }while( tmpchar==' ' || tmpchar=='\n' );
+
+    ungetc(tmpchar, stdin); // 文字列を一文字stdinに戻す
+
+    // N+1文字を標準入力から読み込む
+    fgets(str, N+2, stdin); // p14のfgetsの使い方を参照
+    ungetc(str[N], stdin); // 次の入力に影響しないよう，余計な空白・改行を１文字戻す
+
+    // 文字列の長さがNよりも短い場合はエラー出力して強制終了
+    for(int i=0; i<=N; i++){
+      if(str[i]=='\n' || str[i]==' ' || str[i]=='\0'){ // 文字列中に空白・改行・ヌル文字があれば長さが足りていない
+        fprintf(stderr, "read_string_(): Invalid string\n");
+        exit(1);
+      }
+    }
+    
+    // 文字列の長さがNよりも長い場合はエラー出力して強制終了
+    if( !(str[N]=='\n' || str[N]==' ' || str[N]=='\0') ){ // 長さがNの場合、N+1文字目は空白 or 改行 or ヌル文字であるはず
+      fprintf(stderr, "read_string_(): Invalid string\n");
+      exit(1);
+    }
+
+    // fgetsで改行かスペースも読み込んでいる場合があるので，ヌル文字で上書き
+    str[N] = ???;
   }
   ```
   
@@ -110,14 +142,14 @@ title: 3-1. 課題３導入問題【初歩】
     }
     
     for(int i = 0; i < len_x; ++i){
-      array_2d[i] = (int*)malloc(sizeof(int) * len_y);
+      array_2d[i] = (int*)malloc(sizeof(int) * ???);
       if(array_2d[i] == NULL){
         fprintf(stderr, "malloc_2d_(): Cannot allocate memory.\n");
         exit(1);
       }
     }
     
-    return array_2d;
+    return ??;
   }
   ```
   
@@ -125,7 +157,7 @@ title: 3-1. 課題３導入問題【初歩】
 
   ```
   void free_2d_(int **array_2d, int len_x){
-    for(int i = 0; i < len_x; ++i) free(array_2d[i]);
+    for(int i = 0; i < len_x; ++i) free(???);
     free(array_2d);
   }
   ```
@@ -141,9 +173,8 @@ title: 3-1. 課題３導入問題【初歩】
   + `main`関数の正常終了時の戻り値を0にする．
   + 関数は前方宣言を用い，関数本体は`main`関数の下に記述（定義）する．
 + 以下のプログラムを必ず用いて完成させること．
-  + コードが`???`となっている箇所は，コメント文で書かれた処理を行なうコードを書くこと．
   + 関数群の中身は，上記の仕様に書いてあるコードを参考にしてよい．`???`となっている箇所は自分で考えて書くこと．
-  + すでに書いてあるコメント文は書き写さなくてよい．
+  + すでに書いてあるコメント文も含め，コメント文を書く必要はない．
   + `???`となっている箇所以外は書き換えないこと．行間・インデント・スペースは変更してもよい．
 
 ```
