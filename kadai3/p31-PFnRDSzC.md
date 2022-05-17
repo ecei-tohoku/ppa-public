@@ -49,52 +49,27 @@ title: 3-1. 課題３導入問題【初歩】
 
   ```
   char* malloc_string_(int N){
-    char* str  = (???)malloc(???);  // 配列に動的メモリを割り当てる
+    char* str  = (???)malloc(???);  // 配列に動的メモリを割り当てる（正規の文字数N、エラー処理用の1文字、ヌル文字用の1文字）
   
     if (str == NULL) {       // メモリ確保に失敗した際のエラー処理
       fprintf(stderr, “malloc_string_(): Cannot allocate memory.\n”);
       exit(1);  // メモリ確保に失敗したら、プログラムを強制終了
     }
     
-    zeros_(str, N+2);   // 配列dataを関数zeros_で初期化
+    zeros_(str, ???);   // 配列dataを関数zeros_で初期化
     return ???;
   }
   ```
 
   + 引数は文字列の長さNで，エラー処理用の1文字と，末尾のヌル文字分を足してN+2の長さの文字配列を確保すること．
+  + 関数`zeros_`によって確保した文字配列の全ての要素を初期化すること（関数`zeros_`の仕様は後述のとおり）．
   + 戻り値は，配列の先頭を指すポインタとすること．
   ※動的に確保したメモリ領域は，処理が完了した後に`free`関数で解放すること．
 + 標準入力から決められた長さの文字列を読み込む関数 `read_string_`を，以下のコードを参考にして実装すること：
 
   ```
   void read_string_(char *str, int N){
-    //最初の空白を除外する処理
-    int tmpchar = getc(stdin);
-    if(tmpchar == EOF || tmpchar != ' '){
-      printf("read_string_(): Invalid string\n");
-      exit(1);
-    }
-    
-    // N+1文字を標準入力から読み込む
-    fgets(str, N+2, stdin);
-    ungetc(str[N], stdin);
-    
-    // 文字列の長さがNよりも短い場合はエラー出力して強制終了
-    for(int i=0; i<N; i++){
-      if(str[i]=='\n' || str[i]==' ' || str[i]=='\0'){
-        fprintf(stderr, "read_string_(): Invalid string\n");
-        exit(1);
-      }
-    }
-    
-    // 文字列の長さがNよりも長い場合はエラー出力して強制終了
-    if( !(str[N]=='\n' || str[N]==' ' || str[N]=='\0') ){
-      fprintf(stderr, "read_string_(): Invalid string\n");
-      exit(1);
-    }
-    
-    // fgetsで改行かスペースも読み込んでいる場合があるので，ヌル文字で上書き
-    str[N] = ???;
+    ...
   }
   ```
   
@@ -102,7 +77,7 @@ title: 3-1. 課題３導入問題【初歩】
   + 戻り値は，読み込んだ文字配列の先頭を指すポインタとすること．
   + `fgets`関数を用いて文字列の読み込みをすること．
   + 文字列の長さが引数Nよりも短い／長い場合はエラー出力して強制終了すること．
-+ 文字配列をヌル文字で初期化する関数`zeros_`を，以下のコードを参考に実装すること：
++ 文字配列の要素N個をヌル文字で初期化する関数`zeros_`を，以下のコードを参考に実装すること：
 
   ```
   void zeros_(char* str,  int N){
@@ -111,9 +86,6 @@ title: 3-1. 課題３導入問題【初歩】
     }
   }
   ```
-
-  + 引数は初期化したい文字列$X$と文字列＄X$の長さ．
-  + N+2個の要素を初期化すること．
 
 ---
 ### 二次元配列を動的メモリ確保／解放する関数群とその仕様
