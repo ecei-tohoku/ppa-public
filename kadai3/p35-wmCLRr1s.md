@@ -206,9 +206,7 @@ int common_sebseq(char* X, int m, char* Y, int n, int** dp);
 int main() {
   int len_x, len_y ;                        
   scanf(“%d”, &len_x);                      
-  scanf(“%d”, &len_y);                      
-  //char* data_x = read_string_(len_x);       
-  //char* data_y = read_string_(len_y); 
+  scanf(“%d”, &len_y);                       
   char* data_x = malloc_string_(len_x);
   char* data_y = malloc_string_(len_y);
   read_string_(data_x, len_x);
@@ -376,9 +374,7 @@ int ssk(char* X, int M, char* Y, int N, int** dp, int** sumdp);
 int main() {
   int len_x, len_y ;                        
   scanf(“%d”, &len_x);                      
-  scanf(“%d”, &len_y);                      
-  //char* data_x = read_string_(len_x);       
-  //char* data_y = read_string_(len_y);    
+  scanf(“%d”, &len_y);                         
   char* data_x = malloc_string_(len_x);
   char* data_y = malloc_string_(len_y);
   read_string_(data_x, len_x);
