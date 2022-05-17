@@ -134,16 +134,16 @@ title: 3-1. 課題３導入問題【初歩】
 
   ```
   int** malloc_2d_(const int len_x, const int len_y){
-    int** array_2d = (int **)malloc(sizeof(int *) * len_x);
+    int** array_2d = (int **)malloc(sizeof(int *) * len_x); // ポインタ配列を確保
     
-    if(array_2d == NULL){
+    if(array_2d == NULL){ // 確保失敗時のエラー処理
       fprintf(stderr, "malloc_2d_(): Cannot allocate memory.\n");
       exit(1);
     }
     
-    for(int i = 0; i < len_x; ++i){
+    for(int i = 0; i < len_x; ++i){ // int型配列len_x個を確保
       array_2d[i] = (int*)malloc(sizeof(int) * ???);
-      if(array_2d[i] == NULL){
+      if(array_2d[i] == NULL){ // 確保失敗時のエラー処理
         fprintf(stderr, "malloc_2d_(): Cannot allocate memory.\n");
         exit(1);
       }
@@ -157,8 +157,8 @@ title: 3-1. 課題３導入問題【初歩】
 
   ```
   void free_2d_(int **array_2d, int len_x){
-    for(int i = 0; i < len_x; ++i) free(???);
-    free(array_2d);
+    for(int i = 0; i < len_x; ++i) free(???); // 先にint型配列len_x個を解放
+    free(array_2d); // その後でポインタ配列を解放
   }
   ```
 
@@ -200,25 +200,55 @@ void free_2d_(int **array_2d, int len_x);
 // 関数群をテストするmain関数
 
 int main(){
-  // 最大／最小を判定する関数群のテスト
-  int x, y, z;
   
-  scanf("%d%d%d", x, y, z);
-  printf("%d %d %d\n", vmax_(x, y), vmax_(y, z), vmax_(z, x));
-  printf("%d %d %d\n", vmin_(x, y), vmin_(y, z), vmin_(z, x));
-  printf("%d\n", vmax3_(x, y, z));
-  printf("%d\n", vmin3_(x, y, z));
-    
+  // 最大／最小を判定する関数群のテスト
+  
+  int x, y, z;
+  scanf("%d%d%d", &x, &y, &z);
+
+  printf("vmax_(%d, %d) = %d\n", x, y, vmax_(x, y));
+  printf("vmax_(%d, %d) = %d\n", y, z, vmax_(y, z));
+  printf("vmax_(%d, %d) = %d\n", z, x, vmax_(z, x));
+  printf("vmin_(%d, %d) = %d\n", x, y, vmin_(x, y));
+  printf("vmin_(%d, %d) = %d\n", y, z, vmin_(y, z));
+  printf("vmin_(%d, %d) = %d\n", z, x, vmin_(z, x));
+
+  printf("vmax3_(%d, %d, %d) = %d\n", x, y, z, vmax3_(x, y, z));
+  printf("vmin3_(%d, %d, %d) = %d\n", x, y, z, vmin3_(x, y, z));
+
+
   // 文字配列処理の関数群のテスト
+  
   int len;
   scanf(“%d”, &len); 
   char* str = malloc_string_(len);
   read_string_(str, len);
+  printf("str = \"%s\"\n", str);
   ???;  // 動的に確保された配列strの解放
 
-  // 二次元配列の確保／解放の関数群のテスト
-  
 
+  // 二次元配列の確保／解放の関数群のテスト
+  int **a;
+  int len_x, len_y;
+  
+  scanf("%d %d", &len_x, &len_y);
+
+  a = malloc_2d_(len_x, len_y); // 'len_x'行×'len_y'列の二次元配列の動的メモリ確保
+  
+  for(int i=0; i<len_x; i++){
+    for(int j=0; j<len_y; j++){
+      scanf("%d", &a[i][j]);
+    }
+  }
+  for(int i=0; i<len_x; i++){
+    for(int j=0; j<len_y; j++){
+      if( j > 0 ) printf(" "); // 数値間にだけ空白を出力 
+      printf("%d", a[i][j]);
+    }
+    printf("\n");
+  }
+
+  free_2d_(a, len_x); // 動的確保された二次元配列aの解放
   return 0;
 } 
 
@@ -239,16 +269,12 @@ int main(){
 
 + 入力
 ```
-3 3 eat ate
+...
 ```
 
 + 出力
 ```
-eat 3
-ate 3
-a
-e
-t
+...
 ```
 
 ---
@@ -257,15 +283,12 @@ t
 
 + 入力
 ```
-8 7 abababab abababc
+...
 ```
 
 + 出力
 ```
-abababab 8
-abababc 7
-a
-b
+...
 ```
 
 
