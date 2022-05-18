@@ -238,7 +238,6 @@ D==I↩︎
   int ld_dp(char *X, int m, char *Y, int n, int **dpt){
     ...(省略)...
   }
-
   ```
 
 
