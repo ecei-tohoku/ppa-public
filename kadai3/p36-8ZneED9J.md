@@ -76,9 +76,9 @@ title: 3-6. 編集過程の表示【発展】
 + 課題3-1に記載の課題全体の仕様
 
 + 課題3-4で作成した関数`delta`,`ld_dp`を用いて動的計画法用の二次元配列テーブル`dpt`を取得すること.
-  + 二次元配列テーブル`dpt`は，課題3-4と同じく`func_mallocation_2d_`を用いてメモリを確保せよ.
+  + 二次元配列テーブル`dpt`は，課題3-4と同じく`malloc_2d_`を用いてメモリを確保せよ.
   + `dpt`の大きさは文字列の長さに合わせて必要十分な大きさを確保すること.
-  + `main`関数の最後では，課題3-4と同じく,`func_free_2d_`を用いてメモリの開放を行うこと.
+  + `main`関数の最後では，課題3-4と同じく,`free_2d_`を用いてメモリの開放を行うこと.
 
   
 + 動的計画法用の二次元配列テーブル`dpt`を表示すること．
@@ -110,7 +110,7 @@ title: 3-6. 編集過程の表示【発展】
   void get_ops(char *X, int m, char *Y, int n, int **dpt, char *seq_x, char *seq_y, char *ops);
   ```
   + `ld_dp`により得られた動的計画法用の二次元配列テーブル`dpt`から算出すること．
-  + `seq_x`,`seq_y`,`ops`は課題3-0と同じく,`func_mallocation_char_`を用いてメモリを確保すること.
+  + `seq_x`,`seq_y`,`ops`は課題3-0と同じく,`malloc_char_`を用いてメモリを確保すること.
   + `seq_x`,`seq_y`,`ops`の大きさは文字列の長さに合わせて，文字列Xを全部deleteした後に文字列Yを全部insertする場合が最長だとして，必要十分な大きさを確保すること.
   + `seq_x`,`seq_y`,`ops`のメモリ領域は処理が完了した後に解放すること.
   + 編集操作を求めるときは，コピー／置換を優先する．
@@ -128,7 +128,7 @@ title: 3-6. 編集過程の表示【発展】
         ⊔ate↩︎
         D==I↩︎
         ```
-  + `seq_x`,`seq_y`,`ops`において出力される文字列の最後にNULL（`\0`）をつけていること.
+  + `seq_x`,`seq_y`,`ops`において出力される文字列の最後にヌル文字（`\0`）をつけていること.
 
 + 下記の実行例(1)の場合
   ```
@@ -148,74 +148,91 @@ title: 3-6. 編集過程の表示【発展】
   + `vmin_`
   + `vmin3_`
   + `zeros_`
-  + `func_mallocation_char_`
+  + `malloc_string_`
   + `read_string_`
-  + `func_mallocation_2d_`
-  + `func_free_2d_`
+  + `malloc_2d_`
+  + `free_2d_`
   
 
 + 以下のプログラムを必ず用いてプログラムを完成せること．
-  + `???` の部分は適宜補完すること
+  + `???`の部分は適宜補完すること
+  + コメント文は`//???`の箇所を目安に，プログラムの要約や意図を記述するように適切な量を書くこと．
 
 ```
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "ppa_extra_h/p3_header.h"
 
-int delta(char *X, int a, char *Y, int b);                   // ???
-int ld_dp(char *X, int m, char *Y, int n, int **dpt);        // ???
-void show_matrix(char *X, int m, char *Y, int n, int **dpt); // ???
-void get_ops(char *X, int m, char *Y, int n, int **dpt,      // ???
+// ???
+
+int delta(char *X, int a, char *Y, int b);
+int ld_dp(char *X, int m, char *Y, int n, int **dpt);
+void show_matrix(char *X, int m, char *Y, int n, int **dpt);
+void get_ops(char *X, int m, char *Y, int n, int **dpt, 
             char *seq_x, char *seq_y, char *ops);
 
+// ???
 
 int main() {
-  int len_x, len_y ;                   // ???
-  scanf(“%d”, &len_x);                 // ???
-  scanf(“%d”, &len_y);                 // ???
+  // ???
+  int len_x, len_y ;
+  scanf(“%d”, &len_x);
+  scanf(“%d”, &len_y);
+  
+  // ???
   char* data_x = read_string_(len_x);  // ???
   char* data_y = read_string_(len_y);  // ???
-  int **dpt = func_mallocation_2d_(???,???);   // ???
-  char *ops = func_mallocation_char_(???);     // ??? 
-  char *seq_x = func_mallocation_char_(???);   // ??? 
-  char *seq_y = func_mallocation_char_(???);   // ???
+  int **dpt = malloc_2d_(???,???);   // ???
+  char *ops = malloc_string_(???);     // ??? 
+  char *seq_x = malloc_string_(???);   // ??? 
+  char *seq_y = malloc_string_(???);   // ???
   
-  ld_dp(data_x, len_x, data_y, len_y, dpt);         // ???
-  show_matrix(data_x, len_x, data_y, len_y, dpt);   // ???
+  // ???
+  ld_dp(data_x, len_x, data_y, len_y, dpt);
+  
+  // ???
+  show_matrix(data_x, len_x, data_y, len_y, dpt);
 
   ...(省略)...
   
-  get_ops(data_x, len_x, data_y, len_y, dpt, seq_x, seq_y, ops);    // ???
-  printf("%s\n%s\n%s\n",seq_x, seq_y, ops);                         // ???
+  // ???
+  get_ops(data_x, len_x, data_y, len_y, dpt, seq_x, seq_y, ops);
+  printf("%s\n%s\n%s\n",seq_x, seq_y, ops);
+  
+  // ???
+  free_2d_(dpt, ???);
+  free(ops);
+  free(seq_x);
+  free(seq_y);
+  free(data_x);
+  free(data_y);
 
-  func_free_2d_(dpt, ???);   // ???
-  free(ops);     // ???
-  free(seq_x);   // ???
-  free(seq_y);   // ???
-  free(data_x);  // ???
-  free(data_y);  // ???
-  return 0;      // ???
+  return 0;
 }
 
-
+// ???
 void show_matrix(char *X, int m, char *Y, int n, int **dpt){
 
   ...(省略)...
 
 }
+
+// ???
 void get_ops(char *X, int m, char *Y, int n, int **dpt,
             char *seq_x, char *seq_y, char *ops){
 
   ...(省略)...
 
 }
+
+// ???
 int delta(char *X, int a, char *Y, int b){
 
   ...(省略)...
 
 }
 
+// ???
 int ld_dp(char *X, int m, char *Y, int n, int **dpt){
 
   ...(省略)...
