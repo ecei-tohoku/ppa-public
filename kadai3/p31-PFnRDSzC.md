@@ -56,7 +56,7 @@ title: 3-1. 課題３導入問題【初歩】
       exit(1);  // メモリ確保に失敗したら、プログラムを強制終了
     }
     
-    zeros_(str, ???);   // 配列dataを関数zeros_で初期化
+    zeros_(str, ???);   // 配列strを関数zeros_で初期化
     return ???;
   }
   ```
@@ -87,7 +87,7 @@ title: 3-1. 課題３導入問題【初歩】
     ungetc(str[N], stdin); // 次の入力に影響しないよう，余計な空白・改行を１文字戻す
 
     // 文字列の長さがNよりも短い場合はエラー出力して強制終了
-    for(int i=0; i<=N; i++){
+    for(int i=0; i<N; i++){
       if(str[i]=='\n' || str[i]==' ' || str[i]=='\0'){ // 文字列中に空白・改行・ヌル文字があれば長さが足りていない
         fprintf(stderr, "read_string_(): Invalid string\n");
         exit(1);
@@ -133,7 +133,7 @@ title: 3-1. 課題３導入問題【初歩】
 + `int`型の二次元配列を動的メモリ確保する関数`malloc_2d_`は，以下のとおり実装することができる：
 
   ```
-  int** malloc_2d_(const int len_x, const int len_y){
+  int** malloc_2d_(int len_x, int len_y){
     int** array_2d = (int **)malloc(sizeof(int *) * len_x); // ポインタ配列を確保
     
     if(array_2d == NULL){ // 確保失敗時のエラー処理
