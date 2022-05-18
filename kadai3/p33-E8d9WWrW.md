@@ -90,11 +90,11 @@ int main() {
   char* data_y = malloc_string_(len_y);  // ???
   read_string_(data_x, len_x);           // ???
   read_string_(data_y, len_y);           // ???
-  int** memo = func_mallocation_2d_(??, ??); // ???
+  int** memo = malloc_2d_(??, ??); // ???
     
   ...(省略)...
 
-  func_free_2d_(memo, ??);
+  free_2d_(memo, ??);
   free(data_x);  // ???
   free(data_y);  // ???
   return 0;      // ???
