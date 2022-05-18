@@ -188,12 +188,16 @@ D==I↩︎
     scanf(“%d”, &len_y);
   
     // ???
-    char* data_x = read_string_(len_x);  // ???
-    char* data_y = read_string_(len_y);  // ???
+    char* data_x = malloc_string_(len_x);  // ???
+    char* data_y = malloc_string_(len_y);  // ???
     int **dpt = malloc_2d_(???,???);   // ???
     char *ops = malloc_string_(???);     // ??? 
     char *seq_x = malloc_string_(???);   // ??? 
     char *seq_y = malloc_string_(???);   // ???
+    
+    // ???
+    data_x = read_string_(len_x);  // ???
+    data_y = read_string_(len_y);  // ???
   
     // ???
     ld_dp(data_x, len_x, data_y, len_y, dpt);
