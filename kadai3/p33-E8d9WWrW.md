@@ -41,7 +41,7 @@ title: 3-3. 編集距離(再帰+メモ化)【基本】
   int ldmemo(char *X, int m, char *Y, int n, int** memo);
   ```
 
-+ 2次元配列の確保と開放には，`func_mallocation_2d_`関数と`func_free_2d_`関数をそれぞれ用いよ．
++ 2次元配列の確保と開放には，問題3-1に提示してある関数`malloc_2d_`関数と`free_2d_`関数をそれぞれ用いよ．
   + `func_mallocation_2d_`関数は，整数iと整数jを引数に取り，整数型の2次元配列（i行j列）を返す関数である．例えば，以下のように書くと，2次元配列arrayが確保出来る．
   ```	
   int** array = func_mallocation_2d_(i, j);　
@@ -212,39 +212,6 @@ twat 4
   ```
 
 + ステップ3：ステップ2が正しく実装できると，文字列$X$の長さを$\ell_x$，文字列$Y$の長さを$\ell_y$とすると，再帰関数の呼び出し回数は$(\ell_x+1) \times (\ell_y+1)$になる．これを$\ell_x \times \ell_y$に減らすにはどうしたら良いかを考えよ．
-
-
-
----
-## 参考
----
-`func_mallocation_2d_`関数と`func_free_2d_`関数の中身は，それぞれ以下の通りである．
-
-```
-int** func_mallocation_2d_(const int len_x, const int len_y){
-  int** array_2d = (int **)malloc(sizeof(int *) * len_x);
-    if(array_2d == NULL){
-        printf("Can not allocate memory. 'array_2d' is NULL.\n");
-        exit(EXIT_FAILURE);
-    }
-    for(int i = 0; i < len_x; ++i){
-        array_2d[i] = (int*)malloc(sizeof(int) * len_y);
-        if(array_2d[i] == NULL){
-            printf("Can not allocate memory. 'array_2d[i]' is NULL.\n");
-            exit(EXIT_FAILURE);
-        }
-    }
-    return array_2d;
-}
-```
-
-```
-void func_free_2d_(int **array_2d, int len_x){
-  for(int i = 0; i < len_x; ++i) free(array_2d[i]);
- free(array_2d);
-}
-```
-
 
 
 ---
