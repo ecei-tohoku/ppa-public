@@ -36,11 +36,12 @@ title: 3-6. 編集過程の表示【発展】
 + 同様にして $c_{3,5} \rightarrow c_{2,4} \rightarrow c_{1,3} \rightarrow c_{0,2} \rightarrow c_{0,1} \rightarrow c_{0,0}$ となり,最小の経路が求まる.
 
 上で求めた編集操作を明示すると次のようになる.
-  ```
-    QUERY
-  INQUIRE
-  II==R=R
-  ```
+
+```
+  QUERY
+INQUIRE
+II==R=R
+```
 
 もう一つの例として, $X=range, Y=garage$ の場合を考えよう.動的計画法のテーブルは次のように与えられる.
 
@@ -59,11 +60,12 @@ title: 3-6. 編集過程の表示【発展】
 + 注意点として, <font color="red">$c_{3,4} \rightarrow c_{2,3} \rightarrow c_{2,2}$</font> ではなく, <font color="red">$c_{3,4}$</font>  <font color="blue">$\rightarrow c_{3,3} \rightarrow$ </font>  <font color="red">$c_{2,2}$</font>  を通る経路でも編集距離は同じである.しかし,同じ編集距離を与える場合は,バックトレースの出発点から見てコピー/置換を優先することにしたので,<font color="red">$c_{3,4}$</font>  <font color="blue">$\rightarrow c_{3,3} \rightarrow$ </font>  <font color="red">$c_{2,2}$</font> ではなく, <font color="red">$c_{3,4} \rightarrow c_{2,3} \rightarrow c_{2,2}$</font> を通る経路が我々の求める最短経路である.
 
 求めた編集操作を明示すると次のようになる.
-  ```
-  ra nge
-  garage
-  R=IR==
-  ```
+
+```
+ra nge
+garage
+R=IR==
+```
 
 ---
 ## 問題
@@ -85,9 +87,11 @@ title: 3-6. 編集過程の表示【発展】
   + void型の関数`show_matrix`を用いること．
     + 引数は，文字列$X$，文字列$X$の長さ$m$，文字列$Y$，文字列$Y$の長さ$n$，動的計画法用の二次元配列テーブル`dpt`の5つを引数にとる．
     + 例：
-      ```
-      void show_matrix(char *X, int m, char *Y, int n, int **dpt);
-      ```
+
+    ```
+    void show_matrix(char *X, int m, char *Y, int n, int **dpt);
+    ```
+      
     + `ld_dp`の実行後に表示すること．
   + 実行例や以下の例を参考にし，文字列$X$を左端（縦）に，文字列$Y$を先頭（横）に出力し，$c_{i,j} (i \in \{0, 1, ..., m\}, j \in \{0, 1, ..., n\})$のすべての値をスペース区切りの行列形式で出力せよ．行末に余分なスペースを出力しないように注意せよ．
     + 出力先は標準出力とする．
@@ -96,19 +100,22 @@ title: 3-6. 編集過程の表示【発展】
     + 2行目は$c_{0,j}$の値をスペース区切りで出力せよ． 
     + 3行目以降は，行頭に$x_i$の文字，続けて$c_{i,j}$の値をスペース区切りで出力せよ．
     + 出力例：    eat ate
-      ```
-            a  t  e
-         0  1  2  3
-      e  1  1  2  2
-      a  2  1  2  3
-      t  3  2  1  2
-      ```
+    
+    ```
+          a  t  e
+       0  1  2  3
+    e  1  1  2  2
+    a  2  1  2  3
+    t  3  2  1  2
+    ```
 
 + 文字列$X$，文字列$X$の長さ$m$，文字列$Y$，文字列$Y$の長さ$n$，動的計画法用の二次元配列テーブル`dpt`,編集操作列を記憶する文字列`ops`,編集操作列に対応する$X$と$Y$の文字列を記憶する`seq_x`,`seq_y`の8つを引数にとり，編集操作を得るvoid型の関数`get_ops`を作成すること
   + 例：
+
   ```
   void get_ops(char *X, int m, char *Y, int n, int **dpt, char *seq_x, char *seq_y, char *ops);
   ```
+  
   + `ld_dp`により得られた動的計画法用の二次元配列テーブル`dpt`から算出すること．
   + `seq_x`,`seq_y`,`ops`は課題3-0と同じく,`malloc_char_`を用いてメモリを確保すること.
   + `seq_x`,`seq_y`,`ops`の大きさは文字列の長さに合わせて，文字列Xを全部deleteした後に文字列Yを全部insertする場合が最長だとして，必要十分な大きさを確保すること.
@@ -123,24 +130,26 @@ title: 3-6. 編集過程の表示【発展】
     + 編集操作は`=` (copy)，`I` (insert), `D` (delete), `R` (replace) とする．
     + 3行目の編集操作列に対応するように，1行目と2行目に出力される文字の位置を調整せよ．
       + 例えば，下記の `eat ate` に対する出力例において，`eat` の後ろに一文字分スペースを出力しなくてはならない．
-        ```
-        eat⊔↩︎
-        ⊔ate↩︎
-        D==I↩︎
-        ```
+      
+      ```
+      eat⊔↩︎
+      ⊔ate↩︎
+      D==I↩︎
+      ```
+      
   + `seq_x`,`seq_y`,`ops`において出力される文字列の最後にヌル文字（`\0`）をつけていること.
-
 + 下記の実行例(1)の場合
-  ```
-  ⊔⊔⊔⊔⊔⊔a⊔⊔t⊔⊔e↩︎
-  ⊔⊔⊔0⊔⊔1⊔⊔2⊔⊔3↩︎
-  e⊔⊔1⊔⊔1⊔⊔2⊔⊔2↩︎
-  a⊔⊔2⊔⊔1⊔⊔2⊔⊔3↩︎
-  t⊔⊔3⊔⊔2⊔⊔1⊔⊔2↩︎
-  eat⊔↩︎
-  ⊔ate↩︎
-  D==I↩︎
-  ```
+
+```
+⊔⊔⊔⊔⊔⊔a⊔⊔t⊔⊔e↩︎
+⊔⊔⊔0⊔⊔1⊔⊔2⊔⊔3↩︎
+e⊔⊔1⊔⊔1⊔⊔2⊔⊔2↩︎
+a⊔⊔2⊔⊔1⊔⊔2⊔⊔3↩︎
+t⊔⊔3⊔⊔2⊔⊔1⊔⊔2↩︎
+eat⊔↩︎
+⊔ate↩︎
+D==I↩︎
+```
 
 + 問題3-1と問題3-3に提示してある関数を`ppa_extra_h/p3_header.h`というファイルにおいてある．`#include "ppa_extra_h/p3_header.h"`という宣言を通して含め、以下の関数を必要に応じて用いること．
   + `vmax_`
@@ -153,93 +162,84 @@ title: 3-6. 編集過程の表示【発展】
   + `malloc_2d_`
   + `free_2d_`
   
-
 + 以下のプログラムを必ず用いてプログラムを完成せること．
   + `???`の部分は適宜補完すること
   + コメント文は`//???`の箇所を目安に，プログラムの要約や意図を記述するように適切な量を書くこと．
 
-```
-#include <stdio.h>
-#include <stdlib.h>
-#include "ppa_extra_h/p3_header.h"
+  ```
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include "ppa_extra_h/p3_header.h"
 
-// ???
-
-int delta(char *X, int a, char *Y, int b);
-int ld_dp(char *X, int m, char *Y, int n, int **dpt);
-void show_matrix(char *X, int m, char *Y, int n, int **dpt);
-void get_ops(char *X, int m, char *Y, int n, int **dpt, 
-            char *seq_x, char *seq_y, char *ops);
-
-// ???
-
-int main() {
   // ???
-  int len_x, len_y ;
-  scanf(“%d”, &len_x);
-  scanf(“%d”, &len_y);
+
+  int delta(char *X, int a, char *Y, int b);
+  int ld_dp(char *X, int m, char *Y, int n, int **dpt);
+  void show_matrix(char *X, int m, char *Y, int n, int **dpt);
+  void get_ops(char *X, int m, char *Y, int n, int **dpt, 
+              char *seq_x, char *seq_y, char *ops);
+
+  // ???
+
+  int main() {
+    // ???
+    int len_x, len_y ;
+    scanf(“%d”, &len_x);
+    scanf(“%d”, &len_y);
   
-  // ???
-  char* data_x = read_string_(len_x);  // ???
-  char* data_y = read_string_(len_y);  // ???
-  int **dpt = malloc_2d_(???,???);   // ???
-  char *ops = malloc_string_(???);     // ??? 
-  char *seq_x = malloc_string_(???);   // ??? 
-  char *seq_y = malloc_string_(???);   // ???
+    // ???
+    char* data_x = read_string_(len_x);  // ???
+    char* data_y = read_string_(len_y);  // ???
+    int **dpt = malloc_2d_(???,???);   // ???
+    char *ops = malloc_string_(???);     // ??? 
+    char *seq_x = malloc_string_(???);   // ??? 
+    char *seq_y = malloc_string_(???);   // ???
   
-  // ???
-  ld_dp(data_x, len_x, data_y, len_y, dpt);
+    // ???
+    ld_dp(data_x, len_x, data_y, len_y, dpt);
   
-  // ???
-  show_matrix(data_x, len_x, data_y, len_y, dpt);
+    // ???
+    show_matrix(data_x, len_x, data_y, len_y, dpt);
 
-  ...(省略)...
+    ...(省略)...
   
-  // ???
-  get_ops(data_x, len_x, data_y, len_y, dpt, seq_x, seq_y, ops);
-  printf("%s\n%s\n%s\n",seq_x, seq_y, ops);
+    // ???
+    get_ops(data_x, len_x, data_y, len_y, dpt, seq_x, seq_y, ops);
+    printf("%s\n%s\n%s\n",seq_x, seq_y, ops);
   
+    // ???
+    free_2d_(dpt, ???);
+    free(ops);
+    free(seq_x);
+    free(seq_y);
+    free(data_x);
+    free(data_y);
+
+    return 0;
+  }
+
   // ???
-  free_2d_(dpt, ???);
-  free(ops);
-  free(seq_x);
-  free(seq_y);
-  free(data_x);
-  free(data_y);
+  void show_matrix(char *X, int m, char *Y, int n, int **dpt){
+    ...(省略)...
+  }
 
-  return 0;
-}
+  // ???
+  void get_ops(char *X, int m, char *Y, int n, int **dpt,
+              char *seq_x, char *seq_y, char *ops){
+    ...(省略)...
+  }
 
-// ???
-void show_matrix(char *X, int m, char *Y, int n, int **dpt){
+  // ???
+  int delta(char *X, int a, char *Y, int b){
+    ...(省略)...
+  }
 
-  ...(省略)...
+  // ???
+  int ld_dp(char *X, int m, char *Y, int n, int **dpt){
+    ...(省略)...
+  }
 
-}
-
-// ???
-void get_ops(char *X, int m, char *Y, int n, int **dpt,
-            char *seq_x, char *seq_y, char *ops){
-
-  ...(省略)...
-
-}
-
-// ???
-int delta(char *X, int a, char *Y, int b){
-
-  ...(省略)...
-
-}
-
-// ???
-int ld_dp(char *X, int m, char *Y, int n, int **dpt){
-
-  ...(省略)...
-
-}
-
-```
+  ```
 
 
 ---
