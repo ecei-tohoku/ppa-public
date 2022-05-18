@@ -145,13 +145,13 @@ $$
   + `dp`の大きさは文字列の長さに合わせて必要十分な大きさとすること．
   + `free_2d_`を用いて`dp`の開放を行うこと.
 
-+ 共通部分列のマッチング数を求める関数`common_sebseq`を作成すること．
-  + 関数`common_sebseq`は，文字列 $X$ ，文字列 $X$ の長さ $m$ ，文字列 $Y$ ，文字列 $Y$ の長さ $n$ ，動的計画法用の二次元配列テーブル`dp`を引数にとる．
++ 共通部分列のマッチング数を求める関数`common_subseq`を作成すること．
+  + 関数`common_subseq`は，文字列 $X$ ，文字列 $X$ の長さ $m$ ，文字列 $Y$ ，文字列 $Y$ の長さ $n$ ，動的計画法用の二次元配列テーブル`dp`を引数にとる．
     ```
-    int common_sebseq(char* X, int m, char* Y, int n, int** dp);
+    int common_subseq(char* X, int m, char* Y, int n, int** dp);
     ```
-  + 関数`common_sebseq`の戻り値は文字列 $X$ と文字列 $Y$ のマッチング数とする．
-  + `common_sebseq`を式(2)，式(3)と式(7)に基づいて作成すること. 
+  + 関数`common_subseq`の戻り値は文字列 $X$ と文字列 $Y$ のマッチング数とする．
+  + `common_subseq`を式(2)，式(3)と式(7)に基づいて作成すること. 
 
 + 表示
 
@@ -201,7 +201,7 @@ $$
 #include "ppa_extra_h/p3_header.h"
 
 void show_table(int M, int N, int** data);    
-int common_sebseq(char* X, int m, char* Y, int n, int** dp);    
+int common_subseq(char* X, int m, char* Y, int n, int** dp);    
 
 int main() {
   int len_x, len_y ;                        
@@ -228,7 +228,7 @@ void show_table(int M, int N, int** data){
 }
 
 
-int common_sebseq(char* X, int m, char* Y, int n, int** dp){
+int common_subseq(char* X, int m, char* Y, int n, int** dp){
   //式(7)よりdpの初期化
   ...(省略)...
   
@@ -296,7 +296,7 @@ abcabcabc 9
 ## ステップ2/2 「sumdp配列を利用し計算量を削減する方法を用い共通部分文字列のマッチング数の計算」
 ---
 
-+ ステップ1/2の`common_sebseq`関数を削除あるいはコメントアウトする．
++ ステップ1/2の`common_subseq`関数を削除あるいはコメントアウトする．
 
 + 共通部分列のマッチング数を求めるために，動的計画法用の二次元配列テーブル`dp`, `sumdp`の二種類を,`malloc_2d_`を用いて用意すること．
   + `dp`, `sumdp`の大きさは文字列の長さに合わせて必要十分な大きさとすること．
