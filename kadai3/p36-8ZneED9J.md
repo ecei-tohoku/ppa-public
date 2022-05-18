@@ -115,7 +115,7 @@ R=IR==
   ```
   void get_ops(char *X, int m, char *Y, int n, int **dpt, char *seq_x, char *seq_y, char *ops);
   ```
-  
+  + バックトレースは一重ループで実装すること（二重以上のループで実装するのは非効率）．
   + `ld_dp`により得られた動的計画法用の二次元配列テーブル`dpt`から算出すること．
   + `seq_x`,`seq_y`,`ops`は課題3-0と同じく,`malloc_char_`を用いてメモリを確保すること.
   + `seq_x`,`seq_y`,`ops`の大きさは文字列の長さに合わせて，文字列Xを全部deleteした後に文字列Yを全部insertする場合が最長だとして，必要十分な大きさを確保すること.
