@@ -178,11 +178,13 @@ int ld(char *X, int m, char *Y, int n);     // ???
 
 
 int main() {
-  int len_x, len_y ;                   // ???
-  scanf(“%d”, &len_x);                 // ???
-  scanf(“%d”, &len_y);                 // ???
-  char* data_x = read_string_(len_x);  // ???
-  char* data_y = read_string_(len_y);  // ???
+  int len_x, len_y ;                        // ???
+  scanf(“%d”, &len_x);                    // ???
+  scanf(“%d”, &len_y);                    // ???
+  char* data_x = malloc_string_(len_x);     // ???
+  char* data_y = malloc_string_(len_y);     // ???
+  read_string_(data_x, len_x);              // ???
+  read_string_(data_y, len_y);              // ???
 
   ...(省略)...
 
