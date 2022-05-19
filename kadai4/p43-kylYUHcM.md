@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 4-2. 単純移動平均【初歩】
+title: 4-3. 非線形方程式【基本】
 ---
 
 [単純移動平均 (SMA: Simple Moving Average)](https://ja.wikipedia.org/wiki/%E7%A7%BB%E5%8B%95%E5%B9%B3%E5%9D%87)を用いた金融データ（為替レート）の分析を体験しよう．
