@@ -41,7 +41,7 @@ title: 3-3. 編集距離(再帰+メモ化)【基本】
   + `vmin_`
   + `vmin3_`
   + `zeros_`
-  + `malloc_char_`
+  + `malloc_string_`
   + `read_string_`
   + `malloc_2d_`
   + `free_2d_`
