@@ -35,6 +35,17 @@ title: 3-3. 編集距離(再帰+メモ化)【基本】
 ---
 + `include`するファイルは`<stdio.h>`,`<stdlib.h>`および`ppa_extra_h/p3_header.h`のみとする．
 
++ 問題3-1に提示してある関数を`ppa_extra_h/p3_header.h`というファイルにおいてある．`#include "ppa_extra_h/p3_header.h"`という宣言を通して含め、以下の関数を必要に応じて用いること．
+  + `vmax_`
+  + `vmax3_`
+  + `vmin_`
+  + `vmin3_`
+  + `zeros_`
+  + `malloc_char_`
+  + `read_string_`
+  + `malloc_2d_`
+  + `free_2d_`
+
 + プログラム全体の構成を以下に従うようにする．
   + `main`関数の正常終了時の戻り値を0にする．
   + 関数は前方宣言を用い，関数本体は`main`関数の下に記述する（後方定義）．
