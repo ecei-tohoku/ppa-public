@@ -184,9 +184,9 @@ title: 3-1. 課題３導入問題【初歩】
 
 // 関数群の前方宣言
 
-int vmax_(int x, int y);
+int vmax_(int a, int b);
 int vmax3_(int a, int b, int c);
-int vmin_(int x, int y);
+int vmin_(int a, int b);
 int vmin3_(int a, int b, int c);
 
 void zeros_(char* str, int N);
