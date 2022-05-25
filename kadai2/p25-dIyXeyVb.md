@@ -368,7 +368,7 @@ int* array_allocation_by_DMA(int n){
 - **配列要素の代入**：引数として`struct Vector`変数，配列インデックスを示す`int`型変数，配列に代入したい要素を示す`int`型変数を取り，そのインデックスに要素を代入する`Vector_set_at`関数を実装すること．インデックスが有効な範囲の外にある場合，以下のとおりのエラー文を出力してプログラムを強制終了すること．  
 
   ```
-  void Vector_set_at(struct Vector v, int i, int x){
+  void Vector_set_at(struct Vector v, int i, int x){ // i：配列インデックス、x：配列に代入する要素
     ...
     if( ... ){
       fprintf(stderr, "Vector_set_at(): Index out of range\n");
