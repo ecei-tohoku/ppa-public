@@ -106,7 +106,6 @@ title: 3-1. 課題３導入問題【初歩】
   ```
   
   + 引数は文字列の長さ`N`と，あらかじめ動的メモリ確保された文字配列のポインタ`str`で，エラー処理用の1文字と，末尾のヌル文字分を足して`N+2`の長さの文字配列を確保されていると仮定してよい．
-  + 戻り値は，読み込んだ文字配列の先頭を指すポインタとすること．
   + `fgets`関数を用いて文字列の読み込みをすること．
   + 文字列の長さが引数Nよりも短い／長い場合はエラー出力して強制終了すること．
 + 文字配列の要素N個をヌル文字で初期化する関数`zeros_`を，以下のコードを参考に実装すること：
@@ -211,7 +210,7 @@ int main(){
   printf("vmax_(%d, %d) = %d\n", z, x, vmax_(z, x));
   printf("vmin_(%d, %d) = %d\n", x, y, vmin_(x, y));
   printf("vmin_(%d, %d) = %d\n", y, z, vmin_(y, z));
-  printf("vmin_(%d, %d) = %d\n", z, x, vmin_(z, x));
+  printf("vmin_(%d %d) = %d\n", z, x, vmin_(z, x));
 
   printf("vmax3_(%d, %d, %d) = %d\n", x, y, z, vmax3_(x, y, z));
   printf("vmin3_(%d, %d, %d) = %d\n", x, y, z, vmin3_(x, y, z));
@@ -220,7 +219,7 @@ int main(){
   // 文字配列処理の関数群のテスト
   
   int len;
-  scanf(“%d”, &len); 
+  scanf("%d", &len); 
   char* str = malloc_string_(len);
   read_string_(str, len);
   printf("str = \"%s\"\n", str);
