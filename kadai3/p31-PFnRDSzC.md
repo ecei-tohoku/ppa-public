@@ -88,14 +88,14 @@ title: 3-1. 課題３導入問題【初歩】
 
     // 文字列の長さがNよりも短い場合はエラー出力して強制終了
     for(int i=0; i<N; i++){
-      if(str[i]=='\n' || str[i]==' ' || str[i]=='\0'){ // 文字列中に空白・改行・ヌル文字があれば長さが足りていない
+      if(str[i]=='\n' || str[i]==' ' || str[i]=='\0' || str[i]=='\r'){ // 文字列中に空白・改行・ヌル文字があれば長さが足りていない（※Windowsでは\r\nで改行を表す）
         fprintf(stderr, "read_string_(): Invalid string\n");
-        exit(1);
+        exit(1);\r
       }
     }
     
     // 文字列の長さがNよりも長い場合はエラー出力して強制終了
-    if( !(str[N]=='\n' || str[N]==' ' || str[N]=='\0') ){ // 長さがNの場合、N+1文字目は空白 or 改行 or ヌル文字であるはず
+    if( !(str[N]=='\n' || str[N]==' ' || str[N]=='\0' || str[i]=='\r') ){ // 長さがNの場合、N+1文字目は空白 or 改行 or ヌル文字であるはず
       fprintf(stderr, "read_string_(): Invalid string\n");
       exit(1);
     }
