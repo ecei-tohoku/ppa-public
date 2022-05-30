@@ -102,6 +102,7 @@ $$
 |     ** 3 **     | 0 | 1 | 3 | 4 |
 {: .table .table-striped}
 
+${\rm sumdp}[i][j]$は，${\rm sumdp}[i-1][j]$，${\rm sumdp}[i][j-1]$，${\rm sumdp}[i-1][j-1]$と${\rm dp}[i][j]$のみで計算できる．また，${\rm dp}[i][j]$は前に計算した${\rm sumdp}[i-1][j-1]$により求められている．
 例えば，${\rm sumdp}[3][2] = {\rm sumdp}[2][2] + {\rm sumdp}[3][1] - {\rm sumdp}[2][1] + {\rm dp}[3][2] = 1 + 1 - 1 + 2 = 3$ になる．
 ここで，＄{\rm dp}[3][2] = {\rm sumdp}[2][1] + 1 = 1 + 1 = 2$のように式(6)により計算されている．
 
