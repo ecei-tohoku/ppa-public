@@ -10,7 +10,7 @@ title: 4-4. 数値積分【基本】
 もともとの積分の定義である「リーマン和の極限」
 
 $$
-S = \lim_{N=\infty}\sum_{i=1}^{N}f(\xi_{i})\Delta x_{i} \def \int_{a}^{b}f(x)dx \\
+S = \lim_{N=\infty}\sum_{i=1}^{N}f(\xi_{i})\Delta x_{i} = \int_{a}^{b}f(x)dx \\
 x_{i} = (b-a)i/N+a (i=0, 2, ..., N) \\
 \Delta x_{i} = x_{i}-x_{i-1} (i=1, 2, ..., N)\\
 x_{i-1}\le\xi_{i}\le x_{i} (i=1, 2, ..., N)
