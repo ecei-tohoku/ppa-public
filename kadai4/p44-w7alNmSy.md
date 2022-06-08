@@ -20,6 +20,11 @@ $$
 
 1. 台形則
   積分範囲$[a, b]$を
+
+$$
+\int_{x_{1}}^{x_{2}}f(x)dx = h\left(\frac{1}{2}f_{1}+\frac{1}{2}f_{2}\right)
+$$
+
 3. Simpson則
 4. Simpson3/8則
 
