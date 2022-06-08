@@ -16,8 +16,6 @@ $$
 - Simpson則
 - Simpson3/8則
 
-・math.hで数学関数を使わせる。
-
 
 ---
 ## 問題
@@ -36,12 +34,13 @@ $$
   ```
   n a b
   ```
+- 数学関数を定義するにあたり，`math.h`ヘッダをインクルードすること．
 - 数学関数は以下の４つ，$f_{1}(x), ..., f_{4}(x)$である．対応するプログラム上の関数`double f1(double x), ..., double f4(double x)`を定義すること．
   - $f_{1}(x) = ...$ → `double f1(double x){ return ???; }`
   - $f_{2}(x) = ...$ → `double f2(double x){ return ???; }`
   - $f_{3}(x) = ...$ → `double f3(double x){ return ???; }`
   - $f_{4}(x) = ...$ → `double f4(double x){ return ???; }`
-- 数値積分を行なうための関数は，第一引数を関数ポインタ（），第二引数を`double`型の積分開始点$a$，第二引数を`double`型の積分終了点$b$とし，積分結果を`double`型で返すこと：
+- 台形則，Simpson則，Simpson3/8則に基づく数値積分を行なうための関数をそれぞれ１つずつだけ作成すること．各関数は，第一引数を関数ポインタ（），第二引数を`double`型の積分開始点$a$，第二引数を`double`型の積分終了点$b$とし，積分結果を`double`型で返すこと：
 
   ```
   double integral_trapezoid(double (*f)(double x), double a, double b);
