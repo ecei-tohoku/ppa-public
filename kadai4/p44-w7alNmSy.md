@@ -22,7 +22,13 @@ $$
   積分範囲$[a, b]$を
 
 $$
-\int_{x_{1}}^{x_{2}}f(x)dx = h\left(\frac{1}{2}f_{1}+\frac{1}{2}f_{2}\right)
+\int_{x_{1}}^{x_{2}}f(x)dx \simeq h\left(\frac{1}{2}f_{1}+\frac{1}{2}f_{2}\right)
+$$
+
+$h = x_{2}-x_{1}$+
+
+$$
+\int_{a}^{b}f(x)dx \simeq h\left(\frac{1}{2}f_{1}+f_{2}+f_{3}+\cdots f_{N-1}+\frac{1}{2} f_{N}\right)
 $$
 
 3. Simpson則
