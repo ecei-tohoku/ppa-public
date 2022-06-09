@@ -95,7 +95,7 @@ title: 3-1. 課題３導入問題【初歩】
     }
     
     // 文字列の長さがNよりも長い場合はエラー出力して強制終了
-    if( !(str[N]=='\n' || str[N]==' ' || str[N]=='\0' || str[i]=='\r') ){ // 長さがNの場合、N+1文字目は空白 or 改行 or ヌル文字であるはず
+    if( !(str[N]=='\n' || str[N]==' ' || str[N]=='\0' || str[N]=='\r') ){ // 長さがNの場合、N+1文字目は空白 or 改行 or ヌル文字であるはず
       fprintf(stderr, "read_string_(): Invalid string\n");
       exit(1);
     }
@@ -210,7 +210,7 @@ int main(){
   printf("vmax_(%d, %d) = %d\n", z, x, vmax_(z, x));
   printf("vmin_(%d, %d) = %d\n", x, y, vmin_(x, y));
   printf("vmin_(%d, %d) = %d\n", y, z, vmin_(y, z));
-  printf("vmin_(%d %d) = %d\n", z, x, vmin_(z, x));
+  printf("vmin_(%d, %d) = %d\n", z, x, vmin_(z, x));
 
   printf("vmax3_(%d, %d, %d) = %d\n", x, y, z, vmax3_(x, y, z));
   printf("vmin3_(%d, %d, %d) = %d\n", x, y, z, vmin3_(x, y, z));
