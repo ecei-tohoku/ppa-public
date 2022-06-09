@@ -52,7 +52,7 @@ title: 3-1. 課題３導入問題【初歩】
     char* str  = (???)malloc(???);  // 配列に動的メモリを割り当てる（正規の文字数N、エラー処理用の1文字、ヌル文字用の1文字）
   
     if (str == NULL) {       // メモリ確保に失敗した際のエラー処理
-      fprintf(stderr, “malloc_string_(): Cannot allocate memory.\n”);
+      fprintf(stderr, "malloc_string_(): Cannot allocate memory.\n");
       exit(1);  // メモリ確保に失敗したら、プログラムを強制終了
     }
     
