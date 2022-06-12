@@ -21,7 +21,7 @@ $$
 <img src="p42-rectangle.png" width="600px" title="図1: リーマン和に基づく数値積分">
 
 ---
-### 1. 台形則
+#### 1. 台形則
 ---
   積分区間$[a, b]$を$N$個の区間$[x_{0}, x_{1}], [x_{1}, x_{2}], \cdots [x_{N-1}, x_{N}]\quad (x_{0} = a, x_{N}=b)$に等分すると，各区分における積分は，図2に示すように台形の面積として近似できる．
   
@@ -42,7 +42,7 @@ $$
 この式は「台形則に基づく」数値積分である．図1，図2を比較すると，台形則に基づく数値積分の方が視覚的に精度が高いことが見て取れる．
 
 ---
-### 2. Simpson則
+#### 2. Simpson則
 ---
  台形則は，言い方を替えると，区間ごとに関数を直線で近似してから数式上で積分を行っているとも言える．区間$[x_{i-1}, x_{i}]$の端２点における関数の値から直線の式$A_{i}+B_{i}x$における$A_{i}$, $B_{i}$が求まる．この考え方を拡張すると，$x_{i-1}, x_{i}, x_{i+1}$の３点における値から関数を二次関数$A_{i}+B_{i}x+C_{i}x^2$
 で近似し，数式上で積分を行うことで，より精度の高い数値積分が可能である．この方法では，区間$[x_{i-1}, x_{i+1}]$における積分は
@@ -71,25 +71,24 @@ $$
 
 プログラムは以下の仕様を満たすこと．
 
-- 入力は，数学関数の番号（後述）である整数$n$ ($n = 1, 2, 3, 4)と，積分を行なう範囲$[a, b]$を指定する実数$a$，$b$とする：
+- 入力は，後述する数学関数を指定する番号（整数）$n$ ($n = 1, 2, 3, or 4$)と，積分を行なう範囲$[a, b]$を指定する実数$a, b (a<b)$とする：
 
   ```
   n a b
   ```
-- 数学関数を定義するにあたり，`math.h`ヘッダをインクルードすること．
+- 数学関数を定義するにあたり，`math.h`ヘッダをインクルードすること（`math.h`に関する詳細は[参考情報](#math_h)で述べる）．
 - 数学関数は以下の４つ，$f_{1}(x), ..., f_{4}(x)$である．対応するプログラム上の関数`double f1(double x), ..., double f4(double x)`を定義すること．
-  - $f_{1}(x) = ...$ → `double f1(double x){ return ???; }`
-  - $f_{2}(x) = ...$ → `double f2(double x){ return ???; }`
-  - $f_{3}(x) = ...$ → `double f3(double x){ return ???; }`
-  - $f_{4}(x) = ...$ → `double f4(double x){ return ???; }`
-- 台形則，Simpson則，Simpson3/8則に基づく数値積分を行なうための関数をそれぞれ１つずつだけ作成すること．各関数は，第一引数を関数ポインタ（），第二引数を`double`型の積分開始点$a$，第二引数を`double`型の積分終了点$b$とし，積分結果を`double`型で返すこと：
+  - $f_{1}(x) = 1$ → `double f1(double x){ return 1; }`
+  - $f_{2}(x) = 1+2x-x^2$ → `double f2(double x){ return 1+2*x-x*x; }`
+  - $f_{3}(x) = \sin x$ → `double f3(double x){ return sin(x); }`
+  - $f_{4}(x) = e^{-2x^2}$ → `double f4(double x){ return exp(-2*x*x); }`
+- 台形則，Simpson則に基づく数値積分を行なうための関数をそれぞれ１つずつだけ作成すること．各関数は，第一引数を関数ポインタ（詳細は[参考情報](#function_pointer)），第二引数を`double`型の積分開始点$a$，第二引数を`double`型の積分終了点$b$とし，積分結果を`double`型で返すこと：
 
   ```
   double integral_trapezoid(double (*f)(double x), double a, double b);
   double integral_Simpson(double (*f)(double x), double a, double b);
-  double integral_Simpson_3_8(double (*f)(double x), double a, double b);
   ```
-- 出力は，台形則，Simpson則，Simpson3/8則に基づいた数値積分の値を，空白で区切って出力すること（末尾には空白は付けない）．
+- 出力は，数値を空白で区切って出力すること（末尾には空白は付けない）．各ステップにおける出力の仕様は，各ステップに説明されている．
 - 各行の末尾には改行文字`\n`を出力すること．
 
 ---
@@ -104,8 +103,9 @@ $$
 ---
 ### ステップ2/3　「台形則に基づく数値積分の実装」
 ---
+
 ---
-### ステップ3/3　「Simpson則，Simpson3/8則に基づいた数値積分の実装」
+### ステップ3/3　「Simpson則に基づいた数値積分の実装」
 ---
 
 
@@ -133,11 +133,23 @@ $$
 ---
 
 ---
-#### C言語における数学関数ライブラリ
+#### C言語における数学関数ライブラリ<a name="math_h"></a>
 ---
 
+C言語の標準として，さまざまな数学関数が`math.h`に定義されている．主な関数は以下のとおり：
+
+- 三角関数：`double sin(double);`，`double cos(double);`，`double tan(double);`．
+- 逆三角関数：`double asin(double);`，`double acos(double);`，`double atan(double);`，`double atan2(double, double);`．
+- 指数・対数関数，べき乗，平方根：`double exp(double);`，`double log(double);`，`double log10(double);`，`double pow(double, double);`，`double sqrt(double);`．
+- 双曲線関数：`double sinh(double);`，`double cosh(double);`，`double tanh(double);`．
+- ベッセル関数：`double j0(double);`，`double j1(double);`，`double jn(int, double);`，`double y0(double);`，`double y1(double);`，`double yn(int, double);`．
+- 小数点以下切り上げ・切り捨て：`double ceil(double);`，`double floor(double);`．
+- 絶対値：`double fabs(double);`．
+
+これらの関数も，それぞれの特性を考慮した上で，精度の高い数値解析アルゴリズムに基づいて実装されている．
+
 ---
-#### 関数ポインタ
+#### 関数ポインタ<a name="function_pointer"></a>
 ---
 - 
 - 
