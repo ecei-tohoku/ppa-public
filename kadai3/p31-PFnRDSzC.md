@@ -90,7 +90,7 @@ title: 3-1. 課題３導入問題【初歩】
     for(int i=0; i<N; i++){
       if(str[i]=='\n' || str[i]==' ' || str[i]=='\0' || str[i]=='\r'){ // 文字列中に空白・改行・ヌル文字があれば長さが足りていない（※Windowsでは\r\nで改行を表す）
         fprintf(stderr, "read_string_(): Invalid string\n");
-        exit(1);\r
+        exit(1);
       }
     }
     
