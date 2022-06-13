@@ -64,7 +64,7 @@ title: 3-4. 編集距離(動的計画法版)【基本】
   + `vmin_`
   + `vmin3_`
   + `zeros_`
-  + `malloc_char_`
+  + `malloc_string_`
   + `read_string_`
   + `malloc_2d_`
   + `free_2d_`  
