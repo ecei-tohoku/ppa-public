@@ -23,7 +23,7 @@ $$
 {\rm dp}[i][j]:=\begin{cases}
 &&\text{($X_i$ と $Y_j$からできる共通部分文字列のうち,}
 \\
-&&\text{$x_i$と$y_i$を共に含む共通部分文字列の個数)} & (x_i = y_j) 
+&&\text{$x_i$と$y_j$を共に含む共通部分文字列の個数)} & (x_i = y_j) 
 \\
 &&0 & (x_i \neq y_j)
 \end{cases},\tag{1}
