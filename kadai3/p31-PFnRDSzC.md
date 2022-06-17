@@ -69,7 +69,7 @@ title: 3-1. 課題３導入問題【初歩】
 
   ```
   void read_string_(char *str, int N){
-    int tmpchar; // 文字列前の空白・改行を除外するために使う
+    char tmpchar; // 文字列前の空白・改行を除外するために使う
 
     // 文字列の前に空白か改行があれば全て除外する
     do {
