@@ -30,8 +30,9 @@ $$
   <figure><img src="p42-trapezoid.png" width="600px">
   <br><figurecaption>図2: 台形則に基づく数値積分</figurecaption>
   </figure>
-  
-  式で表すと以下のようになる：
+
+
+式で表すと以下のようになる：
 
 $$
 \int_{x_{i-1}}^{x_{i}}f(x)dx \simeq h\left(\frac{1}{2}f_{i-1}+\frac{1}{2}f_{i}\right)\qquad(f_{i} = f(x_{i}), h = x_{i}-x_{i-1}, i = 1, 2, \cdots, N)
