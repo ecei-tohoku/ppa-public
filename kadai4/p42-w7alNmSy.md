@@ -19,7 +19,9 @@ $$
 から一歩立ち戻り，有限和で近似するのが数値積分法である．ただし，図１のようにリーマン和は長方形の面積で関数の定積分を近似するため，精度が悪い．ここでは，同じ$N$でもっと精度高く数値積分ができる方法をいくつか実装してもらう．
 
 <figure><img src="p42-rectangle.png" width="600px" title="図1: リーマン和に基づく数値積分">
-  <figurecaption>図1: リーマン和に基づく数値積分</figurecaption></figure>
+  
+  <figurecaption>図1: リーマン和に基づく数値積分</figurecaption>
+</figure>
 
 ---
 #### 1. 台形則
