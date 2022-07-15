@@ -53,7 +53,7 @@ $$
 で近似し，数式上で定積分を行うことで，より精度の高い数値積分が可能である．この方法では，区間$[x_{i-1}, x_{i+1}]$における定積分は
 
 $$
-\int_{x_{i-1}}^{x_{i+1}}f(x)dx \simeq h\left(\frac{1}{3}f_{i-1}+\frac{4}{3}f_{i}+\frac{1}{3}f_{i+1}\right)\qquad(f_{i} = f(x_{i}), h = x_{i}-x_{i-1}, i = 1, 2, \cdots, N-1)
+\int_{x_{i-1}}^{x_{i+1}}f(x)dx \simeq h\left(\frac{1}{3}f_{i-1}+\frac{4}{3}f_{i}+\frac{1}{3}f_{i+1}\right)\qquad(f_{i} = f(x_{i}), h = x_{i}-x_{i-1}, i = 1, 3, 5, \cdots, N-1)
 $$
 
 と近似され，考案者の名前を取ってSimpson則と呼ばれる．全区間における定積分は
