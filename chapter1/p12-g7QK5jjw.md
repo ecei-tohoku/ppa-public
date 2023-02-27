@@ -277,6 +277,7 @@ int main()
 ```
     int i; //for文で用いるループ変数iを定義
     int x = 0; //for文の中で用いる変数xを定義
+    
     for (i=0; i<4; i=i+1) {
       x = x + 1;
     }
