@@ -464,7 +464,8 @@ int main()
     for (i=0; i<4; i++) {
       x = x + i;
       if(i==2)
-        break;    }
+        break;    
+    }
 ```
 
 次のように動作する。
