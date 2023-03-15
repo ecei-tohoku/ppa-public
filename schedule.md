@@ -5,8 +5,7 @@ title: 講義日程・場所
 
 ## 講義日程
 
-![講義日程](schedule.png)
-
+<img src="schedule.png" width="750px">
 
 
 ## 場所
