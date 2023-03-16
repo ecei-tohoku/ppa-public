@@ -147,7 +147,7 @@ cdefcaaf
 ```
 8
 cdefcaaf
-4
+5
 c..f$
 ```
 - 出力
