@@ -19,13 +19,6 @@ title: 2-3. デバッグ問題【基本】
 
 
 
-{% stripnewlines %}
-| title | title {% newline %}
-|--------|------- {% newline %}
-| content | content {% newline %}
-|^Total^|^Total^ {% newline %}
-{% endstripnewlines %}
-
 
 
 ---
