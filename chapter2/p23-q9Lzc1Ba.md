@@ -160,33 +160,33 @@ Value[7] < 4
 
 - 以下のサンプルコードをコピーする．このコードでは構文エラーは含まれていない．コンパイルエラーの場合は正しくコピーされているのかをチェックする．
   ```
-#include <stdio.h>
+   #include <stdio.h>
 
-int main() {
-  int b[8];
-  int i;
-  
-  for(i=0; i<8: i++)
-    scanf("%d", &b[i]);
-  
-  for(i=0; i<8; i++) {
-    if(b[i] < 4) {
-      printf("Value[%d] < 4\n", i)
-    }
-    else if(b[i] == 4) {
-      printf("Value[%d] == 4\n", i);
-    }
-      else if(b[i] < 8) {
-        printf("5 <= Value[%d] < 8\n", i);
-      }
-      else {
-        printf("Value[%d] >= 8\n", i);
-      }
-    }
-  }
-  
-  return 0
-}
+   int main() {
+     int b[8];
+     int i;
+
+     for(i=0; i<8: i++)
+       scanf("%d", &b[i]);
+
+     for(i=0; i<8; i++) {
+       if(b[i] < 4) {
+         printf("Value[%d] < 4\n", i)
+       }
+       else if(b[i] == 4) {
+         printf("Value[%d] == 4\n", i);
+       }
+         else if(b[i] < 8) {
+           printf("5 <= Value[%d] < 8\n", i);
+         }
+         else {
+           printf("Value[%d] >= 8\n", i);
+         }
+       }
+     }
+
+     return 0
+   }
 ```
 - コンパイルして以下のテストケースに対して正しく動くのかを確認する．
 - 動かない場合はデバッグする．
