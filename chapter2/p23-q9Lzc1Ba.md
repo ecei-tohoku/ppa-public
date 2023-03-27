@@ -43,26 +43,29 @@ title: 2-3. デバッグ問題【基本】
 #include <stdio.h>
 
 int main() {
+  int b[8];
   int i;
-  b = 10;
   
-  for(i=0; i<b; i++) {
-    if(i<4) {
-      printf("Value = %d : Value < 4\n", i)
+  for(i=0; i<8: i++)
+    scanf("%d", &b[i]);
+  
+  for(i=0; i<8; i++) {
+    if(b[i] < 4) {
+      printf("Value[%d] < 4\n", i)
     }
-    else if(i==4) {
-      printf("Value = %d : Value == 4\n", i);
+    else if(b[i] == 4) {
+      printf("Value[%d] == 4\n", i);
     }
-      else if(i<8) {
-        printf("Value = %d : 5 <= Value < 8\n", i);
+      else if(b[i] < 8) {
+        printf("5 <= Value[%d] < 8\n", i);
       }
       else {
-        printf("Value = %d : Value >= 8\n", i);
+        printf("Value[%d] >= 8\n", i);
       }
     }
   }
-
-  return  0;
+  
+  return 0;
 }
 ```
 
