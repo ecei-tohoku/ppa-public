@@ -163,29 +163,52 @@ Value[7] < 4
    #include <stdio.h>
 
    int main() {
-     int b[8];
-     int i;
+      int N, M;
+      scanf("%d%d", &M, &N);
 
-     for(i=0; i<8: i++)
-       scanf("%d", &b[i]);
+      int yourNumber[N];
+      int winningNumber[5] = {10,23,44,45,21};
+      int barcode[12];
+      int minAge = 10;
 
-     for(i=0; i<8; i++) {
-       if(b[i] < 4) {
-         printf("Value[%d] < 4\n", i)
-       }
-       else if(b[i] == 4) {
-         printf("Value[%d] == 4\n", i);
-       }
-         else if(b[i] < 8) {
-           printf("5 <= Value[%d] < 8\n", i);
+      for(int i=0; i<M; i++) scanf("%d", &yourNumber[i]);
+
+      if(M < minAge) {
+         printf("You are not eligible\n");
+      }
+      else if(N == 5) {
+         int match = 1;
+         for(int i=0; i<5; i++) {
+           if(yourNumber[i] != winningNumber[i]) {
+             match = 0;
+             break;
+           }
+         }
+
+         for(int i=0; i<12; i++) scanf("%d", &barcode[i]);
+
+         printf("=== Enshu Loto Jumbo 2023 ===\n");
+         printf("Winning numbers : ");
+         for(int i=0; i<5; i++) printf("%d ", winningNumber[i]);
+         printf("\n");
+         printf("-----------------------------\n");
+
+         printf("Your barcode : ");
+         for(int i=0; i<11; i++) printf("%d-", barcode[i]);
+         printf("%d\n", barcode[11]);
+
+         if(match == 1) {
+           printf("You won 1,000,000,000\n");
          }
          else {
-           printf("Value[%d] >= 8\n", i);
+           printf("You lose\n");
          }
-       }
-     }
+      }
+      else {
+         printf("Ticket not found\n");
+      }   
 
-     return 0
+      return 0;
    }
 ```
 - コンパイルして以下のテストケースに対して正しく動くのかを確認する．
