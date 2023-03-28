@@ -232,6 +232,49 @@ Value[7] < 4
 ---
 
 - 以下のサンプルプログラムが用意されている．
+  ```
+   #include <stdio.h>
+   #include <stdlib.h>
+
+   int main() {
+     int nStudents;
+
+     scanf("%d", &nStudents);
+     int* seseki = (int*)malloc(sizeof(int)*nStudents); 
+     int* bangou = (int*)malloc(sizeof(int)*nStudents);
+
+     for(int i=0; i<nStudents; i++) {
+       scanf("%d", &seseki[i]);
+     }
+
+     int end = nStudents - 1;
+     int begin = 0;
+     for(int i=0; i<nStudents; i++) {
+       if(seseki[i] >= 60) {
+         bangou[end] = i+1;
+         end--;
+       }
+       else {
+         bangou[begin] = i+1;
+         begin++;
+       }
+     }
+
+     printf("Failed students\n");
+     for(int i=0; i<=end; i++) {
+       printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]-1]);
+     }
+
+     printf("\nPassed students\n");
+     //for(int i=nStudents-1; i>end; i++) {
+     for(int i=nStudents-1; i>end; i--) {
+       printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]-1]);
+     }
+
+     return 0;
+   }
+  ```
+
 - サンプルプログラムではまず学生の数を標準入力から受け取り，学生の成績を入れる配列と学籍番号を入れる配列を動的メモリ確保により作成する．
 - 学籍番号順になっている学生の成績を標準入力から受け取り，その成績を配列に保存する．ここで学籍番号は１から順番になっていると仮定する．
 - 次に成績の配列の最初から順番に見ながら，６０以上の合格の学生の学籍番号は，学籍番号の配列の最後から左へ詰めていく．
