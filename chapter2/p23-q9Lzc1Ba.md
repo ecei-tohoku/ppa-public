@@ -155,7 +155,7 @@ Value[7] < 4
   
   
 ---
-## 仕様
+## 手順
 ---
 
 - 以下のサンプルコードをコピーする．このコードでは構文エラーは含まれていない．コンパイルエラーの場合は正しくコピーされているのかをチェックする．
@@ -179,10 +179,10 @@ Value[7] < 4
       else if(N == 5) {
          int match = 1;
          for(int i=0; i<5; i++) {
-           if(yourNumber[i] != winningNumber[i]) {
-             match = 0;
-             break;
-           }
+            if(yourNumber[i] != winningNumber[i]) {
+               match = 0;
+               break;
+            }
          }
 
          for(int i=0; i<12; i++) scanf("%d", &barcode[i]);
@@ -198,11 +198,11 @@ Value[7] < 4
          printf("%d\n", barcode[11]);
 
          if(match == 1) {
-           printf("You won 1,000,000,000\n");
+            printf("You won 1,000,000,000\n");
          }
          else {
-           printf("You lose\n");
-         }
+            printf("You lose\n");
+         }           
       }
       else {
          printf("Ticket not found\n");
@@ -210,9 +210,15 @@ Value[7] < 4
 
       return 0;
    }
-```
+   ```
+   
 - コンパイルして以下のテストケースに対して正しく動くのかを確認する．
 - 動かない場合はデバッグする．
 - デバッグする際に配列外にアクセスされているのかを確認する．そのため配列のインデックスをプリントしてみることができる．
 - 動作確認とおらに場合はさらにデバッグを行う
+
+
+---
+## 問題 (c)
+---
 
