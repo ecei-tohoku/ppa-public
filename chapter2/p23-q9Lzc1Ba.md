@@ -194,10 +194,10 @@ Value[7] < 4
          printf("-----------------------------\n");
 
          printf("Your barcode : ");
-         for(int i=0; i<11; i++) printf("%d-", barcode[i]);
+         for(int i=0; i<10; i++) printf("%d-", barcode[i]);
          printf("%d\n", barcode[11]);
 
-         if(match == 1) {
+         if(match == 0) {
             printf("You won 1,000,000,000\n");
          }
          else {
@@ -217,6 +217,54 @@ Value[7] < 4
 - デバッグする際に配列外にアクセスされているのかを確認する．そのため配列のインデックスをプリントしてみることができる．
 - 動作確認とおらに場合はさらにデバッグを行う
 
+---
+## 実行例
+---
+
+---
+### 実行例(1)
+---
+- 入力データ
+```
+17 5 6 76 55 45 33 8 89 9 5 19 49 17 6 76 55 45 33
+```
+- 出力例
+```
+=== Enshu Loto Jumbo 2023 ===
+Winning numbers : 10 23 44 45 21 
+-----------------------------
+Your barcode : 8-89-9-5-19-49-17-6-76-55-45-33
+You lose
+```
+
+---
+### 実行例(2)
+---
+- 入力データ
+```
+42 5 10 23 44 45 21 12 3 88 9 9 51 45 78 7 61 87 56
+```
+- 出力例
+```
+=== Enshu Loto Jumbo 2023 ===
+Winning numbers : 10 23 44 45 21 
+-----------------------------
+Your barcode : 12-3-88-9-9-51-45-78-7-61-87-56
+You won 1,000,000,000
+```
+
+
+---
+### 実行例(3)
+---
+- 入力データ
+```
+9 5 45 67 34 12 98 98 4 56 78 3 49 34 3 29 54 37 28 11
+```
+- 出力例
+```
+You are not eligible
+```
 
 ---
 ## 問題 (c)
@@ -262,13 +310,12 @@ Value[7] < 4
 
      printf("Failed students\n");
      for(int i=0; i<=end; i++) {
-       printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]-1]);
+       printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]]);
      }
 
      printf("\nPassed students\n");
-     //for(int i=nStudents-1; i>end; i++) {
-     for(int i=nStudents-1; i>end; i--) {
-       printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]-1]);
+     for(int i=nStudents-1; i>end; i++) {
+       printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]]);
      }
 
      return 0;
@@ -294,3 +341,25 @@ Value[7] < 4
 - 別の手法としては，配列のアクセスるインデックスを出力して確認する方法もある．
 - 部分実行とンデックスを出力することは一緒に利用すると効率よくデバッグできる．
 
+---
+## 実行例
+---
+
+---
+### 実行例(1)
+---
+- 入力データ
+```
+9 8 0 2 5 12 5 1
+```
+- 出力例
+```
+Value[0] >= 8
+Value[1] >= 8
+Value[2] < 4
+Value[3] < 4
+5 <= Value[4] < 8
+Value[5] >= 8
+5 <= Value[6] < 8
+Value[7] < 4
+```
