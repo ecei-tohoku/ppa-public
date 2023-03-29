@@ -38,37 +38,37 @@ title: 2-3. デバッグ問題【基本】
 <span style="color:red">ここでは絶対に自分で仕様にあるコードをエディターに手入力することを避ける</span>
 手入力により関係のないエラーも入る可能性があるので，？？？ボタンを押してからデバッグを開始する．
    
+- 
+  ```
+  #include <stdio.h>
 
-```
-#include <stdio.h>
+  int main() {
+    int b[8];
+    int i;
 
-int main() {
-  int b[8];
-  int i;
-
-  for(i=0; i<8: i++) {                    //8個の数字を標準入力から受け取る
-    scanf("%d", &b[i]);
-  }
-
-  for(i=0; i<8; i++) {
-    if(b[i] < 4) {                        //??
-      printf("Value[%d] < 4\n", i)
+    for(i=0; i<8: i++) {                    //8個の数字を標準入力から受け取る
+      scanf("%d", &b[i]);
     }
-    else if(b[i] == 4) {                  //??
-      printf("Value[%d] == 4\n", i);
-    }
-      else if(b[i] < 8) {                 //??  
-        printf("5 <= Value[%d] < 8\n", i);
+
+    for(i=0; i<8; i++) {
+      if(b[i] < 4) {                        //??
+        printf("Value[%d] < 4\n", i)
       }
-      else {                              //??
-        printf("Value[%d] >= 8\n", i);
+      else if(b[i] == 4) {                  //??
+        printf("Value[%d] == 4\n", i);
+      }
+        else if(b[i] < 8) {                 //??  
+          printf("5 <= Value[%d] < 8\n", i);
+        }
+        else {                              //??
+          printf("Value[%d] >= 8\n", i);
+        }
       }
     }
-  }
 
-  return 0
-}
-```
+    return 0
+  }
+  ```
 
 ---
 ## 手順
@@ -161,58 +161,58 @@ Value[7] < 4
 
 - 以下のサンプルコードをコピーする．このコードでは構文エラーは含まれていない．コンパイルエラーの場合は正しくコピーされているのかをチェックする．
   ```
-   #include <stdio.h>
+  #include <stdio.h>
 
-   int main() {
-     int N, M;
-     scanf("%d%d", &M, &N);                                    //年齢と番号の数を標準入力から受け取る
+  int main() {
+    int N, M;
+    scanf("%d%d", &M, &N);                                    //年齢と番号の数を標準入力から受け取る
 
-     int yourNumber[N];                                        //??
-     int winningNumber[5] = {10,23,44,45,21};                  //１等賞の番号を記憶するための配列
-     int barcode[12];                                          //??
-     int minAge = 10;                                          //??
+    int yourNumber[N];                                        //??
+    int winningNumber[5] = {10,23,44,45,21};                  //１等賞の番号を記憶するための配列
+    int barcode[12];                                          //??
+    int minAge = 10;                                          //??
 
-     for(int i=0; i<M; i++) {                                  //??
-       scanf("%d", &yourNumber[i]);
-     }
+    for(int i=0; i<M; i++) {                                  //??
+      scanf("%d", &yourNumber[i]);
+    }
 
-     if(M < minAge) {                                          //??
-       printf("You are not eligible\n");
-     }
-     else if(N == 5) {                           
-       int match = 1;
-       for(int i=0; i<5; i++) {                                //??
-         if(yourNumber[i] != winningNumber[i]) {
-           match = 0;
-           break;
-         }
-       }
+    if(M < minAge) {                                          //??
+      printf("You are not eligible\n");
+    }
+    else if(N == 5) {                           
+      int match = 1;
+      for(int i=0; i<5; i++) {                                //??
+        if(yourNumber[i] != winningNumber[i]) {
+          match = 0;
+          break;
+        }
+      }
 
-       for(int i=0; i<12; i++) scanf("%d", &barcode[i]);       //??
+      for(int i=0; i<12; i++) scanf("%d", &barcode[i]);       //??
 
-       printf("=== Enshu Loto Jumbo 2023 ===\n");
-       printf("Winning numbers : ");
-       for(int i=0; i<5; i++) printf("%d ", winningNumber[i]); //??
-       printf("\n");
-       printf("-----------------------------\n");
+      printf("=== Enshu Loto Jumbo 2023 ===\n");
+      printf("Winning numbers : ");
+      for(int i=0; i<5; i++) printf("%d ", winningNumber[i]); //??
+      printf("\n");
+      printf("-----------------------------\n");
 
-       printf("Your barcode : ");
-       for(int i=0; i<10; i++) printf("%d-", barcode[i]);      //??
-       printf("%d\n", barcode[11]);
+      printf("Your barcode : ");
+      for(int i=0; i<10; i++) printf("%d-", barcode[i]);      //??
+      printf("%d\n", barcode[11]);
 
-       if(match == 0) {                                        //??
-         printf("You won 1,000,000,000\n");
-       }
-       else {                                                  //??
-         printf("You lose\n");
-       }
-     }
-     else {                                                    //??
-       printf("Ticket not found\n");
-     }   
+      if(match == 0) {                                        //??
+        printf("You won 1,000,000,000\n");
+      }
+      else {                                                  //??
+        printf("You lose\n");
+      }
+    }
+    else {                                                    //??
+      printf("Ticket not found\n");
+    }   
 
-     return 0;
-   }
+    return 0;
+  }
    ```
    
 - コンパイルして以下のテストケースに対して正しく動くのかを確認する．
@@ -284,48 +284,48 @@ You are not eligible
 
 - 以下のサンプルプログラムが用意されている．
   ```
-   #include <stdio.h>
-   #include <stdlib.h>
+  #include <stdio.h>
+  #include <stdlib.h>
 
-   int main() {
-     int nStudents;
+  int main() {
+    int nStudents;
 
-     scanf("%d", &nStudents);
-     int* seseki = (int*)malloc(sizeof(int)*nStudents);   //成績を記憶する配列の動的確保
-     int* bangou = (int*)malloc(sizeof(int)*nStudents);   //学籍番号を記憶する配列の動的確保
+    scanf("%d", &nStudents);
+    int* seseki = (int*)malloc(sizeof(int)*nStudents);   //成績を記憶する配列の動的確保
+    int* bangou = (int*)malloc(sizeof(int)*nStudents);   //学籍番号を記憶する配列の動的確保
 
-     for(int i=0; i<nStudents; i++) {                     //??
-       scanf("%d", &seseki[i]);
-     }
+    for(int i=0; i<nStudents; i++) {                     //??
+      scanf("%d", &seseki[i]);
+    }
 
-     int end = nStudents - 1;
-     int begin = 0;
-     for(int i=0; i<nStudents; i++) {                     
-       if(seseki[i] >= 60) {                              //??
-         bangou[end] = i+1;                               //??
-         end--;                                           //??
-       }
-       else {                                             //??
-         bangou[begin] = i;                               //??
-         begin++;                                         //??
-       }
-     }
+    int end = nStudents - 1;
+    int begin = 0;
+    for(int i=0; i<nStudents; i++) {                     
+      if(seseki[i] >= 60) {                              //??
+        bangou[end] = i+1;                               //??
+        end--;                                           //??
+      }
+      else {                                             //??
+        bangou[begin] = i;                               //??
+        begin++;                                         //??
+      }
+    }
 
-     printf("Failed students\n");
-     for(int i=0; i<=end; i++) {                          //??
-       printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]]);
-     }
+    printf("Failed students\n");
+    for(int i=0; i<=end; i++) {                          //??
+      printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]]);
+    }
 
-     printf("\nPassed students\n");
-     for(int i=nStudents-1; i>end; i++) {                 //??
-       printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]]);
-     }
+    printf("\nPassed students\n");
+    for(int i=nStudents-1; i>end; i++) {                 //??
+      printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]]);
+    }
 
-     free(seseki);
-     free(bangou);
+    free(seseki);
+    free(bangou);
 
-     return 0;
-   }
+    return 0;
+  }
   ```
 
 - サンプルプログラムではまず学生の数を標準入力から受け取り，学生の成績を入れる配列と学籍番号を入れる配列を動的メモリ確保により作成する．
