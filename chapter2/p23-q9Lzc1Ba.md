@@ -163,52 +163,54 @@ Value[7] < 4
    #include <stdio.h>
 
    int main() {
-      int N, M;
-      scanf("%d%d", &M, &N);
+     int N, M;
+     scanf("%d%d", &M, &N);                                    //年齢と番号の数を標準入力から受け取る
 
-      int yourNumber[N];
-      int winningNumber[5] = {10,23,44,45,21};
-      int barcode[12];
-      int minAge = 10;
+     int yourNumber[N];                                        //??
+     int winningNumber[5] = {10,23,44,45,21};                  //１等賞の番号を記憶するための配列
+     int barcode[12];                                          //??
+     int minAge = 10;                                          //??
 
-      for(int i=0; i<M; i++) scanf("%d", &yourNumber[i]);
+     for(int i=0; i<M; i++) {                                  //??
+       scanf("%d", &yourNumber[i]);
+     }
 
-      if(M < minAge) {
-         printf("You are not eligible\n");
-      }
-      else if(N == 5) {
-         int match = 1;
-         for(int i=0; i<5; i++) {
-            if(yourNumber[i] != winningNumber[i]) {
-               match = 0;
-               break;
-            }
+     if(M < minAge) {                                          //??
+       printf("You are not eligible\n");
+     }
+     else if(N == 5) {                           
+       int match = 1;
+       for(int i=0; i<5; i++) {                                //??
+         if(yourNumber[i] != winningNumber[i]) {
+           match = 0;
+           break;
          }
+       }
 
-         for(int i=0; i<12; i++) scanf("%d", &barcode[i]);
+       for(int i=0; i<12; i++) scanf("%d", &barcode[i]);       //??
 
-         printf("=== Enshu Loto Jumbo 2023 ===\n");
-         printf("Winning numbers : ");
-         for(int i=0; i<5; i++) printf("%d ", winningNumber[i]);
-         printf("\n");
-         printf("-----------------------------\n");
+       printf("=== Enshu Loto Jumbo 2023 ===\n");
+       printf("Winning numbers : ");
+       for(int i=0; i<5; i++) printf("%d ", winningNumber[i]); //??
+       printf("\n");
+       printf("-----------------------------\n");
 
-         printf("Your barcode : ");
-         for(int i=0; i<10; i++) printf("%d-", barcode[i]);
-         printf("%d\n", barcode[11]);
+       printf("Your barcode : ");
+       for(int i=0; i<10; i++) printf("%d-", barcode[i]);      //??
+       printf("%d\n", barcode[11]);
 
-         if(match == 0) {
-            printf("You won 1,000,000,000\n");
-         }
-         else {
-            printf("You lose\n");
-         }           
-      }
-      else {
-         printf("Ticket not found\n");
-      }   
+       if(match == 0) {                                        //??
+         printf("You won 1,000,000,000\n");
+       }
+       else {                                                  //??
+         printf("You lose\n");
+       }
+     }
+     else {                                                    //??
+       printf("Ticket not found\n");
+     }   
 
-      return 0;
+     return 0;
    }
    ```
    
