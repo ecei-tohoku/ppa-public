@@ -159,7 +159,7 @@ Value[5] >= 8
 
 宝くじの表面には以下の図1に示すように，当選番号，２次元バーコードとバーコード関連の数字が書かれている．
 <p align="center">
-  <img src="p23-b.jpg" width="400">
+  <img src="p23-b.jpg" width="600">
   <figcaption align = "center"><b>図１ - 宝くじの表面</b></figcaption>
 </p>．
 当選番号のチェックのため以下の順番にシステムに入力する
