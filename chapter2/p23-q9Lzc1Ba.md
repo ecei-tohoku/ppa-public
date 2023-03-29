@@ -151,7 +151,7 @@ Value[5] >= 8
 5 <= Value[7] < 8
 ```
 
-----
+<div style="page-break-after: always"></div>
 
 ---
 ## 問題b (ステップ２)
