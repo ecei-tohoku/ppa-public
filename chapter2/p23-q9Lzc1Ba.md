@@ -215,7 +215,7 @@ Value[5] >= 8
 ## 手順
 ---
 
-- 以下のサンプルコードをコピーする．このコードでは構文エラーは含まれていない．コンパイルエラーの場合は正しくコピーされているのかをチェックする．
+- 以下のサンプルコードからデバッグを開始する．
   ```
   #include <stdio.h>
 
@@ -223,58 +223,58 @@ Value[5] >= 8
     int N, M;
     scanf("%d%d", &M, &N);                                    //年齢と番号の数を標準入力から受け取る
 
-    int yourNumber[N];                                        //??
+    int yourNumber[N];                                        //入力の当選番号用の可変長配列
     int winningNumber[5] = {10,23,44,45,21};                  //１等賞の番号を記憶するための配列
-    int barcode[12];                                          //??
-    int minAge = 10;                                          //??
+    int barcode[12];                                          //バーコード保存用の配列
+    int minAge = 10;                                          //入力者の最小年齢
 
-    for(int i=0; i<M; i++) {                                  //??
+    for(int i=0; i<M; i++) {                                  //当選番号を標準入力から受け取る
       scanf("%d", &yourNumber[i]);
     }
 
-    if(M < minAge) {                                          //??
+    if(M < minAge) {                                          //年齢チェック
       printf("You are not eligible\n");
     }
     else if(N == 5) {                           
       int match = 1;
-      for(int i=0; i<5; i++) {                                //??
+      for(int i=0; i<5; i++) {                                //当選番号と１等賞番号の比較
         if(yourNumber[i] != winningNumber[i]) {
           match = 0;
           break;
         }
       }
 
-      for(int i=0; i<12; i++) scanf("%d", &barcode[i]);       //??
+      for(int i=0; i<12; i++) scanf("%d", &barcode[i]);       //バーコードを標準入力から受け取る
 
       printf("=== Enshu Loto Jumbo 2023 ===\n");
       printf("Winning numbers : ");
-      for(int i=0; i<5; i++) printf("%d ", winningNumber[i]); //??
+      for(int i=0; i<5; i++) printf("%d ", winningNumber[i]); //１等賞番号の出力
       printf("\n");
       printf("-----------------------------\n");
 
       printf("Your barcode : ");
-      for(int i=0; i<10; i++) printf("%d-", barcode[i]);      //??
+      for(int i=0; i<10; i++) printf("%d-", barcode[i]);      //バーコードの出力
       printf("%d\n", barcode[11]);
 
-      if(match == 0) {                                        //??
+      if(match == 0) {                                        //一致する場合の判定
         printf("You won 1,000,000,000\n");
       }
-      else {                                                  //??
+      else {                                                  //不一致の場合の判定
         printf("You lose\n");
       }
     }
-    else {                                                    //??
+    else {                                                    //最小年齢になっていないときの判定
       printf("Ticket not found\n");
     }   
 
     return 0;
   }
-   ```
-   
-- コンパイルして以下のテストケースに対して正しく動くのかを確認する．
-- 動かない場合はデバッグする．
+   ```  
+- コンパイルして実行例に対して正しく動くのかを確認する．
+- 動く動かない場合はデバッグする．
 - デバッグする際に配列外にアクセスされているのかを確認する．そのため配列のインデックスをプリントしてみることができる．
-- 動作確認とおらに場合はさらにデバッグを行う
+- 論理エラーに関してもデバッグする．必要におおじてprintfを使って途中結果を出力する．
+- 動作確認が通らないに場合はさらにデバッグを行う
 
 ---
 ## 実行例
