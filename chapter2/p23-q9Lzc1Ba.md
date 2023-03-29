@@ -290,35 +290,38 @@ You are not eligible
      int nStudents;
 
      scanf("%d", &nStudents);
-     int* seseki = (int*)malloc(sizeof(int)*nStudents); 
-     int* bangou = (int*)malloc(sizeof(int)*nStudents);
+     int* seseki = (int*)malloc(sizeof(int)*nStudents);   //成績を記憶する配列の動的確保
+     int* bangou = (int*)malloc(sizeof(int)*nStudents);   //学籍番号を記憶する配列の動的確保
 
-     for(int i=0; i<nStudents; i++) {
+     for(int i=0; i<nStudents; i++) {                     //??
        scanf("%d", &seseki[i]);
      }
 
      int end = nStudents - 1;
      int begin = 0;
-     for(int i=0; i<nStudents; i++) {
-       if(seseki[i] >= 60) {
-         bangou[end] = i+1;
-         end--;
+     for(int i=0; i<nStudents; i++) {                     
+       if(seseki[i] >= 60) {                              //??
+         bangou[end] = i+1;                               //??
+         end--;                                           //??
        }
-       else {
-         bangou[begin] = i+1;
-         begin++;
+       else {                                             //??
+         bangou[begin] = i;                               //??
+         begin++;                                         //??
        }
      }
 
      printf("Failed students\n");
-     for(int i=0; i<=end; i++) {
+     for(int i=0; i<=end; i++) {                          //??
        printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]]);
      }
 
      printf("\nPassed students\n");
-     for(int i=nStudents-1; i>end; i++) {
+     for(int i=nStudents-1; i>end; i++) {                 //??
        printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]]);
      }
+
+     free(seseki);
+     free(bangou);
 
      return 0;
    }
