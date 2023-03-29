@@ -40,34 +40,34 @@ title: 2-3. デバッグ問題【基本】
    
 
 ```
-   #include <stdio.h>
+#include <stdio.h>
 
-   int main() {
-     int b[8];
-     int i;
+int main() {
+  int b[8];
+  int i;
 
-     for(i=0; i<8: i++) {                    //8個の数字を標準入力から受け取る
-       scanf("%d", &b[i]);
-     }
+  for(i=0; i<8: i++) {                    //8個の数字を標準入力から受け取る
+    scanf("%d", &b[i]);
+  }
 
-     for(i=0; i<8; i++) {
-       if(b[i] < 4) {                        //??
-         printf("Value[%d] < 4\n", i)
-       }
-       else if(b[i] == 4) {                  //??
-         printf("Value[%d] == 4\n", i);
-       }
-         else if(b[i] < 8) {                 //??  
-           printf("5 <= Value[%d] < 8\n", i);
-         }
-         else {                              //??
-           printf("Value[%d] >= 8\n", i);
-         }
-       }
-     }
+  for(i=0; i<8; i++) {
+    if(b[i] < 4) {                        //??
+      printf("Value[%d] < 4\n", i)
+    }
+    else if(b[i] == 4) {                  //??
+      printf("Value[%d] == 4\n", i);
+    }
+      else if(b[i] < 8) {                 //??  
+        printf("5 <= Value[%d] < 8\n", i);
+      }
+      else {                              //??
+        printf("Value[%d] >= 8\n", i);
+      }
+    }
+  }
 
-     return 0
-   }
+  return 0
+}
 ```
 
 ---
