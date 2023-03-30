@@ -399,7 +399,7 @@ You are not eligible
 - 次に成績の配列の最初から順番に見ながら，６０以上の合格の学生の学籍番号は，学籍番号の配列の最後から左へ詰めていく．
 - 不合格の学生の学生の学籍番号は，学籍番号の配列の最初から右へ詰めていく．
 - 次に不合格の学生は学籍番号の小さい方から順番に表示する．
-- 最後に合格の学生は学籍番号が小さい方から順番に表示する．  ```
+- 最後に合格の学生は学籍番号が小さい方から順番に表示する．  
 
 
 ---
@@ -426,16 +426,66 @@ You are not eligible
 ---
 - 入力データ
 ```
-9 8 0 2 5 12 5 1
+13 45 100 56 34 89 98 9 34 67 88 43 0 77
 ```
 - 出力例
 ```
-Value[0] >= 8
-Value[1] >= 8
-Value[2] < 4
-Value[3] < 4
-5 <= Value[4] < 8
-Value[5] >= 8
-5 <= Value[6] < 8
-Value[7] < 4
+Failed students
+Gakuseki bangou = 1, Marks = 45
+Gakuseki bangou = 3, Marks = 56
+Gakuseki bangou = 4, Marks = 34
+Gakuseki bangou = 7, Marks = 9
+Gakuseki bangou = 8, Marks = 34
+Gakuseki bangou = 11, Marks = 43
+Gakuseki bangou = 12, Marks = 0
+
+Passed students
+Gakuseki bangou = 2, Marks = 100
+Gakuseki bangou = 5, Marks = 89
+Gakuseki bangou = 6, Marks = 98
+Gakuseki bangou = 9, Marks = 67
+Gakuseki bangou = 10, Marks = 88
+Gakuseki bangou = 13, Marks = 77
+```
+
+
+---
+### 実行例(2)
+---
+- 入力データ
+```
+5 33 25 10 47 59
+```
+- 出力例
+```
+Failed students
+Gakuseki bangou = 1, Marks = 33
+Gakuseki bangou = 2, Marks = 25
+Gakuseki bangou = 3, Marks = 10
+Gakuseki bangou = 4, Marks = 47
+Gakuseki bangou = 5, Marks = 59
+
+Passed students
+```
+
+
+---
+### 実行例(3)
+---
+- 入力データ
+```
+7 87 67 90 99 100 88 90
+```
+- 出力例
+```
+Failed students
+
+Passed students
+Gakuseki bangou = 1, Marks = 87
+Gakuseki bangou = 2, Marks = 67
+Gakuseki bangou = 3, Marks = 90
+Gakuseki bangou = 4, Marks = 99
+Gakuseki bangou = 5, Marks = 100
+Gakuseki bangou = 6, Marks = 88
+Gakuseki bangou = 7, Marks = 90
 ```
