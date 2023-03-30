@@ -432,14 +432,14 @@ You are not eligible
 ```
 - 出力例
 ```
-Value[0] >= 8
-Value[1] >= 8
-Value[2] < 4
-Value[3] < 4
-5 <= Value[4] < 8
-Value[5] >= 8
-5 <= Value[6] < 8
-Value[7] < 4
+Failed students
+Gakuseki bangou = 1, Marks = 45
+Gakuseki bangou = 3, Marks = 56
+Gakuseki bangou = 4, Marks = 34
+Gakuseki bangou = 7, Marks = 9
+Gakuseki bangou = 8, Marks = 34
+Gakuseki bangou = 11, Marks = 43
+Gakuseki bangou = 12, Marks = 0
 ```
 
 ---
