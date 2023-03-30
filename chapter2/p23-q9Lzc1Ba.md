@@ -62,9 +62,9 @@ title: 2-3. デバッグ問題【基本】
       if(b[i] < 4) {                        //4より小さい場合の判定
         printf("Value[%d] < 4\n", i)
       }
-      else if(b[i] == 4) {                  //4に等しい場合の判定
-        printf("Value[%d] == 4\n", i);
-      }
+       else if(b[i] == 4) {                  //4に等しい場合の判定
+          printf("Value[%d] == 4\n", i);
+        }
         else if(b[i] < 8) {                 //5以上7以下の場合の判定 
           printf("5 <= Value[%d] < 8\n", i);
         }
