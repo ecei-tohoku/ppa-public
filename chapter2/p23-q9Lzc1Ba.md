@@ -359,34 +359,34 @@ You are not eligible↩︎
   int main() {
     int nStudents;
 
-    scanf("%d", &nStudents);                             //??
+    scanf("%d", &nStudents);                             //???
     int* seseki = (int*)malloc(sizeof(int)*nStudents);   //成績を記憶する配列の動的確保
     int* bangou = (int*)malloc(sizeof(int)*nStudents);   //学籍番号を記憶する配列の動的確保
 
-    for(int i=0; i<nStudents; i++) {                     //??
+    for(int i=0; i<nStudents; i++) {                     //???
       scanf("%d", &seseki[i]);
     }
 
     int end = nStudents - 1;
     int begin = 0;
     for(int i=0; i<nStudents; i++) {                     
-      if(seseki[i] >= 60) {                              //??
-        bangou[end] = i+1;                               //??
-        end--;                                           //??
+      if(seseki[i] >= 60) {                              //???
+        bangou[end] = i+1;                               //???
+        end--;                                           //???
       }
-      else {                                             //??
-        bangou[begin] = i;                               //??
-        begin++;                                         //??
+      else {                                             //???
+        bangou[begin] = i;                               //???
+        begin++;                                         //???
       }
     }
 
     printf("Failed students\n");
-    for(int i=0; i<=end; i++) {                          //??
+    for(int i=0; i<=end; i++) {                          //???
       printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]]);
     }
 
     printf("\nPassed students\n");
-    for(int i=nStudents-1; i>end; i++) {                 //??
+    for(int i=nStudents-1; i>end; i++) {                 //???
       printf("Gakuseki bangou = %d, Marks = %d\n", bangou[i], seseki[bangou[i]]);
     }
 
@@ -416,7 +416,7 @@ You are not eligible↩︎
   - 別の手法としては，配列のアクセスるインデックスを出力して確認する方法もある．
   - 部分実行とンデックスを出力することは一緒に利用すると効率よくデバッグできる．
 4.  その他にも論理エラーがあればデバッグする．
-5.  プログラムコードの??のところにコメントを追加する．インデントも正しく入れる．
+5.  プログラムコードの'???'のところにコメントを追加する．インデントも正しく入れる．
 
 
 ---
