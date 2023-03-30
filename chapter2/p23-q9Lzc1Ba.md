@@ -191,15 +191,19 @@ Value[5] >= 8↩︎
     int barcode[12];                                          //バーコード保存用の配列
     int minAge = 10;                                          //入力者の最小年齢
 
-    for(int i=0; i<M; i++) {                                  //当選番号を標準入力から受け取る
-      scanf("%d", &yourNumber[i]);
-    }
-
     if(M < minAge) {                                          //年齢チェック
       printf("You are not eligible\n");
     }
-    else if(N == 5) {                           
+    else if(N != 5) {                                         //当選番号の数が異なる
+      printf("Ticket not found\n");
+    }
+    else {                           
       int match = 1;
+
+      for(int i=0; i<M; i++) {                                //当選番号を標準入力から受け取る
+        scanf("%d", &yourNumber[i]);
+      }
+
       for(int i=0; i<5; i++) {                                //当選番号と１等賞番号の比較
         if(yourNumber[i] != winningNumber[i]) {
           match = 0;
@@ -226,9 +230,6 @@ Value[5] >= 8↩︎
         printf("You lose\n");
       }
     }
-    else {                                                    //最小年齢になっていないときの判定
-      printf("Ticket not found\n");
-    }   
 
     return 0;
   }
@@ -245,6 +246,10 @@ Value[5] >= 8↩︎
     ```
     You are not eligible↩︎
     ```
+  - 当選番号の数が５でない場合は以下のように表示され，終了される．
+    ```
+     Ticket not found↩︎
+    ```
   - 当選番号の数が５の場合１等の番号と入力された番号を比較される．また，バーコード番号も標準入力から受け取る．その後以下のように出力される．
     ```
     ===  Enshu Loto Jumbo 2023  ===↩︎  	
@@ -260,11 +265,6 @@ Value[5] >= 8↩︎
       ```
        You lose↩︎
       ```
-  - 当選番号の数が５でない場合は以下のように表示され，終了される．
-    ```
-     Ticket not found↩︎
-    ```
-  
   
 ---
 ### 手順
