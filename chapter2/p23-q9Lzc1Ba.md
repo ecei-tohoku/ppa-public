@@ -428,26 +428,37 @@ You are not eligible
 ---
 - 入力データ
 ```
-13 45 100 56 34 89 98 9 34 67 88 43 0 77
+9 8 0 2 5 12 5 1
 ```
 - 出力例
 ```
-Failed students
-Gakuseki bangou = 1, Marks = 45
-Gakuseki bangou = 3, Marks = 56
-Gakuseki bangou = 4, Marks = 34
-Gakuseki bangou = 7, Marks = 9
-Gakuseki bangou = 8, Marks = 34
-Gakuseki bangou = 11, Marks = 43
-Gakuseki bangou = 12, Marks = 0
+Value[0] >= 8
+Value[1] >= 8
+Value[2] < 4
+Value[3] < 4
+5 <= Value[4] < 8
+Value[5] >= 8
+5 <= Value[6] < 8
+Value[7] < 4
+```
 
-Passed students
-Gakuseki bangou = 2, Marks = 100
-Gakuseki bangou = 5, Marks = 89
-Gakuseki bangou = 6, Marks = 98
-Gakuseki bangou = 9, Marks = 67
-Gakuseki bangou = 10, Marks = 88
-Gakuseki bangou = 13, Marks = 77
+---
+#### 実行例(2)
+---
+- 入力データ
+```
+0 50 23 1 4 8 5 6
+```
+- 出力例
+```
+Value[0] < 4
+Value[1] >= 8
+Value[2] >= 8
+Value[3] < 4
+Value[4] == 4
+Value[5] >= 8
+5 <= Value[6] < 8
+5 <= Value[7] < 8
 ```
 
 ---
