@@ -506,7 +506,6 @@ Gakuseki bangou = 2, Marks = 25
 Gakuseki bangou = 3, Marks = 10
 Gakuseki bangou = 4, Marks = 47
 Gakuseki bangou = 5, Marks = 59
-
 Passed students
 ```
 
