@@ -80,19 +80,19 @@ title: 2-3. デバッグ問題【基本】
 - プログラムの正しい動作は以下に示す．ここで”$”は0から７の数字のいずれかである．
   - 値が4より小さい場合は以下のように出力される
   ```
-  Value[$] < 4
+  Value[$] < 4↩︎
   ```
   - ４に等しい場合は以下のように出力される
   ```
-  Value[$] == 4
+  Value[$] == 4↩︎
   ```
   - ５と8の間にある場合は以下のように出力される
   ```
-  5 <= Value[$] < 8
+  5 <= Value[$] < 8↩︎
   ```
   - 8以上の場合は以下のように出力される
   ```
-  Value[$] >= 8
+  Value[$] >= 8↩︎
   ```
   
 
@@ -122,14 +122,14 @@ title: 2-3. デバッグ問題【基本】
 ```
 - 出力例
 ```
-Value[0] >= 8
-Value[1] >= 8
-Value[2] < 4
-Value[3] < 4
-5 <= Value[4] < 8
-Value[5] >= 8
-5 <= Value[6] < 8
-Value[7] < 4
+Value[0] >= 8↩︎
+Value[1] >= 8↩︎
+Value[2] < 4↩︎
+Value[3] < 4↩︎
+5 <= Value[4] < 8↩︎
+Value[5] >= 8↩︎
+5 <= Value[6] < 8↩︎
+Value[7] < 4↩︎
 ```
 
 ---
@@ -141,14 +141,14 @@ Value[7] < 4
 ```
 - 出力例
 ```
-Value[0] < 4
-Value[1] >= 8
-Value[2] >= 8
-Value[3] < 4
-Value[4] == 4
-Value[5] >= 8
-5 <= Value[6] < 8
-5 <= Value[7] < 8
+Value[0] < 4↩︎
+Value[1] >= 8↩︎
+Value[2] >= 8↩︎
+Value[3] < 4↩︎
+Value[4] == 4↩︎
+Value[5] >= 8↩︎
+5 <= Value[6] < 8↩︎
+5 <= Value[7] < 8↩︎
 ```
 
 ******************
@@ -290,11 +290,11 @@ Value[5] >= 8
 ```
 - 出力例
 ```
-=== Enshu Loto Jumbo 2023 ===
-Winning numbers : 10 23 44 45 21 
------------------------------
-Your barcode : 8-89-9-5-19-49-17-6-76-55-45-33
-You lose
+=== Enshu Loto Jumbo 2023 ===↩︎
+Winning numbers : 10 23 44 45 21↩︎
+-----------------------------↩︎
+Your barcode : 8-89-9-5-19-49-17-6-76-55-45-33↩︎
+You lose↩︎
 ```
 
 ---
@@ -306,11 +306,11 @@ You lose
 ```
 - 出力例
 ```
-=== Enshu Loto Jumbo 2023 ===
-Winning numbers : 10 23 44 45 21 
------------------------------
-Your barcode : 12-3-88-9-9-51-45-78-7-61-87-56
-You won 1,000,000,000
+=== Enshu Loto Jumbo 2023 ===↩︎
+Winning numbers : 10 23 44 45 21↩︎
+-----------------------------↩︎
+Your barcode : 12-3-88-9-9-51-45-78-7-61-87-56↩︎
+You won 1,000,000,000↩︎
 ```
 
 
@@ -323,7 +323,7 @@ You won 1,000,000,000
 ```
 - 出力例
 ```
-You are not eligible
+You are not eligible↩︎
 ```
 
 ******************
@@ -423,45 +423,6 @@ You are not eligible
 ### 実行例
 ---
 
----
-#### 実行例(1)
----
-- 入力データ
-```
-9 8 0 2 5 12 5 1
-```
-- 出力例
-```
-Failed students
-Gakuseki bangou = 1, Marks = 45
-Gakuseki bangou = 3, Marks = 56
-Gakuseki bangou = 4, Marks = 34
-Gakuseki bangou = 7, Marks = 9
-Gakuseki bangou = 8, Marks = 34
-Gakuseki bangou = 11, Marks = 43
-Gakuseki bangou = 12, Marks = 0
-
-Passed students
-```
-
----
-#### 実行例(2)
----
-- 入力データ
-```
-0 50 23 1 4 8 5 6
-```
-- 出力例
-```
-Value[0] < 4
-Value[1] >= 8
-Value[2] >= 8
-Value[3] < 4
-Value[4] == 4
-Value[5] >= 8
-5 <= Value[6] < 8
-5 <= Value[7] < 8
-```
 
 ---
 #### 実行例(1)
@@ -472,22 +433,22 @@ Value[5] >= 8
 ```
 - 出力例
 ```
-Failed students
-Gakuseki bangou = 1, Marks = 45
-Gakuseki bangou = 3, Marks = 56
-Gakuseki bangou = 4, Marks = 34
-Gakuseki bangou = 7, Marks = 9
-Gakuseki bangou = 8, Marks = 34
-Gakuseki bangou = 11, Marks = 43
-Gakuseki bangou = 12, Marks = 0
-
-Passed students
-Gakuseki bangou = 2, Marks = 100
-Gakuseki bangou = 5, Marks = 89
-Gakuseki bangou = 6, Marks = 98
-Gakuseki bangou = 9, Marks = 67
-Gakuseki bangou = 10, Marks = 88
-Gakuseki bangou = 13, Marks = 77
+Failed students↩︎
+Gakuseki bangou = 1, Marks = 45↩︎
+Gakuseki bangou = 3, Marks = 56↩︎
+Gakuseki bangou = 4, Marks = 34↩︎
+Gakuseki bangou = 7, Marks = 9↩︎
+Gakuseki bangou = 8, Marks = 34↩︎
+Gakuseki bangou = 11, Marks = 43↩︎
+Gakuseki bangou = 12, Marks = 0↩︎
+↩︎
+Passed students↩︎
+Gakuseki bangou = 2, Marks = 100↩︎
+Gakuseki bangou = 5, Marks = 89↩︎
+Gakuseki bangou = 6, Marks = 98↩︎
+Gakuseki bangou = 9, Marks = 67↩︎
+Gakuseki bangou = 10, Marks = 88↩︎
+Gakuseki bangou = 13, Marks = 77↩︎
 ```
 
 
@@ -500,13 +461,14 @@ Gakuseki bangou = 13, Marks = 77
 ```
 - 出力例
 ```
-Failed students
-Gakuseki bangou = 1, Marks = 33
-Gakuseki bangou = 2, Marks = 25
-Gakuseki bangou = 3, Marks = 10
-Gakuseki bangou = 4, Marks = 47
-Gakuseki bangou = 5, Marks = 59
-Passed students
+Failed students↩︎
+Gakuseki bangou = 1, Marks = 33↩︎
+Gakuseki bangou = 2, Marks = 25↩︎
+Gakuseki bangou = 3, Marks = 10↩︎
+Gakuseki bangou = 4, Marks = 47↩︎
+Gakuseki bangou = 5, Marks = 59↩︎
+↩︎
+Passed students↩︎
 ```
 
 
@@ -519,14 +481,14 @@ Passed students
 ```
 - 出力例
 ```
-Failed students
-
-Passed students
-Gakuseki bangou = 1, Marks = 87
-Gakuseki bangou = 2, Marks = 67
-Gakuseki bangou = 3, Marks = 90
-Gakuseki bangou = 4, Marks = 99
-Gakuseki bangou = 5, Marks = 100
-Gakuseki bangou = 6, Marks = 88
-Gakuseki bangou = 7, Marks = 90
+Failed students↩︎
+↩︎
+Passed students↩︎
+Gakuseki bangou = 1, Marks = 87↩︎
+Gakuseki bangou = 2, Marks = 67↩︎
+Gakuseki bangou = 3, Marks = 90↩︎
+Gakuseki bangou = 4, Marks = 99↩︎
+Gakuseki bangou = 5, Marks = 100↩︎
+Gakuseki bangou = 6, Marks = 88↩︎
+Gakuseki bangou = 7, Marks = 90↩︎
 ```
