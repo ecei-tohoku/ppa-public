@@ -50,14 +50,9 @@ int pow (int x, int n) {
 
 ```
 void powArray (int x[]) {
-  static int count = 0;
-
   x[0] = x[0] * x[0];
   x[1] = x[1] * x[1];
   x[2] = x[2] * x[2];
-
-  count = count + 1;
-  printf("times powArray called = %d\n");
   
   return;
 }
@@ -142,7 +137,7 @@ int pow (int x, int n) {
 ```
 #include <stdio.h>
 
-void pow2Array (int x[]);
+void powArray (int x[]);
 
 int main () {
   int a[] = {1, 2, 3};
