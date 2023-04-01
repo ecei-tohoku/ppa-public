@@ -123,7 +123,7 @@ int pow (int x, int n) {
   ... // 「関数とは？」で既出なので省略
 }
 ```
-
+[このコードを実行する](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function1)
 
 #### 例1の出力
 
