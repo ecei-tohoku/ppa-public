@@ -120,10 +120,10 @@ int main () {
 }
 
 int pow (int x, int n) {
-  ... // 「関数とは？」で既出なので省略
+   // 「関数とは？」で既出なので省略
 }
 ```
-[このコードを実行する](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function1)
+[〈このコードを実行する〉](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function1)
 
 #### 例1の出力
 
@@ -155,6 +155,7 @@ void powArray (int x[]) {
   ... // 「関数とは？」で既出なので省略
 }
 ```
+[〈このコードを実行する〉](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function2)
 
 #### 例2の出力
 
