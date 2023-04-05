@@ -146,7 +146,7 @@ int main()
     xxx /= 2
   }
   else{
-    xxx *= 3 + 1
+    ###
   }
   return 0;
 }
@@ -165,7 +165,7 @@ int main()
       xxx /= 2
     }
     else{
-      xxx *= 3 + 1
+      ###
     }
   }
   return 0;
@@ -188,7 +188,7 @@ int main()
       xxx /= 2
     }
     else{
-      xxx *= 3 + 1
+      ###
     }
     printf("%d", xxx);
   }
