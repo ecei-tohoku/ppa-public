@@ -253,9 +253,8 @@ int main()
 - 繰り返し処理には`for`文や`while`文が用いられる．
 - また，「次の繰り返しに移動」「繰り返し自体をやめる」の命令のために`continue`文と`break`文が用意されている．
 - （余談）`for`，`while`，`continue`，`break`も，他の多くの言語で似ている構文が用意されている．
-- 林：9.3 `while`文，9.4 `for`文，9.5`do`-`while`文，9.7 `break`文，9.8 `continue`文
-- 倉：3-3 繰り返し処理1--`for`文，3-4 繰り返し処理2--`while`文
-- 高橋：Lesson 6 何度も繰り返す
+- [for, continue, breakのテストコード](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/for)
+- [while, continue, breakのテストコード](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/while)
 
 ---
 #### `for`文について
