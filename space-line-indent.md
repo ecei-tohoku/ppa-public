@@ -42,11 +42,61 @@ int main(){
 
 ## インデント
 
-- `for/while/if`の`{}`の内側は、TABで１段分字下げ　＝　インデント
-- どこからどこまでが同じ`for/while/if`文の内側か分かりやすくなる
-- 入れ子になった（ネストされた）`if/else if/else`文の対応が分かりやすくなる
-![image](https://user-images.githubusercontent.com/36028152/232274584-82c59ada-bb74-4aff-841e-3051ddaa814b.png)
+- `for/while/if`の`{}`の内側は，TABで１段分字下げ　＝　インデント．
+- どこからどこまでが同じ`for/while/if`文の内側か分かりやすくなる．
+- 入れ子になった（ネストされた）`if/else if/else`文の対応が分かりやすくなり，間違った括弧の対応を防ぎやすい．
 
+```
+int main(){
+while(...){
+if(...){
+if(...){
+...
+}
+else {
+}
+}
+else if(...){
+...
+}
+else {
+if(...){
+...
+}
+else if(...){
+...
+}
+}
+}
+return 0;
+}
+```
+
+```
+int main(){
+  while(...){
+    if(...){
+      if(...){
+        ...
+      }
+      else {
+      }
+    }
+    else if(...){
+      ...
+    }
+    else {
+      if(...){
+        ...
+      }
+      else if(...){
+      }
+    }
+  }
+  
+  return 0;
+}
+```
 
 ## 変数名
 
