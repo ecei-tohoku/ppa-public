@@ -98,7 +98,58 @@ int main(){
 }
 ```
 
-## 変数名
+## 変数名・コメント文
+
+- 意味のない変数名だと非常に分かりづらい／自分でも間違いやすい．
+- 変数名を用途に対応する名前にすると，コード全体も理解しやすくなる．
+- ただし，`i, j, k`は配列のインデックスとして，`m, n`は配列の長さとして用いることが通例的に許されている．
+- さらにコメント文を付けると補足にもなる（コメント文についての詳細は，[コメントの書き方](https://ecei-tohoku.github.io/ppa-public/comments.html)を参照）．
 
 
-## コメント文
+```
+int main(){
+  int a, b, c[100], d;
+  
+  while( 1 ){
+    scanf("%d", &b);
+    if( b == 0 ) break;
+    
+    for(...){
+      scanf("%d", &c[b]);
+    }
+    
+    for(...){
+      d = ...;
+    }
+  }
+  
+  printf("%d\n", d);
+  
+  return 0;
+}
+```
+
+```
+int main(){
+  int i, n; // i:ループ変数、n：入力配列の要素数
+  int array[100]; // 入力配列
+  int amax; // 入力配列の中の最大値
+  
+  while( 1 ){
+    scanf("%d", &n);
+    if( n == 0 ) break;
+    
+    for(...){
+      scanf("%d", &array[i]);
+    }
+    
+    for(...){
+      amax = ...;
+    }
+  }
+  
+  printf("%d\n", amax);
+  
+  return 0;
+}
+```
