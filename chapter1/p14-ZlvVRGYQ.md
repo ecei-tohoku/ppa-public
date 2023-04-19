@@ -159,17 +159,17 @@ Luhnアルゴリズムで正当性を検証し，正しければ`true`，間違�
     #include <stdio.h>
 
     int main(){
-    int i, N = 5;
-    char str[1000]; // 例として適当に大きい配列を確保しているが，本当は✕
+      int i, N = 5;
+      char str[1000]; // 例として適当に大きい配列を確保しているが，本当は✕
       
-    fgets(str, N, stdin); // (N-1)文字分かそれ以下を読み込む
+      fgets(str, N, stdin); // (N-1)文字分かそれ以下を読み込む
     
-    for(i=0; str[i]!='\0'; i++){
-      if( str[i] == '\n' ) printf("%d \\n\n", i+1);
-      else printf("%d %c\n", i+1, str[i]);
-    }
+      for(i=0; str[i]!='\0'; i++){
+        if( str[i] == '\n' ) printf("%d \\n\n", i+1);
+        else printf("%d %c\n", i+1, str[i]);
+      }
     
-    return 0;
+      return 0;
     }
     ```
 - 正常に動作しているか確認するために，仕様1~2のエラー処理を行うこと．入力が正常だった場合，入力数値を一桁ごとに空白文字一つで区切って出力させ，改行すること．末尾には空白を出力しないように注意！
