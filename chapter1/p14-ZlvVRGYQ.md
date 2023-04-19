@@ -113,7 +113,7 @@ Luhnアルゴリズムで正当性を検証し，正しければ`true`，間違�
 - 要素数20の文字配列を確保し、`"I am fine.\n"`という文字列を代入したとき、ヌル文字を含めた文字配列の中身は以下のようになっている：
 
 <div align="left">
-<img src="p14-string.png" width="00px">
+<img src="p14-string.png" width="1200px">
 </div>
     
 ---
