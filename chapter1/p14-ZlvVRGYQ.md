@@ -12,7 +12,7 @@ title: 1-4. Luhnアルゴリズム【基本】
 例えば，49927398716という番号が入力されたとき，
 
 <div align="left">
-<img src="p14-luhn.png" width="1200px">
+<img src="p14-luhn.png" width="600px">
 </div>
 
 これより$70$が求まり，1の位が0であるため，このカード番号は「正しい」と判定される．
