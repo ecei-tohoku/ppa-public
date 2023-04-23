@@ -5,7 +5,7 @@ title: 1-5. 正規表現【発展】
 
 文章の中で，ある語が登場する位置を検索したい．例えば，
 
-~~~ text
+~~~text
 My favorite color is blue.
 ~~~
 
