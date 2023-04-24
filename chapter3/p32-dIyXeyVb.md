@@ -4,6 +4,7 @@ title: 3-2. 動的メモリ確保、構造体【基本】
 ---
 
 この問題では，これまで使っていた配列である<font color="red">可変長配列（Variable-Length Array; VLA）</font>に代わり，以降の問題で用いる<font color="red">動的メモリ確保（Dynamic Memory Allocation; DMA）</font>された配列を取り扱う．
+
 また，複数の変数（ポインタ変数含む）を一つの変数としてまとめて取り扱うことができる，”構造体”
 というC言語の機能も取り扱う．
 
