@@ -41,22 +41,22 @@ $$ {\rm WMA}^{(M)}_t = \frac{M\times x_t + (M-1)\times x_{t-1} + ... + 2\times x
   x_{N}
   ```
 
-- $N$，$M_{s}$，$M_{l}$を格納する変数には`int`型，$x_{i}$を格納する変数には<font color=red>倍精度浮動小数点</font>型である`double`型を用いること．単精度浮動小数点型`float`を用いてはいけない．浮動小数点型の詳細については，[こちら](#floating_point)を参照のこと．
-- $M_{s}$は$1\le M_{s}\le 5$，$M_{s}$は$10\le M_{l}\le 20$，$N$は$M_{l}\le N\le 100$であると仮定してよい．
-- 出力は，$t$，$x_t$，${\rm SMA}^{(M_{s})}_{t}$，${\rm SMA}^{(M_{l})}_{t}$，${\rm WMA}^{(M_{s})}_{t}$，${\rm WMA}^{(M_{l})}_{t}$ ($t=1, M+1, ..., N$)を一行ずつ出力すること．日数$t$に対応する移動平均が存在しない場合は，`NA`と表示すること（NA: Not Applicable）：
+- $N$，$Ms$，$Ml$を格納する変数には`int`型，$x_{i}$を格納する変数には<font color=red>倍精度浮動小数点</font>型である`double`型を用いること．単精度浮動小数点型`float`を用いてはいけない．浮動小数点型の詳細については，[こちら](#floating_point)を参照のこと．
+- $M_{s}$は$1\le Ms\le 5$，$Ms$は$10\le Ml\le 20$，$N$は$Ml\le N\le 100$であると仮定してよい．
+- 出力は，$t$，$x_t$，${\rm SMA}^{(Ms)}_{t}$，${\rm SMA}^{(Ml)}_{t}$，${\rm WMA}^{(Ms)}_{t}$，${\rm WMA}^{(ML)}_{t}$ ($t=1, M+1, ..., N$)を一行ずつ出力すること．日数$t$に対応する移動平均が存在しない場合は，`NA`と表示すること（NA: Not Applicable）：
   
   ```
   1 x_{1} NA NA NA NA
   ...
-  M_{s} x_{M_{s}-1} NA NA NA NA
-  M_{s} x_{M_{s}} SMA^{(M_{s})}_{M_{s}} NA WMA^{(M_{s})}_{M_{s}} NA
-  M_{s}+1 x_{M_{s}+1} SMA^{(M_{s})}_{M_{s}+1} NA WMA^{(M_{s})}_{M_{s}+1} NA
+  Ms-1 x_{Ms-1} NA NA NA NA
+  Ms x_{Ms} SMA^{(Ms)}_{Ms} NA WMA^{(Ms)}_{Ms} NA
+  Ms+1 x_{Ms+1} SMA^{(Ms)}_{Ms+1} NA WMA^{(Ms)}_{Ms+1} NA
   ...
-  M_{l}-1 x_{M_{l}-1} SMA^{(M_{s})}_{M_{l}} NA WMA^{(M_{s})}_{M_{l}} NA
-  M_{l} x_{M_{l}} SMA^{(M_{s})}_{M_{l}} SMA^{(M_{l})}_{M_{l}} WMA^{(M_{s})}_{M_{l}} WMA^{(M_{l})}_{M_{l}}
-  M_{l}+1 x_{M_{l}+1} SMA^{(M_{s})}_{M_{l}+1} SMA^{(M_{l})}_{M_{l}+1} WMA^{(M_{s})}_{M_{l}+1} WMA^{(M_{l})}_{M_{l}+1}
+  Ml-1 x_{Ml-1} SMA^{(Ms)}_{Ml} NA WMA^{(Ms)}_{Ml} NA
+  Ml x_{Ml} SMA^{(Ms)}_{Ml} SMA^{(Ml)}_{Ml} WMA^{(Ms)}_{Ml} WMA^{(Ml)}_{Ml}
+  Ml+1 x_{Ml+1} SMA^{(Ms)}_{Ml+1} SMA^{(Ml)}_{Ml+1} WMA^{(Ms)}_{Ml+1} WMA^{(Ml)}_{Ml+1}
   ...
-  N x_{N}  SMA^{(M_{s})}_{N} SMA^{(M_{l})}_{N} WMA^{(M_{s})}_{N} WMA^{(M_{l})}_{N}
+  N x_{N}  SMA^{(Ms)}_{N} SMA^{(Ml)}_{N} WMA^{(Ms)}_{N} WMA^{(Ml)}_{N}
   ```
 
 - $t$ ($t=M, M+1, ..., N$)は整数で出力し，$x_t$と移動平均は小数点以下2位までを出力すること．
@@ -65,7 +65,7 @@ $$ {\rm WMA}^{(M)}_t = \frac{M\times x_t + (M-1)\times x_{t-1} + ... + 2\times x
 - 入力データおよび出力データは，可変長配列（Variable Length Array; VLA）を用いて，入力された`N`だけ要素を持つ配列を確保し，格納すること．（VLAの使用方法についてはp2-3の説明を参照．）
 - `#include` していいのは `<stdio.h>`のみとする．
 - 式(1)，(2)の計算式のとおり，$t$ごとに和を求めて計算すること．特に，前の$t$で求めた和を，${\rm SMA}^{(M)}_{t} = {\rm SMA}^{(M)}_{t-1}-??+??$のように使い回して計算してはいけない（理由は[参考情報](#precision)で述べる）．
-- 加重移動平均の分母に出てくる和は，毎回計算する必要はない．ただし，三角数の式を用いる場合は，演算の順序に注意すること．
+- 加重移動平均の分母に出てくる和は，毎回計算する必要はない．ただし三角数の式を用いる場合は，演算の順序に注意すること．
 
 ---
 ## 浮動小数点<a name="floating_point"></a>
