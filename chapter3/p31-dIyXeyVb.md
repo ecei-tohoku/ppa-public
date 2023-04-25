@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 3-1. ポインタ、アドレス【基本】
+title: 3-1. ポインタ、アドレス【初歩】
 ---
 
 この問題では，C言語を使う上で避けては通れない<font color="red">ポインタ</font>と<font color="red">アドレス</font>を取り扱う．p2-3と同様，本問題には3つのステップがあり，それぞれのステップがお互いに独立している．
@@ -264,6 +264,64 @@ void print_array(int *array, int n){
 
 [](「配列とポインタ」に対応。main関数でchar のVNAを実装。Scanfで配列長を入力、長い時はエラー処理。zeros_(char *str, int N), read_string(char *str, int N)を実装。NULLポインタ。)
 
+ここでは，文字配列の処理を行うためにポインタを引数に取る関数を作成し，それに配列の先頭アドレスを渡して処理を行うことで，使い方を習得してもらう．なお，改行コードの異なる環境にも対応する。。。
+
++ 標準入力から決められた長さの文字列を読み込む関数 `read_string_`を，以下のコードを参考にして実装すること：
+
+  ```
+  void read_string_(char *str, int N){
+    char tmpchar; // 文字列前の空白・改行を除外するために使う
+
+    // 文字列の前に空白か改行があれば全て除外する
+    do {
+      tmpchar = getc(stdin);
+      if( tmpchar == EOF ){ // 途中で読み込みが終了したらエラー終了
+        printf("read_string_(): Invalid string\n");
+        exit(1);
+      }
+    }while( tmpchar==' ' || tmpchar=='\n' );
+
+    ungetc(tmpchar, stdin); // 文字列を一文字stdinに戻す
+
+    // N+1文字を標準入力から読み込む
+    fgets(str, N+2, stdin); // p14のfgetsの使い方を参照
+    ungetc(str[N], stdin); // 次の入力に影響しないよう，余計な空白・改行を１文字戻す
+
+    // 文字列の長さがNよりも短い場合はエラー出力して強制終了
+    for(int i=0; i<N; i++){
+      if(str[i]=='\n' || str[i]==' ' || str[i]=='\0' || str[i]=='\r'){ // 文字列中に空白・改行・ヌル文字があれば長さが足りていない（※Windowsでは\r\nで改行を表す）
+        fprintf(stderr, "read_string_(): Invalid string\n");
+        exit(1);
+      }
+    }
+    
+    // 文字列の長さがNよりも長い場合はエラー出力して強制終了
+    if( !(str[N]=='\n' || str[N]==' ' || str[N]=='\0' || str[N]=='\r') ){ // 長さがNの場合、N+1文字目は空白 or 改行 or ヌル文字であるはず
+      fprintf(stderr, "read_string_(): Invalid string\n");
+      exit(1);
+    }
+
+    // fgetsで改行かスペースも読み込んでいる場合があるので，ヌル文字で上書き
+    str[N] = ???;
+  }
+  ```
+  
+  + 引数は文字列の長さ`N`と，あらかじめ確保された文字配列のポインタ`str`で，エラー処理用の1文字と，末尾のヌル文字分を足して`N+2`の長さの文字配列を確保されていると仮定してよい．
+  + `fgets`関数を用いて文字列の読み込みをすること．
+  + 文字列の長さが引数Nよりも短い／長い場合はエラー出力して強制終了すること．
++ 文字配列の要素N個をヌル文字で初期化する関数`zeros_`を，以下のコードを参考に実装すること：
+
+  ```
+  void zeros_(char* str,  int N){
+    for (int i = 0; i < ???; ++i){
+      ???;  // 配列のi番目の要素をヌル文字で初期化
+    }
+  }
+  ```
+  
++ `int delta(char *X, int a, char *Y, int b)`
+
++ 入力を逆順に並べ替え，出力
 
 ---
 ### 手順
