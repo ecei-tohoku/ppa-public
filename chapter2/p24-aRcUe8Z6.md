@@ -25,7 +25,7 @@ $$ {\rm WMA}^{(M)}_t = \frac{M\times x_t + (M-1)\times x_{t-1} + ... + 2\times x
 ## 問題
 ---
 
-標準入力からデータ数$N$，単純移動平均を計算する短期日数$M_{s}$と長期日数$M_{l}$，$N$個の観測値からなる時系列データ$x_1, x_2, ..., x_{N}$を読み込み，標準出力に日付$t$，観測値$x_t$, $M_s$日単純移動平均$SMA^{(M_s)}_{t}$，$M_l$日単純移動平均$SMA^{(M_l)}_t$，$Ms$日加重移動平均$WMA^{(M_s)}_t$，$M_l$日加重移動平均$WMA^{(M_l)}_t$を出力するプログラムを書け．
+標準入力からデータ数$N$，単純移動平均を計算する短期日数$M_{s}$と長期日数$M_{l}$，$N$個の観測値からなる時系列データ$x_1, x_2, ..., x_{N}$を読み込み，標準出力に日付$t$，観測値$x_t$, $M_s$日単純移動平均$SMA^{(M_s)}_{t}$，$M_l$日単純移動平均$SMA^{(M_l)}_t$，$M_s$日加重移動平均$WMA^{(M_s)}_t$，$M_l$日加重移動平均$WMA^{(M_l)}_t$を出力するプログラムを書け．
 
 ---
 ## 仕様
@@ -42,21 +42,21 @@ $$ {\rm WMA}^{(M)}_t = \frac{M\times x_t + (M-1)\times x_{t-1} + ... + 2\times x
   ```
 
 - $N$，$Ms$，$Ml$を格納する変数には`int`型，$x_{i}$を格納する変数には<font color=red>倍精度浮動小数点</font>型である`double`型を用いること．単精度浮動小数点型`float`を用いてはいけない．浮動小数点型の詳細については，[こちら](#floating_point)を参照のこと．
-- $Ms$は$1\le Ms\le 5$，$Ms$は$10\le Ml\le 20$，$N$は$Ml\le N\le 100$であると仮定してよい．
-- 出力は，$t$，$x_{t}$，$SMA^{(Ms)}_{t}$，$SMA^{(Ml)}_{t}$，$WMA^{(Ms)}_{t}$，$WMA^{(ML)}_{t}$ ($t=1, 2, ..., N$)を一行ずつ出力すること．日数$t$に対応する移動平均が存在しない場合は，`NA`と表示すること（NA: Not Applicable）：
+- $M_s$は$1\le M_s\le 5$，$M_l$は$10\le M_l\le 20$，$N$は$M_l\le N\le 100$であると仮定してよい．
+- 出力は，$t$，$x_{t}$，$SMA^{(M_s)}_{t}$，$SMA^{(M_l)}_{t}$，$WMA^{(M_s)}_{t}$，$WMA^{(M_l)}_{t}$ ($t=1, 2, ..., N$)を一行ずつ出力すること．日数$t$に対応する移動平均が存在しない場合は，`NA`と表示すること（NA: Not Applicable）：
   
   ```
   1 x_{1} NA NA NA NA
   ...
-  Ms-1 x_{Ms-1} NA NA NA NA
-  Ms x_{Ms} SMA^{(Ms)}_{Ms} NA WMA^{(Ms)}_{Ms} NA
-  Ms+1 x_{Ms+1} SMA^{(Ms)}_{Ms+1} NA WMA^{(Ms)}_{Ms+1} NA
+  Ms-1 x_{M_s-1} NA NA NA NA
+  Ms x_{M_s} SMA^{(M_s)}_{M_s} NA WMA^{(M_s)}_{M_s} NA
+  Ms+1 x_{M_s+1} SMA^{(M_s)}_{M_s+1} NA WMA^{(M_s)}_{M_s+1} NA
   ...
-  Ml-1 x_{Ml-1} SMA^{(Ms)}_{Ml} NA WMA^{(Ms)}_{Ml} NA
-  Ml x_{Ml} SMA^{(Ms)}_{Ml} SMA^{(Ml)}_{Ml} WMA^{(Ms)}_{Ml} WMA^{(Ml)}_{Ml}
-  Ml+1 x_{Ml+1} SMA^{(Ms)}_{Ml+1} SMA^{(Ml)}_{Ml+1} WMA^{(Ms)}_{Ml+1} WMA^{(Ml)}_{Ml+1}
+  M_l-1 x_{M_l-1} SMA^{(M_s)}_{M_l} NA WMA^{(M_s)}_{M_l} NA
+  M_l x_{M_l} SMA^{(M_s)}_{M_l} SMA^{(M_l)}_{M_l} WMA^{(M_s)}_{M_l} WMA^{(M_l)}_{M_l}
+  M_l+1 x_{M_l+1} SMA^{(M_s)}_{M_l+1} SMA^{(M_l)}_{M_l+1} WMA^{(M_s)}_{M_l+1} WMA^{(M_l)}_{M_l+1}
   ...
-  N x_{N}  SMA^{(Ms)}_{N} SMA^{(Ml)}_{N} WMA^{(Ms)}_{N} WMA^{(Ml)}_{N}
+  N x_{N}  SMA^{(M_s)}_{N} SMA^{(M_l)}_{N} WMA^{(M_s)}_{N} WMA^{(M_l)}_{N}
   ```
 
 - $t$ ($t=1, ..., N$)は整数で出力し，$x_t$と移動平均は小数点以下2位までを出力すること．
