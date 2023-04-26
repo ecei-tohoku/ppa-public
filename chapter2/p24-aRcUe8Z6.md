@@ -45,8 +45,8 @@ $$ {\rm WMA}^{(M)}_t = \frac{M\times x_t + (M-1)\times x_{t-1} + ... + 2\times x
 - $M_s$は$1\le M_s\le 5$，$M_l$は$10\le M_l\le 20$，$N$は$M_l\le N\le 100$であると仮定してよい．
 - 出力は，
 
-$$ t, x_{t}, {\rm SMA}^{(M_s)}_{t}, {\rm SMA}^{(M_l)}_{t}, {\rm WMA}^{(M_s)}_{t}, {\rm WMA}^{(M_l)}_{t} (t=1, 2, ..., N) $$
-を一行ずつ出力すること．日数$t$に対応する移動平均が存在しない場合は，`NA`と表示すること（NA: Not Applicable）：
+  $$ t, x_{t}, {\rm SMA}^{(M_s)}_{t}, {\rm SMA}^{(M_l)}_{t}, {\rm WMA}^{(M_s)}_{t}, {\rm WMA}^{(M_l)}_{t} (t=1, 2, ..., N) $$
+  を一行ずつ出力すること．日数$t$に対応する移動平均が存在しない場合は，`NA`と表示すること（NA: Not Applicable）：
   
   ```
   1 x_{1} NA NA NA NA
