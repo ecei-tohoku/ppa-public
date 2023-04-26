@@ -46,7 +46,6 @@ $$ {\rm WMA}^{(M)}_t = \frac{M\times x_t + (M-1)\times x_{t-1} + ... + 2\times x
 - 出力は，
 
 $$ t, x_{t}, {\rm SMA}^{(M_s)}_{t}, {\rm SMA}^{(M_l)}_{t}, {\rm WMA}^{(M_s)}_{t}, {\rm WMA}^{(M_l)}_{t} (t=1, 2, ..., N) $$
-
 を一行ずつ出力すること．日数$t$に対応する移動平均が存在しない場合は，`NA`と表示すること（NA: Not Applicable）：
   
   ```
@@ -62,7 +61,6 @@ $$ t, x_{t}, {\rm SMA}^{(M_s)}_{t}, {\rm SMA}^{(M_l)}_{t}, {\rm WMA}^{(M_s)}_{t}
   ...
   N x_{N}  SMA^{(M_s)}_{N} SMA^{(M_l)}_{N} WMA^{(M_s)}_{N} WMA^{(M_l)}_{N}
   ```
-
 - $t$ ($t=1, ..., N$)は整数で出力し，$x_t$と移動平均は小数点以下2位までを出力すること．
 - 各行の数値の間には空白文字を入れること．
 - 各行の末尾には改行文字`\n`を付けること．
@@ -211,22 +209,28 @@ $$ {\rm SMA}^{(M)}_{t} = {\rm SMA}^{(M)}_{t-1}-\frac{x_{t-M}}{M}+\frac{x_{t}}{M}
 
 - $N$，$M_s$，$M_l$を格納する変数には`int`型，$x_{i}$を格納する変数には<font color=red>倍精度浮動小数点</font>型である`double`型を用いること．単精度浮動小数点型`float`を用いてはいけない．浮動小数点型の詳細については，[こちら](#floating_point)を参照のこと．
 - $M_s$は$1\le M_s\le 5$，$M_l$は$10\le M_l\le 20$，$N$は$M_l\le N\le 100$であると仮定してよい．
-- 出力は，。。。。。。。：
-  
-  ```
-  1 x_{1} NA NA NA NA
-  ...
-  Ms-1 x_{M_s-1} NA NA NA NA
-  Ms x_{M_s} SMA^{(M_s)}_{M_s} NA WMA^{(M_s)}_{M_s} NA
-  Ms+1 x_{M_s+1} SMA^{(M_s)}_{M_s+1} NA WMA^{(M_s)}_{M_s+1} NA
-  ...
-  M_l-1 x_{M_l-1} SMA^{(M_s)}_{M_l} NA WMA^{(M_s)}_{M_l} NA
-  M_l x_{M_l} SMA^{(M_s)}_{M_l} SMA^{(M_l)}_{M_l} WMA^{(M_s)}_{M_l} WMA^{(M_l)}_{M_l}
-  M_l+1 x_{M_l+1} SMA^{(M_s)}_{M_l+1} SMA^{(M_l)}_{M_l+1} WMA^{(M_s)}_{M_l+1} WMA^{(M_l)}_{M_l+1}
-  ...
-  N x_{N}  SMA^{(M_s)}_{N} SMA^{(M_l)}_{N} WMA^{(M_s)}_{N} WMA^{(M_l)}_{N}
-  ```
+- ゴールデンクロスとデッドクロスを以下のフォーマットで出力すること．出力の優先順位は，第一に日付の早い順，第二にゴールデンクロス／デッドクロスの別，第三にSMA/WMAの別（SMAが優先）とする．
 
+  ```
+  Golden cross with SMA found:
+  SMA^{(M_s)}_(t-1)=???.?? < SMA^{(M_l)}_(t-1)=???.??
+  SMA^{(M_s)}_(t)=???.?? > SMA^{(M_l)}_(t)=???.??
+  ```
+  ```
+  Dead cross with SMA found:
+  SMA^{(M_s)}_(t-1)=???.?? > SMA^{(M_l)}_(t-1)=???.??
+  SMA^{(M_s)}_(t)=???.?? < SMA^{(M_l)}_(t)=???.??
+  ```
+  ```
+  Golden cross with WMA found:
+  WMA^{(M_s)}_(t-1)=???.?? < WMA^{(M_l)}_(t-1)=???.??
+  WMA^{(M_s)}_(t)=???.?? > WMA^{(M_l)}_(t)=???.??
+  ```
+  ```
+  Dead cross with WMA found:
+  WMA^{(M_s)}_(t-1)=???.?? > WMA^{(M_l)}_(t-1)=???.??
+  WMA^{(M_s)}_(t)=???.?? < WMA^{(M_l)}_(t)=???.??
+  ```
 - `int`型変数は整数で出力し，`double`型変数は小数点以下2位までを出力すること．
 - 各行の数値の間には空白文字を入れること．
 - 各行の末尾には改行文字`\n`を付けること．
@@ -271,7 +275,36 @@ $$ {\rm SMA}^{(M)}_{t} = {\rm SMA}^{(M)}_{t-1}-\frac{x_{t-M}}{M}+\frac{x_{t}}{M}
 - 出力例1
   
 ```
-
+Golden cross with WMA found:
+WMA^{(2)}_(10)=-0.33 < WMA^{(10)}_(10)=-0.09
+WMA^{(2)}_(11)=0.33 > WMA^{(10)}_(11)=0.09
+Dead cross with WMA found:
+WMA^{(2)}_(11)=0.33 > WMA^{(10)}_(11)=0.09
+WMA^{(2)}_(12)=-0.33 < WMA^{(10)}_(12)=-0.09
+Golden cross with WMA found:
+WMA^{(2)}_(12)=-0.33 < WMA^{(10)}_(12)=-0.09
+WMA^{(2)}_(13)=0.33 > WMA^{(10)}_(13)=0.09
+Dead cross with WMA found:
+WMA^{(2)}_(13)=0.33 > WMA^{(10)}_(13)=0.09
+WMA^{(2)}_(14)=-0.33 < WMA^{(10)}_(14)=-0.09
+Golden cross with WMA found:
+WMA^{(2)}_(14)=-0.33 < WMA^{(10)}_(14)=-0.09
+WMA^{(2)}_(15)=0.33 > WMA^{(10)}_(15)=0.09
+Dead cross with WMA found:
+WMA^{(2)}_(15)=0.33 > WMA^{(10)}_(15)=0.09
+WMA^{(2)}_(16)=-0.33 < WMA^{(10)}_(16)=-0.09
+Golden cross with WMA found:
+WMA^{(2)}_(16)=-0.33 < WMA^{(10)}_(16)=-0.09
+WMA^{(2)}_(17)=0.33 > WMA^{(10)}_(17)=0.09
+Dead cross with WMA found:
+WMA^{(2)}_(17)=0.33 > WMA^{(10)}_(17)=0.09
+WMA^{(2)}_(18)=-0.33 < WMA^{(10)}_(18)=-0.09
+Golden cross with WMA found:
+WMA^{(2)}_(18)=-0.33 < WMA^{(10)}_(18)=-0.09
+WMA^{(2)}_(19)=0.33 > WMA^{(10)}_(19)=0.09
+Dead cross with WMA found:
+WMA^{(2)}_(19)=0.33 > WMA^{(10)}_(19)=0.09
+WMA^{(2)}_(20)=-0.33 < WMA^{(10)}_(20)=-0.09
 ```
 - 入力例2
 
@@ -301,7 +334,12 @@ $$ {\rm SMA}^{(M)}_{t} = {\rm SMA}^{(M)}_{t-1}-\frac{x_{t-M}}{M}+\frac{x_{t}}{M}
 - 出力例2
   
 ```
-
+Dead cross with WMA found:
+WMA^{(4)}_(10)=138.81 > WMA^{(10)}_(10)=138.09
+WMA^{(4)}_(11)=136.54 < WMA^{(10)}_(11)=137.91
+Dead cross with SMA found:
+SMA^{(4)}_(11)=138.18 > SMA^{(10)}_(11)=136.98
+SMA^{(4)}_(12)=134.16 < SMA^{(10)}_(12)=136.57
 ```
 
 
