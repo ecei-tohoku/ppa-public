@@ -319,8 +319,8 @@ void print_array(int *array, int n){
     }
   }
   ```
-1. `int delta(char *X, int a, char *Y, int b)`
-1. 入力を逆順に並べ替え，出力
+1. 文字列`X`の`a`番目と文字列`Y`の`b`番目を比較し，同じであれば1，異なれば0を返す関数`int delta(char *X, int a, char *Y, int b)`を実装すること．
+1. 入力された文字列を逆順に並べ替え，出力する関数`void reverse(char *str, int N)`を実装すること．
 
 ---
 ### 手順
