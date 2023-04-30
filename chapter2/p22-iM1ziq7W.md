@@ -31,6 +31,8 @@ title: 2-2. ユークリッドの互除法【基本】
   <figcaption align = "center"><b>図２ - main関数と再帰的呼び出し</b></figcaption>
 </p>
 
+実際の再帰呼び出し関数の書き方については，階乗（$n! = n*(n-1)*\cdots*2.1$）を再帰呼び出しで計算するコード[〈こちら〉](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/recursion)を参照のこと．
+
 
 ---
 ## 問題
