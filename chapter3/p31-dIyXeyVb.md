@@ -144,40 +144,41 @@ C言語では，アドレスを関数に渡して関数内で変数の値を変�
 
 
 ### 入力例
+
   ```
-  1 2
+1 2
   ```
 
 ### 実行例
 
   ```
-  sizeof(char)=1, sizeof(int)=4, sizeof(double)=8
+sizeof(char)=1, sizeof(int)=4, sizeof(double)=8
 
-  Addresses: &a=157466968, &b=157466972
+Addresses: &a=157466968, &b=157466972
 
-  Initial values:
-  p1=0, p2=0
-  a=1, b=2
+Initial values:
+p1=0, p2=0
+a=1, b=2
 
-  Substitution of addresses into pointers:
-  p1=157466968, p2=157466972
-  *p1=1, *p2=2
-  a=1, b=2
+Substitution of addresses into pointers:
+p1=157466968, p2=157466972
+*p1=1, *p2=2
+a=1, b=2
 
-  Manipulation through pointers:
-  p1=157466968, p2=157466972
-  *p1=10, *p2=20
-  a=10, b=20
+Manipulation through pointers:
+p1=157466968, p2=157466972
+*p1=10, *p2=20
+a=10, b=20
 
-  Copy of a pointer value to another pointer:
-  p1=157466972, p2=157466972
-  *p1=30, *p2=30
-  a=10, b=30
+Copy of a pointer value to another pointer:
+p1=157466972, p2=157466972
+*p1=30, *p2=30
+a=10, b=30
 
-  Pointer-to-pointer:
-  *pp=157466968
-  *pp=157466972
-  a=40, b=50
+Pointer-to-pointer:
+*pp=157466968
+*pp=157466972
+a=40, b=50
   ```
 
 
