@@ -138,6 +138,7 @@ C言語では，アドレスを関数に渡して関数内で変数の値を変�
 
 初期コードの`???`となっている箇所をコメント文に沿うように書き換えて，ポインタの使い方を確認せよ．以下の点に注意すること．
 
+- 初期コードは直接エディタで確認すること．
 - コンパイル時に`printf`文の書式に関する警告文が出てくるが，無視してよい．
 - 初期コードの`???`となっている箇所のみを書き換え，他は一切書き換えないこと．特に`printf`文の中身は書き換えない．
 - アドレスの値は環境によって異なるため，この問題において自動採点システムでは，ポインタ変数に格納されたアドレスが変数`a`，`b`どちらのアドレスかを照合している．そのため，実行例と自分の実行結果でアドレスが異なっていても気にしないこと．
@@ -232,43 +233,29 @@ void test(int *b){
 ### 仕様
 ---
 
-以下のコードを実行し，値渡し（"pass by value"）とアドレス渡し（"pass by address"）の違いを確認せよ．
+初期コードの`???`となっている箇所をコメント文に沿うように書き換えて，値渡し（"pass by value"）とアドレス渡し（"pass by address"）の違いを確認せよ．以下の点に注意すること．
 
-[](Pass_by_valueとpass_by_addressの応用問題。単一変数と配列。スケルトンファイルを完成させる。)
+- 初期コードは直接エディタで確認すること．
+- 初期コードの`???`となっている箇所のみを書き換え，他は一切書き換えないこと．特に`printf`文の中身は書き換えない．
 
 
-### 初期コード
+### 入力例
 
   ```
-#include <stdio.h>
-
-void pass_by_value(int x){
-  printf("In pass_by_value: %d\n", x);
-  x = 10;
-}
-void pass_by_address(int *ptr_x){
-  printf("In pass_by_address: %d\n", *ptr_x);
-  *ptr_x = 10;
-}
-
-int main(){
-  int a = 0;
-
-  pass_by_value(a);
-  printf("After pass_by_value: %d\n", a);
-
-  pass_by_address(&a);
-  printf("After pass_by_address: %d\n", a);
-
-  return 0;
-}
+1 2
   ```
-  
-  
+
 ### 実行例
 
+  ```
+In pass_by_value: before substitution: 1
+In pass_by_value: after substitution: 2
+After pass_by_value: 1
 
-
+In pass_by_address: before substitution: 1
+In pass_by_address: after substitution: 2
+After pass_by_address: 2
+  ```
 
 ******************
 
