@@ -6,7 +6,7 @@ title: 3-4. 常微分方程式【発展】
 一般的な常微分方程式。。。
 
 $$
-\frac{dy}{dx} = f(x, y)
+\frac{d\mathbf{y}}{dx} = f(x, \mathbf{y})
 $$
 
 よりニュートンの運動方程式。。。
