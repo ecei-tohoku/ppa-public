@@ -64,9 +64,11 @@ $$
 
 オイラー法，２次のルンゲ・クッタ法，４次のルンゲ・クッタ法を用いてニュートンの運動方程式の解を求めるプログラムを作成せよ．
 
-ニュートンの運動方程式としては，粘性抵抗および慣性抵抗を含んだ二次元の運動方程式
+ニュートンの運動方程式としては，粘性抵抗および慣性抵抗を考慮に入れた物体の二次元運動
 $$
-\frac{d\mathbf{v}}{dt} = -g\hat{y}-\alpha\mathbf{v}-\beta v\mathbf{v}
+\frac{d\mathbf{v}}{dt} = -g\hat{y}-\alpha\mathbf{v}-\beta v\mathbf{v} \\
+\frac{d\mathbf{r}}{dt} = \mathbf{v} \\
+\mathbf{r} = \left[\begin{array}{c}x \\ y \\\end{array}\right], \mathbf{v} = \left[\begin{array}{c}v_{x} \\ v_{y} \\\end{array}\right]
 $$
 を考える．
 
