@@ -154,6 +154,47 @@ int* array_allocation_by_DMA(int n){
 
 - 構造体の中には`int`型に限らず，ほかの型の変数も入れることができる（構造体変数も含む）．様々な用途があるが，ここでは詳細には立ち入らない．
 
+- 以下のコードを実行し，構造体の使用例を確認せよ．
+
+  ```
+  #include <stdio.h>
+
+  struct Ex_struct initialize_ex_struct(int i, int j);
+  
+  struct Ex_struct{
+    int x;
+    int y;
+  };
+  
+  int main(){
+    struct Ex_struct a;
+    
+    a.x = 1;
+    a.y = 2;
+    int tmp = a.x+a.y;
+    printf("%d %d %d\n", tmp, a.x, a.y);
+    
+    struct Ex_struct b, c;
+    int m = 10;
+    int n = 20;
+    
+    b = initialize_ex_struct(m, n);
+    c = b;
+    printf("%d %d\n", c.x, c.y);
+    
+    return 0;
+  }
+  
+  struct Ex_struct initialize_ex_struct(int i, int j){
+    struct Ex_struct st;
+    
+    st.x = i;
+    st.y = j;
+    
+    return st;
+  }
+  ```
+
 ---
 ## 問題
 ---
