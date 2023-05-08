@@ -33,32 +33,12 @@ title: 5-3. 二分探索法【基本】
   struct Count count_less_unsorted(int array[], int N, int x);
   ```
 
-  返り値のstruct Countは"構造体"と呼ばれるC言語の機能で，変数を複数まとめて一つの変数として扱える．定義の仕方や使い方については、問題3-2内の説明文["構造体"](/ppa-public/chapter3/p32-dIyXeyVb.html#structure)を読むこと．
+  返り値のstruct Countは"構造体"と呼ばれるC言語の機能で，変数を複数まとめて一つの変数として扱える．使い方については、問題3-2内の説明文["構造体"](/ppa-public/chapter3/p32-dIyXeyVb.html#structure)を読むこと．
 
   1. 配列をソートした後，下記に説明する["二分探索法"](#binary_search)を用いて`array[i] < x && x < array[i+1]`となる`i`を探すことで，全ての要素と`x`を比較することなく，`x`よりも小さい要素を計算することができる．関数名および引数は以下のとおりにすること：
 
   ```
   struct Count count_less_sorted(int array[], int N, int x);
-  ```
-  
-- この問題で必要な構造体`struct Count`は以下のように定義すること：
-
-  ```
-  #include <stdio.h>
-
-  struct Count {
-    int comparison_count; // 比較回数のカウントをする変数
-    int element_count; // 範囲内の要素数を保持する変数
-  };
-
-  ...
-  // 使用例
-  struct Count c1, c2;
-
-  c1.comparison_count = 0;
-  c1.element_count = 0;
-  c2 = c1;
-  ...
   ```
 
 - 配列要素と`x`の比較演算としては`<`あるいは`>`のみを用いること．`if`文の条件式として書く場合は，一度に一回の比較のみ行うこと（例えば`if( array[0]<x && x<array[1] )`は，比較演算の回数は場合によって1回にも2回にもなるため，そのことに熟知していないかぎり推奨しない）．
@@ -79,6 +59,26 @@ title: 5-3. 二分探索法【基本】
   #include "ppa_extra_h/mrg_sort.h"
   ...
   i = mrg_sort_(array, N, 0, N-1);
+  ```
+
+- この問題で必要な構造体`struct Count`は以下のように定義すること：
+
+  ```
+  #include <stdio.h>
+
+  struct Count {
+    int comparison_count; // 比較回数のカウントをする変数
+    int element_count; // 範囲内の要素数を保持する変数
+  };
+
+  ...
+  // 使用例
+  struct Count c1, c2;
+
+  c1.comparison_count = 0;
+  c1.element_count = 0;
+  c2 = c1;
+  ...
   ```
 
 ---
