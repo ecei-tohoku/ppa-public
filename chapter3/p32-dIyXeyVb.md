@@ -194,6 +194,7 @@ int* array_allocation_by_DMA(int n){
     return st;
   }
   ```
+[〈このコードを実行する〉](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/struct)
 
 ---
 ## 問題
