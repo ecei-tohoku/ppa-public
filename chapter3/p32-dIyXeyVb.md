@@ -158,13 +158,13 @@ int* array_allocation_by_DMA(int n){
 
   ```
   #include <stdio.h>
-
-  struct Ex_struct initialize_ex_struct(int i, int j);
   
   struct Ex_struct{
     int x;
     int y;
   };
+  
+  struct Ex_struct initialize_ex_struct(int i, int j);
   
   int main(){
     struct Ex_struct a;
