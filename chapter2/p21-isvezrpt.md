@@ -187,27 +187,32 @@ times powArray called = 2
 ---
 ## 実行例
 ---
-`#`は標準入力，`>`は標準出力を表す．
+- 入力
 
 ```
-# 16 74 93 26 48 65 47 38 46 59 20 93 72 39 58 3 9
->   74,   93,   26,   48,   65,   47,   38,   46,   59,   20,   93,   72,   39,   58,    3,    9, 
-> comp = 1, minValue = 74, minIndex = 0
-> comp = 2, minValue = 26, minIndex = 2
-> comp = 3, minValue = 26, minIndex = 2
-> comp = 4, minValue = 26, minIndex = 2
-> comp = 5, minValue = 26, minIndex = 2
-> comp = 6, minValue = 26, minIndex = 2
-> comp = 7, minValue = 26, minIndex = 2
-> comp = 8, minValue = 26, minIndex = 2
-> comp = 9, minValue = 20, minIndex = 9
-> comp = 10, minValue = 20, minIndex = 9
-> comp = 11, minValue = 20, minIndex = 9
-> comp = 12, minValue = 20, minIndex = 9
-> comp = 13, minValue = 20, minIndex = 9
-> comp = 14, minValue = 3, minIndex = 14
-> comp = 15, minValue = 3, minIndex = 14
->    3,   93,   26,   48,   65,   47,   38,   46,   59,   20,   93,   72,   39,   58,   74,    9, 
+16 74 93 26 48 65 47 38 46 59 20 93 72 39 58 3 9
+```
+
+- 出力
+
+```
+  74,   93,   26,   48,   65,   47,   38,   46,   59,   20,   93,   72,   39,   58,    3,    9, 
+comp = 1, minValue = 74, minIndex = 0
+comp = 2, minValue = 26, minIndex = 2
+comp = 3, minValue = 26, minIndex = 2
+comp = 4, minValue = 26, minIndex = 2
+comp = 5, minValue = 26, minIndex = 2
+comp = 6, minValue = 26, minIndex = 2
+comp = 7, minValue = 26, minIndex = 2
+comp = 8, minValue = 26, minIndex = 2
+comp = 9, minValue = 20, minIndex = 9
+comp = 10, minValue = 20, minIndex = 9
+comp = 11, minValue = 20, minIndex = 9
+comp = 12, minValue = 20, minIndex = 9
+comp = 13, minValue = 20, minIndex = 9
+comp = 14, minValue = 3, minIndex = 14
+comp = 15, minValue = 3, minIndex = 14
+   3,   93,   26,   48,   65,   47,   38,   46,   59,   20,   93,   72,   39,   58,   74,    9, 
 ```
 
 ---
