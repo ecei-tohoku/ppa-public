@@ -18,15 +18,18 @@ $$
 
 から一歩立ち戻り，有限和で近似するのが数値積分法である．ただし，図１のようにリーマン和は長方形の面積で関数の定積分を近似するため，精度が悪い．ここでは，同じ$N$でもっと精度高く数値積分ができる方法をいくつか実装してもらう．
 
+<br>
 <figure><img src="p33-rectangle.png" width="600px">
  <br> <figurecaption>図1: リーマン和に基づく数値積分</figurecaption>
 </figure>
+<br>
 
 ---
 #### 1. 台形則
 ---
   積分区間$[a, b]$を$N$個の区間$[x_{0}, x_{1}], [x_{1}, x_{2}], \cdots [x_{N-1}, x_{N}]\quad (x_{0} = a, x_{N}=b)$に等分すると，各区分における定積分は，図2に示すように台形の面積として近似できる．
   
+  <br>
   <figure><img src="p33-trapezoid.png" width="600px">
   <br><figurecaption>図2: 台形則に基づく数値積分</figurecaption>
   </figure>
