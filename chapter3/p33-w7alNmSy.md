@@ -33,7 +33,7 @@ $$
   <figure><img src="p33-trapezoid.png" width="600px">
   <br><figurecaption>図2: 台形則に基づく数値積分</figurecaption>
   </figure>
-  
+  <br>
   
 式で表すと以下のようになる：
 
