@@ -134,8 +134,8 @@ R=IR==
   int delta(char *X, int a, char *Y, int b);
   int ld_dp(char *X, int m, char *Y, int n, int **dpt);
   void show_matrix(char *X, int m, char *Y, int n, int **dpt);
-
-  // ???
+  
+  ...(省略)...
 
   int main() {
     // ???
@@ -147,9 +147,6 @@ R=IR==
     char* data_x = malloc_string_(len_x);  // ???
     char* data_y = malloc_string_(len_y);  // ???
     int **dpt = malloc_2d_(???,???);   // ???
-    char *ops = malloc_string_(???);     // ??? 
-    char *seq_x = malloc_string_(???);   // ??? 
-    char *seq_y = malloc_string_(???);   // ???
     
     // ???
     read_string_(data_x, len_x);  // ???
@@ -164,14 +161,7 @@ R=IR==
     ...(省略)...
   
     // ???
-    get_ops(data_x, len_x, data_y, len_y, dpt, seq_x, seq_y, ops);
-    printf("%s\n%s\n%s\n",seq_x, seq_y, ops);
-  
-    // ???
     free_2d_(dpt, ???);
-    free(ops);
-    free(seq_x);
-    free(seq_y);
     free(data_x);
     free(data_y);
 
@@ -192,6 +182,8 @@ R=IR==
   int ld_dp(char *X, int m, char *Y, int n, int **dpt){
     ...(省略)...
   }
+  
+  ...(省略)...
   ```
 
 
@@ -203,7 +195,7 @@ R=IR==
   + 例：
 
   ```
-  void get_path(char *X, int m, char *Y, int n, int **dpt);
+  void show_path(char *X, int m, char *Y, int n, int **dpt);
   ```
   + 関数`show_matrix`の後に実行すること．
   + 編集距離の道は、最小編集距離を決定した動的計画法用の二次元配列テーブル`dpt`の要素の逆順．
@@ -232,16 +224,17 @@ R=IR==
 ## ステップ 2/2
 ---
 
-+ `get_path` を利用するステップ 1 のコードをコメントアウトせよ．
++ `show_path` を利用するステップ 1 のコードをコメントアウトせよ．
 + 文字列$X$，文字列$X$の長さ$m$，文字列$Y$，文字列$Y$の長さ$n$，動的計画法用の二次元配列テーブル`dpt`,編集操作列を記憶する文字列`ops`,編集操作列に対応する$X$と$Y$の文字列を記憶する`seq_x`,`seq_y`の8つを引数にとり，編集操作を得るvoid型の関数`get_ops`を作成すること
   + 例：
 
   ```
   void get_ops(char *X, int m, char *Y, int n, int **dpt, char *seq_x, char *seq_y, char *ops);
   ```
+  + 関数`show_matrix`の後に実行すること．
   + バックトレースは一重ループで実装すること（二重以上のループで実装するのは非効率）．
   + `ld_dp`により得られた動的計画法用の二次元配列テーブル`dpt`から算出すること．
-  + `seq_x`,`seq_y`,`ops`は課題4-1と同じく,`malloc_string_`を用いてメモリを確保すること.
+  + `seq_x`,`seq_y`,`ops`は課題4-1と同じく,関数`main`で`malloc_string_`を用いてメモリを確保すること.
   + `seq_x`,`seq_y`,`ops`の大きさは文字列の長さに合わせて，文字列Xを全部deleteした後に文字列Yを全部insertする場合が最長だとして，必要十分な大きさを確保すること.
   + `seq_x`,`seq_y`,`ops`のメモリ領域は処理が完了した後に解放すること.
   + 編集操作を求めるときは，コピー／置換を優先する．
@@ -321,7 +314,7 @@ R=IR==
   (8,7) > (7,6) > (6,6) > (5,5) > (4,4) > (3,3) > (2,2) > (1,1) > (0,0)
   ```
   
-  + 出力 (STEP 2)
++ 出力 (STEP 2)
   ```
         a  b  a  b  a  b  c
      0  1  2  3  4  5  6  7
@@ -364,7 +357,7 @@ R=IR==
   (10,8) > (9,8) > (8,7) > (7,6) > (6,5) > (5,4) > (4,4) > (3,3) > (2,2) > (1,1) > (0,0)
   ```
   
-  + 出力 (STEP 2)
++ 出力 (STEP 2)
   ```
         j  u  d  g  m  e  n  t
      0  1  2  3  4  5  6  7  8
