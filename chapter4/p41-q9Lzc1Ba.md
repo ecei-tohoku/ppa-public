@@ -201,9 +201,11 @@ int main() {
   read_string_(data_x, len_x);              // ???
   read_string_(data_y, len_y);              // ???
 
-  for(???){
+  for(???){                                 //編集距離を計算 
     delta(???)
   }
+  
+    ...(省略)...  
 
   free(data_x);  // ???
   free(data_y);  // ???
@@ -226,7 +228,7 @@ int delta( ??? ) {
 
 
 ---
-## ステップ1/2　「`ld`関数の再帰部分を実装する」
+## ステップ2/3　「二つの文字の長さが同じ場合に対して，`ld`関数の再帰部分を実装し，編集距離を計算する」「一般の場合に対して，`ld`関数を完成させ，編集距離を計算する」
 ---
 ここでは，`ld`関数の再帰部分を実装する．
 
@@ -249,6 +251,53 @@ int delta( ??? ) {
 #### 1-4. 標準出力の部分を実装する
 
 #### 1-5. 自動採点システムで動作確認
+
++ 以下のプログラムを必ず用いてプログラムを完成させること．
+  + `???` の部分は適宜補完すること
+  + 適宜コメント文を入れること
+  
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "ppa_extra_h/p3_header.h"
+
+int delta(char *X, int a, char *Y, int b);  // ???
+
+int main() {
+  int len_x, len_y ;                        // ???
+  scanf(“%d”, &len_x);                      // ???
+  scanf(“%d”, &len_y);                      // ???
+  char* data_x = malloc_string_(len_x);     // ???
+  char* data_y = malloc_string_(len_y);     // ???
+  read_string_(data_x, len_x);              // ???
+  read_string_(data_y, len_y);              // ???
+  
+  ...(省略)...
+
+  free(data_x);  // ???
+  free(data_y);  // ???
+  return 0;      // ???
+}
+
+
+int delta( ??? ) {
+
+  ...(省略)...
+
+}
+
+
+int ld( ??? ) {
+
+  ...(省略)...
+
+}
+```
+
++ 文字列$X$の要素$x_i$は，C言語では`x[i-1]`として表現されることに注意せよ（配列のインデックスが$0$から始まるため）．
+
+
 
 ---
 ## ステップ1/2の実行例
