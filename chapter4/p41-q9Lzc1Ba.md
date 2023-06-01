@@ -210,7 +210,7 @@ int main() {
   read_string_(data_y, len_y);              // ???
 
   for(???){                                 //編集距離を計算 
-    delta(???)
+    ...(省略)...
   }
   
     ...(省略)...  
