@@ -162,7 +162,7 @@ $c_{i,j}$の漸化式のうち，最小値を求める部分は次の編集操�
   + `malloc_string_`
   + `read_string_`
 + 文字列の読み込みには`malloc_string_`関数と`read_string_`関数を用いよ(ステップ1/3のプログラム例も参考にせよ)． 
-  + 例えば以下のように書くと，長さ$len_x$の文字列を読み込むことができる．`malloc_string_`関数で配列$data_x$を動的に確保し，`read_string_`関数によって長さ$len_x$の入力を配列$data_x$に読み込む．
+  + 例えば以下のように書くと，長さ`len_x`の文字列を読み込むことができる．`malloc_string_`関数で配列`data_x`を動的に確保し，`read_string_`関数によって長さ`len_x`の入力を配列$data_x$に読み込んでいる．
   ```
   char* data_x = malloc_string_(len_x);
   read_string_(data_x, len_x);  
