@@ -556,7 +556,6 @@ abababc⊔7↩︎
 
 
 + 2つの値のうち大きい／小さい値を取得する関数`vmax_`／`vmin_`は"三項演算子"を用いて次のように定義されている．
-
 ```
 int vmax_(int a, int b){
   return a>b ? a:b;
@@ -571,7 +570,6 @@ int vmin_(int a, int b){
 
 
 + 3つの値のうち最も大きい／小さい値を取得する関数`vmax3_`／`vmin3_`は次のように定義されている．
-  
 ``` 
 int vmax3_(int a, int b, int c){
   return vmax_(vmax_(a, b), c);
@@ -583,7 +581,6 @@ int vmin3_(int a, int b, int c){
 ```
 
 + 文字配列専用でメモリ確保する関数`malloc_string_`は次のように定義されている．
-
 ```
 char* malloc_string_(int N){
   char* str  = (char *)malloc(sizeof(char)*(N+2));  // 配列に動的メモリを割り当てる
@@ -600,7 +597,6 @@ char* malloc_string_(int N){
 ```
 
 + 標準入力から決められた長さの文字列を読み込む関数 `read_string_`は次のように定義されている．
-
 ```
 void read_string_(char *str, int N){
   int tmpchar;
@@ -642,7 +638,6 @@ void read_string_(char *str, int N){
 ```
   
 + 文字配列の要素N個をヌル文字で初期化する関数`zeros_`は次のように定義されている．
-
 ```
 void zeros_(char* str,  int N){
   for (int i = 0; i < N; ++i){
