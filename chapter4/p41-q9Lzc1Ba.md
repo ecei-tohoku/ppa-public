@@ -154,13 +154,15 @@ $c_{i,j}$の漸化式のうち，最小値を求める部分は次の編集操�
     + 実行例をこのページの最後（「ステップ3/3の実行例」）に示したので，参考にせよ．
 
 
-+ `#include "ppa_extra_h/p3_header.h"`という宣言を通して，以下の関数を必要に応じて用いること． 文字列の読み込みには`malloc_string_`関数と`read_string_`関数を用いること(ステップ1/3のプログラム例を参考にせよ)．
++ `#include "ppa_extra_h/p3_header.h"`という宣言を通して，以下の関数を必要に応じて用いること．
   + `vmax_`
   + `vmax3_`
   + `vmin_`
   + `vmin3_`
   + `malloc_string_`
   + `read_string_`
++ 特に，文字列の読み込みには`malloc_string_`関数と`read_string_`関数を用いること(ステップ1/3のプログラム例を参考にせよ)． 
+
 
 
 
