@@ -490,8 +490,119 @@ abababc⊔7↩︎
 ---
 
 ---
-### 参考情報
+### "ppa_extra_h/p3_header.h"`で定義されている関数の詳細
 ---
+
+---
+### 整数引数の大小を判定する関数群とその仕様
+---
+
++ 2つの値のうち大きい／小さい値を取得する関数`vmax_`／`vmin_`を，"三項演算子"を用いて実装すること：
+
+  ```
+  int vmax_(int a, int b){
+    return a>b ? a:b;
+  }
+
+  int vmin_(int a, int b){
+    ???;
+  }
+  ```
+
+  `vmax_(2, 3)` なら戻り値は`3`，`vmin_(1, 3)` なら戻り値は`1`．三項演算子については，[こちら](#ternary_operator)を参照のこと．
++ 3つの値のうち最も大きい／小さい値を取得する関数`vmax3_`／`vmin3_`を，`vmax_`／`vmin_`のみを用いて実装すること：
+  
+  ``` 
+  int vmax3_(int a, int b, int c){
+    return vmax_(vmax_(a, b), c);
+  }
+  
+  int vmin3_(int a, int b, int c){
+    ???;
+  }
+  ```
+    
+  `vmax3_(3, 2 ,1)` なら戻り値は`3`，`vmin3_(2, 1, 3)` なら戻り値は`1`．
+
+---
+### 文字配列処理の関数群とその仕様
+---
++ 文字配列専用でメモリ確保する関数`malloc_string_`を以下のコードを参考にして実装すること：
+
+  ```
+  char* malloc_string_(int N){
+    char* str  = (???)malloc(???);  // 配列に動的メモリを割り当てる（正規の文字数N、エラー処理用の1文字、ヌル文字用の1文字）
+  
+    if (str == NULL) {       // メモリ確保に失敗した際のエラー処理
+      fprintf(stderr, "malloc_string_(): Cannot allocate memory.\n");
+      exit(1);  // メモリ確保に失敗したら、プログラムを強制終了
+    }
+    
+    zeros_(str, ???);   // 配列strを関数zeros_で初期化
+    return ???;
+  }
+  ```
+
+  + 引数は文字列の長さNで，エラー処理用の1文字と，末尾のヌル文字分を足してN+2の長さの文字配列を確保すること．
+  + 関数`zeros_`によって確保した文字配列の全ての要素を初期化すること（関数`zeros_`の仕様は後述のとおり）．
+  + 戻り値は，配列の先頭を指すポインタとすること．
+  ※動的に確保したメモリ領域は，処理が完了した後に`free`関数で解放すること．
++ 標準入力から決められた長さの文字列を読み込む関数 `read_string_`を，以下のコードを参考にして実装すること：
+
+```
+void read_string_(char *str, int N){
+  int tmpchar;
+
+
+  // 文字列の前に空白か改行があれば全て除外する
+  do {
+    tmpchar = getc(stdin);
+    if( tmpchar == EOF ){
+      printf("read_string_(): Invalid string\n");
+      exit(1);
+    }
+  }while( tmpchar==' ' || tmpchar=='\n' );
+
+  ungetc(tmpchar, stdin);
+
+  // N+1文字を標準入力から読み込む
+  fgets(str, N+2, stdin);
+  ungetc(str[N], stdin);
+  
+  // 文字列の長さがNよりも短い場合はエラー出力して強制終了
+  for(int i=0; i<N; i++){
+    if(str[i]=='\n' || str[i]==' ' || str[i]=='\0' || str[i]=='\r'){
+      fprintf(stderr, "read_string_(): Invalid string\n");
+      exit(1);
+    }
+  }
+  
+  // 文字列の長さがNよりも長い場合はエラー出力して強制終了
+  if( !(str[N]=='\n' || str[N]==' ' || str[N]=='\0' || str[N]=='\r') ){
+    fprintf(stderr, "read_string_(): Invalid string\n");
+    exit(1);
+  }
+    
+  // fgetsで改行かスペースも読み込んでいる場合があるので，ヌル文字で上書き
+  str[N] = '\0';
+}
+
+```
+  
+  + 引数は文字列の長さ`N`と，あらかじめ動的メモリ確保された文字配列のポインタ`str`で，エラー処理用の1文字と，末尾のヌル文字分を足して`N+2`の長さの文字配列を確保されていると仮定してよい．
+  + `fgets`関数を用いて文字列の読み込みをすること．
+  + 文字列の長さが引数Nよりも短い／長い場合はエラー出力して強制終了すること．
++ 文字配列の要素N個をヌル文字で初期化する関数`zeros_`を，以下のコードを参考に実装すること：
+
+  ```
+  void zeros_(char* str,  int N){
+    for (int i = 0; i < ???; ++i){
+      ???;  // 配列のi番目の要素をヌル文字で初期化
+    }
+  }
+  ```
+
+
 
 ---
 ## 参考文献
