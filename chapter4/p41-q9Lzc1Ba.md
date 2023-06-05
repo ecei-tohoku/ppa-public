@@ -213,6 +213,8 @@ int main() {
   read_string_(data_x, len_x);              // ???
   read_string_(data_y, len_y);              // ???
 
+    ...(省略)...  
+
   for(???){                                 //編集距離を計算 
     ...(省略)...
   }
