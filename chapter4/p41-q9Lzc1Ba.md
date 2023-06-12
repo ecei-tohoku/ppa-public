@@ -644,7 +644,7 @@ void read_string_(char *str, int N){
 }
 
 ```
-  
+
 + 文字配列の要素N個をヌル文字で初期化する関数`zeros_`は次のように定義されている．
 
 ```
@@ -654,6 +654,40 @@ void zeros_(char* str,  int N){
   }
 }
 ```
+
++ 文字配列専用で二次元配列のメモリ確保する関数`malloc_2d_`は次のように定義されている．
+
+```
+int** malloc_2d_(
+     const int len_x,
+     const int len_y
+){
+  int** array_2d = (int **)malloc(sizeof(int *) * len_x);
+  if(array_2d == NULL){
+    fprintf(stderr, "malloc_2d_(): Cannot allocate memory.\n");
+    exit(1);
+  }
+  for(int i = 0; i < len_x; ++i){
+    array_2d[i] = (int*)malloc(sizeof(int) * len_y);
+    if(array_2d[i] == NULL){
+      fprintf(stderr, "malloc_2d_(): Cannot allocate memory.\n");
+      exit(1);
+    }
+  }
+  return array_2d;
+}
+```
+
++ 二次元配列を解放する関数`free_2d_`は次のように定義されている．
+
+```
+void free_2d_(int **array_2d, int len_x){
+  for(int i = 0; i < len_x; ++i) free(array_2d[i]);
+  free(array_2d);
+}
+```
+
+
 
 
 ### 三項演算子<a name="ternary_operator"></a>
