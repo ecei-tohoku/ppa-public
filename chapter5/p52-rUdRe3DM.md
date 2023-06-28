@@ -71,16 +71,22 @@ title: 5-2. マージソート【基本】
     ```
   - 配列内のある範囲の要素を表示する手続きとして`print_array_range`関数を用いること．
     ```
-    void print_array_range(int array[], int N, int p, int r) {
-     int ri = 0;
-     for (; ri < N; ++ri) {
+    void print_array_range(int array[], int N, int p,　int r) {
+      int ri = 0;
+      for (; ri < N - 1; ++ri) {
         if (ri < p || r < ri) {
-          printf(" **");
-        } else {
-          printf(" %2d", array[ri]);
-       }
+          printf("  **, ");
+        }
+        else {
+          printf("%4d, ", array[ri]);
+        }
       }
-      printf("\n");
+      if (r < N - 1) {
+        printf("  **\n");
+      }
+      else {
+        printf("%4d\n", array[N-1]);
+      }
     }
     ```
   - 問題5-1で作成した`print_array`関数は用いない．
@@ -112,7 +118,7 @@ title: 5-2. マージソート【基本】
     - マージした範囲の要素番号$i,j(i<j)$を用いて MERG$(i,j)$ と表示し，空白後に交換後の配列の全要素を表示する．
     - 例：要素番号 2,4の範囲をマージした場合
     ```
-    MERG(⊔2,⊔4)⊔**⊔**⊔⊔8⊔⊔4⊔11⊔**⊔**⊔**⊔**⊔**⊔**↩︎
+    MERG(⊔2,⊔4)⊔:⊔⊔⊔**,⊔⊔**,⊔⊔⊔8,⊔⊔⊔4,⊔⊔11,⊔⊔**,⊔⊔**,⊔⊔**,⊔⊔**,⊔⊔**,⊔⊔**↩︎
     ```
   - 全体的な出力例は以下の3-2の実行例を参照せよ．
 
@@ -177,7 +183,7 @@ int merge(int array[], int N, int from, int to, int mid) {
       int i;
       for(i=???; i<???; ???) scanf("%d", &(array[???]));
 
-      printf("INIT:::::::"); print_array_range(array, ???, ???, ???);
+      printf("INIT. ARRAY : "); print_array_range(array, ???, ???, ???);
 
       mrg_sort(array,???, ???,???);
       return 0;
@@ -221,7 +227,7 @@ int merge(int array[], int N, int from, int to, int mid) {
 - `print_array_range`関数を用いて入力配列も表示すること.
   - 例:入力データが 2 1 2の場合
     ``` 
-    INIT:::::::⊔⊔1⊔⊔2↩︎
+    INIT.⊔ARRAY⊔:⊔⊔⊔⊔1,⊔⊔⊔⊔2↩︎
     ```
     
 - 出力を目視で確認せよ.
@@ -232,7 +238,7 @@ int merge(int array[], int N, int from, int to, int mid) {
     ```
   - 出力例
     ```
-    INIT:::::::  1  2
+    INIT. ARRAY :    1,    2
     SORT( 0, 1)
     SORT( 0, 0)
     SORT( 1, 1)
@@ -244,7 +250,7 @@ int merge(int array[], int N, int from, int to, int mid) {
     ```
   - 出力例
     ```
-    INIT:::::::  1  2  3
+    INIT. ARRAY :    1,    2,    3
     SORT( 0, 2)
     SORT( 0, 1)
     SORT( 0, 0)
@@ -258,7 +264,7 @@ int merge(int array[], int N, int from, int to, int mid) {
     ```
   - 出力例    
     ```
-    INIT:::::::  1  2  3  4  5  6  7  8
+    INIT. ARRAY :    1,    2,    3,    4,    5,    6,    7,    8
     SORT( 0, 7)
     SORT( 0, 3)
     SORT( 0, 1)
@@ -316,10 +322,10 @@ int merge(int array[], int N, int from, int to, int mid) {
       int i;
       for(i=???; i<???; ???) scanf("%d", &(array[???]));
 
-      printf("INIT:::::::"); 
+      printf("INIT. ARRAY : "); 
       print_array_range(array, ???,???,???); 
       
-      merge(array,???, ???, ???, ???);
+      merge(array, ???, ???, ???, ???);
       return 0;
   }
   ```
@@ -358,7 +364,7 @@ int merge(int array[], int N, int from, int to, int mid) {
   - マージした範囲の要素番号$i,j(i<j)$を用いて MERG$(i,j)$ と表示し，空白後に交換後の配列の全要素を表示する．
   - 例：要素番号 2,4の範囲をマージした場合
     ```
-    MERG(⊔2,⊔4)⊔**⊔**⊔⊔8⊔⊔4⊔11⊔**⊔**⊔**⊔**⊔**⊔**↩︎
+    MERG(⊔2,⊔4)⊔:⊔⊔⊔**,⊔⊔⊔**,⊔⊔⊔⊔8,⊔⊔⊔⊔4,⊔⊔⊔11,⊔⊔⊔**,⊔⊔⊔**,⊔⊔⊔**,⊔⊔⊔**,⊔⊔⊔**,⊔⊔⊔**↩︎
     ```
 
 - 入力データは，配列の要素数，一つ目の配列の始まりの位置`from`,二つ目の配列の始まりの位置`mid`, 二つ目の配列の終わりの位置`to`, 配列の要素の順番で与えられるとする．
@@ -373,8 +379,8 @@ int merge(int array[], int N, int from, int to, int mid) {
     ```
   - 出力例
     ```
-    INIT:::::::  0  5  7  6  8  0
-    MERG( 1, 4) **  5  6  7  8 **
+    INIT. ARRAY :    0,    5,    7,    6,    8,    0
+    MERG( 1, 4) :   **,    5,    6,    7,    8,   **
     ```
 
   - 入力データ
@@ -383,8 +389,8 @@ int merge(int array[], int N, int from, int to, int mid) {
     ```
   - 出力例
     ```
-    INIT:::::::  5  3  7
-    MERG( 0, 2)  3  5  7
+    INIT. ARRAY :    5,    3,    7
+    MERG( 0, 2) :    3,    5,    7
     ```
 
   - 入力データ
@@ -393,8 +399,8 @@ int merge(int array[], int N, int from, int to, int mid) {
     ```
   - 出力例
     ```
-    INIT:::::::  0  0  7  6
-    MERG( 2, 3) ** **  6  7
+    INIT. ARRAY :    0,    0,    7,    6
+    MERG( 2, 3) :   **,   **,    6,    7
     ```
 
 #### 2-4. 自動採点システムで動作確認
@@ -435,9 +441,9 @@ int merge(int array[], int N, int from, int to, int mid) {
   ```
   - 出力例
   ```
-  INIT:::::::  2  1  3
-  MERG( 0, 1)  1  2 **
-  MERG( 0, 2)  1  2  3
+  INIT. ARRAY :    2,    1,    3
+  MERG( 0, 1) :    1,    2,   **
+  MERG( 0, 2) :    1,    2,    3
   comp = 3
   ```
 
@@ -447,13 +453,13 @@ int merge(int array[], int N, int from, int to, int mid) {
   ```
   - 出力例
   ```
-  INIT:::::::  2  1  3  7  4  6  5
-  MERG( 0, 1)  1  2 ** ** ** ** **
-  MERG( 2, 3) ** **  3  7 ** ** **
-  MERG( 0, 3)  1  2  3  7 ** ** **
-  MERG( 4, 5) ** ** ** **  4  6 **
-  MERG( 4, 6) ** ** ** **  4  5  6
-  MERG( 0, 6)  1  2  3  4  5  6  7
+  INIT. ARRAY :    2,    1,    3,    7,    4,    6,    5
+  MERG( 0, 1) :    1,    2,   **,   **,   **,   **,   **
+  MERG( 2, 3) :   **,   **,    3,    7,   **,   **,   **
+  MERG( 0, 3) :    1,    2,    3,    7,   **,   **,   **
+  MERG( 4, 5) :   **,   **,   **,   **,    4,    6,   **
+  MERG( 4, 6) :   **,   **,   **,   **,    4,    5,    6
+  MERG( 0, 6) :    1,    2,    3,    4,    5,    6,    7
   comp = 13
   ```
 
@@ -463,19 +469,19 @@ int merge(int array[], int N, int from, int to, int mid) {
   ```
   - 出力例
   ```
-  INIT::::::: 10  2  8  4  7  9 11  5  3 13  1 12  6
-  MERG( 0, 1)  2 10 ** ** ** ** ** ** ** ** ** ** **
-  MERG( 2, 3) ** **  4  8 ** ** ** ** ** ** ** ** **
-  MERG( 0, 3)  2  4  8 10 ** ** ** ** ** ** ** ** **
-  MERG( 4, 5) ** ** ** **  7  9 ** ** ** ** ** ** **
-  MERG( 4, 6) ** ** ** **  7  9 11 ** ** ** ** ** **
-  MERG( 0, 6)  2  4  7  8  9 10 11 ** ** ** ** ** **
-  MERG( 7, 8) ** ** ** ** ** ** **  3  5 ** ** ** **
-  MERG( 7, 9) ** ** ** ** ** ** **  3  5 13 ** ** **
-  MERG(10,11) ** ** ** ** ** ** ** ** ** **  1 12 **
-  MERG(10,12) ** ** ** ** ** ** ** ** ** **  1  6 12
-  MERG( 7,12) ** ** ** ** ** ** **  1  3  5  6 12 13
-  MERG( 0,12)  1  2  3  4  5  6  7  8  9 10 11 12 13
+  INIT. ARRAY :   10,    2,    8,    4,    7,    9,   11,    5,    3,   13,    1,   12,    6
+  MERG( 0, 1) :    2,   10,   **,   **,   **,   **,   **,   **,   **,   **,   **,   **,   **
+  MERG( 2, 3) :   **,   **,    4,    8,   **,   **,   **,   **,   **,   **,   **,   **,   **
+  MERG( 0, 3) :    2,    4,    8,   10,   **,   **,   **,   **,   **,   **,   **,   **,   **
+  MERG( 4, 5) :   **,   **,   **,   **,    7,    9,   **,   **,   **,   **,   **,   **,   **
+  MERG( 4, 6) :   **,   **,   **,   **,    7,    9,   11,   **,   **,   **,   **,   **,   **
+  MERG( 0, 6) :    2,    4,    7,    8,    9,   10,   11,   **,   **,   **,   **,   **,   **
+  MERG( 7, 8) :   **,   **,   **,   **,   **,   **,   **,    3,    5,   **,   **,   **,   **
+  MERG( 7, 9) :   **,   **,   **,   **,   **,   **,   **,    3,    5,   13,   **,   **,   **
+  MERG(10,11) :   **,   **,   **,   **,   **,   **,   **,   **,   **,   **,    1,   12,   **
+  MERG(10,12) :   **,   **,   **,   **,   **,   **,   **,   **,   **,   **,    1,    6,   12
+  MERG( 7,12) :   **,   **,   **,   **,   **,   **,   **,    1,    3,    5,    6,   12,   13
+  MERG( 0,12) :    1,    2,    3,    4,    5,    6,    7,    8,    9,   10,   11,   12,   13
   comp = 36
   ```
 
