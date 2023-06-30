@@ -54,19 +54,17 @@ title: 5-2. マージソート【基本】
 - 配列操作に利用可能な関数
   - 配列内の要素を配列内の別の場所にコピーする手続きとして`copy`関数を用いること．これは，挿入対象の値を退避したり挿入する場合も含まれる．
     ```
-    int* copy(int array[],int pos_a, int pos_b) 
-    {
-    array[pos_b] = array[pos_a];
-    return array;
+    int* copy(int array[],int pos_a, int pos_b) {
+      array[pos_b] = array[pos_a];
+      return array;
     }
     ```
   - 問題5-1で作成した2つの要素を入れ替える`swap`関数の使用は不可
   - 配列内の二つの要素を比較する手続きとして`comp`関数を用いること．
     ```
-    int comp(int array[], int pos_a, int pos_b) 
-    {
-    if (array[pos_a] < array[pos_b]) return 1;  
-    return 0;                                   
+    int comp(int array[], int pos_a, int pos_b) {
+      if (array[pos_a] < array[pos_b]) return 1;  
+      return 0;                                   
     }
     ```
   - 配列内のある範囲の要素を表示する手続きとして`print_array_range`関数を用いること．
@@ -98,7 +96,7 @@ title: 5-2. マージソート【基本】
   - 入力データ用に確保した配列，入力データの個数，対象となる範囲として始まりの要素番号，終わりの要素番号の4つを引数とすること．
     - 例：
     ```
-    int mrg_sort(int array[], int N, int from, int to) ...
+    int mrg_sort(int array[], int N, int from, int to) 
     ```
   - 要素間の比較`comp`の呼び出し回数を`mrg_sort` 関数の戻り値とすること．
   - 配列を分割する際に，奇数で割り切れない場合は，必ず配列の先頭側を一つ多くすること．
@@ -110,7 +108,7 @@ title: 5-2. マージソート【基本】
   - 入力データ用に確保した配列，入力データの個数，mergeの対象となる範囲として始まりの要素番号，終わりの要素番号，中間の要素番号の5つを引数とすること．
     - 例：
     ```
-    int merge(int array[], int N, int from, int to, int mid) ...
+    int merge(int array[], int N, int from, int to, int mid) 
     ```
 
 - 表示
@@ -177,7 +175,7 @@ int merge(int array[], int N, int from, int to, int mid) {
 
   ```
     int main(){
-      int n;             // 配列の要素数
+      int n;              // 配列の要素数
       scanf("%d", &n);    // nを標準入力
       int array[n];       // 可変長配列による配列の確保
       int i;
@@ -196,7 +194,7 @@ int merge(int array[], int N, int from, int to, int mid) {
 - 入力データ用に確保した配列，入力データの個数，対象となる範囲として始まりの要素番号，終わりの要素番号の4つを引数とすること．
   - 例：
   ```
-  void mrg_sort(int array[], int N, int from, int to) ...
+  void mrg_sort(int array[], int N, int from, int to) 
   ```
 
 - 例えば,長さ$ n $の配列において,範囲0~3の`mrg_sort`関数を呼び出すということは,範囲0~1の`mrg_sort`関数と範囲2~3の`mrg_sort`関数をそれぞれ呼び出すということである.
@@ -310,9 +308,9 @@ int merge(int array[], int N, int from, int to, int mid) {
 
   ```
     int main(){
-      int n;             // 配列の要素数
+      int n;                // 配列の要素数
       int from,to,mid; 
-      scanf("%d", &n);    // nを標準入力
+      scanf("%d", &n);      // nを標準入力
       int array[???];       // 可変長配列による配列の確保
       
       scanf("%d", &from);
@@ -347,7 +345,7 @@ int merge(int array[], int N, int from, int to, int mid) {
 
 - `merge`関数は入力データ用に確保した配列，入力データの個数，`merge`の対象となる範囲として`from`, `to`, `mid`の5つを引数とする.
   ```
-  void merge(int array[], int N, int from, int to, int mid) ...
+  void merge(int array[], int N, int from, int to, int mid) 
   ```
 
   - 仕様に記載されているように,配列内の二つの要素を比較するためには`comp`関数を,配列内の要素を配列内の別の場所にコピーするためには`copy`関数を用いれば良い.
