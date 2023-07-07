@@ -69,7 +69,7 @@ title: 5-2. マージソート【基本】
     ```
   - 配列内のある範囲の要素を表示する手続きとして`print_array_range`関数を用いること．
     ```
-    void print_array_range(int array[], int N, int p,　int r) {
+    void print_array_range(int array[], int N, int p, int r) {
       int ri = 0;
       for (; ri < N - 1; ++ri) {
         if (ri < p || r < ri) {
