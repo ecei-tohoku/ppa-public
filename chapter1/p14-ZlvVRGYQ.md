@@ -6,6 +6,7 @@ title: 1-4. Luhnアルゴリズム【基本】
 ## 学習内容
 ---
 1. 配列処理，文字列処理
+1. 配列については[p1-3](https://ecei-tohoku.github.io/ppa-public/chapter1/p13-zyEYOTIA.html)を参照のこと．
 1. [文字](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/char)，[文字列](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/string)
 1. [文字列の標準入力（fgets関数）](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/fgets)
 
