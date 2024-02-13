@@ -9,6 +9,9 @@ title: 1-1. 和差算【初歩】
 1. C言語プログラミングの復習（[四則演算](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/arithmetic)，[`if`文](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/if)，[標準入力／標準出力](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/inputoutput1)）
 1. エラー処理
 1. 仕様を十分に確認し実装すること
+
+---
+## 問題
 ---
 
 以下の問題を解こう．
@@ -19,8 +22,6 @@ title: 1-1. 和差算【初歩】
 こうした問題は[和差算](https://ja.wikipedia.org/wiki/%E5%92%8C%E5%B7%AE%E7%AE%97)と呼ばれている．小学校で習った人も居るだろう．
 ここでは和差算を解くプログラムを作成しよう．
 
----
-## 問題
 ---
 
 標準入力から2個の整数$a, b (a < b)$を読み込み，標準出力に$(a + b)/2$および$(b - a)/2$の計算結果を書き出すプログラムを作成せよ．
