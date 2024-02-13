@@ -6,9 +6,9 @@ title: 1-1. 和差算【初歩】
 ---
 学習内容
 ---
-1. 
-1. 
-1. 
+1. C言語プログラミングの復習（[四則演算](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/arithmetic)，[`if`文](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/if)，[標準入力／標準出力](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/inputoutput1)）
+1. エラー処理
+1. 仕様を十分に確認し実装すること
 ---
 
 以下の問題を解こう．
