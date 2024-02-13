@@ -3,9 +3,10 @@ layout: page
 title: 1-5. 正規表現【発展】
 ---
 
-## 学習内容
+## 学習内容と関連問題
 ---
-1. p1-1~p1-5で使った機能全て，特に`for`文，`if`文の複雑な組み合わせ．
+1. `for`文，`if`文を複雑に組み合わせた処理．
+1. 文字列処理については[p1-4](https://ecei-tohoku.github.io/ppa-public/chapter1/p14-ZlvVRGYQ.html)を参照のこと．
 
 ---
 ## 導入文

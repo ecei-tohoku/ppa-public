@@ -3,9 +3,11 @@ layout: page
 title: 2-2. ユークリッドの互除法【基本】
 ---
 
-## 学習内容
+## 学習内容と関連問題
 ---
-1. p1-1~p1-5で使った機能全て，特に`for`文，`if`文の複雑な組み合わせ．
+1. [関数](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function1)，[関数（配列引数）](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function2)
+1. [関数の再帰呼び出し](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/recursion)
+1. 第４章「編集距離」のうち「編集距離（再帰手続き版）」（p4-1）と「編集距離（再帰＋メモ化）」（p4-2），第５章「ソート」のうち「マージソート」（p5-2）で再帰呼び出しを使う予定．
 
 ---
 ## 導入文

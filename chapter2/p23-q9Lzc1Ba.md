@@ -3,9 +3,11 @@ layout: page
 title: 2-3. デバッグ問題【基本】
 ---
 
-## 学習内容
+## 学習内容と関連問題
 ---
-1. p1-1~p1-5で使った機能全て，特に`for`文，`if`文の複雑な組み合わせ．
+1. C言語プログラムにおけるエラー
+1. [デバッグの手法](https://ecei-tohoku.github.io/ppa-public/tips.html)
+1. [可変長配列と動的メモリ確保](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/VLAvsDMA)　※動的メモリ確保はp3-1, p3-2で詳しく触れる予定．
 
 ---
 ## 導入文

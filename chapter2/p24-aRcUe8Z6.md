@@ -3,9 +3,11 @@ layout: page
 title: 2-4. 移動平均【基本】
 ---
 
-## 学習内容
+## 学習内容と関連問題
 ---
-1. p1-1~p1-5で使った機能全て，特に`for`文，`if`文の複雑な組み合わせ．
+1. 数値解析手法
+1. 浮動小数点の扱い方については，[p1-3](https://ecei-tohoku.github.io/ppa-public/chapter1/p13-zyEYOTIA.html)を参照のこと．
+1. 可変長配列の使用方法は，[p2-3](https://ecei-tohoku.github.io/ppa-public/chapter2/p23-q9Lzc1Ba.html)を参照のこと．
 
 ---
 ## 導入文

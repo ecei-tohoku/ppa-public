@@ -3,9 +3,11 @@ layout: page
 title: 2-1. 最小値検索【初歩】
 ---
 
-## 学習内容
+## 学習内容と関連問題
 ---
-1. p1-1~p1-5で使った機能全て，特に`for`文，`if`文の複雑な組み合わせ．
+1. [関数](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function1)，[関数（配列引数）](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function2)
+1. 配列処理については，(p1-4)[https://ecei-tohoku.github.io/ppa-public/chapter1/p14-ZlvVRGYQ.html]を参照のこと．
+1. 第５章「ソート」のうち，「選択ソート」（p5-1）で最小値探索を使う予定．
 
 ---
 ## 導入文
