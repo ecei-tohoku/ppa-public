@@ -5,9 +5,7 @@ title: 1-5. 正規表現【発展】
 
 ## 学習内容
 ---
-1. 配列処理
-1. [浮動小数点](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/float)
-1. [浮動小数点の標準入力／標準出力](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/inputoutput1)
+1. p1-1~p1-5で使った機能全て，特に`for`文，`if`文の複雑な組み合わせ．
 
 ---
 ## 導入文

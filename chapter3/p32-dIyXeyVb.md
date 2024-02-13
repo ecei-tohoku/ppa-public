@@ -3,6 +3,13 @@ layout: page
 title: 3-2. 動的メモリ確保、構造体【基本】
 ---
 
+## 学習内容
+---
+1. p1-1~p1-5で使った機能全て，特に`for`文，`if`文の複雑な組み合わせ．
+
+---
+## 導入文
+---
 この問題では，これまで使っていた配列である<font color="red">可変長配列（Variable-Length Array; VLA）</font>に代わり，以降の問題で用いる<font color="red">動的メモリ確保（Dynamic Memory Allocation; DMA）</font>された配列を取り扱う．
 
 また，複数の変数（ポインタ変数含む）を一つの変数としてまとめて取り扱うことができる，”構造体”
