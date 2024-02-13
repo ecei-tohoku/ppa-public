@@ -3,6 +3,15 @@ layout: page
 title: 1-5. 正規表現【発展】
 ---
 
+## 学習内容
+---
+1. 配列処理
+1. [浮動小数点](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/float)
+1. [浮動小数点の標準入力／標準出力](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/inputoutput1)
+
+---
+## 導入文
+---
 文章の中で，ある語が登場する位置を検索したい．例えば，
 
 {% highlight text %}

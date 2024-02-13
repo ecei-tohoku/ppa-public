@@ -2,18 +2,15 @@
 layout: page
 title: 1-1. 和差算【初歩】
 ---
-
+## 学習内容
 ---
-学習内容
----
-1. C言語プログラミングの復習（[四則演算](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/arithmetic)，[`if`文](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/if)，[標準入力／標準出力](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/inputoutput1)）
+1. C言語プログラミングの復習（[四則演算](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/arithmetic)，[`if`文](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/if)，[比較演算と論理演算](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/comparison)，[標準入力／標準出力](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/inputoutput1)）
 1. エラー処理
 1. 仕様を十分に確認し実装すること
 
 ---
-## 問題
+## 導入文
 ---
-
 以下の問題を解こう．
 
 > あるクラスの男子学生は女子学生よりも2人多く，クラスには全部で40人の学生がいる．このクラスの男子学生の人数，女子学生の人数をそれぞれ求めよ．
@@ -23,7 +20,8 @@ title: 1-1. 和差算【初歩】
 ここでは和差算を解くプログラムを作成しよう．
 
 ---
-
+## 問題
+---
 標準入力から2個の整数$a, b (a < b)$を読み込み，標準出力に$(a + b)/2$および$(b - a)/2$の計算結果を書き出すプログラムを作成せよ．
 
 ただし，入力される2つの整数$a, b$は半角スペースで区切られているものとする．

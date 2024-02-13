@@ -2,7 +2,15 @@
 layout: page
 title: 1-4. Luhnアルゴリズム【基本】
 ---
+## 学習内容
+---
+1. 配列処理
+1. [文字](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/char)，[文字列](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/string)
+1. [文字列の標準入力（fgets関数）](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/fgets)
 
+---
+## 導入文
+---
 クレジットカード番号に誤りがないか確認するため，[Luhnアルゴリズム](https://ja.wikipedia.org/wiki/Luhn%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0)が用いられている．このアルゴリズムは，入力された番号が「正しい」か「間違っている」かを，以下の手順で求める．
 
 1. 右端から数えて偶数番目の数字をすべて2倍する

@@ -2,7 +2,15 @@
 layout: page
 title: 1-3. トリム平均【基本】
 ---
+## 学習内容
+---
+1. 配列処理
+1. [浮動小数点](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/float)
+1. [浮動小数点の標準入力／標準出力](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/inputoutput1)
 
+---
+## 導入文
+---
 スキー・ジャンプの飛型点の採点など，スポーツ競技の採点を複数の審判で行う際は，極端な採点による影響を抑えるため，審判員全員の採点を単純に平均するのではなく，最大値と最小値を外れ値として除外した平均がしばしば用いられる．トリム平均（trim mean），刈り込み平均（truncated mean），調整平均などと呼ばれる．
 ここではこのトリム平均を求めるプログラムを作成しよう．
 
