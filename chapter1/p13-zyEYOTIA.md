@@ -155,7 +155,7 @@ for (i = 0; i < ??; ++i) {
     ```
 - この操作後の配列の中身は以下のようになる：
 <div align="left">
-<img src="p13-array.png" width="1200px">
+<img src="p13-array.png" width="900px">
 </div>
   
 
