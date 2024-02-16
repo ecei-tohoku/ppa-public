@@ -6,7 +6,7 @@ title: 2-2. 最小値検索【基本】
 ## 学習内容と関連問題
 ---
 1. [関数](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function1)，[関数（配列引数）](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function2)
-1. 配列処理については，(p1-4)[https://ecei-tohoku.github.io/ppa-public/chapter1/p14-ZlvVRGYQ.html]を参照のこと．
+1. 配列処理については，[p1-4](https://ecei-tohoku.github.io/ppa-public/chapter1/p14-ZlvVRGYQ.html)を参照のこと．
 1. 第５章「ソート」のうち，「選択ソート」（p5-1）で最小値探索を使う予定．
 
 ---

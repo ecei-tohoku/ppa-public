@@ -6,7 +6,7 @@ title: 2-5. 三目並べ【発展】
 ## 学習内容と関連問題
 ---
 1. 関数を用いて，`if`文や`for`文が多重になりすぎないよう，”スマート”なコードを作成する．
-1. 関数については，[p2-1](https://ecei-tohoku.github.io/ppa-public/chapter2/p21-isvezrpt.html)を参照のこと．
+1. 関数については，[p2-2](https://ecei-tohoku.github.io/ppa-public/chapter2/p22-isvezrpt.html)を参照のこと．
 
 ---
 ## 導入文
