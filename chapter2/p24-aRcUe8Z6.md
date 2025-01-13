@@ -38,6 +38,36 @@ for文で配列インデックスi=t-1と, 移動平均計算に必要な配列�
 
 
 ---
+### 仕様
+---
+
+
+---
+### 実行例
+---
+
+- 入力例
+
+```
+20 2 10
+```
+- 出力例
+  
+```
+day:1, index:0, short:NA, long:NA
+day:2, index:1, short:1 0, long:NA
+day:3, index:2, short:2 1, long:NA
+～中略～
+day:9, index:8, short:8 7, long:NA
+day:10, index:9, short:9 8, long:9 8 7 6 5 4 3 2 1 0
+day:11, index:10, short:10 9, long:10 9 8 7 6 5 4 3 2 1
+day:12, index:11, short:11 10, long:11 10 9 8 7 6 5 4 3 2
+～中略～
+day:20, index:19, short:19 18, long:19 18 17 16 15 14 13 12 11 10
+```
+
+
+---
 ## 問題ａ (ステップ2/3)
 ---
 
