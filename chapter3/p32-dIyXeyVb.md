@@ -148,7 +148,7 @@ int* array_allocation_by_DMA(int n){
   };
   ...
   //
-  struct 構造体名 a;
+  struct 構造体名 a, b;
   ...
   // 構造体中の変数は、通常の変数のように代入・演算ができる
   a.変数1 = 1;
@@ -157,7 +157,6 @@ int* array_allocation_by_DMA(int n){
   printf("%d %d\n", 構造体名.変数1, 構造体名.変数2);
   ...
   // 構造体変数自体も代入ができる
-  struct 構造体名 a, b;
   ...
   a = function(...); // 構造体を返り値とする関数を呼び出し、a中の各変数に代入
   b = a; // a中の各変数の値を、b中の各変数に代入
