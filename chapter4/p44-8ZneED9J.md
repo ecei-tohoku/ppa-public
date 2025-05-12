@@ -121,7 +121,7 @@ R=IR==
     t⊔⊔3⊔⊔2⊔⊔1⊔⊔2↩︎
     ```
 
-+ 問題4-1と問題4-2に提示してある関数を`ppa_extra_h/p3_header.h`というファイルにおいてある．`#include "ppa_extra_h/p3_header.h"`という宣言を通して含め、以下の関数を必要に応じて用いること．
++ 問題4-1と問題4-2に提示してある関数を`ppa_extra_h/p4_header.h`というファイルにおいてある．`#include "ppa_extra_h/p4_header.h"`という宣言を通して含め、以下の関数を必要に応じて用いること．
   + `vmax_`
   + `vmax3_`
   + `vmin_`
@@ -141,7 +141,7 @@ R=IR==
   ```
   #include <stdio.h>
   #include <stdlib.h>
-  #include "ppa_extra_h/p3_header.h"
+  #include "ppa_extra_h/p4_header.h"
 
   // ???
 
