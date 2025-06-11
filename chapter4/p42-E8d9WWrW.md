@@ -121,7 +121,7 @@ title: 4-2. 編集距離(再帰+メモ化)【基本】
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "ppa_extra_h/p3_header.h"
+#include "ppa_extra_h/p4_header.h"
 
 int count = 0;     // メモ化なしの再帰関数の呼び出し回数をカウントするグローバル変数
 int countm = 0;    // メモ化ありの再帰関数の呼び出し回数をカウントするグローバル変数
