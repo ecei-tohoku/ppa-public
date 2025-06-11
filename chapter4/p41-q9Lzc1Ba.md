@@ -289,7 +289,7 @@ $$
 ---
 ### 仕様
 ---
-+ `include`するファイルは`<stdio.h>`，`<stdlib.h>`および`"ppa_extra_h/p3_header.h"`のみとする．
++ `include`するファイルは`<stdio.h>`，`<stdlib.h>`および`"ppa_extra_h/p4_header.h"`のみとする．
 
 + プログラム全体の構成を以下に従うようにする．
   + `main`関数の正常終了時の戻り値を0にする．
@@ -334,7 +334,7 @@ $$
     + 実行例をこのページの最後（「ステップ3/3の実行例」）に示したので，参考にせよ．
   + 出力例の`⊔` は半角スペース，`↩︎`は改行を表す．
 
-+ `#include "ppa_extra_h/p3_header.h"`という宣言を通して，以下の関数を必要に応じて用いよ． これらの関数を新しく作成する必要はない．詳細は，[こちら](#ternary_operator2)を参照のこと．
++ `#include "ppa_extra_h/p4_header.h"`という宣言を通して，以下の関数を必要に応じて用いよ． これらの関数を新しく作成する必要はない．詳細は，[こちら](#ternary_operator2)を参照のこと．
   + `malloc_string_`
   + `read_string_`
   + `vmax_`
@@ -397,7 +397,7 @@ $$
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "ppa_extra_h/p3_header.h"
+#include "ppa_extra_h/p4_header.h"
 
 int delta(char *X, int a, char *Y, int b);  // ???
 
@@ -523,7 +523,7 @@ LD(0,0)
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "ppa_extra_h/p3_header.h"
+#include "ppa_extra_h/p4_header.h"
 
 int delta(char *X, int a, char *Y, int b);  // ???
 int ld(char *X, int m, char *Y, int n);     // ???
@@ -663,7 +663,7 @@ abababc⊔7↩︎
 ---
 
 ---
-### `"ppa_extra_h/p3_header.h"`で定義されている関数の詳細<a name="ternary_operator2"></a>
+### `"ppa_extra_h/p4_header.h"`で定義されている関数の詳細<a name="ternary_operator2"></a>
 ---
 
 
