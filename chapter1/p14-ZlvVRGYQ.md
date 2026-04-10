@@ -195,7 +195,7 @@ Luhnアルゴリズムで正当性を検証し，正しければ`true`，間違�
     }
     ```
     
-    [〈このコードを実行する〉](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/fgets)
+    [〈このコードを実行する〉](https://www.ppa.ecei.tohoku.ac.jp/practice/fgets) 
 
 #### 1-4. 入力された整数の各桁のASCIIコードと，'1'を引いた数値を出力
 
