@@ -4,7 +4,7 @@ title: 1-2. コラッツの問題【初歩】
 ---
 ## 学習内容
 ---
-1. C言語プログラミングの復習（[`for`文](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/for)，[`while`文](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/while)）
+1. C言語プログラミングの復習（[`for`文](https://www.ppa.ecei.tohoku.ac.jp/practice/for)，[`while`文](https://www.ppa.ecei.tohoku.ac.jp/practice/while)）
 1. 初歩的なアルゴリズム
 
 ---
@@ -261,8 +261,8 @@ int main()
 - 繰り返し処理には`for`文や`while`文が用いられる．
 - また，「次の繰り返しに移動」「繰り返し自体をやめる」の命令のために`continue`文と`break`文が用意されている．
 - （余談）`for`，`while`，`continue`，`break`も，他の多くの言語で似ている構文が用意されている．
-- [for, continue, breakのテストコード](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/for)
-- [while, continue, breakのテストコード](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/while)
+- [for, continue, breakのテストコード](https://www.ppa.ecei.tohoku.ac.jp/practice/for)
+- [while, continue, breakのテストコード](https://www.ppa.ecei.tohoku.ac.jp/practice/while)
 
 ---
 #### `for`文について

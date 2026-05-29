@@ -5,8 +5,8 @@ title: 2-1. ユークリッドの互除法【初歩】
 
 ## 学習内容と関連問題
 ---
-1. [関数](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function1)，[関数（配列引数）](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function2)
-1. [関数の再帰呼び出し](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/recursion)
+1. [関数](https://www.ppa.ecei.tohoku.ac.jp/practice/function1)，[関数（配列引数）](https://www.ppa.ecei.tohoku.ac.jp/practice/function2)
+1. [関数の再帰呼び出し](https://www.ppa.ecei.tohoku.ac.jp/practice/recursion)
 1. 第４章「編集距離」のうち「編集距離（再帰手続き版）」（p4-1）と「編集距離（再帰＋メモ化）」（p4-2），第５章「ソート」のうち「マージソート」（p5-2）で再帰呼び出しを使う予定．
 
 ---
@@ -127,7 +127,7 @@ int pow (int x, int n) {
    // 「関数とは？」で既出なので省略
 }
 ```
-[〈このコードを実行する〉](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function1)
+[〈このコードを実行する〉](https://www.ppa.ecei.tohoku.ac.jp/practice/function1)
 
 #### 例1の出力
 
@@ -159,7 +159,7 @@ void powArray (int x[]) {
   ... // 「関数とは？」で既出なので省略
 }
 ```
-[〈このコードを実行する〉](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/function2)
+[〈このコードを実行する〉](https://www.ppa.ecei.tohoku.ac.jp/practice/function2)
 
 #### 例2の出力
 
@@ -202,12 +202,12 @@ times powArray called = 2
   <figcaption align = "center"><b>図２ - main関数と再帰的呼び出し</b></figcaption>
 </p>
 
-実際の再帰呼び出し関数の書き方については，階乗（$n!=n*(n-1)*...*2*1$）を再帰呼び出しで計算するコード[〈こちら〉](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/recursion)を参照のこと．
+実際の再帰呼び出し関数の書き方については，階乗（$n!=n*(n-1)*...*2*1$）を再帰呼び出しで計算するコード[〈こちら〉](https://www.ppa.ecei.tohoku.ac.jp/practice/recursion)を参照のこと．
 
 `GCD(a,b)`関数の返り値について．
 - `GCD(a,b)`関数では，まず$a/b$を計算する．
 - $a/b$が割り切れるとき($r=0$)，最大公約数は$b$なので，`GCD(a,b)`関数の返り値も$b$とすればよい．
-- 一方で，$a/b$が割り切れないとき($r\neq 0$)，$b$と$r$を新しい$a$と$b$として，`GCD(b,r)`関数を実行する必要がある．この処理のとき，返り値はどうすればいいだろうか？（ヒント: 階乗を再起呼び出しで計算するコード[〈こちら〉](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/recursion)の返り値を参照せよ．）
+- 一方で，$a/b$が割り切れないとき($r\neq 0$)，$b$と$r$を新しい$a$と$b$として，`GCD(b,r)`関数を実行する必要がある．この処理のとき，返り値はどうすればいいだろうか？（ヒント: 階乗を再起呼び出しで計算するコード[〈こちら〉](https://www.ppa.ecei.tohoku.ac.jp/practice/recursion)の返り値を参照せよ．）
 
 
 ---

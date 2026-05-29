@@ -7,7 +7,7 @@ title: 2-3. デバッグ問題【基本】
 ---
 1. C言語プログラムにおけるエラー
 1. [デバッグの手法](https://ecei-tohoku.github.io/ppa-public/tips.html)
-1. [可変長配列と動的メモリ確保](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/VLAvsDMA)　※動的メモリ確保はp3-1, p3-2で詳しく触れる予定．
+1. [可変長配列と動的メモリ確保](https://www.ppa.ecei.tohoku.ac.jp/practice/VLAvsDMA)　※動的メモリ確保はp3-1, p3-2で詳しく触れる予定．
 
 ---
 ## 導入文

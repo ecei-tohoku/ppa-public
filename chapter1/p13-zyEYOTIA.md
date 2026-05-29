@@ -5,8 +5,8 @@ title: 1-3. トリム平均【基本】
 ## 学習内容
 ---
 1. 配列処理
-1. [浮動小数点](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/float)
-1. [浮動小数点の標準入力／標準出力](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/inputoutput1)
+1. [浮動小数点](https://www.ppa.ecei.tohoku.ac.jp/practice/float)
+1. [浮動小数点の標準入力／標準出力](https://www.ppa.ecei.tohoku.ac.jp/practice/inputoutput1)
 
 ---
 ## 導入文
@@ -164,7 +164,7 @@ for (i = 0; i < ??; ++i) {
 ---
 - 実数を計算機で取り扱う際には（有限桁で打ち止めとなる） **浮動小数点型** を用いる．
 - `scanf`などの入力用関数，および`printf`などの出力用関数用いる **変換指定**（`%`ではじまる文字列，`int`型の場合は`"%d"`だった）は型によって異なるので注意すること．`double`型の場合，`scanf`には`%lf`を，`printf`には`%f`を使う（`printf`では他の書式もある）．
-- [テストコード](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/float)
+- [テストコード](https://www.ppa.ecei.tohoku.ac.jp/practice/float)
 
 ---
 ### 最大値，最小値の求め方

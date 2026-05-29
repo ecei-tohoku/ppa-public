@@ -7,8 +7,8 @@ title: 1-4. Luhnアルゴリズム【基本】
 ---
 1. 配列処理，文字列処理
 1. 配列については[p1-3](https://ecei-tohoku.github.io/ppa-public/chapter1/p13-zyEYOTIA.html)を参照のこと．
-1. [文字](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/char)，[文字列](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/string)
-1. [文字列の標準入力（fgets関数）](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/fgets)
+1. [文字](https://www.ppa.ecei.tohoku.ac.jp/practice/char)，[文字列](https://www.ppa.ecei.tohoku.ac.jp/practice/string)
+1. [文字列の標準入力（fgets関数）](https://www.ppa.ecei.tohoku.ac.jp/practice/fgets)
 
 ---
 ## 導入文
@@ -82,7 +82,7 @@ Luhnアルゴリズムで正当性を検証し，正しければ`true`，間違�
 
 - 理由をASCIIコード表を見ながら考えてみよう．`char`型は計算機の内部では`int`として扱われることと，ASCIIコード表では`'0'`から`'9'`までが順番に並んでいることがミソである．仕様にある「$0$から$9$までの数字以外の文字が入力される場合」の判定も，このことを上手く利用する．
 
-- [文字のテストコード](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/char)
+- [文字のテストコード](https://www.ppa.ecei.tohoku.ac.jp/practice/char)
 
 
 ### 文字列（文字配列）
@@ -97,7 +97,7 @@ Luhnアルゴリズムで正当性を検証し，正しければ`true`，間違�
     printf("%s\n", str);
     ```
     
-- [文字列のテストコード](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/string)
+- [文字列のテストコード](https://www.ppa.ecei.tohoku.ac.jp/practice/string)
 - 文字列を一つの変数として扱うことはできず，配列として扱う必要がある：他の言語のように，`if( str == "I am fine." )`といった比較演算や，`str+" Thank you."`といった連結演算はC言語ではできない．
 - これまでどおり`scanf`を使った文字列の読み込みは可能だが，セキュリティの観点から非推奨である（詳細は[こちら](#scanf)）．この問題では，`fgets`関数を用いて，文字配列の変数に値を読み込む方法を採用する：
     ```

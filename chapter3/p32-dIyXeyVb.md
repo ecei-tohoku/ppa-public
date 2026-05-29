@@ -56,7 +56,7 @@ int main(){
   return 0;
 }
   ```
-[〈このコードを実行する〉](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/DMA)
+[〈このコードを実行する〉](https://www.ppa.ecei.tohoku.ac.jp/practice/DMA)
 
 上記のコードは，動的メモリ確保に関連して４つの部分から成っている：
 - (1)`malloc`関数を呼び出してメモリを動的確保する．引数には"総バイト数"を渡す必要があるため，１要素あたりのバイト数`sizeof(int)`と要素数`n`を掛けている．また，返り値は"型がないことを示す型"のポインタ`void *`であるため，`int`型のポインタに変換（キャストと呼ぶ）する`(int *)`を`malloc`の前に書いている．
@@ -128,7 +128,7 @@ int* array_allocation_by_DMA(int n){
   return a;
 }
   ```
-[〈このコードを実行する〉](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/VLAvsDMA)
+[〈このコードを実行する〉](https://www.ppa.ecei.tohoku.ac.jp/practice/VLAvsDMA)
 
 
 ---
@@ -204,7 +204,7 @@ int* array_allocation_by_DMA(int n){
     return st;
   }
   ```
-[〈このコードを実行する〉](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/struct)
+[〈このコードを実行する〉](https://www.ppa.ecei.tohoku.ac.jp/practice/struct)
 
 ---
 ## 問題

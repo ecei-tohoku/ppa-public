@@ -4,7 +4,7 @@ title: 1-1. 和差算【初歩】
 ---
 ## 学習内容
 ---
-1. C言語プログラミングの復習（[四則演算](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/arithmetic)，[`if`文](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/if)，[比較演算と論理演算](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/comparison)，[標準入力／標準出力](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/inputoutput1)）
+1. C言語プログラミングの復習（[四則演算](https://www.ppa.ecei.tohoku.ac.jp/practice/arithmetic)，[`if`文](https://www.ppa.ecei.tohoku.ac.jp/practice/if)，[比較演算と論理演算](https://www.ppa.ecei.tohoku.ac.jp/practice/comparison)，[標準入力／標準出力](https://www.ppa.ecei.tohoku.ac.jp/practice/inputoutput1)）
 1. エラー処理
 1. 仕様を十分に確認し実装すること
 
@@ -252,7 +252,7 @@ int main()
 ### 条件分岐（`if`文，`else`節）と比較演算子
 ---
 - 条件分岐は`if`文や`else`節を用いる．
-- [テストコード](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/if)
+- [テストコード](https://www.ppa.ecei.tohoku.ac.jp/practice/if)
 
 ---
 ### 標準入力からデータを読み込むための関数，たとえば`scanf`関数，`fgets`関数
@@ -262,21 +262,21 @@ int main()
 - `scanf`関数を利用する際は，入力先の変数名に「`&`」をつけることを忘れないこと．
     - （より深く知りたい人へ）`int`型の変数`x`を宣言しているとき，「`&x`」と書くことで，`x`への **ポインタ**，つまり`x`という変数のために用意された **メモリ領域のアドレス** を表現できる．`scanf`関数を用いて変数`x`に入力値を流し込む際は，`x`（`x`という名前の変数に格納されている **値**）ではなく，`&x`（`x` のために用意された **メモリのアドレス**，要するに，読み込んだ値をどこに仕舞っておけば良いのか）に興味があるため，`x`ではなく`&x`を用いる．
     - （より深く知りたい人へ）C言語はメモリなど計算機のハードウェアにも多少気を遣って書く必要のある言語であり，はじめはとっつきづらいかもしれないが，その代わり，多くのハードウェアで非常に高速に動作する．一方で，LL（Lightweight Language）と呼ばれる Python，Ruby，JavaScript などのスクリプト言語は，メモリなどに気を遣わずに書くことができる一方，概して動作は遅い．
-- [テストコード](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/inputoutput1)
+- [テストコード](https://www.ppa.ecei.tohoku.ac.jp/practice/inputoutput1)
 - Linux Man Pages：[Man page of SCANF](https://linuxjm.osdn.jp/html/LDP_man-pages/man3/scanf.3.html)
 
 ---
 ### 標準出力に出力するための関数，たとえば`printf`関数，`puts`関数
 ---
 - 変数に格納されている値を出力したい場合は`printf`関数を用いると便利である．あらかじめ決まっているメッセージの出力には`puts`関数も便利である．
-- [テストコード](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/inputoutput1)
+- [テストコード](https://www.ppa.ecei.tohoku.ac.jp/practice/inputoutput1)
 
 ---
 ### 剰余算の演算子`%`
 ---
 - C言語には「整数を整数で割ったあまり」を求めるための演算子`%`が用意されている．
     - （より深く知りたい人へ）C言語は大変多くのプログラミング言語に影響を与えており，剰余の演算子として`%`を用いるプログラミング言語は他にも多く存在する．今後ほかの言語を学ぶ際には，C言語とほとんど同じ形の演算子や制御構文にたびたび遭遇することになるだろう．
-- [テストコード](https://www.ppa.riec.tohoku.ac.jp/ppa/practice/arithmetic)
+- [テストコード](https://www.ppa.ecei.tohoku.ac.jp/practice/arithmetic)
 
 ---
 ## 余談
